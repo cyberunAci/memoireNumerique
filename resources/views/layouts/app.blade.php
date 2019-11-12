@@ -35,18 +35,27 @@
 
 
     <div class="footer">
-            <p class="center indent"><a href=""><i class="fab fa-facebook fa-lg"></i></a><a href=""><i class="fab fa-twitter fa-lg"></i></a></p>
+            <p class="text-center pt-3"><a href=""><i class="fab fa-facebook fa-lg m-1"></i></a><a href=""><i class="fab fa-twitter fa-lg m-1"></i></a></p>
         <hr>
-        <h3 class="center">Les partenaires</h3>
+        <h3 class="text-center">Les partenaires</h3>
       
-        <div class="parent center">
-          <div class="div1"><img src="https://via.placeholder.com/150" alt=""></div>
-          <div class="div2"><img src="https://via.placeholder.com/150" alt=""></div>
-          <div class="div3"><img src="https://via.placeholder.com/150" alt=""></div>
-          <div class="div4"><img src="https://via.placeholder.com/150" alt=""></div>
-          <div class="div5"><img src="https://via.placeholder.com/150" alt=""></div>
+        <div class="row pb-2">
+          <div class="col-lg-3 col-md-6 col-sm-12 "><p class="text-center"><img src="https://via.placeholder.com/150" alt=""></p></div>
+          <div class="col-lg-3 col-md-6 col-sm-12"><p class="text-center"><img src="https://via.placeholder.com/150" alt=""></p></div>
+          <div class="col-lg-3 col-md-6 col-sm-12"><p class="text-center"><img src="https://via.placeholder.com/150" alt=""></p></div>
+          <div class="col-lg-3 col-md-6 col-sm-12"><p class="text-center"><img src="https://via.placeholder.com/150" alt=""></p></div>
         </div>
-      </div>
+
+        <h3 class="text-center">Newsletter</h3>
+        <form>
+            <div class="form-group">
+              <div class="row justify-content-center">
+              <p class="text-center"><input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"></p>
+              <p class="text-center pl-1"><input type="submit" class="btn btn-primary" value="S'inscrire"></p>
+              </div>
+            </div>
+        </form>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
