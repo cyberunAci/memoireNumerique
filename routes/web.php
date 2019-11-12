@@ -21,7 +21,7 @@ Route::get('/description', function() {
 });
 
 Route::get('/information', function () {
-    return view('a-propos');
+    return view('equipe');
 });
 Route::get('/contact', 'ContactController@index');
 
@@ -33,3 +33,6 @@ Route::prefix('contact')->group(function () {
     Route::post('message', 'ContactController@message');
 });
 // Route::get('/contact', 'ContactController@index');
+
+
+

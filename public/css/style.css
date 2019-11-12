@@ -65,7 +65,36 @@
 display:inline-block;
 }
 /* FIN NAVBAR*/
+/* L'équipe*/
+.titre-equipe{
+    text-align: center; 
+    margin-bottom:3%;
+    margin-top:3%;
 
+}
+.logo-equipe1{
+    text-align:center;
+
+}
+.logo-equipe2{
+    text-align:center;
+
+}
+.text-description1{
+    float:left;
+    width:65%;
+    margin-bottom:10%;
+    margin-left:-20%
+
+}
+.text-description2{
+    float:right;
+    width:65%;
+    margin-bottom:10%;
+    margin-right:-20%
+
+}
+/* FIN l'équipe*/
 @media (max-width: 1920px) {
     .accueil {
         width: 1080px;
