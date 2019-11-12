@@ -2,16 +2,14 @@
 @section('content')
 
 <section class="descript">
-    <div class="row">
+    <div class="row divDesc">
         <div class="col-md-12">
-            <h1>Titre</h1>
+            <h1 class="titreDesc">Titre</h1>
             <p class="paraDesc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum, velit at quae facere autem eaque temporibus nemo iusto distinctio perspiciatis. Saepe earum nesciunt possimus? Dolores quis accusantium excepturi optio in?
             
-            <img src="img/mn.jpeg" alt=""></p>
+            <img src="img/foule.jpg" alt=""></p>
         </div>
-        <div class="box-sha"></div>
     </div>
-    <hr>
     <div class="row resumer">
         <div class="col-md-12">
             <h1> Resumer</h1>
