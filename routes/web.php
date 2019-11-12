@@ -11,5 +11,13 @@
 |
 */
 
-Route::get('/', 'FooterController@index');
+Route::get('/footer', 'FooterController@index');
 
+Route::get('/', function () {
+    return view('accueil');
+});
+
+Route::get('/contact', 'ContactController@index');
+Route::post('/contactPost', 'ContactController@envoiePost');
+
+// Route::get('/contact', 'ContactController@index');

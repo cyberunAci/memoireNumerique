@@ -1,0 +1,47 @@
+@media (max-width: 1920px) {
+    .accueil {
+        width: 1080px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .accueilDiv {
+        padding-top: 5%;
+        padding-bottom: 15%;
+    }
+    .accueilDiv h1 {
+        padding-bottom: 2%;
+    }
+}
+
+@media (max-width: 780px) {
+    .accueil {
+        width: 1080px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .accueilDiv {
+        padding-top: 5%;
+        padding-bottom: 15%;
+    }
+    .accueilDiv h1 {
+        padding-bottom: 2%;
+    }
+}
+
+@media (max-width: 420px) {
+    .accueil {
+        width: 1080px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .accueilDiv {
+        padding-top: 5%;
+        padding-bottom: 15%;
+    }
+    .accueilDiv h1 {
+        padding-bottom: 2%;
+    }
+}
