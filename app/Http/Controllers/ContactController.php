@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ContactModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -29,17 +30,14 @@ class ContactController extends Controller
             ]
         )->validate();
 
-
         /**
          * TODO INSERTION DS LA BASE DE DONNE
          */
-        // $id = Jeux::create( //Autre maniere d'envoyer les information [en lien avec le fichier Jeux.php (dans app/)]
-        //     $validateData
-        // )->id; // ->save() -> envoie les données au serveur // ->id -> envoie les données au serveur et renvoie l'id // ici $id = id
+        $donneesBdd = ContactModel::create( //Autre maniere d'envoyer les information [en lien avec le fichier Jeux.php (dans app/)]
+            $validateData
+        );
 
-        // $validateData["id"] = $id;
-
-        return json_encode($validateData);
+        return json_encode($donneesBdd);
     }
 
 }

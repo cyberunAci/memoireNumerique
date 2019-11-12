@@ -4,16 +4,16 @@
     <div id="errorFormulaire"></div>
 
     <label for="nom">Nom et Prénom :</label>
-    <input type="text" name="nom" id="nom">
+    <input type="text" name="nom" id="nom" onblur="regExp(this)">
 
     <label for="email">E-mail :</label>
-    <input type="email"  name="email" id="email">
+    <input type="email"  name="email" id="email" onblur="regExpEmail()">
 
     <label for="objet">Objet :</label>
-    <input type="text" name="objet" id="objet">
+    <input type="text" name="objet" id="objet" onblur="regExp(this)">
 
     <label for="message">Message :</label>
-    <textarea name="message" id="message"></textarea>
+    <textarea name="message" id="message"  onblur="regExp(this)"></textarea>
 
     <input type="submit" value="Envoyer">
 
