@@ -10,6 +10,26 @@
     <title>Document</title>
 </head>
 <body>
+        <header id="header" role="banner" class="main-header">
+                <div class="header-inner">
+             
+                    <div class="header-logo">
+                        <img src="logo.png" alt="Logo" width="150" height="45">
+                    </div>
+             
+                    <nav class="header-nav">
+                        <ul>
+                            <li><a href="#">Accueil</a></li>
+                            <li><a href="#">A propos</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Médiathèques</a></li>
+                            <li><a href="#">Je participe</a></li>
+                            <li class="logo-rechercher"><a href="#"></a></li>
+                        </ul>
+                    </nav>
+             
+                </div>
+            </header>
     @yield('content')
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

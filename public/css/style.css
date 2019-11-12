@@ -1,12 +1,12 @@
-body{
-    background-color: black;
-}
+
 .header-inner {
+-webkit-box-shadow: 0 4px 6px -6px black;
+-moz-box-shadow: 0 4px 6px -6px black;
+     box-shadow: 0 4px 6px -6px black;
     background-color:white;
 
 	display: table;
 	width: 100%;
-	max-width: 1850px;
 	margin: 0 auto; /* on centre l'élément */
 	padding: 20px 25px; /* on ventile un peu */
 }
@@ -57,7 +57,8 @@ body{
 }
 /* Je vire outline car juste au-dessus je définis un style :focus */
 .header-nav a:focus {
-	outline: none;
+    outline: none;
+}
 @media (max-width: 1920px) {
     .accueil {
         width: 1080px;
