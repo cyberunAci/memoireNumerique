@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('accueil');
 });
 
 Route::get('/contact', 'ContactController@index');
