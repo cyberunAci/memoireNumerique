@@ -23,6 +23,6 @@ Route::get('/contact', 'ContactController@index');
  */
 Route::prefix('contact')->group(function () {
     Route::post('index', 'ContactController@index');
-    Route::get('add', 'ContactController@add');
+    Route::post('message', 'ContactController@message');
 });
 // Route::get('/contact', 'ContactController@index');
