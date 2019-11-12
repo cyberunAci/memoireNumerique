@@ -1,4 +1,4 @@
-
+/*NAVBAR*/
 .header-inner {
 -webkit-box-shadow: 0 4px 6px -6px black;
 -moz-box-shadow: 0 4px 6px -6px black;
@@ -59,6 +59,13 @@
 .header-nav a:focus {
     outline: none;
 }
+
+.header-logo{
+    
+display:inline-block;
+}
+/* FIN NAVBAR*/
+
 @media (max-width: 1920px) {
     .accueil {
         width: 1080px;
