@@ -21,7 +21,7 @@
                     <nav class="header-nav">
                         <ul>
                             <li><a href="#">Accueil</a></li>
-                            <li><a href="#">A propos</a></li>
+                            <li><a href="#">L'équipe</a></li>
                             <li><a href="#">Services</a></li>
                             <li><a href="#">Médiathèques</a></li>
                             <li><a href="#">Je participe</a></li>
