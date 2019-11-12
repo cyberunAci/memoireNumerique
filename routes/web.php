@@ -11,10 +11,21 @@
 |
 */
 
+Route::get('/footer', 'FooterController@index');
 Route::get('/', function () {
-    return view('welcome');
+    return view('accueil');
 });
 
 Route::get('/information', function () {
     return view('a-propos');
 });
+Route::get('/contact', 'ContactController@index');
+
+/*
+ *  
+ */
+Route::prefix('contact')->group(function () {
+    Route::post('index', 'ContactController@index');
+    Route::get('add', 'ContactController@add');
+});
+// Route::get('/contact', 'ContactController@index');
