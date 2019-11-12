@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('accueil');
 });
 
+Route::get('/description', function() {
+    return view('description');
+});
+
 Route::get('/contact', 'ContactController@index');
 
 /*
