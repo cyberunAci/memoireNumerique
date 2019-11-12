@@ -15,7 +15,7 @@
                 <div class="header-inner">
              
                     <div class="header-logo">
-                        <img src="logo.png" alt="Logo" width="150" height="45">
+                        <a href="#"><img src="img/logo.png" alt="Logo" width="60" height="50"></a>
                     </div>
              
                     <nav class="header-nav">
@@ -25,8 +25,11 @@
                             <li><a href="#">Services</a></li>
                             <li><a href="#">Médiathèques</a></li>
                             <li><a href="#">Je participe</a></li>
-                            <li class="logo-rechercher"><a href="#"></a></li>
+                            <li class="header-logo">
+                                    <a href="#" ><img src="img/loupe.png" alt="Logo" width="30" height="25"></a>
+                               </li>
                         </ul>
+                       
                     </nav>
              
                 </div>
@@ -38,11 +41,12 @@
             <p class="center indent"><a href=""><i class="fab fa-facebook fa-lg"></i></a><a href=""><i class="fab fa-twitter fa-lg"></i></a></p>
         <hr>
         <h3 class="center">Les partenaires</h3>
-      
+
         <div class="parent center">
           <div class="div1"><img src="https://via.placeholder.com/150" alt=""></div>
           <div class="div2"><img src="https://via.placeholder.com/150" alt=""></div>
           <div class="div3"><img src="https://via.placeholder.com/150" alt=""></div>
+
           <div class="div4"><img src="https://via.placeholder.com/150" alt=""></div>
           <div class="div5"><img src="https://via.placeholder.com/150" alt=""></div>
         </div>
