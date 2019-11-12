@@ -1,4 +1,7 @@
 <form onsubmit="send()" id="formContact">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <div id="errorFormulaire"></div>
 
     <label for="nom">Nom et Prénom :</label>
     <input type="text" name="nom" id="nom">
