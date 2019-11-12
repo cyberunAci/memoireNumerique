@@ -12,12 +12,17 @@
 */
 
 Route::get('/footer', 'FooterController@index');
-
 Route::get('/', function () {
     return view('accueil');
 });
 
 Route::get('/contact', 'ContactController@index');
-Route::post('/contactPost', 'ContactController@envoiePost');
 
+/*
+ *  
+ */
+Route::prefix('contact')->group(function () {
+    Route::post('index', 'ContactController@index');
+    Route::get('add', 'ContactController@add');
+});
 // Route::get('/contact', 'ContactController@index');
