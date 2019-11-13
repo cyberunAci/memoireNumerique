@@ -25,15 +25,24 @@ Route::get('/mediatheque', function() {
 });
 
 Route::get('/information', function () {
-    return view('a-propos');
+    return view('equipe');
 });
 Route::get('/contact', 'ContactController@index');
-
 /*
- *  
+ *  page "Contacts"
  */
 Route::prefix('contact')->group(function () {
     Route::post('index', 'ContactController@index');
     Route::post('message', 'ContactController@message');
 });
-// Route::get('/contact', 'ContactController@index');
+
+Route::get('/jeparticipe', 'JeParticipeController@index');
+/**
+ *  page "Je participe"
+ */
+Route::prefix('jeparticipe')->group(function () {
+    Route::post('index', 'JeParticipeController@index');
+});
+
+
+
