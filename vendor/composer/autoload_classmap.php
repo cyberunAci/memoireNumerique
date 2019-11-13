@@ -19,6 +19,7 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\FooterController' => $baseDir . '/app/Http/Controllers/FooterController.php',
     'App\\Http\\Controllers\\JeParticipeController' => $baseDir . '/app/Http/Controllers/JeParticipeController.php',
+    'App\\Http\\Controllers\\VideoController' => $baseDir . '/app/Http/Controllers/VideoController.php',
     'App\\Http\\Controllers\\information' => $baseDir . '/app/Http/Controllers/information.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
