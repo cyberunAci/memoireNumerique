@@ -16,7 +16,7 @@
     <textarea name="description" id="descriptionVideoJeParticipe"  onblur="regExp(this)"></textarea>
 
     <label for="lien">Lien de la vidéo :</label>
-    <input type="text" name="lien" id="lienVideoJeParticipe" onblur="regExp(this)">
+    <input type="text" name="lien" id="lienVideoJeParticipe" onblur="regExpLien(this)">
 
     <input type="submit" value="Envoyer">
 
