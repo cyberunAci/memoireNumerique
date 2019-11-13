@@ -11,8 +11,6 @@
 |
 */
 
-use App\Http\Controllers\GaleriePhotoController;
-
 Route::get('/footer', 'FooterController@index');
 Route::get('/', function () {
     return view('accueil');
@@ -20,6 +18,10 @@ Route::get('/', function () {
 
 Route::get('/description', function() {
     return view('description');
+});
+
+Route::get('/forminsert', function() {
+    return view('forminsert');
 });
 
 Route::get('/video', 'VideoController@index');
@@ -53,7 +55,6 @@ Route::get('/jeparticipe', 'JeParticipeController@index');
 Route::prefix('jeparticipe')->group(function () {
     Route::post('index', 'JeParticipeController@index');
 });
-
 
 
 
