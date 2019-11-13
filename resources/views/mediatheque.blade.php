@@ -19,7 +19,7 @@ Derniers ajouts
        Thématique
         </div>
 
-      <div class="parent">
+      <div class="parent cateVideo">
           
 <div class="div1"> <img src="https://via.placeholder.com/250x60" alt=""></div>
 <div class="div2"> <img src="https://via.placeholder.com/250x60" alt=""></div>
@@ -35,7 +35,7 @@ Derniers ajouts
         Lorem 01
          </div>
  
-       <div class="parent ">
+       <div class="parent cateVideo">
  <div class="div1"> <img src="https://via.placeholder.com/250" alt=""></div>
  <div class="div2"> <img src="https://via.placeholder.com/250" alt=""></div>
  <div class="div3"> <img src="https://via.placeholder.com/250" alt=""></div>
@@ -50,7 +50,7 @@ Derniers ajouts
             Lorem 02
              </div>
      
-           <div class="parent ">
+           <div class="parent cateVideo">
      <div class="div1"> <img src="https://via.placeholder.com/250" alt=""></div>
      <div class="div2"> <img src="https://via.placeholder.com/250" alt=""></div>
      <div class="div3"> <img src="https://via.placeholder.com/250" alt=""></div>
@@ -61,6 +61,7 @@ Derniers ajouts
      <div class="div8"> <img src="https://via.placeholder.com/250" alt=""></div>
            </div>
 </div>
+
 <!-- partial -->
 <script src="{{URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')}}"></script>
 <script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js')}}"></script>
