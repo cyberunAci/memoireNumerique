@@ -14,12 +14,8 @@ class ContactController extends Controller
 
     function message(Request $request)
     {
-        $nom = $_POST["nom"];
-        $email = $_POST["email"];
-        $objet = $_POST["objet"];
-        $message = $_POST["message"];
-
-        if (isset($nom) AND !empty($nom) AND isset($email) AND !empty($email) AND isset($objet) AND !empty($objet) AND isset($message) AND !empty($message)) {
+        
+        if (isset($_POST["nom"]) AND !empty($_POST["nom"]) AND isset($_POST["email"]) AND !empty($_POST["email"]) AND isset($_POST["objet"]) AND !empty($_POST["objet"]) AND isset($_POST["message"]) AND !empty($_POST["message"])) {
 
             $validateData = Validator::make(  //verifie les informations vis-a-vis de la BDD
                 $request->all(),
@@ -41,9 +37,8 @@ class ContactController extends Controller
                 $validateData
             );
             return json_encode($donneesBdd);
-            return json_encode($validateData);
         } else {
-            return "probleme";
+            return "Probleme avec le serveur";
         }
         
         

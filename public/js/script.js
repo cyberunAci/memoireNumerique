@@ -1,11 +1,14 @@
-function send() {
+/**
+ * Envoie les informations du formulaire "contact"
+ */
+function sendContact() {
     event.preventDefault();
 
     let donnees = {
-        nom: $("#nom").val(),
-        email: $("#email").val(),
-        objet: $("#objet").val(),
-        message: $("#message").val(),
+        nom: $("#nomContact").val(),
+        email: $("#emailContact").val(),
+        objet: $("#objetContact").val(),
+        message: $("#messageContact").val(),
     }
 
     $.ajaxSetup({
@@ -24,7 +27,7 @@ function send() {
             console.log(data);
         })
         .fail(function (status) {
-            $("#errorFormulaire").append('Les champs sont obligatoire ! code d\'erreur ' + status.status + '.');
+            $("#errorFormulaireContact").append('Les champs sont obligatoire ! code d\'erreur ' + status.status + '.');
         })
 
 }
@@ -39,8 +42,8 @@ function regExp(arg) {
         champ.css("border", "2px red solid");
     }
 }
-function regExpEmail() {
-    champ = $("#email");
+function regExpEmail(arg) {
+    champ = $("#" + arg.id);
     let regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,5}$/;
 
     if (regex.test(champ.val())) {
@@ -51,5 +54,41 @@ function regExpEmail() {
     }
 }
 
+/**
+ * Envoie les informations du formulaire "je participe"
+ */
+
+function sendJeParticipe() {
+    event.preventDefault();
+
+    let donnees = {
+        nom: $("#nomJeParticipe").val(),
+        email: $("#emailJeParticipe").val(),
+        titreVideo: $("#titreVideoJeParticipe").val(),
+        descriptionVideo: $("#descriptionVideoJeParticipe").val(),
+        lienVideo: $("#lienVideoJeParticipe").val(),
+    }
+    console.log(donnees);
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        method: "POST",
+        url: "/jeparticipe/formulaire",
+        data: donnees,
+        dataType: "json"
+    })
+        .done(function (data) {
+            console.log(data);
+        })
+        .fail(function (status) {
+            $("#errorFormulaireJeParticipe").append('Les champs sont obligatoire ! code d\'erreur ' + status.status + '.');
+        })
+
+}
 
 
