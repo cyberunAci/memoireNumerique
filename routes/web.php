@@ -38,6 +38,7 @@ Route::get('/jeparticipe', 'JeParticipeController@index');
  */
 Route::prefix('jeparticipe')->group(function () {
     Route::post('index', 'JeParticipeController@index');
+    Route::post('message', 'JeParticipeController@message');
 });
 
 
