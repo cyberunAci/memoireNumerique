@@ -20,6 +20,10 @@ Route::get('/description', function() {
     return view('description');
 });
 
+Route::get('/mediatheque', function() {
+    return view('mediatheque');
+});
+
 Route::get('/information', function () {
     return view('a-propos');
 });

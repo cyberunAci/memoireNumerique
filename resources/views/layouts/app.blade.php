@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,15 +49,16 @@
           <div class="col-lg-3 col-md-6 col-sm-12"><p class="text-center"><img src="https://via.placeholder.com/150" alt=""></p></div>
         </div>
 
-        <h3 class="text-center">Newsletter</h3>
-        <form>
+       
+       {{--   <h3 class="text-center">Newsletter</h3>
+       <form>
             <div class="form-group">
               <div class="row justify-content-center">
               <p class="text-center"><input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"></p>
               <p class="text-center pl-1"><input type="submit" class="btn btn-primary" value="S'inscrire"></p>
               </div>
             </div>
-        </form>
+        </form> --}}
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
