@@ -1,70 +1,109 @@
 /*NAVBAR*/
-.header-inner {
--webkit-box-shadow: 0 4px 6px -6px black;
--moz-box-shadow: 0 4px 6px -6px black;
-     box-shadow: 0 4px 6px -6px black;
-    background-color:white;
-
-	display: table;
-	width: 100%;
-	margin: 0 auto; /* on centre l'élément */
-	padding: 20px 25px; /* on ventile un peu */
-}
-.header-inner > * {
-	display: table-cell;
-	vertical-align: middle;
-}
-/* Alignement du menu */
-.header-nav {
-
-	text-align: right;
-}
-/*
-   Faire passer le menu en inline (inline-block, inline-table ou inline-flex) pour le rendre sensible à l'alignement à droite. Ses items aussi sont en inline.
-*/
-.header-nav ul,
-.header-nav li {
-	display: inline;
-	list-style: none;
-}
-.header-nav a {
-	position: relative;
-	display: inline-block;
-	padding: 8px 20px;
-	vertical-align: middle;
-	font-weight: 300; /* entre regular et light */
-	letter-spacing: 0.025em;
-	color: inherit;
-	text-decoration: none;
-}
-.header-nav a:after {
-	content: "";
-	position: absolute;
-	bottom: 0; right: 20px; left: 20px;
-	height: 2px;
-	background-color: #B13C2E;
-
-	/* Préparation de notre animation */
-	opacity: 0;
-	transform: translateY(5px);
-	transition: all .4s;
-}
-/* Le trait va remonter et apparaitre */
-.header-nav a:hover:after,
-.header-nav a:focus:after {
-	opacity: .6;
-	transform: translateY(0);
-}
-/* Je vire outline car juste au-dessus je définis un style :focus */
-.header-nav a:focus {
-    outline: none;
-}
-
-.header-logo{
-    
-display:inline-block;
-}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: sans-serif;
+  }
+  
+  nav {
+    height: 10vh;
+    background: #5b78c7;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    width: 50%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .landing {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .landing h1 {
+    margin: 100px;
+    font-size: 50px;
+    color: #ae5fce;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .line {
+      width: 30px;
+      height: 3px;
+      background: white;
+      margin: 5px;
+    }
+    nav {
+      position: relative;
+    }
+  
+    .hamburger {
+      position: absolute;
+      cursor: pointer;
+      right: 5%;
+      top: 50%;
+      transform: translate(-5%, -50%);
+      z-index: 2;
+    }
+  
+    .nav-links {
+      position: fixed;
+      background: #5b78c7;
+      height: 100vh;
+      width: 100%;
+      flex-direction: column;
+      clip-path: circle(100px at 90% -10%);
+      -webkit-clip-path: circle(100px at 90% -10%);
+      transition: all 1s ease-out;
+      pointer-events: none;
+    }
+    .nav-links.open {
+      clip-path: circle(1000px at 90% -10%);
+      -webkit-clip-path: circle(1000px at 90% -10%);
+      pointer-events: all;
+    }
+    .landing {
+      flex-direction: column;
+    }
+    .nav-links li {
+      opacity: 0;
+    }
+    .nav-links li a {
+      font-size: 25px;
+    }
+    .nav-links li:nth-child(1) {
+      transition: all 0.5s ease 0.2s;
+    }
+    .nav-links li:nth-child(2) {
+      transition: all 0.5s ease 0.4s;
+    }
+    .nav-links li:nth-child(3) {
+      transition: all 0.5s ease 0.6s;
+    }
+    li.fade {
+      opacity: 1;
+    }
+  }
 /* FIN NAVBAR*/
+
+
+
 /* L'équipe*/
 .titre-equipe{
     text-align: center; 
@@ -72,28 +111,8 @@ display:inline-block;
     margin-top:3%;
 
 }
-.logo-equipe1{
-    text-align:center;
 
-}
-.logo-equipe2{
-    text-align:center;
 
-}
-.text-description1{
-    float:left;
-    width:65%;
-    margin-bottom:10%;
-    margin-left:-20%
-
-}
-.text-description2{
-    float:right;
-    width:65%;
-    margin-bottom:10%;
-    margin-right:-20%
-
-}
 /* FIN l'équipe*/
 @media (max-width: 1920px) {
     .accueil {
@@ -207,6 +226,7 @@ display:inline-block;
      background: white;
  }
 
+<<<<<<< HEAD
 /* Video.blade.php */
 
 .cateVideo img{
@@ -218,3 +238,54 @@ display:inline-block;
 }
 
 /*END FOOTER*/
+=======
+/*END FOOTER*/
+
+/* Médiathèque */
+.derniere-video{
+    margin-top: 1%;
+    margin-left:1%;
+    font-size:1.8em;
+}
+
+  .gallery{
+      width:100%;
+  }
+  .gallery-cell {
+    width: 50%;
+    height: 300px;
+    margin-right: 10px;
+    background: #8C8;
+    counter-increment: gallery-cell;
+  }
+  
+  /* cell number */
+  .gallery-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+  }
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 30px;
+    margin-bottom:50px;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 2 / 2; }
+    .div2 { grid-area: 1 / 2 / 2 / 3; }
+    .div3 { grid-area: 1 / 3 / 2 / 4; }
+    .div4 { grid-area: 1 / 4 / 2 / 5; }
+    .div5 { grid-area: 2 / 1 / 3 / 2; }
+    .div6 { grid-area: 2 / 2 / 3 / 3; }
+    .div7 { grid-area: 2 / 3 / 3 / 4; }
+    .div8 { grid-area: 2 / 4 / 3 / 5; }
+
+    
+/* FIN Médiathèque */
+>>>>>>> 4990f530d0bba0cfb6c5f8f3caf57fda80cf966d
