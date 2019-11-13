@@ -149,6 +149,16 @@
      background: white;
  }
 
+/* Video.blade.php */
+
+.cateVideo img{
+    max-width: 100%;
+}
+
+.cateVideo div{
+    padding-bottom: 5%;
+}
+
 /*END FOOTER*/
 
 /* Médiathèque */
