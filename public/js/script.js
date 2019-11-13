@@ -52,4 +52,38 @@ function regExpEmail() {
 }
 
 
+function sendVideo() {
+    event.preventDefault();
+
+  
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        method: "POST",
+        url: "/video/add",
+      
+    })
+        .done(function (data) {
+            console.log(data);
+            console.log(data[0]);
+            console.log(data[0].titre);
+            affichage(data);
+        })
+        .fail(function (status) {
+            console.log(status);
+        })
+
+}
+
+function affichage(data) {
+
+    $(".complet").append("<p>" + data[0].titre  + "<br>" + data[0].resumer  + "<br>" + data[0].description + "<br> <img src='" + data[0].image + "' /></p>"  + "<iframe width='560' height='315' src='" + data[0].video + "' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>");
+}
+
+
 

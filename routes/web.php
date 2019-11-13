@@ -20,6 +20,13 @@ Route::get('/description', function() {
     return view('description');
 });
 
+Route::get('/video', 'VideoController@index');
+
+Route::prefix('video')->group(function(){
+    Route::post('index', 'VideoController@index');
+    Route::post('add', 'VideoController@add');
+});
+
 Route::get('/information', function () {
     return view('equipe');
 });
