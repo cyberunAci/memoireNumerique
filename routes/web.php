@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\GaleriePhotoController;
+
 Route::get('/footer', 'FooterController@index');
 Route::get('/', function () {
     return view('accueil');
@@ -23,6 +25,7 @@ Route::get('/description', function() {
 Route::get('/information', function () {
     return view('equipe');
 });
+
 Route::get('/contact', 'ContactController@index');
 
 /*
@@ -33,6 +36,8 @@ Route::prefix('contact')->group(function () {
     Route::post('message', 'ContactController@message');
 });
 // Route::get('/contact', 'ContactController@index');
+
+
 
 
 
