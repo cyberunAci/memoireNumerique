@@ -22,20 +22,37 @@ Route::get('/description', function() {
     return view('description');
 });
 
+Route::get('/video', 'VideoController@index');
+
+Route::prefix('video')->group(function(){
+    Route::post('index', 'VideoController@index');
+    Route::post('add', 'VideoController@add');
+});
+
+Route::get('/mediatheque', function() {
+    return view('mediatheque');
+});
+
 Route::get('/information', function () {
     return view('equipe');
 });
 
 Route::get('/contact', 'ContactController@index');
-
 /*
- *  
+ *  page "Contacts"
  */
 Route::prefix('contact')->group(function () {
     Route::post('index', 'ContactController@index');
     Route::post('message', 'ContactController@message');
 });
-// Route::get('/contact', 'ContactController@index');
+
+Route::get('/jeparticipe', 'JeParticipeController@index');
+/**
+ *  page "Je participe"
+ */
+Route::prefix('jeparticipe')->group(function () {
+    Route::post('index', 'JeParticipeController@index');
+});
 
 
 
