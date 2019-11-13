@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\GaleriePhotoController;
+
 Route::get('/footer', 'FooterController@index');
 Route::get('/', function () {
     return view('accueil');
@@ -25,7 +27,6 @@ Route::get('/video', 'VideoController@index');
 Route::prefix('video')->group(function(){
     Route::post('index', 'VideoController@index');
     Route::post('add', 'VideoController@add');
-
 });
 
 Route::get('/mediatheque', function() {
@@ -35,6 +36,7 @@ Route::get('/mediatheque', function() {
 Route::get('/information', function () {
     return view('equipe');
 });
+
 Route::get('/contact', 'ContactController@index');
 /*
  *  page "Contacts"
@@ -50,7 +52,10 @@ Route::get('/jeparticipe', 'JeParticipeController@index');
  */
 Route::prefix('jeparticipe')->group(function () {
     Route::post('index', 'JeParticipeController@index');
+    Route::post('message', 'JeParticipeController@message');
 });
+
+
 
 
 
