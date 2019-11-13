@@ -24,6 +24,11 @@ Route::get('/forminsert', function() {
     return view('forminsert');
 });
 
+
+    Route::prefix('video_migrate')->group(function () {
+        Route::post('add', 'Forminsert@add'); // /forminsert/add
+    });
+
 Route::get('/video', 'VideoController@index');
 
 Route::prefix('video')->group(function(){
@@ -56,7 +61,3 @@ Route::prefix('jeparticipe')->group(function () {
     Route::post('index', 'JeParticipeController@index');
     Route::post('message', 'JeParticipeController@message');
 });
-
-
-
-

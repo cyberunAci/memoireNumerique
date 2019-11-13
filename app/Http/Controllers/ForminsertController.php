@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class ForminsertController extends Controller
 {
-    function index(){
-        view('forminsert');
+    function index()
+    {
+        return view('forminsert'); //forminsert.blade.php
     }
 }
