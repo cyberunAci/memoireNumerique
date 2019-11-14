@@ -19,4 +19,10 @@ class VideoController extends Controller
         $tabVideo = Video::all();
         return $tabVideo;
     }
+
+    function getDescription($id) {
+        
+        $recupVideo = Video::find($id);
+        return view('description', ['recupVideo'=> $recupVideo]);
+    }
 }
