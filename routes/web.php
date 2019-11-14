@@ -28,8 +28,6 @@ Route::prefix('video')->group(function(){
     Route::post('index', 'VideoController@index');
     Route::post('add', 'VideoController@add');
 });
-
-
 Route::prefix('/mediatheque')->group(function(){
     Route::get('/', function(){
         return view('mediatheque');
