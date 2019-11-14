@@ -412,6 +412,7 @@ class ComposerStaticInit75fb19882a5cd15ce53eaf96f0e68b3f
         'App\\Http\\Controllers\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContactController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\FooterController' => __DIR__ . '/../..' . '/app/Http/Controllers/FooterController.php',
+        'App\\Http\\Controllers\\ForminsertController' => __DIR__ . '/../..' . '/app/Http/Controllers/ForminsertController.php',
         'App\\Http\\Controllers\\JeParticipeController' => __DIR__ . '/../..' . '/app/Http/Controllers/JeParticipeController.php',
         'App\\Http\\Controllers\\MediaController' => __DIR__ . '/../..' . '/app/Http/Controllers/MediaController.php',
         'App\\Http\\Controllers\\VideoController' => __DIR__ . '/../..' . '/app/Http/Controllers/VideoController.php',

@@ -18,6 +18,7 @@ return array(
     'App\\Http\\Controllers\\ContactController' => $baseDir . '/app/Http/Controllers/ContactController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\FooterController' => $baseDir . '/app/Http/Controllers/FooterController.php',
+    'App\\Http\\Controllers\\ForminsertController' => $baseDir . '/app/Http/Controllers/ForminsertController.php',
     'App\\Http\\Controllers\\JeParticipeController' => $baseDir . '/app/Http/Controllers/JeParticipeController.php',
     'App\\Http\\Controllers\\MediaController' => $baseDir . '/app/Http/Controllers/MediaController.php',
     'App\\Http\\Controllers\\VideoController' => $baseDir . '/app/Http/Controllers/VideoController.php',
