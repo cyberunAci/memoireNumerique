@@ -150,6 +150,7 @@ fctclick(id){
 }
  */
 
+ /* AJOUTER BDD POUR ADMINISTRATEUR */
 function insertBdd(){
 
     event.preventDefault();
@@ -179,8 +180,8 @@ function insertBdd(){
         dataType: "json",
     })
 
-    .done(function (data) {
-                console.log(data);
+    .done(function () {
+        console.log('ok!');
             })
     .fail(function (status) {
         console.log(status);
