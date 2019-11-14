@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1 class="text-center">VIDEO</h1>
+<h1 class="text-center">CATEGORIE VIDEO</h1>
     {{-- <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
         <div class="carousel-item active " data-interval="10000">
@@ -36,18 +36,8 @@
     <form onsubmit="sendVideo()">
         <button type="submit"> BOUTON </button>
     </form>
-    <div class="row text-center m-2 cateVideo">
-        <div class="col-md-3"><img src="img/mn.jpeg"></div>
-        <div class="col-md-3"><img src="img/mn.jpeg"></div>
-        <div class="col-md-3"><img src="img/mn.jpeg"></div>
-        <div class="col-md-3"><img src="img/mn.jpeg"></div>
-        <div class="col-md-3"><img src="img/mn.jpeg"></div>
-        <div class="col-md-3"><img src="img/mn.jpeg"></div>
-        <div class="col-md-3"><img src="img/mn.jpeg"></div>
-        <div class="col-md-3"><img src="img/mn.jpeg"></div>
-    </div>
 
-    <div class="complet">
+    <div class="complet row text-center m-2 cateVideo">
 
     </div>
 
