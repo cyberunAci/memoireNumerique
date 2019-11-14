@@ -30,10 +30,6 @@ Route::prefix('video')->group(function(){
     Route::post('index', 'VideoController@index');
     Route::post('add', 'VideoController@add');
 });
-<<<<<<< HEAD
-=======
-
->>>>>>> 98d0f6c0049f41d7dcde550ae083a2f8a280fa7c
 Route::prefix('/mediatheque')->group(function(){
     Route::get('/', function(){
         return view('mediatheque');
