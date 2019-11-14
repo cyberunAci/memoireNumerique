@@ -28,7 +28,7 @@ Route::get('/forminsert', function() {
 Route::get('/video', 'VideoController@index');
 Route::prefix('video')->group(function(){
     Route::post('index', 'VideoController@index');
-    Route::post('add', 'VideoController@add');
+    Route::post('ajout', 'VideoController@ajout');
 });
 Route::prefix('/mediatheque')->group(function(){
     Route::get('/', function(){

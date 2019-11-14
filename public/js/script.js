@@ -140,6 +140,8 @@ function affichage(data) {
 fctclick(id){
 }
  */
+
+ /* AJOUTER BDD POUR ADMINISTRATEUR */
 function insertBdd(){
     event.preventDefault();
     let post_titre = $("#titre").val();
@@ -154,7 +156,7 @@ function insertBdd(){
     });
     $.ajax({
         method: "POST",
-        url: "/forminsert/add",
+        url: "/forminsert/ajout",
         data: { 
             titre: post_titre,
             resumer: post_resumer,
@@ -164,8 +166,8 @@ function insertBdd(){
         },
         dataType: "json",
     })
-    .done(function (data) {
-                console.log(data);
+    .done(function () {
+        console.log('ok!');
             })
     .fail(function (status) {
         console.log(status);
