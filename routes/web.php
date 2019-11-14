@@ -22,7 +22,7 @@ Route::get('/forminsert', function() {
 });
 
     Route::prefix('forminsert')->group(function () {
-        Route::post('add', 'ForminsertController@add'); // /forminsert/add
+        Route::post('ajout', 'ForminsertController@ajout'); // /forminsert/add
     });
 
 Route::get('/video', 'VideoController@index');

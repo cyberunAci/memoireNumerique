@@ -14,7 +14,7 @@ class ForminsertController extends Controller
     }
 
 
-    function add (Request $request){
+    function ajout (Request $request){
         $array= Validator::make($request->all(), [
             'titre' => 'required',
             'resumer' => 'required',

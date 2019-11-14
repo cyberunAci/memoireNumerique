@@ -175,7 +175,7 @@ function insertBdd(){
 
     $.ajax({
         method: "POST",
-        url: "/forminsert/add",
+        url: "/forminsert/ajout",
         data: { 
             titre: post_titre,
             resumer: post_resumer,
