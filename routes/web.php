@@ -25,8 +25,8 @@ Route::get('/forminsert', function() {
 });
 
 
-    Route::prefix('video_migrate')->group(function () {
-        Route::post('add', 'Forminsert@add'); // /forminsert/add
+    Route::prefix('forminsert')->group(function () {
+        Route::post('add', 'ForminsertController@add'); // /forminsert/add
     });
 
 Route::get('/video', 'VideoController@index');
