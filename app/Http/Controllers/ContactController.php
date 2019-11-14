@@ -28,8 +28,7 @@ class ContactController extends Controller
                 [
                     'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreure
                 ]
-            )->validate();
-    
+            )->validate();     
             /**
              * TODO INSERTION DS LA BASE DE DONNE
              */

@@ -7,29 +7,33 @@ $verifLien = "";
  */
 function sendContact() {
     event.preventDefault();
-    let donnees = {
-        nom: $("#nomContact").val(),
-        email: $("#emailContact").val(),
-        objet: $("#objetContact").val(),
-        message: $("#messageContact").val(),
-    }
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    if ($verif && $verifEmail) {
+        let donnees = {
+            nom: $("#nomContact").val(),
+            email: $("#emailContact").val(),
+            objet: $("#objetContact").val(),
+            message: $("#messageContact").val(),
         }
-    });
-    $.ajax({
-        method: "POST",
-        url: "/contact/message",
-        data: donnees,
-        dataType: "json"
-    })
-        .done(function (data) {
-            console.log(data);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            method: "POST",
+            url: "/contact/message",
+            data: donnees,
+            dataType: "json"
         })
-        .fail(function (status) {
-            $("#errorFormulaireContact").append('Les champs sont obligatoire ! code d\'erreur ' + status.status + '.');
-        })
+            .done(function (data) {
+                console.log(data);
+            })
+            .fail(function (status) {
+                $("#errorFormulaireContact").append('Les champs sont obligatoire ! code d\'erreur ' + status.status + '.');
+            })
+    } else {
+        $("#errorFormulaireContact").append('Les champs ne sont pas valide !');
+    }
 }
 /**
  * Envoie les informations du formulaire "je participe"
@@ -62,7 +66,7 @@ function sendJeParticipe() {
                 $("#errorFormulaireJeParticipe").append('Code d\'erreur ' + status.status + '.');
             })
     } else {
-        $("#errorFormulaireJeParticipe").append('Les champs sont INCORECT !');
+        $("#errorFormulaireJeParticipe").append('Les champs ne sont pas valide !');
     }
 }
 /**
