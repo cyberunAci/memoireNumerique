@@ -112,12 +112,7 @@ function regExpLien(arg) { // regex pour les videos youtube
         $verifLien = false;
     }
 }
-
-
 function getVideo() {
-
-
-
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -137,39 +132,32 @@ function getVideo() {
             console.log(status);
         })
 }
-
 getVideo()
-
 function affichage(data) {
     $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/"+data.id+"><img id='id" + data.id + "' src='" + data.image + "' /></p>" +  data.id + "</div>" + "</a>");
     // $(".gallery").append("<div class='gallery-cell'><img src='" + data.image + "'/><div>" );
 }
-
 /* 
 fctclick(id){
-    
 }
  */
 
+ /* AJOUTER BDD POUR ADMINISTRATEUR */
 function insertBdd(){
-
     event.preventDefault();
-
     let post_titre = $("#titre").val();
     let post_resumer = $("#resumer").val();
     let post_description = $("#description").val();
     let post_image = $("#image").val();
     let post_video = $("#video").val();
-
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-
     $.ajax({
         method: "POST",
-        url: "/forminsert/add",
+        url: "/forminsert/ajout",
         data: { 
             titre: post_titre,
             resumer: post_resumer,
@@ -179,9 +167,8 @@ function insertBdd(){
         },
         dataType: "json",
     })
-
-    .done(function (data) {
-                console.log(data);
+    .done(function () {
+        console.log('ok!');
             })
     .fail(function (status) {
         console.log(status);
