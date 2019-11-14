@@ -29,8 +29,12 @@ Route::prefix('video')->group(function(){
     Route::post('add', 'VideoController@add');
 });
 
-Route::get('/mediatheque', function() {
-    return view('mediatheque');
+
+Route::prefix('/mediatheque')->group(function(){
+    Route::get('/', function(){
+        return view('mediatheque');
+    });
+    Route::post('recup', 'MediaController@recup');
 });
 
 Route::get('/information', function () {

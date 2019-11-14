@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MessageJeParticipeMigration extends Migration
+class MemoireNumerique extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class MessageJeParticipeMigration extends Migration
      */
     public function up()
     {
-        Schema::create('messagesJeParticipe', function (Blueprint $table) { // crée une BDD
+        Schema::create('memoire', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nom', 30);
-            $table->string('email', 50);
-            $table->string('titreVideo', 100);
-            $table->string('descriptionVideo');
-            $table->string('lienVideo');
+            $table->string('titre', 255);
+            $table->string('resume', 255);
+            $table->string('description', 255);
+            $table->string('auteur', 255);
+            $table->string('categorie', 255);
+            $table->string('idMedia');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class MessageJeParticipeMigration extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('memoire');
     }
 }

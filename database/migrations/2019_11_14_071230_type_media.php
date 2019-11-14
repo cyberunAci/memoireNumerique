@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MessageContactMigration extends Migration
+class TypeMedia extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class MessageContactMigration extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) { // crée une BDD
+        Schema::create('typeMedia', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nom', 30);
-            $table->string('email', 50);
-            $table->string('objet', 100);
-            $table->string('message');
-            $table->timestamps();
-        });
+            $table->string('type', 255);
+          
+        });        
     }
 
     /**
@@ -30,6 +27,6 @@ class MessageContactMigration extends Migration
      */
     public function down()
     {
-        Schema::drop('messages');
+        Schema::dropIfExists('typeMedia');
     }
 }

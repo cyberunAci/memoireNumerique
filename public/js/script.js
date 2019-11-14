@@ -130,3 +130,20 @@ function affichage(data) {
 
     $(".complet").append("<p>" + data[0].titre  + "<br>" + data[0].resumer  + "<br>" + data[0].description + "<br> <img src='" + data[0].image + "' /></p>"  + "<iframe width='560' height='315' src='" + data[0].video + "' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>");
 }
+
+function recup(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method:"POST",
+        url: "/mediatheque/recup",
+    }).done(function(){
+        console.log("ok");
+        affichage(data);
+    })
+}
+
+recup();
