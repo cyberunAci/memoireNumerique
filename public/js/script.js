@@ -126,8 +126,7 @@ function regExpLien(arg) { // regex pour les videos youtube
 }
 
 
-function sendVideo() {
-    event.preventDefault();
+function getVideo() {
 
 
 
@@ -154,18 +153,19 @@ function sendVideo() {
 
 }
 
+getVideo()
+
 function affichage(data) {
-
-    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "<br>" + data.resumer + "<br>" + data.description + "<br> <img id='id" + data.id + "' src='" + data.image + "' /></p></div>");
+    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/"+data.id+"><img id='id" + data.id + "' src='" + data.image + "' /></p>" +  data.id + "</div>" + "</a>");
     // $(".completModal").append("<div id='lol" + data[0].id + "' class='modal'><div class='modal-content'><span class='close'>&times;</span><p class='completModal'><iframe width='560' height='315' src='" + data[0].video + "' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></p></div></div>");
-
     /* modal video */
-
     // Get the modal
-    
-
-
 }
 
+/* 
+fctclick(id){
+    
+}
+ */
 
 

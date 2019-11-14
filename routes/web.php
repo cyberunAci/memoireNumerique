@@ -56,6 +56,8 @@ Route::prefix('jeparticipe')->group(function () {
 });
 
 
+//route avec id 
 
+Route::any('description/{id}', 'VideoController@getDescription')->where('id', "[0-9]+");
 
 
