@@ -20,15 +20,16 @@ Route::get('/description', function() {
 Route::get('/forminsert', function() {
     return view('forminsert');
 });
-Route::prefix('video_migrate')->group(function () {
-    Route::post('add', 'Forminsert@add'); // /forminsert/add
-});
+
+    Route::prefix('forminsert')->group(function () {
+        Route::post('add', 'ForminsertController@add'); // /forminsert/add
+    });
+
 Route::get('/video', 'VideoController@index');
 Route::prefix('video')->group(function(){
     Route::post('index', 'VideoController@index');
     Route::post('add', 'VideoController@add');
 });
-
 
 Route::prefix('/mediatheque')->group(function(){
     Route::get('/', function(){
@@ -55,3 +56,10 @@ Route::prefix('jeparticipe')->group(function () {
     Route::post('index', 'JeParticipeController@index');
     Route::post('message', 'JeParticipeController@message');
 });
+
+
+//route avec id 
+
+Route::any('description/{id}', 'VideoController@getDescription')->where('id', "[0-9]+");
+
+
