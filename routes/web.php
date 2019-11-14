@@ -10,46 +10,47 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-use App\Http\Controllers\GaleriePhotoController;
-
 Route::get('/footer', 'FooterController@index');
 Route::get('/', function () {
     return view('accueil');
 });
-
 Route::get('/description', function() {
     return view('description');
 });
-
+Route::get('/forminsert', function() {
+    return view('forminsert');
+});
+Route::prefix('video_migrate')->group(function () {
+    Route::post('add', 'Forminsert@add'); // /forminsert/add
+});
 Route::get('/video', 'VideoController@index');
-
 Route::prefix('video')->group(function(){
     Route::post('index', 'VideoController@index');
     Route::post('add', 'VideoController@add');
 });
 
-Route::get('/mediatheque', function() {
-    return view('mediatheque');
-});
 
+Route::prefix('/mediatheque')->group(function(){
+    Route::get('/', function(){
+        return view('mediatheque');
+    });
+    Route::post('recup', 'MediaController@recup');
+});
 Route::get('/information', function () {
     return view('equipe');
 });
-
-Route::get('/contact', 'ContactController@index');
 /*
  *  page "Contacts"
  */
+Route::get('/contact', 'ContactController@index');
 Route::prefix('contact')->group(function () {
     Route::post('index', 'ContactController@index');
     Route::post('message', 'ContactController@message');
 });
-
-Route::get('/jeparticipe', 'JeParticipeController@index');
 /**
  *  page "Je participe"
  */
+Route::get('/jeparticipe', 'JeParticipeController@index');
 Route::prefix('jeparticipe')->group(function () {
     Route::post('index', 'JeParticipeController@index');
     Route::post('message', 'JeParticipeController@message');
