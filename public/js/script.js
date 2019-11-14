@@ -112,8 +112,12 @@ function regExpLien(arg) { // regex pour les videos youtube
         $verifLien = false;
     }
 }
-function sendVideo() {
-    event.preventDefault();
+
+
+function getVideo() {
+
+
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -133,16 +137,21 @@ function sendVideo() {
             console.log(status);
         })
 }
+
+getVideo()
+
 function affichage(data) {
-    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "<br>" + data.resumer + "<br>" + data.description + "<br> <img id='id" + data.id + "' src='" + data.image + "' /></p></div>");
+    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/"+data.id+"><img id='id" + data.id + "' src='" + data.image + "' /></p>" +  data.id + "</div>" + "</a>");
     // $(".completModal").append("<div id='lol" + data[0].id + "' class='modal'><div class='modal-content'><span class='close'>&times;</span><p class='completModal'><iframe width='560' height='315' src='" + data[0].video + "' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></p></div></div>");
     /* modal video */
     // Get the modal
 }
 
-
-
-    $(".complet").append("<p>" + data[0].titre  + "<br>" + data[0].resumer  + "<br>" + data[0].description + "<br> <img src='" + data[0].image + "' /></p>"  + "<iframe width='560' height='315' src='" + data[0].video + "' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>");
+/* 
+fctclick(id){
+    
+}
+ */
 
 function insertBdd(){
 

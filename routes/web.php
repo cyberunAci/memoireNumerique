@@ -56,3 +56,10 @@ Route::prefix('jeparticipe')->group(function () {
     Route::post('index', 'JeParticipeController@index');
     Route::post('message', 'JeParticipeController@message');
 });
+
+
+//route avec id 
+
+Route::any('description/{id}', 'VideoController@getDescription')->where('id', "[0-9]+");
+
+
