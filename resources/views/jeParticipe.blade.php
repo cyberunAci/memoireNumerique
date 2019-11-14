@@ -1,4 +1,6 @@
-<form onsubmit="sendJeParticipe()" id="formJeParticipe">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+<form onsubmit="sendJeParticipe()" id="formJeParticipe" class="formulaire">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <div id="errorFormulaireJeParticipe"></div>
@@ -18,7 +20,7 @@
     <label for="lien">Lien de la vidéo :</label>
     <input type="text" name="lien" id="lienVideoJeParticipe" onblur="regExpLien(this)">
 
-    <input type="submit" value="Envoyer">
+    <input type="submit" value="Envoyer" id="btn-submit">
 
 </form>
 
