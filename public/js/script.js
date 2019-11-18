@@ -120,7 +120,7 @@ function getVideo() {
     });
     $.ajax({
         method: "POST",
-        url: "/video/add",
+        url: "/video/ajout",
     })
         .done(function (datas) {
             $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
@@ -132,10 +132,9 @@ function getVideo() {
             console.log(status);
         })
 }
-getVideo()
+getVideo();
 function affichage(data) {
     $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/"+data.id+"><img id='id" + data.id + "' src='" + data.image + "' /></p>" +  data.id + "</div>" + "</a>");
-    // $(".gallery").append("<div class='gallery-cell'><img src='" + data.image + "'/><div>" );
 }
 /* 
 fctclick(id){
