@@ -1,4 +1,6 @@
-<form onsubmit="sendContact()" id="formContact">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+<form onsubmit="sendContact()" id="formContact" class="formulaire">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <div id="errorFormulaireContact"></div>
@@ -15,7 +17,7 @@
     <label for="message">Message :</label>
     <textarea name="message" id="messageContact"  onblur="regExp(this)"></textarea>
 
-    <input type="submit" value="Envoyer">
+    <input type="submit" value="Envoyer" id="btn-submit">
 
 </form>
 

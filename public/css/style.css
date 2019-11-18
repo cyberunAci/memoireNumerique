@@ -114,10 +114,9 @@ nav {
 /* FIN l'équipe*/
 
 @media (max-width: 1920px) {
-
-  .iframeyoutube{height:500px;}
-  
-
+  .iframeyoutube {
+    height: 500px;
+  }
   .accueil {
     width: 1080px;
     margin-left: auto;
@@ -169,12 +168,12 @@ nav {
     color: white;
     padding-bottom: 10%;
   }
- 
 }
 
 @media (max-width: 780px) {
-
-  .iframeyoutube{height:300px}
+  .iframeyoutube {
+    height: 300px
+  }
   .accueil {
     width: 780px;
     margin-left: auto;
@@ -188,10 +187,9 @@ nav {
   .accueilDiv h1 {
     padding-bottom: 2%;
   }
-  .resumer{
+  .resumer {
     width: 100vw;
   }
-
 }
 
 @media (max-width: 420px) {
@@ -208,7 +206,6 @@ nav {
   .accueilDiv h1 {
     padding-bottom: 2%;
   }
-
   .descript img {
     right: 0;
     bottom: 0;
@@ -255,8 +252,6 @@ hr {
 
 /*END FOOTER*/
 
-/*END FOOTER*/
-
 /* Médiathèque */
 
 .derniere-video {
@@ -295,14 +290,6 @@ hr {
   width: 100%;
 }
 
-.gallery-cell {
-  width: 50%;
-  height: 300px;
-  margin-right: 10px;
-  background: #8C8;
-  counter-increment: gallery-cell;
-}
-
 /* cell number */
 
 .gallery-cell:before {
@@ -312,6 +299,14 @@ hr {
   line-height: 200px;
   font-size: 80px;
   color: white;
+}
+
+.gallery-cell {
+  width: 50%;
+  height: 300px;
+  margin-right: 10px;
+  background: #8C8;
+  counter-increment: gallery-cell;
 }
 
 .parent {
@@ -408,4 +403,45 @@ hr {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* FORMULAIRE */
+
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  font-size: 1.2em;
+}
+
+.formulaire label, 
+.formulaire input, 
+.formulaire textarea {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  min-width: 50%;
+  height: auto;
+  padding:10px;
+}
+.formulaire textarea {
+  max-width: 50%;
+  min-height: 100px;
+  max-height: 200px;
+}
+
+#btn-submit{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  background-color: #E5B960;
+  border-radius: 10px;
+}
+#btn-submit:hover{
+  color: white;
+  background-color: #9E318E;
 }
