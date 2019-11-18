@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TypeMedia extends Migration
+class Mediatype extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class TypeMedia extends Migration
      */
     public function up()
     {
-        Schema::create('typeMedia', function (Blueprint $table) {
+        Schema::create('mediatype', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type', 255);
-          
-        });        
+            $table->string('type');
+        });
     }
 
     /**
@@ -27,6 +26,6 @@ class TypeMedia extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('typeMedia');
+        Schema::dropIfExists('mediatype');
     }
 }

@@ -18,8 +18,11 @@ class CreateVideoMigrate extends Migration
             $table->string('titre', 255);
             $table->string('resumer');
             $table->string('description');
-            $table->string('image');
+            $table->string('auteur');
+            $table->string('id_categorie');
+            $table->string('id_mediatype');
             $table->string('video');
+            $table->string('image');
             $table->timestamps();
         });
     }

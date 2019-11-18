@@ -75,8 +75,9 @@ function sendJeParticipe() {
                 $("#errorFormulaireJeParticipe").append('Code d\'erreur ' + status.status + '.');
             })
     } else {
-        $("#errorFormulaire").append('<p>Les champs ne sont pas valide !</p>');
-        $("#errorFormulaire").addClass("errorFormulaire");
+            $("#errorFormulaire").empty();
+            $("#errorFormulaire").append('<p>Attention! Les champs ne sont pas valide !</p>');
+            $("#errorFormulaire").addClass("errorFormulaire");
     }
 }
 function getVideo() {
@@ -109,13 +110,17 @@ fctclick(id){
  */
 
 /* AJOUTER BDD POUR ADMINISTRATEUR */
-function insertBdd() {
+function memoireBdd() {
     event.preventDefault();
     let post_titre = $("#titre").val();
     let post_resumer = $("#resumer").val();
     let post_description = $("#description").val();
+    let post_categorie = $("#id_categorie").val();
+    let post_mediatype = $("#id_mediatype").val();
+    let post_auteur =  $("#auteur").val();
     let post_image = $("#image").val();
     let post_video = $("#video").val();
+    let post_status = $("#status").val();
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -123,18 +128,22 @@ function insertBdd() {
     });
     $.ajax({
         method: "POST",
-        url: "/forminsert/ajout",
+        url: "/memoire/ajout",
         data: {
             titre: post_titre,
             resumer: post_resumer,
             description: post_description,
+            id_categorie: post_categorie,
+            id_mediatype: post_mediatype,
+            auteur: post_auteur,
             image: post_image,
-            video: post_video
+            video: post_video,
+            status: post_status
         },
         dataType: "json",
     })
-        .done(function () {
-            //console.log('ok!');
+        .done(function (data) {
+            console.log(data);
         })
         .fail(function (status) {
             console.log(status);
@@ -142,7 +151,7 @@ function insertBdd() {
 }
 
 // Affichage médiathéque media recent 
-function recup(){
+function recup() {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -195,6 +204,7 @@ function image(all){
 
 // Fin affichage médiathéque media recent 
 
+// ZONE DES REGEX //
 /**
  * zone de verification regex
  * @param {*} arg arg est l'élément this que vous trouverez dans le formulaire.
@@ -261,6 +271,18 @@ function regExpResumer(arg) { // regex pour resumer
     }
 }
 
+function regExpDescription(arg) { // regex pour description
+    champ = $("#" + arg.id);
+    let regex = /^[a-zA-Z0-9\s]{2,255}$/;
+    if (regex.test(champ.val())) {
+        champ.css("border", "2px green solid");
+        $verifLien = true;
+    } else {
+        champ.css("border", "2px red solid");
+        $verifLien = false;
+    }
+}
+
 //fonction affichage image 
 
 function getImage() {
@@ -275,7 +297,7 @@ function getImage() {
     })
         .done(function (datas) {
             $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            afficheImage(data)
+                afficheImage(data)
             })
         })
         .fail(function (status) {
@@ -304,7 +326,7 @@ function getArticle() {
         .done(function (datas) {
             $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
                 afficheArticles(data)
-                })
+            })
 
         })
         .fail(function (status) {
