@@ -452,6 +452,45 @@ hr {
   background-color: #9E318E;
 }
 
+.errorFormulaire {
+  background-color: rgb(240, 118, 118);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid red;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.bonFormulaire {
+  background-color: rgb(226, 209, 173);
+  border: 2px solid #E5B960;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.blockFormulaire {
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.blockFormulaire p{
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.descriptionFormulaire {
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
 /* Carte pour les images "image.blade.php */
 
 .carte {

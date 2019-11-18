@@ -75,8 +75,9 @@ function sendJeParticipe() {
                 $("#errorFormulaireJeParticipe").append('Code d\'erreur ' + status.status + '.');
             })
     } else {
-        $("#errorFormulaire").append('<p>Les champs ne sont pas valide !</p>');
-        $("#errorFormulaire").addClass("errorFormulaire");
+            $("#errorFormulaire").empty();
+            $("#errorFormulaire").append('<p>Attention! Les champs ne sont pas valide !</p>');
+            $("#errorFormulaire").addClass("errorFormulaire");
     }
 }
 function getVideo() {
@@ -141,7 +142,7 @@ function insertBdd() {
 }
 
 // Affichage médiathéque media recent 
-function recup(){
+function recup() {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -149,22 +150,23 @@ function recup(){
     });
 
     $.ajax({
-        url:"/mediatheque/recup",
-        method:"POST",
-        dataType:"json"
-    }).done(function(all){
+        url: "/mediatheque/recup",
+        method: "POST",
+        dataType: "json"
+    }).done(function (all) {
         console.log(all[0].id);
         console.log(all[1].id);
         console.log(all[2].id);
-        $("#recent-1").attr('src',all[2].image);
-        $("#recent-2").attr('src',all[1].image);
-        $("#recent-3").attr('src',all[0].image);
+        $("#recent-1").attr('src', all[2].image);
+        $("#recent-2").attr('src', all[1].image);
+        $("#recent-3").attr('src', all[0].image);
     })
 }
 recup();
 
 // Fin affichage médiathéque media recent 
 
+// ZONE DES REGEX //
 /**
  * zone de verification regex
  * @param {*} arg arg est l'élément this que vous trouverez dans le formulaire.
@@ -245,7 +247,7 @@ function getImage() {
     })
         .done(function (datas) {
             $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            afficheImage(data)
+                afficheImage(data)
             })
         })
         .fail(function (status) {
@@ -274,7 +276,7 @@ function getArticle() {
         .done(function (datas) {
             $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
                 afficheArticles(data)
-                })
+            })
 
         })
         .fail(function (status) {
