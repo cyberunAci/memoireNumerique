@@ -32,7 +32,8 @@ function sendContact() {
                 $("#errorFormulaireContact").append('Les champs sont obligatoire ! code d\'erreur ' + status.status + '.');
             })
     } else {
-        $("#errorFormulaireContact").append('Les champs ne sont pas valide !');
+        $("#errorFormulaire").append('<p>Les champs ne sont pas valide !</p>');
+        $("#errorFormulaire").addClass("errorFormulaire");
     }
 }
 /**
@@ -61,12 +62,17 @@ function sendJeParticipe() {
         })
             .done(function (data) {
                 console.log(data);
+                $("#errorFormulaire").empty();
+                $("#errorFormulaire").removeClass("errorFormulaire");
+                $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
+                $("#errorFormulaire").addClass("bonFormulaire");
             })
             .fail(function (status) {
                 $("#errorFormulaireJeParticipe").append('Code d\'erreur ' + status.status + '.');
             })
     } else {
-        $("#errorFormulaireJeParticipe").append('Les champs ne sont pas valide !');
+        $("#errorFormulaire").append('<p>Les champs ne sont pas valide !</p>');
+        $("#errorFormulaire").addClass("errorFormulaire");
     }
 }
 
@@ -92,15 +98,20 @@ function getVideo() {
 }
 getVideo();
 function affichage(data) {
+<<<<<<< HEAD
+    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div>" + "</a>");
+    // $(".gallery").append("<div class='gallery-cell'><img src='" + data.image + "'/><div>" );
+=======
     $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/"+data.id+"><img id='id" + data.id + "' src='" + data.image + "' /></p>" +  data.id + "</div>" + "</a>");
+>>>>>>> 215e4b41466f4f21b4af233b5d415458d1831cd6
 }
 /* 
 fctclick(id){
 }
  */
 
- /* AJOUTER BDD POUR ADMINISTRATEUR */
-function insertBdd(){
+/* AJOUTER BDD POUR ADMINISTRATEUR */
+function insertBdd() {
     event.preventDefault();
     if ($verifLien && $verif) {
     let post_titre = $("#titre").val();
@@ -116,7 +127,7 @@ function insertBdd(){
     $.ajax({
         method: "POST",
         url: "/forminsert/ajout",
-        data: { 
+        data: {
             titre: post_titre,
             resumer: post_resumer,
             description: post_description,
@@ -125,12 +136,12 @@ function insertBdd(){
         },
         dataType: "json",
     })
-    .done(function () {
-        //console.log('ok!');
-            })
-    .fail(function (status) {
-        console.log(status);
-    })
+        .done(function () {
+            //console.log('ok!');
+        })
+        .fail(function (status) {
+            console.log(status);
+        })
 }
 }
 
