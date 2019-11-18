@@ -255,14 +255,15 @@ hr {
 /* Médiathèque */
 
 .derniere-video {
-  text-align:center;
+  text-align: center;
   margin-top: 4%;
   margin-bottom: 2%;
   margin-left: 1%;
   font-size: 1.8em;
 }
+
 .audio {
-  text-align:center;
+  text-align: center;
   margin-top: 4%;
   margin-bottom: 2%;
   margin-left: 1%;
@@ -270,12 +271,12 @@ hr {
   background-color: #FAA492;
 }
 
-.audio p{
-  color:white;
+.audio p {
+  color: white;
 }
 
 .video {
-  text-align:center;
+  text-align: center;
   margin-top: 4%;
   margin-bottom: 2%;
   margin-left: 1%;
@@ -283,9 +284,10 @@ hr {
   background-color: #51F6FE;
 }
 
-.video p{
-  color:white;
+.video p {
+  color: white;
 }
+
 .gallery {
   width: 100%;
 }
@@ -320,7 +322,6 @@ hr {
 
 .div1 {
   grid-area: 1 / 1 / 2 / 2;
- 
 }
 
 .div2 {
@@ -412,7 +413,6 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: auto;
   font-size: 1.2em;
 }
@@ -421,7 +421,7 @@ hr {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 50%;
+  width: 100%;
   min-width: 50%;
   height: auto;
   padding: 10px;
@@ -432,7 +432,6 @@ hr {
 }
 
 .formulaire textarea {
-  max-width: 50%;
   min-height: 100px;
   max-height: 200px;
 }
@@ -452,9 +451,14 @@ hr {
 
 .errorFormulaire {
   background-color: rgb(240, 118, 118);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   border: 2px solid red;
   padding: 5px;
   border-radius: 10px;
+  margin: 0;
 }
 
 .bonFormulaire {
@@ -462,4 +466,24 @@ hr {
   border: 2px solid #E5B960;
   padding: 5px;
   border-radius: 10px;
+}
+
+.blockFormulaire {
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.blockFormulaire p{
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.descriptionFormulaire {
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
