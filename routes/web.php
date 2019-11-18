@@ -18,13 +18,23 @@ Route::get('/', function () {
 Route::get('/description', function () {
     return view('description');
 });
-Route::get('/forminsert', function () {
-    return view('forminsert');
-});
 
-Route::prefix('forminsert')->group(function () {
-    Route::post('ajout', 'ForminsertController@ajout'); // /forminsert/add
-});
+/*
+*
+*
+Ajout vidéo
+*
+*
+*/
+
+
+
+    Route::prefix('memoire')->group(function () {
+        Route::any('/', 'MemoireController@index');
+        Route::post('ajout', 'MemoireController@ajout'); // /forminsert/add
+    });
+
+/*    ****************    */
 
 Route::get('/video', 'VideoController@index');
 Route::prefix('video')->group(function () {
@@ -36,6 +46,8 @@ Route::prefix('/mediatheque')->group(function () {
         return view('mediatheque');
     });
     Route::post('recup', 'MediaController@recup');
+    Route::post('liste', 'MediaController@liste');
+
 });
 Route::get('/information', function () {
     return view('equipe');
