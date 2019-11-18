@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Video;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-
+use App\Forminsert;
 class VideoController extends Controller
 {
     function index()
@@ -13,16 +10,17 @@ class VideoController extends Controller
         return view('video');
     }
 
-    function add(){
+    function ajout(){
 
+        // return json_encode("toto");
 
-        $tabVideo = Video::all();
+        $tabVideo = Forminsert::all();
         return $tabVideo;
     }
 
     function getDescription($id) {
         
-        $recupVideo = Video::find($id);
+        $recupVideo = Forminsert::find($id);
         return view('description', ['recupVideo'=> $recupVideo]);
     }
 }
