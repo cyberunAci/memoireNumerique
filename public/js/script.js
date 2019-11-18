@@ -27,6 +27,10 @@ function sendContact() {
         })
             .done(function (data) {
                 console.log(data);
+                $("#errorFormulaire").empty();
+                $("#errorFormulaire").removeClass("errorFormulaire");
+                $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
+                $("#errorFormulaire").addClass("bonFormulaire");
             })
             .fail(function (status) {
                 $("#errorFormulaireContact").append('Les champs sont obligatoire ! code d\'erreur ' + status.status + '.');
@@ -98,12 +102,7 @@ function getVideo() {
 }
 getVideo();
 function affichage(data) {
-<<<<<<< HEAD
-    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div>" + "</a>");
-    // $(".gallery").append("<div class='gallery-cell'><img src='" + data.image + "'/><div>" );
-=======
     $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/"+data.id+"><img id='id" + data.id + "' src='" + data.image + "' /></p>" +  data.id + "</div>" + "</a>");
->>>>>>> 215e4b41466f4f21b4af233b5d415458d1831cd6
 }
 /* 
 fctclick(id){
