@@ -8,9 +8,9 @@ Derniers ajouts
 </div>
 <div class="gallery js-flickity "
   data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>
-  <div class="gallery-cell"><a href="#"><img id="recent-1" src=""></a></div>
-  <div class="gallery-cell"><a href="#"><img id="recent-2" src=""></a></div>
-  <div class="gallery-cell"><a href="#"><img id="recent-3" src=""></a></div>
+  <div class="gallery-cell"><a id="link-1" href=""><img id="recent-1" src=""></a></div>
+  <div class="gallery-cell"><a id="link-2" href=""><img id="recent-2" src=""></a></div>
+  <div class="gallery-cell"><a id="link-3" href=""><img id="recent-3" src=""></a></div>
 
 </div>
          
@@ -19,7 +19,6 @@ Derniers ajouts
         </div>
 
       <div class="parent cateVideo">
-          
 <div class="div1"> <img src="img/environnement-petit.jpg" alt=""></div>
 <div class="div2"> <img src="img/audio-image-petit.jpg" alt=""></div>
 <div class="div3"> <img src="img/economie-petit.jpg" alt=""></div>
