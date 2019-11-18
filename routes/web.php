@@ -31,14 +31,8 @@ Route::prefix('video')->group(function () {
     Route::post('index', 'VideoController@index');
     Route::post('ajout', 'VideoController@ajout');
 });
-<<<<<<< HEAD
-Route::prefix('/mediatheque')->group(function(){
-    Route::post('/recup', 'MediaController@recup');
-    Route::get('/', function(){
-=======
 Route::prefix('/mediatheque')->group(function () {
     Route::get('/', function () {
->>>>>>> f8ae8d60f5432da8d35a4f5c4647a5ce3a0c528e
         return view('mediatheque');
     });
     Route::post('recup', 'MediaController@recup');
@@ -82,4 +76,5 @@ Route::prefix('/image')->group(function () {
 Route::prefix('/article')->group(function (){
     Route::any('/', 'ArticleController@index');
     Route::any('add', 'ArticleController@add');
+    Route::any('recup', 'ArticleController@recup');
 });

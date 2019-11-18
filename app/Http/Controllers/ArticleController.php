@@ -25,4 +25,11 @@ class ArticleController extends Controller
         return $tabArticle;
 
     }
+    
+    function recup() {
+
+        $all = Article::orderBy('id','desc')->take(3)->get();
+    
+        return $all;
+    }
 }
