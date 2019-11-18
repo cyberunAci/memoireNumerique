@@ -255,14 +255,15 @@ hr {
 /* Médiathèque */
 
 .derniere-video {
-  text-align:center;
+  text-align: center;
   margin-top: 4%;
   margin-bottom: 2%;
   margin-left: 1%;
   font-size: 1.8em;
 }
+
 .audio {
-  text-align:center;
+  text-align: center;
   margin-top: 4%;
   margin-bottom: 2%;
   margin-left: 1%;
@@ -270,12 +271,12 @@ hr {
   background-color: #FAA492;
 }
 
-.audio p{
-  color:white;
+.audio p {
+  color: white;
 }
 
 .video {
-  text-align:center;
+  text-align: center;
   margin-top: 4%;
   margin-bottom: 2%;
   margin-left: 1%;
@@ -283,9 +284,10 @@ hr {
   background-color: #51F6FE;
 }
 
-.video p{
-  color:white;
+.video p {
+  color: white;
 }
+
 .gallery {
   width: 100%;
 }
@@ -323,7 +325,6 @@ hr {
 
 .div1 {
   grid-area: 1 / 1 / 2 / 2;
- 
 }
 
 .div2 {
@@ -415,36 +416,56 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: auto;
   font-size: 1.2em;
 }
 
-.formulaire label, 
-.formulaire input, 
-.formulaire textarea {
+.formulaire label, .formulaire input, .formulaire textarea {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 50%;
+  width: 100%;
   min-width: 50%;
   height: auto;
-  padding:10px;
+  padding: 10px;
 }
+
+.formulaire input:focus, .formulaire textarea:focus {
+  background-color: rgb(243, 234, 215);
+}
+
 .formulaire textarea {
-  max-width: 50%;
   min-height: 100px;
   max-height: 200px;
 }
 
-#btn-submit{
+#btn-submit {
   display: flex;
   justify-content: center;
   margin: 10px;
   background-color: #E5B960;
   border-radius: 10px;
 }
-#btn-submit:hover{
+
+#btn-submit:hover {
   color: white;
   background-color: #9E318E;
+}
+
+/* Carte pour les images "image.blade.php */
+
+.carte {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.carte:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.contain {
+  padding: 2px 16px;
 }

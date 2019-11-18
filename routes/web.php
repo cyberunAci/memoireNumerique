@@ -10,29 +10,35 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/footer', 'FooterController@index');
 Route::get('/', function () {
     return view('accueil');
 });
-Route::get('/description', function() {
+Route::get('/description', function () {
     return view('description');
 });
-Route::get('/forminsert', function() {
+Route::get('/forminsert', function () {
     return view('forminsert');
 });
 
-    Route::prefix('forminsert')->group(function () {
-        Route::post('ajout', 'ForminsertController@ajout'); // /forminsert/add
-    });
+Route::prefix('forminsert')->group(function () {
+    Route::post('ajout', 'ForminsertController@ajout'); // /forminsert/add
+});
 
 Route::get('/video', 'VideoController@index');
-Route::prefix('video')->group(function(){
+Route::prefix('video')->group(function () {
     Route::post('index', 'VideoController@index');
     Route::post('ajout', 'VideoController@ajout');
 });
+<<<<<<< HEAD
 Route::prefix('/mediatheque')->group(function(){
     Route::post('/recup', 'MediaController@recup');
     Route::get('/', function(){
+=======
+Route::prefix('/mediatheque')->group(function () {
+    Route::get('/', function () {
+>>>>>>> f8ae8d60f5432da8d35a4f5c4647a5ce3a0c528e
         return view('mediatheque');
     });
     Route::post('recup', 'MediaController@recup');
@@ -63,3 +69,17 @@ Route::prefix('jeparticipe')->group(function () {
 Route::any('description/{id}', 'VideoController@getDescription')->where('id', "[0-9]+");
 
 
+// page image 
+
+
+Route::prefix('/image')->group(function () {
+    Route::any('/', 'ImageController@index');
+    Route::any('add', 'ImageController@add');
+});
+
+// page article
+
+Route::prefix('/article')->group(function (){
+    Route::any('/', 'ArticleController@index');
+    Route::any('add', 'ArticleController@add');
+});

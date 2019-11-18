@@ -39,10 +39,10 @@
                         <a class="nav-link" href="#">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Médiathèques</a>
+                        <a class="nav-link" href="/mediatheque">Médiathèques</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Je participe</a>
+                        <a class="nav-link" href="/jeparticipe">Je participe</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" ><img src="img/loupe.png" alt="Logo" width="30" height="25"></a>

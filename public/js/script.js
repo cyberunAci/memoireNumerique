@@ -27,12 +27,17 @@ function sendContact() {
         })
             .done(function (data) {
                 console.log(data);
+                $("#errorFormulaire").empty();
+                $("#errorFormulaire").removeClass("errorFormulaire");
+                $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
+                $("#errorFormulaire").addClass("bonFormulaire");
             })
             .fail(function (status) {
                 $("#errorFormulaireContact").append('Les champs sont obligatoire ! code d\'erreur ' + status.status + '.');
             })
     } else {
-        $("#errorFormulaireContact").append('Les champs ne sont pas valide !');
+        $("#errorFormulaire").append('<p>Les champs ne sont pas valide !</p>');
+        $("#errorFormulaire").addClass("errorFormulaire");
     }
 }
 /**
@@ -61,14 +66,20 @@ function sendJeParticipe() {
         })
             .done(function (data) {
                 console.log(data);
+                $("#errorFormulaire").empty();
+                $("#errorFormulaire").removeClass("errorFormulaire");
+                $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
+                $("#errorFormulaire").addClass("bonFormulaire");
             })
             .fail(function (status) {
                 $("#errorFormulaireJeParticipe").append('Code d\'erreur ' + status.status + '.');
             })
     } else {
-        $("#errorFormulaireJeParticipe").append('Les champs ne sont pas valide !');
+        $("#errorFormulaire").append('<p>Les champs ne sont pas valide !</p>');
+        $("#errorFormulaire").addClass("errorFormulaire");
     }
 }
+<<<<<<< HEAD
 /**
  * zone de verification regex
  * @param {*} arg arg est l'élément this que vous trouverez dans le formulaire.
@@ -112,6 +123,8 @@ function regExpLien(arg) { // regex pour les videos youtube
         $verifLien = false;
     }
 }
+=======
+>>>>>>> f8ae8d60f5432da8d35a4f5c4647a5ce3a0c528e
 function getVideo() {
     $.ajaxSetup({
         headers: {
@@ -120,11 +133,10 @@ function getVideo() {
     });
     $.ajax({
         method: "POST",
-        url: "/video/add",
+        url: "/video/ajout",
     })
         .done(function (datas) {
             $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-                console.log(data);
                 affichage(data);
             })
         })
@@ -132,19 +144,22 @@ function getVideo() {
 /*             console.log(status);
  */        })
 }
+<<<<<<< HEAD
 getVideo()
 
+=======
+getVideo();
+>>>>>>> f8ae8d60f5432da8d35a4f5c4647a5ce3a0c528e
 function affichage(data) {
-    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/"+data.id+"><img id='id" + data.id + "' src='" + data.image + "' /></p>" +  data.id + "</div>" + "</a>");
-    // $(".gallery").append("<div class='gallery-cell'><img src='" + data.image + "'/><div>" );
+    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div>" + "</a>");
 }
 /* 
 fctclick(id){
 }
  */
 
- /* AJOUTER BDD POUR ADMINISTRATEUR */
-function insertBdd(){
+/* AJOUTER BDD POUR ADMINISTRATEUR */
+function insertBdd() {
     event.preventDefault();
     let post_titre = $("#titre").val();
     let post_resumer = $("#resumer").val();
@@ -159,7 +174,7 @@ function insertBdd(){
     $.ajax({
         method: "POST",
         url: "/forminsert/ajout",
-        data: { 
+        data: {
             titre: post_titre,
             resumer: post_resumer,
             description: post_description,
@@ -168,12 +183,12 @@ function insertBdd(){
         },
         dataType: "json",
     })
-    .done(function () {
-        //console.log('ok!');
-            })
-    .fail(function (status) {
-        console.log(status);
-    })
+        .done(function () {
+            //console.log('ok!');
+        })
+        .fail(function (status) {
+            console.log(status);
+        })
 }
 
 // Affichage médiathéque media recent 
@@ -244,7 +259,6 @@ function regExpLien(arg) { // regex pour les videos youtube
         $verifLien = false;
     }
 }
-
 function regExpTitre(arg) { // regex pour titre 
     champ = $("#" + arg.id);
     let regex = /^[a-zA-Z0-9\s]{2,50}$/;
@@ -256,7 +270,6 @@ function regExpTitre(arg) { // regex pour titre
         $verifLien = false;
     }
 }
-
 function regExpResumer(arg) { // regex pour resumer
     champ = $("#" + arg.id);
     let regex = /^[a-zA-Z0-9\s]{2,255}$/;
@@ -269,3 +282,61 @@ function regExpResumer(arg) { // regex pour resumer
     }
 }
 
+<<<<<<< HEAD
+=======
+//fonction affichage image 
+
+function getImage() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "POST",
+        url: "/image/add",
+    })
+        .done(function (datas) {
+            $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+            afficheImage(data)
+            })
+        })
+        .fail(function (status) {
+            console.log(status);
+        })
+}
+
+getImage();
+
+function afficheImage(data) {
+    $(".afficheImage").append("<div class='carte'><img src=" + data.image + " alt='Avatar' style='width:100%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
+}
+
+//fonction affichage article
+
+function getArticle() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "POST",
+        url: "/article/add",
+    })
+        .done(function (datas) {
+            $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+                afficheArticles(data)
+                })
+
+        })
+        .fail(function (status) {
+            console.log(status);
+        })
+}
+getArticle();
+
+function afficheArticles(data) {
+    $(".afficheArticles").append("<p>" + data.titre + "</p>");
+}
+>>>>>>> f8ae8d60f5432da8d35a4f5c4647a5ce3a0c528e
