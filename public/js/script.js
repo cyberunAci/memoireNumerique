@@ -129,10 +129,11 @@ function getVideo() {
             })
         })
         .fail(function (status) {
-            console.log(status);
-        })
+/*             console.log(status);
+ */        })
 }
 getVideo()
+
 function affichage(data) {
     $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/"+data.id+"><img id='id" + data.id + "' src='" + data.image + "' /></p>" +  data.id + "</div>" + "</a>");
     // $(".gallery").append("<div class='gallery-cell'><img src='" + data.image + "'/><div>" );
@@ -174,6 +175,31 @@ function insertBdd(){
         console.log(status);
     })
 }
+
+// Affichage médiathéque media recent 
+function recup(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:"/mediatheque/recup",
+        method:"POST",
+        dataType:"json"
+    }).done(function(all){
+        console.log(all[0].id);
+        console.log(all[1].id);
+        console.log(all[2].id);
+        $("#recent-1").attr('src',all[2].image);
+        $("#recent-2").attr('src',all[1].image);
+        $("#recent-3").attr('src',all[0].image);
+    })
+}
+recup();
+
+// Fin affichage médiathéque media recent 
 
 /**
  * zone de verification regex
@@ -242,3 +268,4 @@ function regExpResumer(arg) { // regex pour resumer
         $verifLien = false;
     }
 }
+

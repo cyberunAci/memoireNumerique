@@ -31,6 +31,7 @@ Route::prefix('video')->group(function(){
     Route::post('ajout', 'VideoController@ajout');
 });
 Route::prefix('/mediatheque')->group(function(){
+    Route::post('/recup', 'MediaController@recup');
     Route::get('/', function(){
         return view('mediatheque');
     });

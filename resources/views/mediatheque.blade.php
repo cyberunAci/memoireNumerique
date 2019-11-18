@@ -8,11 +8,10 @@ Derniers ajouts
 </div>
 <div class="gallery js-flickity "
   data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>
-  <div class="gallery-cell"></div>
-  <div class="gallery-cell"></div>
-  <div class="gallery-cell"></div>
-  <div class="gallery-cell"></div>
-  <div class="gallery-cell"></div>
+  <div class="gallery-cell"><a href="#"><img id="recent-1" src=""></a></div>
+  <div class="gallery-cell"><a href="#"><img id="recent-2" src=""></a></div>
+  <div class="gallery-cell"><a href="#"><img id="recent-3" src=""></a></div>
+
 </div>
          
 <div class="derniere-video">

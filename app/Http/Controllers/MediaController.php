@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\MediaModel;
 use Illuminate\Http\Request;
-
 class MediaController extends Controller
 {
     /**
@@ -15,7 +15,11 @@ class MediaController extends Controller
     function recup(){
 
 
-        $tabVideo = MediaController::all();
-        return $tabVideo;
+        $all = MediaModel::orderBy('id','desc')->take(3)->get();
+      
+
+        
+    
+        return $all;
     }
 }
