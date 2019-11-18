@@ -2,23 +2,31 @@
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<h1 class="text-center">CATEGORIE VIDEO</h1>
+<div class="derniere-video">
+        Derniers ajouts
+        </div>
+<div class="container">
+        <div class="gallery js-flickity "
+        data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>
+        <div class="gallery-cell"><a id="link-1" href=""><img id="recent-1" src=""></a></div>
+        <div class="gallery-cell"><a id="link-2" href=""><img id="recent-2" src=""></a></div>
+        <div class="gallery-cell"><a id="link-3" href=""><img id="recent-3" src=""></a></div>
+      
 
-<section class="frederic">
-    <div class="gallery js-flickity"data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>
-        <div class="gallery-cell"></div>
-        <div class="gallery-cell"></div>
-        <div class="gallery-cell"></div>
-        <div class="gallery-cell"></div>
-        <div class="gallery-cell"></div>
-    </div>
-</section>
+</div>
+        <div class="video">
+            <p>Vidéo</p>
+              </div>
+      
+            <div class="parent cateVideo">
+                <div class="video-liste">
+                    
+                    </div>
+            </div>
+ </div>
+       
 
 
-    <div class="complet row text-center m-2 cateVideo">
+            </div>
 
-    </div>
-
-
-    
 @endSection

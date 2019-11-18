@@ -16,11 +16,14 @@ class MemoireNumerique extends Migration
         Schema::create('memoire', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('titre', 255);
-            $table->string('resume', 255);
+            $table->string('resumer', 255);
             $table->string('description', 255);
             $table->string('auteur', 255);
-            $table->string('categorie', 255);
-            $table->string('idMedia');
+            $table->integer('id_categorie');
+            $table->integer('id_mediatype');
+            $table->string('video', 255);
+            $table->string('image', 255);
+            $table->boolean('status');
             $table->timestamps();
         });
     }

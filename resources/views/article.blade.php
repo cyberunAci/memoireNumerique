@@ -5,11 +5,9 @@
 
 <section class="frederic">
     <div class="gallery js-flickity"data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>
-        <div class="gallery-cell"></div>
-        <div class="gallery-cell"></div>
-        <div class="gallery-cell"></div>
-        <div class="gallery-cell"></div>
-        <div class="gallery-cell"></div>
+        <div class="gallery-cell"><a href=""><img id="recentArticle-1" src=""></a></div>
+        <div class="gallery-cell"><a href=""><img id="recentArticle-2" src=""></a></div>
+        <div class="gallery-cell"><a href=""><img id="recentArticle-3" src=""></a></div>
     </div>
 </section>
 
