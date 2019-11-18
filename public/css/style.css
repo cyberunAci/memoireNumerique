@@ -390,31 +390,49 @@ hr {
   font-size: 1.2em;
 }
 
-.formulaire label, 
-.formulaire input, 
-.formulaire textarea {
+.formulaire label, .formulaire input, .formulaire textarea {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 50%;
   min-width: 50%;
   height: auto;
-  padding:10px;
+  padding: 10px;
 }
+
+.formulaire input:focus, .formulaire textarea:focus {
+  background-color: rgb(243, 234, 215);
+}
+
 .formulaire textarea {
   max-width: 50%;
   min-height: 100px;
   max-height: 200px;
 }
 
-#btn-submit{
+#btn-submit {
   display: flex;
   justify-content: center;
   margin: 10px;
   background-color: #E5B960;
   border-radius: 10px;
 }
-#btn-submit:hover{
+
+#btn-submit:hover {
   color: white;
   background-color: #9E318E;
+}
+
+.errorFormulaire {
+  background-color: rgb(240, 118, 118);
+  border: 2px solid red;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.bonFormulaire {
+  background-color: rgb(226, 209, 173);
+  border: 2px solid #E5B960;
+  padding: 5px;
+  border-radius: 10px;
 }

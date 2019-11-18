@@ -3,8 +3,6 @@
 <form onsubmit="sendContact()" id="formContact" class="formulaire">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <div id="errorFormulaireContact"></div>
-
     <label for="nom">Nom et Prénom :</label>
     <input type="text" name="nom" id="nomContact" onblur="regExp(this)">
 
@@ -19,6 +17,7 @@
 
     <input type="submit" value="Envoyer" id="btn-submit">
 
+    <div id="errorFormulaire"></div>
 </form>
 
 <script type="text/javascript" src="{{ asset('js/jquery-3.4.1.js') }}"></script>
