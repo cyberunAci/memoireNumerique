@@ -69,10 +69,6 @@ function sendJeParticipe() {
         $("#errorFormulaireJeParticipe").append('Les champs ne sont pas valide !');
     }
 }
-<<<<<<< HEAD
-
-
-=======
 /**
  * zone de verification regex
  * @param {*} arg arg est l'élément this que vous trouverez dans le formulaire.
@@ -116,7 +112,6 @@ function regExpLien(arg) { // regex pour les videos youtube
         $verifLien = false;
     }
 }
->>>>>>> 644f3cc15886f78f73070eb67a82754333bbdeef
 function getVideo() {
     $.ajaxSetup({
         headers: {
