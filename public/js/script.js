@@ -112,6 +112,7 @@ fctclick(id){
 /* AJOUTER BDD POUR ADMINISTRATEUR */
 function insertBdd() {
     event.preventDefault();
+    if ($verifLien && $verif) {
     let post_titre = $("#titre").val();
     let post_resumer = $("#resumer").val();
     let post_description = $("#description").val();
@@ -140,6 +141,7 @@ function insertBdd() {
         .fail(function (status) {
             console.log(status);
         })
+}
 }
 
 /**
@@ -201,6 +203,18 @@ function regExpTitre(arg) { // regex pour titre
 function regExpResumer(arg) { // regex pour resumer
     champ = $("#" + arg.id);
     let regex = /^[a-zA-Z0-9\s]{2,255}$/;
+    if (regex.test(champ.val())) {
+        champ.css("border", "2px green solid");
+        $verifLien = true;
+    } else {
+        champ.css("border", "2px red solid");
+        $verifLien = false;
+    }
+}
+
+function regExpDescription(arg) { // regex pour description
+    champ = $("#" + arg.id);
+    let regex = /^[a-zA-Z0-9\s\n]$/;
     if (regex.test(champ.val())) {
         champ.css("border", "2px green solid");
         $verifLien = true;
