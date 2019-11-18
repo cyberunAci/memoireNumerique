@@ -306,8 +306,9 @@ hr {
   width: 50%;
   height: 300px;
   margin-right: 10px;
-  background: #8C8;
+  background: none;
   counter-increment: gallery-cell;
+  min-width: 50%;
 }
 .gallery-cell img{
   width:100%;
@@ -321,6 +322,7 @@ hr {
   grid-column-gap: 50px;
   grid-row-gap: 30px;
   margin-bottom: 50px;
+  
 }
 
 .div1 {

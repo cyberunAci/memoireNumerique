@@ -36,6 +36,8 @@ Route::prefix('/mediatheque')->group(function () {
         return view('mediatheque');
     });
     Route::post('recup', 'MediaController@recup');
+    Route::post('liste', 'MediaController@liste');
+
 });
 Route::get('/information', function () {
     return view('equipe');

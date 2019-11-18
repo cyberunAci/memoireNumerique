@@ -16,10 +16,10 @@ class MediaController extends Controller
 
 
         $all = MediaModel::orderBy('id','desc')->take(3)->get();
-      
-
-        
-    
         return $all;
+    }
+    function liste(){
+           $liste = MediaModel::orderBy('id', 'desc')->get();
+    return $liste;
     }
 }
