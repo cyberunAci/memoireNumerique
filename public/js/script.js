@@ -285,3 +285,10 @@ getArticle();
 function afficheArticles(data) {
     $(".afficheArticles").append("<p>" + data.titre + "</p>");
 }
+
+// barre de recherche //
+
+$( "#affichageRecherche" ).click(function() {
+    $("#activeRecherche").toggleClass("activeRecherche");
+    $("#activeRecherche").toggleClass("desactiveRecherche");
+  });

@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/29e6b87f45.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css">
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="../css/style.css">
+{{-- 
+    <link rel="stylesheet" href="../css/style.css"> --}}
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -46,8 +45,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/jeparticipe">Je participe</a>
                     </li>
+                    <li class="nav-item desactiveRecherche" id="activeRecherche">
+                        <textarea id="barreRecherche"></textarea>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" ><img src="img/loupe.png" alt="Logo" width="30" height="25"></a>
+                        <a class="nav-link" href="#" id="affichageRecherche"><img src="img/loupe.png" alt="Logo" width="30" height="25"></a>
                     </li>
                   </ul>
                 </div>
