@@ -21,18 +21,18 @@ Derniers ajouts
 
       <div class="parent cateVideo">
           
-<div class="div1"> <img src="https://via.placeholder.com/250x60" alt=""></div>
-<div class="div2"> <img src="https://via.placeholder.com/250x60" alt=""></div>
-<div class="div3"> <img src="https://via.placeholder.com/250x60" alt=""></div>
-<div class="div4"> <img src="https://via.placeholder.com/250x60" alt=""></div>
-<div class="div5"> <img src="https://via.placeholder.com/250x60" alt=""></div>
-<div class="div6"> <img src="https://via.placeholder.com/250x60" alt=""></div>
-<div class="div7"> <img src="https://via.placeholder.com/250x60" alt=""></div>
-<div class="div8"> <img src="https://via.placeholder.com/250x60" alt=""></div>
+<div class="div1"> <img src="img/environnement-petit.jpg" alt=""></div>
+<div class="div2"> <img src="img/audio-image-petit.jpg" alt=""></div>
+<div class="div3"> <img src="img/economie-petit.jpg" alt=""></div>
+<div class="div4"> <img src="img/environnement-image-petit.jpg" alt=""></div>
+<div class="div5"> <img src="img/manuscrit-petit.jpg" alt=""></div>
+<div class="div6"> <img src="img/histoire-petit.jpg"alt=""></div>
+<div class="div7"> <img src="img/photo_image-petit.jpg"alt=""></div>
+<div class="div8"> <img src="img/video_image-petit.jpg" alt=""></div>
 </div>
 
-<div class="derniere-video">
-        Lorem 01
+<div class="audio">
+       <p>Audio</p> 
          </div>
  
        <div class="parent cateVideo">
@@ -46,8 +46,8 @@ Derniers ajouts
  <div class="div8"> <img src="https://via.placeholder.com/250" alt=""></div>
        </div>
 
-       <div class="derniere-video">
-            Lorem 02
+       <div class="video">
+           <p>Vidéo</p>
              </div>
      
            <div class="parent cateVideo">
