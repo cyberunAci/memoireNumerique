@@ -28,7 +28,8 @@ Derniers ajouts
 <div class="div5"> <img src="img/manuscrit-petit.jpg" alt=""></div>
 <div class="div6"> <img src="img/histoire-petit.jpg"alt=""></div>
 <div class="div7"> <img src="img/photo_image-petit.jpg"alt=""></div>
-<div class="div8"> <img src="img/video_image-petit.jpg" alt=""></div>
+<div class="div8"> <a href="/video"><img src="img/video_image-petit.jpg" alt=""></a></div>
+
 </div>
 
 <div class="audio">

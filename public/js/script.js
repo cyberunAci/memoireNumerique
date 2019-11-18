@@ -27,12 +27,17 @@ function sendContact() {
         })
             .done(function (data) {
                 console.log(data);
+                $("#errorFormulaire").empty();
+                $("#errorFormulaire").removeClass("errorFormulaire");
+                $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
+                $("#errorFormulaire").addClass("bonFormulaire");
             })
             .fail(function (status) {
                 $("#errorFormulaireContact").append('Les champs sont obligatoire ! code d\'erreur ' + status.status + '.');
             })
     } else {
-        $("#errorFormulaireContact").append('Les champs ne sont pas valide !');
+        $("#errorFormulaire").append('<p>Les champs ne sont pas valide !</p>');
+        $("#errorFormulaire").addClass("errorFormulaire");
     }
 }
 /**
@@ -61,16 +66,19 @@ function sendJeParticipe() {
         })
             .done(function (data) {
                 console.log(data);
+                $("#errorFormulaire").empty();
+                $("#errorFormulaire").removeClass("errorFormulaire");
+                $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
+                $("#errorFormulaire").addClass("bonFormulaire");
             })
             .fail(function (status) {
                 $("#errorFormulaireJeParticipe").append('Code d\'erreur ' + status.status + '.');
             })
     } else {
-        $("#errorFormulaireJeParticipe").append('Les champs ne sont pas valide !');
+        $("#errorFormulaire").append('<p>Les champs ne sont pas valide !</p>');
+        $("#errorFormulaire").addClass("errorFormulaire");
     }
 }
-
-
 function getVideo() {
     $.ajaxSetup({
         headers: {
@@ -175,7 +183,6 @@ function regExpLien(arg) { // regex pour les videos youtube
         $verifLien = false;
     }
 }
-
 function regExpTitre(arg) { // regex pour titre 
     champ = $("#" + arg.id);
     let regex = /^[a-zA-Z0-9\s]{2,50}$/;
@@ -187,7 +194,6 @@ function regExpTitre(arg) { // regex pour titre
         $verifLien = false;
     }
 }
-
 function regExpResumer(arg) { // regex pour resumer
     champ = $("#" + arg.id);
     let regex = /^[a-zA-Z0-9\s]{2,255}$/;

@@ -10,11 +10,11 @@
     </div>
     <div class="form-group">
         <label for="">Résumer</label>
-        <textarea class="form-control" name="resumer" id="resumer" placeholder="Ajouter un résumer" rows="3" required></textarea>
+        <textarea class="form-control" name="resumer" id="resumer" placeholder="Ajouter un résumer" rows="3" onblur="regExpResumer(this)" required></textarea>
     </div>
     <div class="form-group">
         <label for="">Description</label>
-        <textarea class="form-control" name="description" id="description" placeholder="Ajouter une description" rows="3" required></textarea>
+        <textarea class="form-control" name="description" id="description" placeholder="Ajouter une description" rows="3" onblur="regExpDescription(this)" required></textarea>
     </div>
     <div class="form-group">
         <label for="">Miniature</label>
