@@ -27,6 +27,10 @@ function sendContact() {
         })
             .done(function (data) {
                 console.log(data);
+                $("#errorFormulaire").empty();
+                $("#errorFormulaire").removeClass("errorFormulaire");
+                $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
+                $("#errorFormulaire").addClass("bonFormulaire");
             })
             .fail(function (status) {
                 $("#errorFormulaireContact").append('Les champs sont obligatoire ! code d\'erreur ' + status.status + '.');
@@ -71,11 +75,11 @@ function sendJeParticipe() {
                 $("#errorFormulaireJeParticipe").append('Code d\'erreur ' + status.status + '.');
             })
     } else {
-        $("#errorFormulaire").append('<p>Les champs ne sont pas valide !</p>');
-        $("#errorFormulaire").addClass("errorFormulaire");
+            $("#errorFormulaire").empty();
+            $("#errorFormulaire").append('<p>Attention! Les champs ne sont pas valide !</p>');
+            $("#errorFormulaire").addClass("errorFormulaire");
     }
 }
-
 function getVideo() {
     $.ajaxSetup({
         headers: {
@@ -88,18 +92,16 @@ function getVideo() {
     })
         .done(function (datas) {
             $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-                console.log(data);
                 affichage(data);
             })
         })
         .fail(function (status) {
-            console.log(status);
-        })
+/*             console.log(status);
+ */        })
 }
 getVideo();
 function affichage(data) {
     $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div>" + "</a>");
-    // $(".gallery").append("<div class='gallery-cell'><img src='" + data.image + "'/><div>" );
 }
 /* 
 fctclick(id){
@@ -145,9 +147,34 @@ function memoireBdd() {
         .fail(function (status) {
             console.log(status);
         })
-
 }
 
+// Affichage médiathéque media recent 
+function recup() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url: "/mediatheque/recup",
+        method: "POST",
+        dataType: "json"
+    }).done(function (all) {
+        console.log(all[0].id);
+        console.log(all[1].id);
+        console.log(all[2].id);
+        $("#recent-1").attr('src', all[2].image);
+        $("#recent-2").attr('src', all[1].image);
+        $("#recent-3").attr('src', all[0].image);
+    })
+}
+recup();
+
+// Fin affichage médiathéque media recent 
+
+// ZONE DES REGEX //
 /**
  * zone de verification regex
  * @param {*} arg arg est l'élément this que vous trouverez dans le formulaire.
@@ -191,7 +218,6 @@ function regExpLien(arg) { // regex pour les videos youtube
         $verifLien = false;
     }
 }
-
 function regExpTitre(arg) { // regex pour titre 
     champ = $("#" + arg.id);
     let regex = /^[a-zA-Z0-9\s]{2,50}$/;
@@ -203,7 +229,6 @@ function regExpTitre(arg) { // regex pour titre
         $verifLien = false;
     }
 }
-
 function regExpResumer(arg) { // regex pour resumer
     champ = $("#" + arg.id);
     let regex = /^[a-zA-Z0-9\s]{2,255}$/;
@@ -226,4 +251,60 @@ function regExpDescription(arg) { // regex pour description
         champ.css("border", "2px red solid");
         $verifLien = false;
     }
+}
+
+//fonction affichage image 
+
+function getImage() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "POST",
+        url: "/image/add",
+    })
+        .done(function (datas) {
+            $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+                afficheImage(data)
+            })
+        })
+        .fail(function (status) {
+            console.log(status);
+        })
+}
+
+getImage();
+
+function afficheImage(data) {
+    $(".afficheImage").append("<div class='carte'><img src=" + data.image + " alt='Avatar' style='width:100%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
+}
+
+//fonction affichage article
+
+function getArticle() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "POST",
+        url: "/article/add",
+    })
+        .done(function (datas) {
+            $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+                afficheArticles(data)
+            })
+
+        })
+        .fail(function (status) {
+            console.log(status);
+        })
+}
+getArticle();
+
+function afficheArticles(data) {
+    $(".afficheArticles").append("<p>" + data.titre + "</p>");
 }
