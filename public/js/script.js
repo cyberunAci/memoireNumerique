@@ -98,12 +98,8 @@ function getVideo() {
 }
 getVideo();
 function affichage(data) {
-<<<<<<< HEAD
     $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div>" + "</a>");
     // $(".gallery").append("<div class='gallery-cell'><img src='" + data.image + "'/><div>" );
-=======
-    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/"+data.id+"><img id='id" + data.id + "' src='" + data.image + "' /></p>" +  data.id + "</div>" + "</a>");
->>>>>>> 215e4b41466f4f21b4af233b5d415458d1831cd6
 }
 /* 
 fctclick(id){
@@ -111,14 +107,17 @@ fctclick(id){
  */
 
 /* AJOUTER BDD POUR ADMINISTRATEUR */
-function insertBdd() {
+function memoireBdd() {
     event.preventDefault();
-    if ($verifLien && $verif) {
     let post_titre = $("#titre").val();
     let post_resumer = $("#resumer").val();
     let post_description = $("#description").val();
+    let post_categorie = $("#id_categorie").val();
+    let post_mediatype = $("#id_mediatype").val();
+    let post_auteur =  $("#auteur").val();
     let post_image = $("#image").val();
     let post_video = $("#video").val();
+    let post_status = $("#status").val();
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -126,23 +125,27 @@ function insertBdd() {
     });
     $.ajax({
         method: "POST",
-        url: "/forminsert/ajout",
+        url: "/memoire/ajout",
         data: {
             titre: post_titre,
             resumer: post_resumer,
             description: post_description,
+            id_categorie: post_categorie,
+            id_mediatype: post_mediatype,
+            auteur: post_auteur,
             image: post_image,
-            video: post_video
+            video: post_video,
+            status: post_status
         },
         dataType: "json",
     })
-        .done(function () {
-            //console.log('ok!');
+        .done(function (data) {
+            console.log(data);
         })
         .fail(function (status) {
             console.log(status);
         })
-}
+
 }
 
 /**
@@ -215,7 +218,7 @@ function regExpResumer(arg) { // regex pour resumer
 
 function regExpDescription(arg) { // regex pour description
     champ = $("#" + arg.id);
-    let regex = /^[a-zA-Z0-9\s\n]$/;
+    let regex = /^[a-zA-Z0-9\s]{2,255}$/;
     if (regex.test(champ.val())) {
         champ.css("border", "2px green solid");
         $verifLien = true;
