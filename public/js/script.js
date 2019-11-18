@@ -154,9 +154,6 @@ function recup() {
         method: "POST",
         dataType: "json"
     }).done(function (all) {
-        console.log(all[0].id);
-        console.log(all[1].id);
-        console.log(all[2].id);
         $("#recent-1").attr('src', all[2].image);
         $("#recent-2").attr('src', all[1].image);
         $("#recent-3").attr('src', all[0].image);

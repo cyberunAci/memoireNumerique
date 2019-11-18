@@ -429,6 +429,11 @@ hr {
   height: auto;
   padding: 10px;
 }
+.formulaire label {
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+}
 
 .formulaire input:focus, .formulaire textarea:focus {
   background-color: rgb(243, 234, 215);
