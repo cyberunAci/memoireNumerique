@@ -525,12 +525,11 @@ margin-bottom:10%;
 
 /* BARRE DE RECHERCHE */
 .desactiveRecherche {
-  width: 0;
+  display: none;
 }
 .activeRecherche {
   display: flex;
 }
-
 #barreRecherche {
   width: 250px;
   max-width: 100%;
@@ -544,11 +543,9 @@ margin-bottom:10%;
   border-radius: 25px;
   margin-right: 10px;
 }
-
 #barreRecherche:focus {
   background-color: rgb(243, 234, 215);
 }
-
 #formulaireRecherche{
   display: flex;
   align-items: center;
@@ -559,7 +556,6 @@ margin-bottom:10%;
   position: absolute;
   right: 25px;
 }
-
 .desactiverLoupe {
   display: none;
 }

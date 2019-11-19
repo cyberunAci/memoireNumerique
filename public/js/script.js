@@ -171,13 +171,8 @@ function getListMedia() {
         url: "/media/allMedia",
         dataType: "json",
     }).done(function (datas) {
-
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-<<<<<<< HEAD
-            $("#id_mediatype").append("<option value=" + data.type + ">" + data.type + "</option>");
-=======
             $("#id_mediatype").append("<option value=" + data.id + ">" + data.type + "</option>");
->>>>>>> 979242b6fae7df10558311434df51e11ad8a3e7a
         })
 
     });
@@ -472,12 +467,9 @@ function recupArticle() {
         $("#recentArticle-2").attr('src', all[1].auteur);
 
         $("#recentArticle-3").attr('src', all[0].auteur);
-<<<<<<< HEAD
-=======
         $("#lien1").attr('href', '/description/' + all[2].id);
         $("#lien2").attr('href', '/description/' + all[1].id);
         $("#lien3").attr('href', '/description/' + all[0].id);
->>>>>>> 979242b6fae7df10558311434df51e11ad8a3e7a
     })
 }
 recupArticle();
