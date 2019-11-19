@@ -10,4 +10,6 @@ class Categorie extends Model
   
     protected $fillable = ['id', 'nom'];
 
+    public $timestamps = false;
+
 }

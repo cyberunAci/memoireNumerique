@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\MediaModel;
+use App\Memoire;
 use Illuminate\Http\Request;
 class MediaController extends Controller
 {
@@ -15,11 +15,14 @@ class MediaController extends Controller
     function recup(){
 
 
-        $all = MediaModel::orderBy('id','desc')->take(3)->get();
+        $all = Memoire::orderBy('id','desc')->take(3)->get();
         return $all;
     }
+
     function liste(){
-           $liste = MediaModel::orderBy('id', 'desc')->get();
+        $liste = Memoire::all();
+        
+
     return $liste;
     }
 }

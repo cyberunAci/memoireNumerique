@@ -20,9 +20,14 @@ Route::get('/description', function () {
 });
 
 
+/*Ajout catégorie */
+Route::prefix('categorie')->group(function () {
+    Route::post('ajoutCategorie', 'MemoireController@ajoutCategorie'); // /forminsert/add
+    Route::get('allCategorie', 'MemoireController@allCategorie'); // /forminsert/add
+});
+
 /*Ajout média */
 Route::prefix('media')->group(function () {
-    Route::any('/', 'MemoireController@index');
     Route::post('ajoutMedia', 'MemoireController@ajoutMedia'); // /forminsert/add
     Route::get('allMedia', 'MemoireController@allMedia'); // /forminsert/add
 });

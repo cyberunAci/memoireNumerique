@@ -134,6 +134,33 @@ function mediaBdd() {
 
 }
 
+
+/* AJOUTER MEDIA BDD POUR ADMINISTRATEUR */
+function categorieBdd() {
+    event.preventDefault();
+    let post_nom = $("#nom").val();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "POST",
+        url: "/categorie/ajoutCategorie",
+        data: {
+            nom: post_nom,
+        },
+        dataType: "json",
+    })
+        .done(function (data) {
+            console.log(data);
+        })
+        .fail(function (status) {
+            console.log(status);
+        })
+
+}
+
 function getListMedia() {
 
     $.ajax({
@@ -146,13 +173,39 @@ function getListMedia() {
     }).done(function (datas) {
 
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+<<<<<<< HEAD
             $("#id_mediatype").append("<option value=" + data.type + ">" + data.type + "</option>");
+=======
+            $("#id_mediatype").append("<option value=" + data.id + ">" + data.type + "</option>");
+>>>>>>> 979242b6fae7df10558311434df51e11ad8a3e7a
         })
 
     });
 }
 
 getListMedia();
+
+function getListCategorie() {
+
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: "get", //method transfert
+       
+        url: "/categorie/allCategorie",
+        dataType: "json",
+    }).done(function (datas) {
+
+        $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+            $("#id_categorie").append("<option value="+data.id+">"+data.nom+"</option>");
+        })
+       
+    });
+}
+
+getListCategorie();
+
 
 /* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */
 function memoireBdd() {
@@ -166,6 +219,19 @@ function memoireBdd() {
     let post_image = $("#image").val();
     let post_video = $("#video").val();
     let post_status = $("#status").val();
+
+    let table = {
+        titre: post_titre,
+        resumer: post_resumer,
+        description: post_description,
+        id_categorie: post_categorie,
+        id_mediatype: post_mediatype,
+        auteur: post_auteur,
+        image: post_image,
+        video: post_video,
+        status: post_status
+    }
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -174,17 +240,7 @@ function memoireBdd() {
     $.ajax({
         method: "POST",
         url: "/memoire/ajout",
-        data: {
-            titre: post_titre,
-            resumer: post_resumer,
-            description: post_description,
-            id_categorie: post_categorie,
-            id_mediatype: post_mediatype,
-            auteur: post_auteur,
-            image: post_image,
-            video: post_video,
-            status: post_status
-        },
+        data: table,
         dataType: "json",
     })
         .done(function (data) {
@@ -215,7 +271,19 @@ function recup() {
 }
 recup();
 
-function liste() {
+function image(all){
+   
+    $("#recent-1").attr('src',all[2].image);
+    $("#recent-2").attr('src',all[1].image);
+    $("#recent-3").attr('src',all[0].image);
+    $("#link-1").attr('href', '/description/'+all[2].id);
+    $("#link-2").attr('href', '/description/'+all[1].id);
+    $("#link-3").attr('href', '/description/'+all[0].id);
+}
+// Fin affichage médiathéque media recent 
+
+//Affichage toute video
+function liste(){
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -223,30 +291,30 @@ function liste() {
     });
 
     $.ajax({
-        url: "/mediatheque/liste",
-        method: "POST",
-        dataType: "json"
-    }).done(function (liste) {
-        $.each(liste[1], function (index, listes) {
-            $("#video-liste").appendTo("<div class='div1'> <img src='https://via.placeholder.com/250' alt=''></div>")
-            console.log("oui" + listes[1])
+        url:"/mediatheque/liste",
+        method:"POST",
+        dataType:"json"
+    }).done(function(listes){
+        $.each(listes, function(index, liste){
+            index = index +1;
+
+            console.log(index);
+            console.log(liste);
+            $(".all").append("<div class='block col-md-3'> <img src='"+liste.image+"' alt=''</div>");
+
         })
+  /* $.each(liste[1], function(index, listes){
+      $("#video-liste").appendTo("<div class='div1'> <img src='https://via.placeholder.com/250' alt=''></div>")
+console.log("oui"+ listes[1])
+})   */
 
 
     })
 }
 liste();
-function image(all) {
 
-    $("#recent-1").attr('src', all[2].image);
-    $("#recent-2").attr('src', all[1].image);
-    $("#recent-3").attr('src', all[0].image);
-    $("#link-1").attr('href', '/description/' + all[2].id);
-    $("#link-2").attr('href', '/description/' + all[1].id);
-    $("#link-3").attr('href', '/description/' + all[0].id);
-}
+//Fin affichage toute video
 
-// Fin affichage médiathéque media recent 
 
 // ZONE DES REGEX //
 /**
@@ -345,8 +413,8 @@ function getImage() {
             })
         })
         .fail(function (status) {
-            console.log(status);
-        })
+/*             console.log(status);
+ */        })
 }
 
 getImage();
@@ -374,13 +442,13 @@ function getArticle() {
 
         })
         .fail(function (status) {
-            console.log(status);
-        })
+/*             console.log(status);
+ */        })
 }
 getArticle();
 
 function afficheArticles(data) {
-    $(".afficheArticles").append("<p>" + data.titre + "</p>");
+    $(".afficheArticles").append('<div class="col-md-3"><img src="' + data.auteur + '"></div>');
 }
 
 // Affichage Article recent 
@@ -404,6 +472,12 @@ function recupArticle() {
         $("#recentArticle-2").attr('src', all[1].auteur);
 
         $("#recentArticle-3").attr('src', all[0].auteur);
+<<<<<<< HEAD
+=======
+        $("#lien1").attr('href', '/description/' + all[2].id);
+        $("#lien2").attr('href', '/description/' + all[1].id);
+        $("#lien3").attr('href', '/description/' + all[0].id);
+>>>>>>> 979242b6fae7df10558311434df51e11ad8a3e7a
     })
 }
 recupArticle();

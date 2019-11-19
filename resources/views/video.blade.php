@@ -17,12 +17,10 @@
         <div class="video">
             <p>Vidéo</p>
               </div>
-      
-            <div class="parent cateVideo">
-                <div class="video-liste">
-                    
-                    </div>
-            </div>
+
+            <div class="container row all ">
+              
+                      </div>
  </div>
        
 
