@@ -299,7 +299,10 @@ hr {
 .gallery {
   width: 100%;
 }
-
+.all{
+  align-content: center;
+  width:100;
+}
 /* cell number */
 
 .gallery-cell:before {
@@ -331,6 +334,7 @@ hr {
   grid-column-gap: 50px;
   grid-row-gap: 30px;
   margin-bottom: 50px;
+
 }
 
 .block {
@@ -387,6 +391,7 @@ text-align: center;
  .titre-video{
   margin-top:10px;
 text-align: center;
+
 }
 
 .div1 {

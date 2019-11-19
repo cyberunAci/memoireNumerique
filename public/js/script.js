@@ -258,9 +258,7 @@ function recup() {
         method: "POST",
         dataType: "json"
     }).done(function (all) {
-        $("#recent-1").attr('src', all[2].image);
-        $("#recent-2").attr('src', all[1].image);
-        $("#recent-3").attr('src', all[0].image);
+       image(all);
     })
 }
 recup();
@@ -292,7 +290,9 @@ function liste(){
         $.each(listes, function(index, liste){
             index = index +1;
 
-            $(".all").append("<div class='block col-md-3 '> <p class='titre-video'>"+liste.titre+"</p><img src='"+liste.image+"' alt=''><p class='description-video'>"+liste.description+"</p></div>");
+            console.log(index);
+            console.log(liste);
+            $(".all").append("<div class='block col-md-3 '> <p class='titre-video'>"+liste.titre+"</p> <a href='/description/"+liste.id+"'><img src='"+liste.image+"' alt=''></a><p class='description-video'>"+liste.description+"</p></div>");
 
         })
   /* $.each(liste[1], function(index, listes){
