@@ -12,7 +12,7 @@
 
 
 
-    <div class="afficheArticles row text-center m-2 cateVideo">
+    <div class="afficheArticles row text-center">
 
     </div>
 </section>

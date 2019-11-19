@@ -331,6 +331,7 @@ hr {
   grid-column-gap: 50px;
   grid-row-gap: 30px;
   margin-bottom: 50px;
+<<<<<<< HEAD
 }
 
 .block {
@@ -341,6 +342,33 @@ hr {
   margin-left: 20px;
   margin-bottom: 10%;
   width: 100%;
+=======
+  
+}
+ .block{
+   display:inline-block;
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin-bottom:10px;
+
+ }
+ .block:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+ }
+ .block img{
+margin-left:10px;
+margin-bottom:10%;
+   width:90%;
+ }
+ .description-video{
+   margin-top:-10px;
+text-align: center;
+ }
+ .titre-video{
+  margin-top:10px;
+text-align: center;
+>>>>>>> 4e442518f3ae795c8442f1f30f25d52c55379619
 }
 
 .div1 {
@@ -524,6 +552,12 @@ hr {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+  
+}
+
+.afficheImage {
+  padding-top: 5%;
+margin: 5%;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -538,6 +572,13 @@ hr {
   padding: 2px 16px;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> b0551a7efd12c8f93d62c081d58494c4325d755a
+>>>>>>> 4e442518f3ae795c8442f1f30f25d52c55379619
 /* BARRE DE RECHERCHE */
 
 .navbar-nav {
@@ -585,4 +626,21 @@ hr {
 
 .desactiverLoupe {
   display: none;
+<<<<<<< HEAD
 }
+=======
+}
+<<<<<<< HEAD
+#barreRecherche{
+    width: 300px;
+    max-width: 100%;
+    min-width: 300px;
+    height: 50px;
+    max-height: 50px;
+    min-height: 50px;
+    line-height: 35px;
+    padding: 5px;
+}
+=======
+>>>>>>> b0551a7efd12c8f93d62c081d58494c4325d755a
+>>>>>>> 4e442518f3ae795c8442f1f30f25d52c55379619

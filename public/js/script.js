@@ -295,7 +295,7 @@ function liste(){
 
             console.log(index);
             console.log(liste);
-            $(".all").append("<div class='block col-md-3'> <img src='"+liste.image+"' alt=''</div>");
+            $(".all").append("<div class='block col-md-3 '> <p class='titre-video'>"+liste.titre+"</p><img src='"+liste.image+"' alt=''><p class='description-video'>"+liste.description+"</p></div>");
 
         })
   /* $.each(liste[1], function(index, listes){
@@ -415,7 +415,7 @@ function getImage() {
 getImage();
 
 function afficheImage(data) {
-    $(".afficheImage").append("<div class='carte'><img src=" + data.image + " alt='Avatar' style='width:100%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
+    $(".afficheImage").append("<div class='carte col-md-3'><img src='" + data.image + "' alt='Avatar' style='width:90%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
 }
 
 //fonction affichage article
