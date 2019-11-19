@@ -18,7 +18,7 @@
             <p>Vidéo</p>
               </div>
 
-            <div class="container all">
+            <div class="container row all ">
               
                       </div>
  </div>
