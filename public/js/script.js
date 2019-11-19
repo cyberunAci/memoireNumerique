@@ -146,9 +146,9 @@ function getListMedia() {
     }).done(function (datas) {
 
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            $("#id_mediatype").append("<option value="+data.type+">"+data.type+"</option>");
+            $("#id_mediatype").append("<option value=" + data.type + ">" + data.type + "</option>");
         })
-       
+
     });
 }
 
@@ -399,24 +399,34 @@ function recupArticle() {
         console.log(all[0].id);
         console.log(all[1].id);
         console.log(all[2].id);
-        $("#recentArticle-1").attr('src',all[2].auteur); 
+        $("#recentArticle-1").attr('src', all[2].auteur);
 
-        $("#recentArticle-2").attr('src',all[1].auteur);
-        
-        $("#recentArticle-3").attr('src',all[0].auteur);
+        $("#recentArticle-2").attr('src', all[1].auteur);
+
+        $("#recentArticle-3").attr('src', all[0].auteur);
     })
 }
 recupArticle();
 
 // barre de recherche //
-
-$("#affichageRecherche").click(function () {
+$("#affichageRecherche").click(function () { // change les elements
     $("#activeRecherche").toggleClass("activeRecherche");
     $("#activeRecherche").toggleClass("desactiveRecherche");
     $("#imgLoupe").toggleClass("desactiverLoupe");
 });
-
-$("#btnRecherche").click(function () {
-    event.preventDefault();
-    console.log("recherche en cour ...");
+$("#barreRecherche").keypress(function (event) { // pour enlever la touche entre (retour à la ligne) et lancer la recherche
+    if (event.which == 13) {
+        event.preventDefault();
+        lancerRecherche();
+    }
 });
+$("#btnRecherche").click(function (event) { //lance la recherche quand on click sur la loupe
+    event.preventDefault();
+    lancerRecherche();
+});
+function lancerRecherche() { //lance la recherche
+    event.preventDefault();
+    let recherche = $("#barreRecherche").val();
+    console.log("recherche :" + recherche);
+    console.log("recherche en cour ...");
+}

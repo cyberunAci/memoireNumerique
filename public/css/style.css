@@ -554,8 +554,9 @@ hr {
   max-height: 50px;
   min-height: 50px;
   line-height: 35px;
-  padding: 5px;
-  border-radius: 10px;
+  padding: 6px;
+  padding-left: 5px;
+  border-radius: 25px;
   margin-right: 10px;
 }
 
@@ -569,7 +570,9 @@ hr {
   justify-content: center;
 }
 #btnRecherche {
-  margin-right: 8px;
+  margin-right: 10px;
+  position: absolute;
+  right: 25px;
 }
 
 .desactiverLoupe {

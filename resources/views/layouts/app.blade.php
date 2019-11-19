@@ -47,7 +47,7 @@
                     </li>
                     <li class="nav-item desactiveRecherche" id="activeRecherche">
                       <form action="" id="formulaireRecherche">
-                          <textarea id="barreRecherche" wrap="off"></textarea>
+                          <textarea id="barreRecherche" wrap="off" maxlength="30"></textarea>
                           <input type="image" id="btnRecherche" alt="Login" src="img/loupe.png" width="30" height="25">
                       </form>
                     </li>
