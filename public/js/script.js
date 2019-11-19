@@ -146,9 +146,9 @@ function getListMedia() {
     }).done(function (datas) {
 
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            $("#id_mediatype").append("<option value="+data.type+">"+data.type+"</option>");
+            $("#id_mediatype").append("<option value=" + data.type + ">" + data.type + "</option>");
         })
-       
+
     });
 }
 
@@ -228,7 +228,7 @@ function liste() {
         dataType: "json"
     }).done(function (liste) {
         $.each(liste[1], function (index, listes) {
-            $("#video-liste").appendTo("<div class='div1'> <img src='https://via.placeholder.com/250' alt=''></div>")
+            $("#video-liste").appendTo("<div class='div1'> <img src='' alt=''></div>")
             console.log("oui" + listes[1])
         })
 
@@ -380,7 +380,7 @@ function getArticle() {
 getArticle();
 
 function afficheArticles(data) {
-    $(".afficheArticles").append("<p>" + data.titre + "</p>");
+    $(".afficheArticles").append('<div class="col-md-3"><img src="' + data.auteur + '"></div>');
 }
 
 // Affichage Article recent 
@@ -399,19 +399,14 @@ function recupArticle() {
         console.log(all[0].id);
         console.log(all[1].id);
         console.log(all[2].id);
-<<<<<<< HEAD
-        $("#recentArticle-1").attr('src',all[2].auteur); 
+        $("#recentArticle-1").attr('src', all[2].auteur);
 
-        $("#recentArticle-2").attr('src',all[1].auteur);
-        
-        $("#recentArticle-3").attr('src',all[0].auteur);
-=======
-        $("#recentArticle-1").attr('src', all[2].image);
+        $("#recentArticle-2").attr('src', all[1].auteur);
 
-        $("#recentArticle-2").attr('src', all[1].image);
-
-        $("#recentArticle-3").attr('src', all[0].image);
->>>>>>> cdf521b583c97de7efdd90e34a07752554706fea
+        $("#recentArticle-3").attr('src', all[0].auteur);
+        $("#lien1").attr('href', '/description/' + all[2].id);
+        $("#lien2").attr('href', '/description/' + all[1].id);
+        $("#lien3").attr('href', '/description/' + all[0].id);
     })
 }
 recupArticle();

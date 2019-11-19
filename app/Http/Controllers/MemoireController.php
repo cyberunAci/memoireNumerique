@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Media;
+use App\Mediatype;
 use App\Memoire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
