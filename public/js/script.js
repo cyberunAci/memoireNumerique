@@ -99,10 +99,9 @@ function getVideo() {
 /*             console.log(status);
  */        })
 }
-getVideo()
-
+getVideo();
 function affichage(data) {
-    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div>" + "</a>");
+    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div></a>");
 }
 /* 
 fctclick(id){
@@ -159,14 +158,13 @@ function recup() {
     });
 
     $.ajax({
-        url:"/mediatheque/recup",
-        method:"POST",
-        dataType:"json"
-    }).done(function(all){
-    
-
-       image(all);
-
+        url: "/mediatheque/recup",
+        method: "POST",
+        dataType: "json"
+    }).done(function (all) {
+        $("#recent-1").attr('src', all[2].image);
+        $("#recent-2").attr('src', all[1].image);
+        $("#recent-3").attr('src', all[0].image);
     })
 }
 recup();
@@ -338,3 +336,35 @@ getArticle();
 function afficheArticles(data) {
     $(".afficheArticles").append("<p>" + data.titre + "</p>");
 }
+
+// Affichage Article recent 
+function recupArticle(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url:"/article/recup",
+        method:"POST",
+        dataType:"json"
+    }).done(function(all){
+        console.log(all[0].id);
+        console.log(all[1].id);
+        console.log(all[2].id);
+        $("#recentArticle-1").attr('src',all[2].image); 
+
+        $("#recentArticle-2").attr('src',all[1].image);
+        
+        $("#recentArticle-3").attr('src',all[0].image);
+    })
+}
+recupArticle();
+
+// barre de recherche //
+
+$( "#affichageRecherche" ).click(function() {
+    $("#activeRecherche").toggleClass("activeRecherche");
+    $("#activeRecherche").toggleClass("desactiveRecherche");
+  });

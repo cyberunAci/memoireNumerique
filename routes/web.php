@@ -88,4 +88,5 @@ Route::prefix('/image')->group(function () {
 Route::prefix('/article')->group(function (){
     Route::any('/', 'ArticleController@index');
     Route::any('add', 'ArticleController@add');
+    Route::any('recup', 'ArticleController@recup');
 });

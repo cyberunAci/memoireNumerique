@@ -7,16 +7,16 @@
     <div id="errorFormulaire"></div>
     <form onsubmit="sendContact()" id="formContact" class="formulaire container">
 
-        <label for="nom">Nom et Prénom :</label>
+        <label for="nomContact">Nom et Prénom :</label>
         <input type="text" name="nom" id="nomContact" onblur="regExp(this)">
 
-        <label for="email">E-mail :</label>
+        <label for="emailContact">E-mail :</label>
         <input type="email"  name="email" id="emailContact" onblur="regExpEmail(this)">
 
-        <label for="objet">Objet :</label>
+        <label for="objetContact">Objet :</label>
         <input type="text" name="objet" id="objetContact" onblur="regExp(this)">
 
-        <label for="message">Message :</label>
+        <label for="messageContact">Message :</label>
         <textarea name="message" id="messageContact"  onblur="regExp(this)"></textarea>
 
         <input type="submit" value="Envoyer" id="btn-submit">

@@ -8,5 +8,5 @@ class Article extends Model
 {
     protected $table = 'articles_migrate';
 
-    protected $fillable= ['titre', 'resumer', 'contenu', 'auteur'];
+    protected $fillable= ['id', 'titre', 'resumer', 'contenu', 'auteur'];
 }

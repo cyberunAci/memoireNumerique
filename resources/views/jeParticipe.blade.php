@@ -7,19 +7,19 @@
     <div id="errorFormulaire"></div>
     <form onsubmit="sendJeParticipe()" id="formJeParticipe" class="formulaire container">
 
-        <label for="nom">Nom et Prénom :</label>
+        <label for="nomJeParticipe">Nom et Prénom :</label>
         <input type="text" name="nom" id="nomJeParticipe" onblur="regExp(this)">
     
-        <label for="email">E-mail :</label>
+        <label for="emailJeParticipe">E-mail :</label>
         <input type="email"  name="email" id="emailJeParticipe" onblur="regExpEmail(this)">
     
-        <label for="titre">Titre de la vidéo :</label>
+        <label for="titreVideoJeParticipe">Titre de la vidéo :</label>
         <input type="text" name="titre" id="titreVideoJeParticipe" onblur="regExp(this)">
     
-        <label for="description">Déscription de la vidéo :</label>
+        <label for="descriptionVideoJeParticipe">Déscription de la vidéo :</label>
         <textarea name="description" id="descriptionVideoJeParticipe"  onblur="regExp(this)"></textarea>
     
-        <label for="lien">Lien de la vidéo :</label>
+        <label for="lienVideoJeParticipe">Lien de la vidéo :</label>
         <input type="text" name="lien" id="lienVideoJeParticipe" onblur="regExpLien(this)">
     
         <input type="submit" value="Envoyer" id="btn-submit">
