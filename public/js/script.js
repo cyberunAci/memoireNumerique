@@ -171,9 +171,8 @@ function getListMedia() {
         url: "/media/allMedia",
         dataType: "json",
     }).done(function (datas) {
-
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            $("#id_mediatype").append("<option value=" + data.type + ">" + data.type + "</option>");
+            $("#id_mediatype").append("<option value=" + data.id + ">" + data.type + "</option>");
         })
 
     });
@@ -194,7 +193,7 @@ function getListCategorie() {
     }).done(function (datas) {
 
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            $("#id_categorie").append("<option value="+data.nom+">"+data.nom+"</option>");
+            $("#id_categorie").append("<option value="+data.id+">"+data.nom+"</option>");
         })
        
     });
@@ -215,6 +214,19 @@ function memoireBdd() {
     let post_image = $("#image").val();
     let post_video = $("#video").val();
     let post_status = $("#status").val();
+
+    let table = {
+        titre: post_titre,
+        resumer: post_resumer,
+        description: post_description,
+        id_categorie: post_categorie,
+        id_mediatype: post_mediatype,
+        auteur: post_auteur,
+        image: post_image,
+        video: post_video,
+        status: post_status
+    }
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -223,17 +235,7 @@ function memoireBdd() {
     $.ajax({
         method: "POST",
         url: "/memoire/ajout",
-        data: {
-            titre: post_titre,
-            resumer: post_resumer,
-            description: post_description,
-            id_categorie: post_categorie,
-            id_mediatype: post_mediatype,
-            auteur: post_auteur,
-            image: post_image,
-            video: post_video,
-            status: post_status
-        },
+        data: table,
         dataType: "json",
     })
         .done(function (data) {
@@ -473,8 +475,24 @@ function recupArticle() {
 recupArticle();
 
 // barre de recherche //
-
-$("#affichageRecherche").click(function () {
+$("#affichageRecherche").click(function () { // change les elements
     $("#activeRecherche").toggleClass("activeRecherche");
     $("#activeRecherche").toggleClass("desactiveRecherche");
+    $("#imgLoupe").toggleClass("desactiverLoupe");
 });
+$("#barreRecherche").keypress(function (event) { // pour enlever la touche entre (retour à la ligne) et lancer la recherche
+    if (event.which == 13) {
+        event.preventDefault();
+        lancerRecherche();
+    }
+});
+$("#btnRecherche").click(function (event) { //lance la recherche quand on click sur la loupe
+    event.preventDefault();
+    lancerRecherche();
+});
+function lancerRecherche() { //lance la recherche
+    event.preventDefault();
+    let recherche = $("#barreRecherche").val();
+    console.log("recherche :" + recherche);
+    console.log("recherche en cour ...");
+}
