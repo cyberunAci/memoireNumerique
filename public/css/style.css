@@ -559,8 +559,19 @@ hr {
   margin-right: 10px;
 }
 
+#barreRecherche:focus {
+  background-color: rgb(243, 234, 215);
+}
+
 #formulaireRecherche{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#btnRecherche {
+  margin-right: 8px;
+}
+
+.desactiverLoupe {
+  display: none;
 }

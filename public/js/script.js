@@ -413,4 +413,10 @@ recupArticle();
 $("#affichageRecherche").click(function () {
     $("#activeRecherche").toggleClass("activeRecherche");
     $("#activeRecherche").toggleClass("desactiveRecherche");
+    $("#imgLoupe").toggleClass("desactiverLoupe");
+});
+
+$("#btnRecherche").click(function () {
+    event.preventDefault();
+    console.log("recherche en cour ...");
 });
