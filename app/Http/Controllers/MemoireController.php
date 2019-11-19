@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categorie;
 use App\Media;
 use App\Memoire;
 use Illuminate\Http\Request;
@@ -14,17 +15,31 @@ class MemoireController extends Controller
         return view('memoire'); //memoire.blade.php
     }
 
+    function ajoutCategorie(Request $request)
+    {
+        $array = Validator::make($request->all(), [
+            'nom' => 'required',
+        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+
+        $insertCategorie = Categorie::create(
+            $array
+        )->id;
+
+        $array['id'] = $insertCategorie;
+        return json_encode($array);
+    }
+
     function ajoutMedia(Request $request)
     {
         $array = Validator::make($request->all(), [
             'type' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $forminsert = Media::create(
+        $insertMedia = Media::create(
             $array
-        )->id; 
+        )->id;
 
-         $array['id'] = $forminsert; 
+        $array['id'] = $insertMedia;
         return json_encode($array);
     }
 
@@ -32,6 +47,12 @@ class MemoireController extends Controller
     {
         $media = Media::all();
         return json_encode($media);
+    }
+
+    function allCategorie()
+    {
+        $categorie = Categorie::all();
+        return json_encode($categorie);
     }
 
     function ajout(Request $request)
@@ -56,9 +77,4 @@ class MemoireController extends Controller
         return json_encode($array);
     }
 
-    //TODO
-    public function listMedia()
-    {
-        $media = Mediatype::all();
-    }
 }

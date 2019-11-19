@@ -134,6 +134,33 @@ function mediaBdd() {
 
 }
 
+
+/* AJOUTER MEDIA BDD POUR ADMINISTRATEUR */
+function categorieBdd() {
+    event.preventDefault();
+    let post_nom = $("#nom").val();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "POST",
+        url: "/categorie/ajoutCategorie",
+        data: {
+            nom: post_nom,
+        },
+        dataType: "json",
+    })
+        .done(function (data) {
+            console.log(data);
+        })
+        .fail(function (status) {
+            console.log(status);
+        })
+
+}
+
 function getListMedia() {
 
     $.ajax({
@@ -153,6 +180,28 @@ function getListMedia() {
 }
 
 getListMedia();
+
+function getListCategorie() {
+
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: "get", //method transfert
+       
+        url: "/categorie/allCategorie",
+        dataType: "json",
+    }).done(function (datas) {
+
+        $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+            $("#id_categorie").append("<option value="+data.nom+">"+data.nom+"</option>");
+        })
+       
+    });
+}
+
+getListCategorie();
+
 
 /* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */
 function memoireBdd() {
