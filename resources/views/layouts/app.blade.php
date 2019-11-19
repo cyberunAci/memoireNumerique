@@ -48,11 +48,11 @@
                     <li class="nav-item desactiveRecherche" id="activeRecherche">
                       <form action="" id="formulaireRecherche">
                           <textarea id="barreRecherche" wrap="off" maxlength="30"></textarea>
-                          <input type="image" id="btnRecherche" alt="Login" src="img/loupe.png" width="30" height="25">
+                          <input type="image" id="btnRecherche" alt="Login" src="../img/loupe.png" width="30" height="25">
                       </form>
                     </li>
                     <li class="nav-item" id="imgLoupe">
-                        <a class="nav-link" href="#" id="affichageRecherche"><img src="img/loupe.png" alt="Logo" width="30" height="25"></a>
+                        <a class="nav-link" href="#" id="affichageRecherche"><img src="../img/loupe.png" alt="Logo" width="30" height="25"></a>
                     </li>
                   </ul>
                 </div>

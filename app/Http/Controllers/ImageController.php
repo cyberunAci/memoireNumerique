@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Image;
+use App\Memoire;
 use Illuminate\Http\Request;
 
 class ImageController extends Controller
@@ -16,12 +16,12 @@ class ImageController extends Controller
 
         function index()
     {
-        return view('image'); // affiche la vue image.blade.php
+        return view('photo'); // affiche la vue photo.blade.php
     }
     
         function add(){
 
-            $tabImage = Image::all();  // Affiche la base de donnée image_migrate
+            $tabImage = Memoire::all();  // Affiche la base de donnée image_migrate
             return $tabImage;
         }
 }
