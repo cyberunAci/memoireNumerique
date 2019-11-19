@@ -243,10 +243,12 @@ hr {
 
 .cateVideo img {
   max-width: 100%;
+  
 }
 
 .cateVideo div {
   padding-bottom: 5%;
+  padding-top: 5%;
 }
 
 /*END FOOTER*/
