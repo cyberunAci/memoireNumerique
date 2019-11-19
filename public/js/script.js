@@ -293,7 +293,7 @@ function liste(){
 
             console.log(index);
             console.log(liste);
-            $(".all").append("<div class='block col-md-3'> <img src='"+liste.image+"' alt=''</div>");
+            $(".all").append("<div class='block col-md-3 '> <p class='titre-video'>"+liste.titre+"</p><img src='"+liste.image+"' alt=''><p class='description-video'>"+liste.description+"</p></div>");
 
         })
   /* $.each(liste[1], function(index, listes){
