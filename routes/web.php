@@ -39,7 +39,10 @@ Route::prefix('media')->group(function () {
     Route::prefix('memoire')->group(function () {
         Route::any('/', 'MemoireController@index');
         Route::post('ajout', 'MemoireController@ajout'); // /forminsert/add
+        Route::post('affichage', 'MemoireController@affichage');  //affichage des  memoire
     });
+
+
 
 /*    ****************    */
 

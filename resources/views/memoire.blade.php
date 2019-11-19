@@ -72,5 +72,31 @@
     </div>
     <input type="submit" class="btn btn-primary" value="Envoyer">
   </form>
+
+
+  <hr>
+
+  <h2>Toutes les memoires</h2>
+
+  <table id="table" class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Resumer</th>
+      <th scope="col">Description</th>
+      <th scope="col">Auteur</th>
+      <th scope="col">Catégorie</th>
+      <th scope="col">Média</th>
+      <th scope="col">Image</th>
+      <th scope="col">Video</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody id="affichagevoulu">
+  </tbody>
+  </table>
+
+
 </div>
 @endSection
