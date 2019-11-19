@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    protected $table = 'image_migrate';
-
-    protected $fillable= ['titre', 'resumer', 'description', 'image'];
+    protected $table = 'memoire';
+    public $timestamps = false;
+    protected $fillable= ['id', 'titre', 'resumer', 'description', 'auteur', 'id_categorie', 'id_mediatype', 'image', 'video', 'status'];
 }

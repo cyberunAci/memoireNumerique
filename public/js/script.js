@@ -235,14 +235,12 @@ function liste(){
     });
 
     $.ajax({
-        url: "/mediatheque/liste",
-        method: "POST",
-        dataType: "json"
-    }).done(function (liste) {
-        $.each(liste[1], function (index, listes) {
-            $("#video-liste").appendTo("<div class='div1'> <img src='' alt=''></div>")
-            console.log("oui" + listes[1])
-        })
+        url:"/mediatheque/liste",
+        method:"POST",
+        dataType:"json"
+    }).done(function(listes){
+        $.each(listes, function(index, liste){
+            index = index +1;
 
             console.log(index);
             console.log(liste);
@@ -253,7 +251,7 @@ function liste(){
       $("#video-liste").appendTo("<div class='div1'> <img src='https://via.placeholder.com/250' alt=''></div>")
 console.log("oui"+ listes[1])
 })   */
-       
+
 
     })
 }
@@ -366,7 +364,7 @@ function getImage() {
 getImage();
 
 function afficheImage(data) {
-    $(".afficheImage").append("<div class='carte'><img src=" + data.image + " alt='Avatar' style='width:100%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
+    $(".afficheImage").append("<div class='carte col-md-3'><img src='" + data.image + "' alt='Avatar' style='width:90%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
 }
 
 //fonction affichage article
