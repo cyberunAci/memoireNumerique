@@ -299,7 +299,10 @@ hr {
 .gallery {
   width: 100%;
 }
-
+.all{
+  align-content: center;
+  width:100;
+}
 /* cell number */
 
 .gallery-cell:before {
@@ -331,18 +334,6 @@ hr {
   grid-column-gap: 50px;
   grid-row-gap: 30px;
   margin-bottom: 50px;
-<<<<<<< HEAD
-}
-
-.block {
-  display: inline-block;
-}
-
-.block img {
-  margin-left: 20px;
-  margin-bottom: 10%;
-  width: 100%;
-=======
   
 }
  .block{
@@ -368,7 +359,6 @@ text-align: center;
  .titre-video{
   margin-top:10px;
 text-align: center;
->>>>>>> 4e442518f3ae795c8442f1f30f25d52c55379619
 }
 
 .div1 {
