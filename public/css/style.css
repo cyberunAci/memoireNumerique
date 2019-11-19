@@ -113,61 +113,70 @@ nav {
 
 /* FIN l'équipe*/
 
-  .iframeyoutube {
-    height: 500px;
-  }
-  .accueil {
-    width: 1080px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-  .accueilDiv {
-    padding-top: 5%;
-    padding-bottom: 15%;
-  }
-  .accueilDiv h1 {
-    padding-bottom: 2%;
-  }
-  /* modification sur description.blade.php */
-  .descript {
-    width: 1080px;
-    margin-left: auto;
-    margin-right: auto;
-    background: linear-gradient(90deg, rgba(35, 35, 35, 1), rgba(78, 78, 78, 1), rgba(35, 35, 35, 0));
-    z-index: -2;
-  }
-  .divDesc {
-    color: white;
-    margin-left: 0;
-    height: 360px;
-  }
-  .titreDesc, .paraDesc {
-    padding: 20px;
-  }
-  .descript img {
-    right: 15px;
-    bottom: 0;
-    opacity: 1;
-    width: 580px;
-    height: 370px;
-    position: absolute;
-    z-index: -1;
-  }
-  .paraDesc {
-    line-height: 2.5;
-    padding-bottom: 10%;
-    width: 700px;
-  }
-  .resumer {
-    padding-top: 5%;
-    margin-left: 0;
-    margin-right: 0;
-    background: linear-gradient(90deg, rgba(35, 35, 35, 2), rgba(35, 35, 35, 0.8), rgba(35, 35, 35, 1));
-    color: white;
-    padding-bottom: 10%;
-  }
+.iframeyoutube {
+  height: 500px;
+}
 
+.accueil {
+  width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.accueilDiv {
+  padding-top: 5%;
+  padding-bottom: 15%;
+}
+
+.accueilDiv h1 {
+  padding-bottom: 2%;
+}
+
+/* modification sur description.blade.php */
+
+.descript {
+  width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(90deg, rgba(35, 35, 35, 1), rgba(78, 78, 78, 1), rgba(35, 35, 35, 0));
+  z-index: -2;
+}
+
+.divDesc {
+  color: white;
+  margin-left: 0;
+  height: 360px;
+}
+
+.titreDesc, .paraDesc {
+  padding: 20px;
+}
+
+.descript img {
+  right: 15px;
+  bottom: 0;
+  opacity: 1;
+  width: 580px;
+  height: 370px;
+  position: absolute;
+  z-index: -1;
+}
+
+.paraDesc {
+  line-height: 2.5;
+  padding-bottom: 10%;
+  width: 700px;
+}
+
+.resumer {
+  padding-top: 5%;
+  margin-left: 0;
+  margin-right: 0;
+  background: linear-gradient(90deg, rgba(35, 35, 35, 2), rgba(35, 35, 35, 0.8), rgba(35, 35, 35, 1));
+  color: white;
+  padding-bottom: 10%;
+}
 
 @media (max-width: 780px) {
   .iframeyoutube {
@@ -309,11 +318,12 @@ hr {
   counter-increment: gallery-cell;
   min-width: 50%;
 }
-.gallery-cell img{
-  width:100%;
-  height:100%;
 
+.gallery-cell img {
+  width: 100%;
+  height: 100%;
 }
+
 .parent {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -321,16 +331,18 @@ hr {
   grid-column-gap: 50px;
   grid-row-gap: 30px;
   margin-bottom: 50px;
-  
 }
- .block{
-   display:inline-block;
- }
- .block img{
-margin-left:20px;
-margin-bottom:10%;
-   width:100%;
- }
+
+.block {
+  display: inline-block;
+}
+
+.block img {
+  margin-left: 20px;
+  margin-bottom: 10%;
+  width: 100%;
+}
+
 .div1 {
   grid-area: 1 / 1 / 2 / 2;
 }
@@ -437,6 +449,7 @@ margin-bottom:10%;
   height: auto;
   padding: 10px;
 }
+
 .formulaire label {
   margin: 0;
   padding: 0;
@@ -491,7 +504,8 @@ margin-bottom:10%;
   justify-content: center;
   align-items: center;
 }
-.blockFormulaire p{
+
+.blockFormulaire p {
   margin: 5px;
   display: flex;
   flex-direction: column;
@@ -508,28 +522,37 @@ margin-bottom:10%;
 
 .carte {
   /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
 
 /* On mouse-over, add a deeper shadow */
+
 .carte:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Add some padding inside the card container */
+
 .contain {
   padding: 2px 16px;
 }
 
-
 /* BARRE DE RECHERCHE */
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
 .desactiveRecherche {
   display: none;
 }
+
 .activeRecherche {
   display: flex;
 }
+
 #barreRecherche {
   width: 250px;
   max-width: 100%;
@@ -543,19 +566,23 @@ margin-bottom:10%;
   border-radius: 25px;
   margin-right: 10px;
 }
+
 #barreRecherche:focus {
   background-color: rgb(243, 234, 215);
 }
-#formulaireRecherche{
+
+#formulaireRecherche {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 #btnRecherche {
   margin-right: 10px;
   position: absolute;
   right: 25px;
 }
+
 .desactiverLoupe {
   display: none;
 }
