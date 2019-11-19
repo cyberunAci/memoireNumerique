@@ -26,7 +26,6 @@ function sendContact() {
             dataType: "json"
         })
             .done(function (data) {
-                console.log(data);
                 $("#errorFormulaire").empty();
                 $("#errorFormulaire").removeClass("errorFormulaire");
                 $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
@@ -95,8 +94,7 @@ function getVideo() {
             })
         })
         .fail(function (status) {
-/*             console.log(status);
- */        })
+        })
 }
 getVideo();
 function affichage(data) {
@@ -125,10 +123,8 @@ function mediaBdd() {
         dataType: "json",
     })
         .done(function (data) {
-            console.log(data);
         })
         .fail(function (status) {
-            console.log(status);
         })
 
 }
@@ -152,10 +148,8 @@ function categorieBdd() {
         dataType: "json",
     })
         .done(function (data) {
-            console.log(data);
         })
         .fail(function (status) {
-            console.log(status);
         })
 
 }
@@ -238,10 +232,8 @@ function memoireBdd() {
         dataType: "json",
     })
         .done(function (data) {
-            console.log(data);
         })
         .fail(function (status) {
-            console.log(status);
         })
 }
 
@@ -290,8 +282,6 @@ function liste(){
         $.each(listes, function(index, liste){
             index = index +1;
 
-            console.log(index);
-            console.log(liste);
             $(".all").append("<div class='block col-md-3 '> <p class='titre-video'>"+liste.titre+"</p> <a href='/description/"+liste.id+"'><img src='"+liste.image+"' alt=''></a><p class='description-video'>"+liste.description+"</p></div>");
 
         })
@@ -405,8 +395,7 @@ function getImage() {
             })
         })
         .fail(function (status) {
-/*             console.log(status);
- */        })
+       })
 }
 
 getImage();
@@ -434,8 +423,7 @@ function getArticle() {
 
         })
         .fail(function (status) {
-/*             console.log(status);
- */        })
+       })
 }
 getArticle();
 
