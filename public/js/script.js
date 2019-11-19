@@ -399,19 +399,11 @@ function recupArticle() {
         console.log(all[0].id);
         console.log(all[1].id);
         console.log(all[2].id);
-<<<<<<< HEAD
         $("#recentArticle-1").attr('src',all[2].auteur); 
 
         $("#recentArticle-2").attr('src',all[1].auteur);
         
         $("#recentArticle-3").attr('src',all[0].auteur);
-=======
-        $("#recentArticle-1").attr('src', all[2].image);
-
-        $("#recentArticle-2").attr('src', all[1].image);
-
-        $("#recentArticle-3").attr('src', all[0].image);
->>>>>>> cdf521b583c97de7efdd90e34a07752554706fea
     })
 }
 recupArticle();
