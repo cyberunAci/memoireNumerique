@@ -26,7 +26,6 @@ function sendContact() {
             dataType: "json"
         })
             .done(function (data) {
-                console.log(data);
                 $("#errorFormulaire").empty();
                 $("#errorFormulaire").removeClass("errorFormulaire");
                 $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
@@ -65,7 +64,6 @@ function sendJeParticipe() {
             dataType: "json"
         })
             .done(function (data) {
-                console.log(data);
                 $("#errorFormulaire").empty();
                 $("#errorFormulaire").removeClass("errorFormulaire");
                 $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
@@ -96,8 +94,7 @@ function getVideo() {
             })
         })
         .fail(function (status) {
-/*             console.log(status);
- */        })
+        })
 }
 getVideo();
 function affichage(data) {
@@ -126,10 +123,8 @@ function mediaBdd() {
         dataType: "json",
     })
         .done(function (data) {
-            console.log(data);
         })
         .fail(function (status) {
-            console.log(status);
         })
 
 }
@@ -153,10 +148,8 @@ function categorieBdd() {
         dataType: "json",
     })
         .done(function (data) {
-            console.log(data);
         })
         .fail(function (status) {
-            console.log(status);
         })
 
 }
@@ -171,7 +164,6 @@ function getListMedia() {
         url: "/media/allMedia",
         dataType: "json",
     }).done(function (datas) {
-
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
             $("#id_mediatype").append("<option value=" + data.id + ">" + data.type + "</option>");
         })
@@ -240,10 +232,8 @@ function memoireBdd() {
         dataType: "json",
     })
         .done(function (data) {
-            console.log(data);
         })
         .fail(function (status) {
-            console.log(status);
         })
 }
 
@@ -305,9 +295,7 @@ function recup() {
         method: "POST",
         dataType: "json"
     }).done(function (all) {
-        $("#recent-1").attr('src', all[2].image);
-        $("#recent-2").attr('src', all[1].image);
-        $("#recent-3").attr('src', all[0].image);
+       image(all);
     })
 }
 recup();
@@ -339,9 +327,7 @@ function liste(){
         $.each(listes, function(index, liste){
             index = index +1;
 
-            console.log(index);
-            console.log(liste);
-            $(".all").append("<div class='block col-md-3'> <img src='"+liste.image+"' alt=''</div>");
+            $(".all").append("<div class='block col-md-3 '> <p class='titre-video'>"+liste.titre+"</p> <a href='/description/"+liste.id+"'><img src='"+liste.image+"' alt=''></a><p class='description-video'>"+liste.description+"</p></div>");
 
         })
   /* $.each(liste[1], function(index, listes){
@@ -446,7 +432,7 @@ function getImage() {
     });
     $.ajax({
         method: "POST",
-        url: "/image/add",
+        url: "/photo/add",
     })
         .done(function (datas) {
             $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
@@ -454,14 +440,13 @@ function getImage() {
             })
         })
         .fail(function (status) {
-/*             console.log(status);
- */        })
+       })
 }
 
 getImage();
 
 function afficheImage(data) {
-    $(".afficheImage").append("<div class='carte'><img src=" + data.image + " alt='Avatar' style='width:100%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
+    $(".afficheImage").append("<div class='carte col-md-3'><img src='" + data.image + "' alt='Avatar' style='width:90%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
 }
 
 //fonction affichage article
@@ -483,13 +468,12 @@ function getArticle() {
 
         })
         .fail(function (status) {
-/*             console.log(status);
- */        })
+       })
 }
 getArticle();
 
 function afficheArticles(data) {
-    $(".afficheArticles").append('<div class="col-md-3"><img src="' + data.auteur + '"></div>');
+    $(".afficheArticles").append("<div class='carte col-md-3'><img src='" + data.image + "' alt='Avatar' style='width:90%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
 }
 
 // Affichage Article recent 
@@ -505,14 +489,11 @@ function recupArticle() {
         method: "POST",
         dataType: "json"
     }).done(function (all) {
-        console.log(all[0].id);
-        console.log(all[1].id);
-        console.log(all[2].id);
-        $("#recentArticle-1").attr('src', all[2].auteur);
+        $("#recentArticle-1").attr('src', all[2].image);
 
-        $("#recentArticle-2").attr('src', all[1].auteur);
+        $("#recentArticle-2").attr('src', all[1].image);
 
-        $("#recentArticle-3").attr('src', all[0].auteur);
+        $("#recentArticle-3").attr('src', all[0].image);
         $("#lien1").attr('href', '/description/' + all[2].id);
         $("#lien2").attr('href', '/description/' + all[1].id);
         $("#lien3").attr('href', '/description/' + all[0].id);
@@ -521,8 +502,24 @@ function recupArticle() {
 recupArticle();
 
 // barre de recherche //
-
-$("#affichageRecherche").click(function () {
+$("#affichageRecherche").click(function () { // change les elements
     $("#activeRecherche").toggleClass("activeRecherche");
     $("#activeRecherche").toggleClass("desactiveRecherche");
+    $("#imgLoupe").toggleClass("desactiverLoupe");
 });
+$("#barreRecherche").keypress(function (event) { // pour enlever la touche entre (retour à la ligne) et lancer la recherche
+    if (event.which == 13) {
+        event.preventDefault();
+        lancerRecherche();
+    }
+});
+$("#btnRecherche").click(function (event) { //lance la recherche quand on click sur la loupe
+    event.preventDefault();
+    lancerRecherche();
+});
+function lancerRecherche() { //lance la recherche
+    event.preventDefault();
+    let recherche = $("#barreRecherche").val();
+    console.log("recherche :" + recherche);
+    console.log("recherche en cour ...");
+}

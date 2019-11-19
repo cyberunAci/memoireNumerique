@@ -85,10 +85,10 @@ Route::prefix('jeparticipe')->group(function () {
 Route::any('description/{id}', 'VideoController@getDescription')->where('id', "[0-9]+");
 
 
-// page image 
+// page photo 
 
 
-Route::prefix('/image')->group(function () {
+Route::prefix('/photo')->group(function () {
     Route::any('/', 'ImageController@index');
     Route::any('add', 'ImageController@add');
 });
