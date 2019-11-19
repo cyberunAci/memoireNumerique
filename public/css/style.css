@@ -334,11 +334,7 @@ hr {
   grid-column-gap: 50px;
   grid-row-gap: 30px;
   margin-bottom: 50px;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 }
 
 .block {
@@ -349,7 +345,6 @@ hr {
   margin-left: 20px;
   margin-bottom: 10%;
   width: 100%;
-
 }
 
 .block {
@@ -377,7 +372,6 @@ hr {
 .titre-video {
   margin-top: 10px;
   text-align: center;
-=======
   margin-bottom:10px;
 
  }
@@ -397,11 +391,7 @@ text-align: center;
  .titre-video{
   margin-top:10px;
 text-align: center;
-<<<<<<< HEAD
-=======
->>>>>>> 4e442518f3ae795c8442f1f30f25d52c55379619
->>>>>>> b2bad1ce76fb41255c5f1a26e59ddeddf3396ba8
->>>>>>> 7e0fe655be90e11a5044fdcd65c1b849fe5cf6aa
+
 }
 
 .div1 {
@@ -609,6 +599,8 @@ text-align: center;
   padding: 2px 16px;
 }
 
+
+/* BARRE DE RECHERCHE */
 
 .navbar-nav {
   display: flex;
