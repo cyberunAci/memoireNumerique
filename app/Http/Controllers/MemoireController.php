@@ -34,4 +34,9 @@ class MemoireController extends Controller
         return json_encode($array);
     }
 
+    //TODO
+    public function listMedia()
+    {
+        $media=Mediatype::all();
+    }
 }
