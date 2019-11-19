@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+
+use App\Memoire;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -21,7 +22,7 @@ class ArticleController extends Controller
     
     function add(){
         
-        $tabArticle = Article::all();
+        $tabArticle = Memoire::all();
         return $tabArticle;
 
 
@@ -29,8 +30,8 @@ class ArticleController extends Controller
     
     function recup() {
 
-        $all = Article::orderBy('id','desc')->take(3)->get();
-    
+        $all = Memoire::orderBy('id','desc')->take(3)->get();    
         return $all;
+
     }
 }
