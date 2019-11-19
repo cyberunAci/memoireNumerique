@@ -19,15 +19,17 @@ Route::get('/description', function () {
     return view('description');
 });
 
-/*
-*
-*
-Ajout vidéo
-*
-*
-*/
+
+/*Ajout média */
+Route::prefix('media')->group(function () {
+    Route::any('/', 'MemoireController@index');
+    Route::post('ajoutMedia', 'MemoireController@ajoutMedia'); // /forminsert/add
+    Route::get('allMedia', 'MemoireController@allMedia'); // /forminsert/add
+});
 
 
+
+/*Ajout vidéo*/
 
     Route::prefix('memoire')->group(function () {
         Route::any('/', 'MemoireController@index');

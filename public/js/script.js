@@ -75,9 +75,9 @@ function sendJeParticipe() {
                 $("#errorFormulaireJeParticipe").append('Code d\'erreur ' + status.status + '.');
             })
     } else {
-            $("#errorFormulaire").empty();
-            $("#errorFormulaire").append('<p>Attention! Les champs ne sont pas valide !</p>');
-            $("#errorFormulaire").addClass("errorFormulaire");
+        $("#errorFormulaire").empty();
+        $("#errorFormulaire").append('<p>Attention! Les champs ne sont pas valide !</p>');
+        $("#errorFormulaire").addClass("errorFormulaire");
     }
 }
 function getVideo() {
@@ -108,7 +108,53 @@ fctclick(id){
 }
  */
 
-/* AJOUTER BDD POUR ADMINISTRATEUR */
+/* AJOUTER MEDIA BDD POUR ADMINISTRATEUR */
+function mediaBdd() {
+    event.preventDefault();
+    let post_type = $("#type").val();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "POST",
+        url: "/media/ajoutMedia",
+        data: {
+            type: post_type,
+        },
+        dataType: "json",
+    })
+        .done(function (data) {
+            console.log(data);
+        })
+        .fail(function (status) {
+            console.log(status);
+        })
+
+}
+
+function getListMedia() {
+
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: "get", //method transfert
+        url: "/media/allMedia",
+        dataType: "json",
+    }).done(function (datas) {
+
+        $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+            $("#id_mediatype").append("<option value="+data.type+">"+data.type+"</option>");
+        })
+       
+    });
+}
+
+getListMedia();
+
+/* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */
 function memoireBdd() {
     event.preventDefault();
     let post_titre = $("#titre").val();
@@ -116,7 +162,7 @@ function memoireBdd() {
     let post_description = $("#description").val();
     let post_categorie = $("#id_categorie").val();
     let post_mediatype = $("#id_mediatype").val();
-    let post_auteur =  $("#auteur").val();
+    let post_auteur = $("#auteur").val();
     let post_image = $("#image").val();
     let post_video = $("#video").val();
     let post_status = $("#status").val();
@@ -158,19 +204,18 @@ function recup() {
     });
 
     $.ajax({
-        url:"/mediatheque/recup",
-        method:"POST",
-        dataType:"json"
-    }).done(function(all){
-    
-
-       image(all);
-
+        url: "/mediatheque/recup",
+        method: "POST",
+        dataType: "json"
+    }).done(function (all) {
+        $("#recent-1").attr('src', all[2].image);
+        $("#recent-2").attr('src', all[1].image);
+        $("#recent-3").attr('src', all[0].image);
     })
 }
 recup();
 
-function liste(){
+function liste() {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -178,27 +223,27 @@ function liste(){
     });
 
     $.ajax({
-        url:"/mediatheque/liste",
-        method:"POST",
-        dataType:"json"
-    }).done(function(liste){
-  $.each(liste[1], function(index, listes){
-      $("#video-liste").appendTo("<div class='div1'> <img src='https://via.placeholder.com/250' alt=''></div>")
-console.log("oui"+ listes[1])
-})  
-       
+        url: "/mediatheque/liste",
+        method: "POST",
+        dataType: "json"
+    }).done(function (liste) {
+        $.each(liste[1], function (index, listes) {
+            $("#video-liste").appendTo("<div class='div1'> <img src='https://via.placeholder.com/250' alt=''></div>")
+            console.log("oui" + listes[1])
+        })
+
 
     })
 }
 liste();
-function image(all){
-   
-    $("#recent-1").attr('src',all[2].image);
-    $("#recent-2").attr('src',all[1].image);
-    $("#recent-3").attr('src',all[0].image);
-    $("#link-1").attr('href', '/description/'+all[2].id);
-    $("#link-2").attr('href', '/description/'+all[1].id);
-    $("#link-3").attr('href', '/description/'+all[0].id);
+function image(all) {
+
+    $("#recent-1").attr('src', all[2].image);
+    $("#recent-2").attr('src', all[1].image);
+    $("#recent-3").attr('src', all[0].image);
+    $("#link-1").attr('href', '/description/' + all[2].id);
+    $("#link-2").attr('href', '/description/' + all[1].id);
+    $("#link-3").attr('href', '/description/' + all[0].id);
 }
 
 // Fin affichage médiathéque media recent 
@@ -335,11 +380,11 @@ function getArticle() {
 getArticle();
 
 function afficheArticles(data) {
-    $(".afficheArticles").append("<div class='col-md-3'><p>" + data.titre + "</p><p><img src='" + data.auteur + "' /></p></div>");
+    $(".afficheArticles").append("<p>" + data.titre + "</p>");
 }
 
 // Affichage Article recent 
-function recupArticle(){
+function recupArticle() {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -347,18 +392,33 @@ function recupArticle(){
     });
 
     $.ajax({
-        url:"/article/recup",
-        method:"POST",
-        dataType:"json"
-    }).done(function(all){
+        url: "/article/recup",
+        method: "POST",
+        dataType: "json"
+    }).done(function (all) {
         console.log(all[0].id);
         console.log(all[1].id);
         console.log(all[2].id);
+<<<<<<< HEAD
         $("#recentArticle-1").attr('src',all[2].auteur); 
 
         $("#recentArticle-2").attr('src',all[1].auteur);
         
         $("#recentArticle-3").attr('src',all[0].auteur);
+=======
+        $("#recentArticle-1").attr('src', all[2].image);
+
+        $("#recentArticle-2").attr('src', all[1].image);
+
+        $("#recentArticle-3").attr('src', all[0].image);
+>>>>>>> cdf521b583c97de7efdd90e34a07752554706fea
     })
 }
 recupArticle();
+
+// barre de recherche //
+
+$("#affichageRecherche").click(function () {
+    $("#activeRecherche").toggleClass("activeRecherche");
+    $("#activeRecherche").toggleClass("desactiveRecherche");
+});
