@@ -331,18 +331,6 @@ hr {
   grid-column-gap: 50px;
   grid-row-gap: 30px;
   margin-bottom: 50px;
-<<<<<<< HEAD
-}
-
-.block {
-  display: inline-block;
-}
-
-.block img {
-  margin-left: 20px;
-  margin-bottom: 10%;
-  width: 100%;
-=======
   
 }
  .block{
@@ -368,7 +356,6 @@ text-align: center;
  .titre-video{
   margin-top:10px;
 text-align: center;
->>>>>>> 4e442518f3ae795c8442f1f30f25d52c55379619
 }
 
 .div1 {
@@ -572,13 +559,6 @@ margin: 5%;
   padding: 2px 16px;
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> b0551a7efd12c8f93d62c081d58494c4325d755a
->>>>>>> 4e442518f3ae795c8442f1f30f25d52c55379619
 /* BARRE DE RECHERCHE */
 
 .navbar-nav {
@@ -626,21 +606,4 @@ margin: 5%;
 
 .desactiverLoupe {
   display: none;
-<<<<<<< HEAD
 }
-=======
-}
-<<<<<<< HEAD
-#barreRecherche{
-    width: 300px;
-    max-width: 100%;
-    min-width: 300px;
-    height: 50px;
-    max-height: 50px;
-    min-height: 50px;
-    line-height: 35px;
-    padding: 5px;
-}
-=======
->>>>>>> b0551a7efd12c8f93d62c081d58494c4325d755a
->>>>>>> 4e442518f3ae795c8442f1f30f25d52c55379619
