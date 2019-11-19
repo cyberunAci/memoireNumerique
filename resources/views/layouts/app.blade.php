@@ -46,7 +46,10 @@
                         <a class="nav-link" href="/jeparticipe">Je participe</a>
                     </li>
                     <li class="nav-item desactiveRecherche" id="activeRecherche">
-                        <textarea id="barreRecherche"></textarea>
+                      <form action="" id="formulaireRecherche">
+                          <textarea id="barreRecherche" wrap="off"></textarea>
+                          <input type="submit" value="Recherchée">
+                      </form>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="affichageRecherche"><img src="img/loupe.png" alt="Logo" width="30" height="25"></a>
