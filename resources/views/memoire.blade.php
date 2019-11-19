@@ -3,7 +3,20 @@
 @section('content')
 
 <div class="container py-3">
-    <h1>Ajouter une vidéo</h1>
+
+<h2>Ajouter un média</h2>
+
+<form onsubmit="mediaBdd()">
+    <div class="form-group">
+        <label for="Média">Média</label>
+        <input type="text" class="form-control" name ="type" id="type"  placeholder="Nom du type de média" required>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Ajouter">
+</form>
+<hr>
+
+
+    <h2>Ajouter une mémoire</h2>
 <form onsubmit="memoireBdd()">
     <div class="form-group">
         <label for="">Titre</label>
@@ -33,13 +46,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="exampleFormControlSelect1">Type de media</label>
+        <label for="Type de média">Type de media</label>
         <select class="form-control" id="id_mediatype" name="id_mediatype">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
         </select>
       </div>
     <div class="form-group">
