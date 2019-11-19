@@ -323,7 +323,11 @@ hr {
   margin-bottom: 50px;
   
 }
-
+ 
+ .block{
+   padding:5%;
+   display:inline-block;
+ }
 .div1 {
   grid-area: 1 / 1 / 2 / 2;
 }
