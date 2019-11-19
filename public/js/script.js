@@ -215,33 +215,48 @@ function memoireBdd() {
     let post_image = $("#image").val();
     let post_video = $("#video").val();
     let post_status = $("#status").val();
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    $.ajax({
-        method: "POST",
-        url: "/memoire/ajout",
-        data: {
-            titre: post_titre,
-            resumer: post_resumer,
-            description: post_description,
-            id_categorie: post_categorie,
-            id_mediatype: post_mediatype,
-            auteur: post_auteur,
-            image: post_image,
-            video: post_video,
-            status: post_status
-        },
-        dataType: "json",
-    })
-        .done(function (data) {
-            console.log(data);
-        })
-        .fail(function (status) {
-            console.log(status);
-        })
+
+    let tabl = {
+         post_titre ,
+         post_resumer ,
+         post_description ,
+        post_categorie ,
+        post_mediatype,
+         post_auteur ,
+         post_image ,
+         post_video ,
+        post_status ,
+
+    }
+
+
+    // $.ajaxSetup({
+    //     headers: {
+    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     }
+    // });
+    // $.ajax({
+    //     method: "POST",
+    //     url: "/memoire/ajout",
+    //     data: {
+    //         titre: post_titre,
+    //         resumer: post_resumer,
+    //         description: post_description,
+    //         id_categorie: post_categorie,
+    //         id_mediatype: post_mediatype,
+    //         auteur: post_auteur,
+    //         image: post_image,
+    //         video: post_video,
+    //         status: post_status
+    //     },
+    //     dataType: "json",
+    // })
+    //     .done(function (data) {
+    //         console.log(data);
+    //     })
+    //     .fail(function (status) {
+    //         console.log(status);
+    //     })
 }
 
 // Affichage médiathéque media recent 
