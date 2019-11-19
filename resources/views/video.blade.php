@@ -15,16 +15,16 @@
 
 </div>
         <div class="video">
-            <p>Vidéo</p>
+            <p>Vidéos</p>
               </div>
 
-            <div class="container row all ">
+            <div class="row all ">
               
                       </div>
  </div>
        
 
 
-            </div>
+            
 
 @endSection

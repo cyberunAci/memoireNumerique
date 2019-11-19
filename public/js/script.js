@@ -65,7 +65,6 @@ function sendJeParticipe() {
             dataType: "json"
         })
             .done(function (data) {
-                console.log(data);
                 $("#errorFormulaire").empty();
                 $("#errorFormulaire").removeClass("errorFormulaire");
                 $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
@@ -259,9 +258,7 @@ function recup() {
         method: "POST",
         dataType: "json"
     }).done(function (all) {
-        $("#recent-1").attr('src', all[2].image);
-        $("#recent-2").attr('src', all[1].image);
-        $("#recent-3").attr('src', all[0].image);
+       image(all);
     })
 }
 recup();
@@ -295,7 +292,7 @@ function liste(){
 
             console.log(index);
             console.log(liste);
-            $(".all").append("<div class='block col-md-3 '> <p class='titre-video'>"+liste.titre+"</p><img src='"+liste.image+"' alt=''><p class='description-video'>"+liste.description+"</p></div>");
+            $(".all").append("<div class='block col-md-3 '> <p class='titre-video'>"+liste.titre+"</p> <a href='/description/"+liste.id+"'><img src='"+liste.image+"' alt=''></a><p class='description-video'>"+liste.description+"</p></div>");
 
         })
   /* $.each(liste[1], function(index, listes){
@@ -400,7 +397,7 @@ function getImage() {
     });
     $.ajax({
         method: "POST",
-        url: "/image/add",
+        url: "/photo/add",
     })
         .done(function (datas) {
             $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
@@ -443,7 +440,7 @@ function getArticle() {
 getArticle();
 
 function afficheArticles(data) {
-    $(".afficheArticles").append('<div class="col-md-3"><img src="' + data.auteur + '"></div>');
+    $(".afficheArticles").append("<div class='carte col-md-3'><img src='" + data.image + "' alt='Avatar' style='width:90%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
 }
 
 // Affichage Article recent 
@@ -459,14 +456,11 @@ function recupArticle() {
         method: "POST",
         dataType: "json"
     }).done(function (all) {
-        console.log(all[0].id);
-        console.log(all[1].id);
-        console.log(all[2].id);
-        $("#recentArticle-1").attr('src', all[2].auteur);
+        $("#recentArticle-1").attr('src', all[2].image);
 
-        $("#recentArticle-2").attr('src', all[1].auteur);
+        $("#recentArticle-2").attr('src', all[1].image);
 
-        $("#recentArticle-3").attr('src', all[0].auteur);
+        $("#recentArticle-3").attr('src', all[0].image);
         $("#lien1").attr('href', '/description/' + all[2].id);
         $("#lien2").attr('href', '/description/' + all[1].id);
         $("#lien3").attr('href', '/description/' + all[0].id);

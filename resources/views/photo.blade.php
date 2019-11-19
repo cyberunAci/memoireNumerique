@@ -2,7 +2,7 @@
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<h1 class="text-center">CATEGORIE IMAGE</h1>
+<h1 class="text-center">CATEGORIE PHOTO</h1>
 
 <section class="container">
         <div class="gallery js-flickity"data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>

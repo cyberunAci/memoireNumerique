@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Forminsert;
+use App\Memoire;
+
 class VideoController extends Controller
 {
     function index()
@@ -14,13 +15,13 @@ class VideoController extends Controller
 
         // return json_encode("toto");
 
-        $tabVideo = Forminsert::all();
+        $tabVideo = Memoire::all();
         return $tabVideo;
     }
 
     function getDescription($id) {
         
-        $recupVideo = Forminsert::find($id);
+        $recupVideo = Memoire::find($id);
         return view('description', ['recupVideo'=> $recupVideo]);
     }
 }
