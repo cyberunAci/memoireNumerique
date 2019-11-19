@@ -235,18 +235,16 @@ function liste(){
     });
 
     $.ajax({
-        url: "/mediatheque/liste",
-        method: "POST",
-        dataType: "json"
-    }).done(function (liste) {
-        $.each(liste[1], function (index, listes) {
-            $("#video-liste").appendTo("<div class='div1'> <img src='' alt=''></div>")
-            console.log("oui" + listes[1])
-        })
+        url:"/mediatheque/liste",
+        method:"POST",
+        dataType:"json"
+    }).done(function(listes){
+        $.each(listes, function(index, liste){
+            index = index +1;
 
             console.log(index);
             console.log(liste);
-            $(".all").append("<div class='block'> <img src='https://via.placeholder.com/250' alt=''</div>");
+            $(".all").append("<div class='block col-md-3'> <img src='"+liste.image+"' alt=''</div>");
 
         })
   /* $.each(liste[1], function(index, listes){
