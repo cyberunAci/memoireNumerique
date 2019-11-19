@@ -173,9 +173,9 @@ function getListMedia() {
     }).done(function (datas) {
 
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            $("#id_mediatype").append("<option value="+data.type+">"+data.type+"</option>");
+            $("#id_mediatype").append("<option value=" + data.type + ">" + data.type + "</option>");
         })
-       
+
     });
 }
 
@@ -264,7 +264,19 @@ function recup() {
 }
 recup();
 
-function liste() {
+function image(all){
+   
+    $("#recent-1").attr('src',all[2].image);
+    $("#recent-2").attr('src',all[1].image);
+    $("#recent-3").attr('src',all[0].image);
+    $("#link-1").attr('href', '/description/'+all[2].id);
+    $("#link-2").attr('href', '/description/'+all[1].id);
+    $("#link-3").attr('href', '/description/'+all[0].id);
+}
+// Fin affichage médiathéque media recent 
+
+//Affichage toute video
+function liste(){
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -272,30 +284,30 @@ function liste() {
     });
 
     $.ajax({
-        url: "/mediatheque/liste",
-        method: "POST",
-        dataType: "json"
-    }).done(function (liste) {
-        $.each(liste[1], function (index, listes) {
-            $("#video-liste").appendTo("<div class='div1'> <img src='https://via.placeholder.com/250' alt=''></div>")
-            console.log("oui" + listes[1])
+        url:"/mediatheque/liste",
+        method:"POST",
+        dataType:"json"
+    }).done(function(listes){
+        $.each(listes, function(index, liste){
+            index = index +1;
+
+            console.log(index);
+            console.log(liste);
+            $(".all").append("<div class='block'> <img src='https://via.placeholder.com/250' alt=''</div>");
+
         })
+  /* $.each(liste[1], function(index, listes){
+      $("#video-liste").appendTo("<div class='div1'> <img src='https://via.placeholder.com/250' alt=''></div>")
+console.log("oui"+ listes[1])
+})   */
 
 
     })
 }
 liste();
-function image(all) {
 
-    $("#recent-1").attr('src', all[2].image);
-    $("#recent-2").attr('src', all[1].image);
-    $("#recent-3").attr('src', all[0].image);
-    $("#link-1").attr('href', '/description/' + all[2].id);
-    $("#link-2").attr('href', '/description/' + all[1].id);
-    $("#link-3").attr('href', '/description/' + all[0].id);
-}
+//Fin affichage toute video
 
-// Fin affichage médiathéque media recent 
 
 // ZONE DES REGEX //
 /**
@@ -394,8 +406,8 @@ function getImage() {
             })
         })
         .fail(function (status) {
-            console.log(status);
-        })
+/*             console.log(status);
+ */        })
 }
 
 getImage();
@@ -418,18 +430,18 @@ function getArticle() {
     })
         .done(function (datas) {
             $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-                afficheArticles(data)
+                afficheArticles(data);
             })
 
         })
         .fail(function (status) {
-            console.log(status);
-        })
+/*             console.log(status);
+ */        })
 }
 getArticle();
 
 function afficheArticles(data) {
-    $(".afficheArticles").append("<p>" + data.titre + "</p>");
+    $(".afficheArticles").append('<div class="col-md-3"><img src="' + data.auteur + '"></div>');
 }
 
 // Affichage Article recent 
@@ -448,11 +460,14 @@ function recupArticle() {
         console.log(all[0].id);
         console.log(all[1].id);
         console.log(all[2].id);
-        $("#recentArticle-1").attr('src', all[2].image);
+        $("#recentArticle-1").attr('src', all[2].auteur);
 
-        $("#recentArticle-2").attr('src', all[1].image);
+        $("#recentArticle-2").attr('src', all[1].auteur);
 
-        $("#recentArticle-3").attr('src', all[0].image);
+        $("#recentArticle-3").attr('src', all[0].auteur);
+        $("#lien1").attr('href', '/description/' + all[2].id);
+        $("#lien2").attr('href', '/description/' + all[1].id);
+        $("#lien3").attr('href', '/description/' + all[0].id);
     })
 }
 recupArticle();

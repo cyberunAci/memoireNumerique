@@ -24,6 +24,7 @@ class ArticleController extends Controller
         $tabArticle = Article::all();
         return $tabArticle;
 
+
     }
     
     function recup() {

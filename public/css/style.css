@@ -43,7 +43,9 @@ nav {
   font-size: 50px;
   color: #ae5fce;
 }
-
+.navbar-nav {
+  align-items: center;
+}
 @media screen and (max-width: 768px) {
   .line {
     width: 30px;
@@ -99,6 +101,10 @@ nav {
   li.fade {
     opacity: 1;
   }
+
+.navbar-nav {
+  align-items: flex-start;
+}
 }
 
 /* FIN NAVBAR*/
@@ -113,61 +119,70 @@ nav {
 
 /* FIN l'équipe*/
 
-  .iframeyoutube {
-    height: 500px;
-  }
-  .accueil {
-    width: 1080px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-  .accueilDiv {
-    padding-top: 5%;
-    padding-bottom: 15%;
-  }
-  .accueilDiv h1 {
-    padding-bottom: 2%;
-  }
-  /* modification sur description.blade.php */
-  .descript {
-    width: 1080px;
-    margin-left: auto;
-    margin-right: auto;
-    background: linear-gradient(90deg, rgba(35, 35, 35, 1), rgba(78, 78, 78, 1), rgba(35, 35, 35, 0));
-    z-index: -2;
-  }
-  .divDesc {
-    color: white;
-    margin-left: 0;
-    height: 360px;
-  }
-  .titreDesc, .paraDesc {
-    padding: 20px;
-  }
-  .descript img {
-    right: 15px;
-    bottom: 0;
-    opacity: 1;
-    width: 580px;
-    height: 370px;
-    position: absolute;
-    z-index: -1;
-  }
-  .paraDesc {
-    line-height: 2.5;
-    padding-bottom: 10%;
-    width: 700px;
-  }
-  .resumer {
-    padding-top: 5%;
-    margin-left: 0;
-    margin-right: 0;
-    background: linear-gradient(90deg, rgba(35, 35, 35, 2), rgba(35, 35, 35, 0.8), rgba(35, 35, 35, 1));
-    color: white;
-    padding-bottom: 10%;
-  }
+.iframeyoutube {
+  height: 500px;
+}
 
+.accueil {
+  width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.accueilDiv {
+  padding-top: 5%;
+  padding-bottom: 15%;
+}
+
+.accueilDiv h1 {
+  padding-bottom: 2%;
+}
+
+/* modification sur description.blade.php */
+
+.descript {
+  width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(90deg, rgba(35, 35, 35, 1), rgba(78, 78, 78, 1), rgba(35, 35, 35, 0));
+  z-index: -2;
+}
+
+.divDesc {
+  color: white;
+  margin-left: 0;
+  height: 360px;
+}
+
+.titreDesc, .paraDesc {
+  padding: 20px;
+}
+
+.descript img {
+  right: 15px;
+  bottom: 0;
+  opacity: 1;
+  width: 580px;
+  height: 370px;
+  position: absolute;
+  z-index: -1;
+}
+
+.paraDesc {
+  line-height: 2.5;
+  padding-bottom: 10%;
+  width: 700px;
+}
+
+.resumer {
+  padding-top: 5%;
+  margin-left: 0;
+  margin-right: 0;
+  background: linear-gradient(90deg, rgba(35, 35, 35, 2), rgba(35, 35, 35, 0.8), rgba(35, 35, 35, 1));
+  color: white;
+  padding-bottom: 10%;
+}
 
 @media (max-width: 780px) {
   .iframeyoutube {
@@ -243,10 +258,12 @@ hr {
 
 .cateVideo img {
   max-width: 100%;
+  
 }
 
 .cateVideo div {
   padding-bottom: 5%;
+  padding-top: 5%;
 }
 
 /*END FOOTER*/
@@ -309,11 +326,12 @@ hr {
   counter-increment: gallery-cell;
   min-width: 50%;
 }
-.gallery-cell img{
-  width:100%;
-  height:100%;
 
+.gallery-cell img {
+  width: 100%;
+  height: 100%;
 }
+
 .parent {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -321,9 +339,12 @@ hr {
   grid-column-gap: 50px;
   grid-row-gap: 30px;
   margin-bottom: 50px;
-  
 }
-
+ 
+ .block{
+   padding:5%;
+   display:inline-block;
+ }
 .div1 {
   grid-area: 1 / 1 / 2 / 2;
 }
@@ -430,6 +451,7 @@ hr {
   height: auto;
   padding: 10px;
 }
+
 .formulaire label {
   margin: 0;
   padding: 0;
@@ -484,7 +506,8 @@ hr {
   justify-content: center;
   align-items: center;
 }
-.blockFormulaire p{
+
+.blockFormulaire p {
   margin: 5px;
   display: flex;
   flex-direction: column;
@@ -501,37 +524,47 @@ hr {
 
 .carte {
   /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
 
 /* On mouse-over, add a deeper shadow */
+
 .carte:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Add some padding inside the card container */
+
 .contain {
   padding: 2px 16px;
 }
 
-<<<<<<< HEAD
 /* BARRE DE RECHERCHE */
+
 .desactiveRecherche {
-  width: 0;
+  display: none;
 }
+
 .activeRecherche {
-  width: 100%;
+  display: flex;
 }
-#barreRecherche{
-    width: 300px;
-    max-width: 100%;
-    min-width: 300px;
-    height: 50px;
-    max-height: 50px;
-    min-height: 50px;
-    line-height: 35px;
-    padding: 5px;
+
+#barreRecherche {
+  width: 250px;
+  max-width: 100%;
+  min-width: 300px;
+  height: 50px;
+  max-height: 50px;
+  min-height: 50px;
+  line-height: 35px;
+  padding: 5px;
+  border-radius: 10px;
+  margin-right: 10px;
 }
-=======
->>>>>>> 4f538200d41f45cc2289aab9c08f6677dff004e0
+
+#formulaireRecherche{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
