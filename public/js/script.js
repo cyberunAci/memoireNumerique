@@ -99,6 +99,7 @@ function getVideo() {
 getVideo();
 function affichage(data) {
     $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div></a>");
+
 }
 /* 
 fctclick(id){
@@ -261,7 +262,7 @@ function affichageMemoire(){
            console.log(data[1]);
            $.each(data, function (index, data) {
                console.log(data);
-                $("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+ data.description +"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td></tr>");
+                $("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+ data.description +"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td><td>"+"<button type='button' id="+data.id+ "class=+btn btn-sup>Supprimer</button>"+"</td></tr> ");
             })
 
         })
@@ -299,6 +300,21 @@ function recup() {
     })
 }
 recup();
+
+//Supprimer une memoire
+supprimerMemoire(1);
+function supprimerMemoire(id) {
+    $.ajax({
+        url: "/memoire/supprimer",
+        method: "GET",
+        data: { 
+            id : id
+        },
+        dataType: "json"
+    }).done(function (data) {
+       console.log(data);
+    })
+}
 
 function image(all){
    

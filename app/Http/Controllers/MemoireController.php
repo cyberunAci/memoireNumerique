@@ -16,6 +16,13 @@ class MemoireController extends Controller
         return view('memoire'); //memoire.blade.php
     }
 
+    function supprimerMemoire(Request $request)
+    {
+        Memoire::find(['id'])->delete();
+    
+    
+    }
+    
     function ajoutCategorie(Request $request)
     {
         $array = Validator::make($request->all(), [

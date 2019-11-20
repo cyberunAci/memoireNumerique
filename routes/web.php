@@ -11,6 +11,8 @@
 |
 */
 
+use App\Categorie;
+
 Route::get('/footer', 'FooterController@index');
 Route::get('/', function () {
     return view('accueil');
@@ -34,13 +36,13 @@ Route::prefix('media')->group(function () {
 
 
 
-/*Ajout vidéo*/
-
-    Route::prefix('memoire')->group(function () {
-        Route::any('/', 'MemoireController@index');
-        Route::post('ajout', 'MemoireController@ajout'); // /forminsert/add
-        Route::post('affichage', 'MemoireController@affichage');  //affichage des  memoire
-    });
+/*Groupe mémoire*/
+Route::prefix('memoire')->group(function () {
+    Route::any('/', 'MemoireController@index');
+    Route::post('ajout', 'MemoireController@ajout'); // /forminsert/add
+    Route::post('affichage', 'MemoireController@affichage');  //affichage des  memoire
+    Route::get('supprimer/{id}', 'MemoireController@supprimerMemoire');//memoire/supprimer
+});
 
 
 
