@@ -24,4 +24,5 @@ class ImageController extends Controller
             $tabImage = Memoire::all();  // Affiche la base de donnée image_migrate
             return $tabImage;
         }
+
 }

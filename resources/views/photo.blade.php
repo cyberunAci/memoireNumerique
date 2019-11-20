@@ -16,6 +16,10 @@
     <div class=" afficheImage row text-center m-2 cateVideo">
 
     </div>
+    <div id="modal">
+        
+    </div>
+
 </section>
 
     
