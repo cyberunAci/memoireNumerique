@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css">
+
 <div class="container">
 <div class="derniere-video">
 Derniers ajouts

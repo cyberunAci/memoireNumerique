@@ -587,9 +587,9 @@ hr {
 /* bouton des cartes images */
 
 .bouton {
-padding:3%;
-background-color:#D39A26;
-border-radius: 10px;
+  padding: 3%;
+  background-color: #D39A26;
+  border-radius: 10px;
 }
 
 .afficheArticles {
@@ -615,7 +615,7 @@ border-radius: 10px;
 
 .navbar-nav {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .desactiveRecherche {
@@ -667,15 +667,25 @@ border-radius: 10px;
   justify-content: flex-start;
   align-items: flex-start;
   margin: 25px;
-  height: 100% ;
+  height: 100%;
   min-height: 53vh;
 }
 
-.rechercheEffectuer{
+.rechercheEffectuer {
   color: grey;
   font-size: 20px;
 }
 
 .footer .row {
   margin: 0;
+}
+
+.navbar-blanc {
+  position: absolute;
+  top: 85px;
+  left: 0px;
+  background: white;
+  width: 100%;
+  padding: 20px;
+  z-index: 1;
 }
