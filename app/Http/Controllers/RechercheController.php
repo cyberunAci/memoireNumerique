@@ -11,12 +11,11 @@ class RechercheController extends Controller
     function recherche(Request $request)
     {
         $barreRecherche = $request->input('recherche');
-        // return view('recherche', ['recherche' => $barreRecherche]); //l'information circule entre les pages (RechercheController > recherche.blade.php)
 
         $recherche = DB::table('memoire')
-            ->select('titre')
+            ->select('titre', 'resumer', 'description', 'auteur')
             ->where('titre' , '=', $barreRecherche)
             ->get();
-        return view('recherche', ['recherche' => $recherche]);
+        return view('recherche', ['recherche' => $recherche, 'barreRecherche' => $barreRecherche]);
     }
 }
