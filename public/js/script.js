@@ -518,28 +518,30 @@ $("#affichageRecherche").click(function () { // change les elements
 //     // lancerRecherche();
 // });
 
-// // function lancerRecherche() { //lance la recherche
-// //     event.preventDefault();
-// //     let recherche = $("#barreRecherche").val();
+// function lancerRecherche() { //lance la recherche
+//     event.preventDefault();
+//     let recherche = [
+//         $("#barreRecherche").val()
+//     ];
 
-// //     console.log("recherche :" + recherche);
-// //     console.log("recherche en cour ...");
+//     console.log("recherche :" + recherche);
+//     console.log("recherche en cour ...");
 
-// //     $.ajaxSetup({
-// //         headers: {
-// //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-// //         }
-// //     });
-// //     $.ajax({
-// //         method: "POST",
-// //         url: "/recherche/resultat",
-// //         data: recherche,
-// //         // dataType: "json"
-// //     })
-// //         .done(function (data) {
-// //             console.log("data : " + data)
-// //         })
-// //         .fail(function (status) {
-// //             console.log(status);
-// //         })
-// // }
+//     $.ajaxSetup({
+//         headers: {
+//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//         }
+//     });
+//     $.ajax({
+//         method: "POST",
+//         url: "/recherche/",
+//         data: recherche,
+//         dataType: "json"
+//     })
+//         .done(function (data) {
+//             console.log("data : " + data);
+//         })
+//         .fail(function (status) {
+//             console.log(status);
+//         })
+// }
