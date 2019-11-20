@@ -46,10 +46,13 @@
                         <a class="nav-link" href="/jeparticipe">Je participe</a>
                     </li>
                     <li class="nav-item desactiveRecherche" id="activeRecherche">
-                      <form action="" id="formulaireRecherche">
-                          <textarea id="barreRecherche" wrap="off" maxlength="30"></textarea>
+
+                      <form action="/recherche" method="POST" id="formulaireRecherche">
+                        {{ csrf_field() }}
+                          <input id="barreRecherche" wrap="off" maxlength="30" name="recherche">
                           <input type="image" id="btnRecherche" alt="Login" src="../img/loupe.png" width="30" height="25">
                       </form>
+
                     </li>
                     <li class="nav-item" id="imgLoupe">
                         <a class="nav-link" href="#" id="affichageRecherche"><img src="../img/loupe.png" alt="Logo" width="30" height="25"></a>
@@ -59,7 +62,7 @@
               </nav>
     <!-- CONTENT -->
     @yield('content')
-    <div class="footer">
+    <div class="footer sticky-bottom">
         <p class="text-center pt-3"><a href=""><i class="fab fa-facebook fa-lg m-1"></i></a><a href=""><i class="fab fa-twitter fa-lg m-1"></i></a></p>
         <hr>
         <h3 class="text-center">Les partenaires</h3>

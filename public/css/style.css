@@ -250,12 +250,20 @@ hr {
 
 /* Video.blade.php */
 
+.addImage {
+  padding-top: 5%;
+  margin: 5%;
+}
+
 .cateVideo img {
   max-width: 100%;
 }
 
 .cateVideo div {
   padding-bottom: 5%;
+  margin-bottom: 5%;
+  margin-right:auto;
+  margin-left:auto;
 }
 
 /*END FOOTER*/
@@ -299,10 +307,12 @@ hr {
 .gallery {
   width: 100%;
 }
-.all{
+
+.all {
   align-content: center;
-  width:100;
+  width: 100;
 }
+
 /* cell number */
 
 .gallery-cell:before {
@@ -334,7 +344,6 @@ hr {
   grid-column-gap: 50px;
   grid-row-gap: 30px;
   margin-bottom: 50px;
-
 }
 
 .block {
@@ -372,26 +381,27 @@ hr {
 .titre-video {
   margin-top: 10px;
   text-align: center;
-  margin-bottom:10px;
+  margin-bottom: 10px;
+}
 
- }
- .block:hover{
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.block:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
 
- }
- .block img{
-margin-left:10px;
-margin-bottom:10%;
-   width:90%;
- }
- .description-video{
-   margin-top:-10px;
-text-align: center;
- }
- .titre-video{
-  margin-top:10px;
-text-align: center;
+.block img {
+  margin-left: 10px;
+  margin-bottom: 10%;
+  width: 90%;
+}
 
+.description-video {
+  margin-top: -10px;
+  text-align: center;
+}
+
+.titre-video {
+  margin-top: 10px;
+  text-align: center;
 }
 
 .div1 {
@@ -582,6 +592,14 @@ text-align: center;
   margin: 5%;
 }
 
+/* bouton des cartes images */
+
+.bouton {
+  padding: 3%;
+  background-color: #D39A26;
+  border-radius: 10px;
+}
+
 .afficheArticles {
   padding-top: 5%;
   margin: 5%;
@@ -599,6 +617,7 @@ text-align: center;
   padding: 2px 16px;
 }
 
+/* BARRE DE RECHERCHE */
 
 /* BARRE DE RECHERCHE */
 
@@ -627,6 +646,7 @@ text-align: center;
   padding-left: 5px;
   border-radius: 25px;
   margin-right: 10px;
+  margin-left: 5px;
 }
 
 #barreRecherche:focus {
@@ -647,4 +667,23 @@ text-align: center;
 
 .desactiverLoupe {
   display: none;
+}
+
+.blockRecherche {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 25px;
+  height: 100% ;
+  min-height: 53vh;
+}
+
+.rechercheEffectuer{
+  color: grey;
+  font-size: 20px;
+}
+
+.footer .row {
+  margin: 0;
 }

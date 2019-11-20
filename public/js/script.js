@@ -258,6 +258,7 @@ function affichageMemoire(){
         
     })
     .done(function (datas) {
+<<<<<<< HEAD
   let categorie = datas[2]; 
   let id = categorie[1].id; 
 //parcours l array datas [$memoire, $media, $category] et pour chaque elment fait qqch
@@ -284,6 +285,13 @@ function affichageMemoire(){
                 "</td><td>"+data.video+
                 "</td><td>"+data.status+
                 "</td></tr>");
+=======
+        $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+
+            //$("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+data.description+"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td></tr>");
+           $.each(data, function (index, data) {
+                $("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+ data.description +"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td></tr>");
+>>>>>>> 6f05892fb2723f81120a3033e8592538ecb9099f
             })
 
         })
@@ -360,7 +368,7 @@ console.log("oui"+ listes[1])
 
     })
 }
-liste();
+// liste();
 
 //Fin affichage toute video
 
@@ -466,13 +474,27 @@ function getImage() {
        })
 }
 
-getImage();
+// getImage();
+
 
 function afficheImage(data) {
-    $(".afficheImage").append("<div class='carte col-md-3'><img src='" + data.image + "' alt='Avatar' style='width:90%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
+    $(".afficheImage").append('<div class="carte col-md-3"><img src="' + data.image + '" alt="Avatar" style="width:90%"><div class="contain"><h4><b>"' + data.titre + '"</b></h4><p>"' + data.resumer + '"</p><input class="bouton" type="button" id="myBtn'+ data.id +'" value="plus d\'info"/></div></div>' );
+    $("#modal").append('<div id="myModal'+ data.id +'" style="display:none" class="modal"><div class="modal-content"><span class="close">&times;</span><p class="text-center">'+ data.description +'</p></div></div>');
+
+    let bouton = $("#myBtn" + data.id);
+    let close = $(".close");
+    let modal = $("#myModal" + data.id);
+
+    close.click(function(){
+        modal.css('display','none');
+    })
+    bouton.click(function(){
+        modal.css('display','block');
+    });
+
 }
 
-//fonction affichage article
+// fonction affichage article
 
 function getArticle() {
     $.ajaxSetup({
@@ -493,7 +515,7 @@ function getArticle() {
         .fail(function (status) {
        })
 }
-getArticle();
+// getArticle();
 
 function afficheArticles(data) {
     $(".afficheArticles").append("<div class='carte col-md-3'><img src='" + data.image + "' alt='Avatar' style='width:90%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
@@ -530,6 +552,7 @@ $("#affichageRecherche").click(function () { // change les elements
     $("#activeRecherche").toggleClass("desactiveRecherche");
     $("#imgLoupe").toggleClass("desactiverLoupe");
 });
+<<<<<<< HEAD
 $("#barreRecherche").keypress(function (event) { // pour enlever la touche entre (retour à la ligne) et lancer la recherche
     if (event.which == 13) {
         event.preventDefault();
@@ -575,3 +598,5 @@ function lancerRecherche() { //lance la recherche
        
 //     });
 // }
+=======
+>>>>>>> 6f05892fb2723f81120a3033e8592538ecb9099f

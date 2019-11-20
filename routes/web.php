@@ -98,6 +98,13 @@ Route::any('description/{id}', 'VideoController@getDescription')->where('id', "[
 Route::prefix('/photo')->group(function () {
     Route::any('/', 'ImageController@index');
     Route::any('add', 'ImageController@add');
+    
+});
+
+// test
+Route::prefix('/test')->group(function() {
+    Route::any('/', 'TestController@index');
+    Route::any('add', 'TestController@add');
 });
 
 // page article
@@ -106,4 +113,12 @@ Route::prefix('/article')->group(function (){
     Route::any('/', 'ArticleController@index');
     Route::any('add', 'ArticleController@add');
     Route::any('recup', 'ArticleController@recup');
+});
+
+// Recherche
+
+// Route::any('/recherche', 'RechercheController@recherche');
+
+Route::prefix('/recherche')->group(function (){
+    Route::any('/', 'RechercheController@recherche');
 });
