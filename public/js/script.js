@@ -239,6 +239,12 @@ function memoireBdd() {
 }
 
 
+
+
+
+
+
+
 function affichageMemoire(){
     $.ajaxSetup({
         headers: {
@@ -249,20 +255,41 @@ function affichageMemoire(){
     $.ajax({
         url: "/memoire/affichage",
         method: "POST",
-        dataType: "json"
+        dataType: "json",
+        
     })
     .done(function (datas) {
-        //console.log(datas);
-
+  let categorie = datas[2]; 
+  let id = categorie[1].id; 
+//parcours l array datas [$memoire, $media, $category] et pour chaque elment fait qqch
+//il creer des tableau data
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
 
             //$("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+data.description+"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td></tr>");
-           console.log(data);
-           console.log("index : " + datas.length);
-           console.log(data[1]);
+          // pour chaque tableau creer ici 3 il fait qqch
+          //il cree des data
            $.each(data, function (index, data) {
+<<<<<<< HEAD
                console.log(data);
                 $("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+ data.description +"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td><td>"+"<button type='button' id="+data.id+ "class=+btn btn-sup>Supprimer</button>"+"</td></tr> ");
+=======
+               
+            // on a besoin 
+             // console.log(data.id_categorie);
+       //    console.log(categorie[0].nom);
+            
+                $("#affichagevoulu").append("<tr><th scope='row'>"+data.id+
+                "</th><td>"+data.titre+
+                "</td><td>"+data.resumer+
+                "</td><td>"+ data.description +
+                "</td><td>"+data.auteur+
+                "</td><td>"+categorie[data.id_categorie].nom+
+                "</td><td>"+data.id_mediatype+
+                "</td><td>"+data.image+
+                "</td><td>"+data.video+
+                "</td><td>"+data.status+
+                "</td></tr>");
+>>>>>>> b613457254bfbbea97c02a3ffe1cd3bc4f5128a6
             })
 
         })
@@ -354,7 +381,7 @@ console.log("oui"+ listes[1])
 
     })
 }
-liste();
+// liste();
 
 //Fin affichage toute video
 
@@ -440,6 +467,7 @@ function regExpDescription(arg) { // regex pour description
 
 //fonction affichage image 
 
+
 function getImage() {
     $.ajaxSetup({
         headers: {
@@ -459,13 +487,27 @@ function getImage() {
        })
 }
 
-getImage();
+// getImage();
+
 
 function afficheImage(data) {
-    $(".afficheImage").append("<div class='carte col-md-3'><img src='" + data.image + "' alt='Avatar' style='width:90%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
+    $(".afficheImage").append('<div class="carte col-md-3"><img src="' + data.image + '" alt="Avatar" style="width:90%"><div class="contain"><h4><b>"' + data.titre + '"</b></h4><p>"' + data.resumer + '"</p><input class="bouton" type="button" id="myBtn'+ data.id +'" value="plus d\'info"/></div></div>' );
+    $("#modal").append('<div id="myModal'+ data.id +'" style="display:none" class="modal"><div class="modal-content"><span class="close">&times;</span><p class="text-center">'+ data.description +'</p></div></div>');
+
+    let bouton = $("#myBtn" + data.id);
+    let close = $(".close");
+    let modal = $("#myModal" + data.id);
+
+    close.click(function(){
+        modal.css('display','none');
+    })
+    bouton.click(function(){
+        modal.css('display','block');
+    });
+
 }
 
-//fonction affichage article
+// fonction affichage article
 
 function getArticle() {
     $.ajaxSetup({
@@ -486,7 +528,7 @@ function getArticle() {
         .fail(function (status) {
        })
 }
-getArticle();
+// getArticle();
 
 function afficheArticles(data) {
     $(".afficheArticles").append("<div class='carte col-md-3'><img src='" + data.image + "' alt='Avatar' style='width:90%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
@@ -539,3 +581,32 @@ function lancerRecherche() { //lance la recherche
     console.log("recherche :" + recherche);
     console.log("recherche en cour ...");
 }
+
+
+
+// recuperation de categorie
+
+
+
+
+
+// getListMedium();
+
+// function getListCategorie() {
+
+//     $.ajax({
+//         headers: {
+//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//         },
+//         method: "get", //method transfert
+       
+//         url: "/categorie/allCategorie",
+//         dataType: "json",
+//     }).done(function (datas) {
+
+//         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+//            console.log(data)
+//         })
+       
+//     });
+// }

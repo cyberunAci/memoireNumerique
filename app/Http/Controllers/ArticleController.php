@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Memoire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -17,7 +18,11 @@ class ArticleController extends Controller
 
     function index()
     {
-        return view('article'); // affiche la vue image.blade.php
+        $tabArticles = DB::table('memoire')    // Affiche la base de donnée image_migrate
+        ->select('id', 'titre', 'image', 'description')
+        ->where('titre' , '=', "article")
+        ->get();
+        return view('article', ['tabArticles' => $tabArticles]); // affiche la vue image.blade.php
     }
     
     function add(){

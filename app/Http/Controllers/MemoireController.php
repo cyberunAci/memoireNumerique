@@ -51,6 +51,16 @@ class MemoireController extends Controller
         return json_encode($array);
     }
 
+    //recuperation
+    //     function getIdCat(Request $request){
+    //      // $id_select = $request ->input('id_categorie');
+    //       $id_select = $request ->id_categorie;
+    //       $categorie = Categorie::where('id', '=', $id_select)->get('nom');
+    // return $categorie[0];
+    //     }
+
+
+
     function allMedia()
     {
         $media = Media::all();
@@ -86,12 +96,28 @@ class MemoireController extends Controller
     }
 
 
-    function affichage()
+    // function affichage()
+    // {
+    //     $memoire = Memoire::all();
+    //     $media = Media::all();
+    //     $categorie = Categorie::all();
+
+
+
+    //     return ([$memoire, $media, $categorie,]);
+    // }
+
+
+
+
+    function affichage(Request $request)
     {
         $memoire = Memoire::all();
-        $media = Media::all();
-        $categorie = Categorie::all();
-            
-        return json_encode([$memoire, $media, $categorie]);
+        $media = Mediatype::all();
+        $category = Categorie::all();
+
+        // $id_select = $request ->input('id_categorie');
+        $id_select = $request->id_categorie;
+        return ([$memoire, $media, $category]);
     }
 }

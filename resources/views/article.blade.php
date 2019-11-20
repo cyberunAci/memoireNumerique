@@ -13,7 +13,24 @@
 
 
     <div class="afficheArticles row text-center">
+            @foreach ($tabArticles as $item)
 
+                <div class="carte col-md-3">
+                    <a href="#"><img src="{{$item->image}}" alt="Avatar" style="width:90%"></a>
+                    <div class="contain">
+                        <h4><b>{{$item->titre}}</b></h4>
+                        <p> blabla</p>
+                        <input class="bouton" type="button" onclick="document.getElementById('myModal{{$item->id}}').style.display = 'block';" id="myBtn" value="plus d'info" />
+                    </div>
+                </div>
+        
+                <div id="myModal{{$item->id}}" style="display:none" class="modal">
+                    <div class="modal-content">
+                        <span onclick="document.getElementById('myModal{{$item->id}}').style.display = 'none';" class="close">&times;</span>
+                        <p class="text-center">{{$item->description}}</p>
+                    </div>
+                </div>
+            @endforeach
     </div>
 </section>
     
