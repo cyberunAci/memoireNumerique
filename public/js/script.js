@@ -237,6 +237,51 @@ function memoireBdd() {
         })
 }
 
+
+function affichageMemoire(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url: "/memoire/affichage",
+        method: "POST",
+        dataType: "json"
+    })
+    .done(function (datas) {
+        //console.log(datas);
+
+        $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+
+            //$("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+data.description+"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td></tr>");
+           console.log(data);
+           console.log("index : " + datas.length);
+           console.log(data[1]);
+           $.each(data, function (index, data) {
+               console.log(data);
+                $("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+ data.description +"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td></tr>");
+            })
+
+        })
+    })
+}
+
+
+function determineMedia(arg)
+{
+    let tab = [video, photo,article];
+    arg -=1;
+    arg = tab[arg];
+    return arg;
+
+}
+
+
+affichageMemoire();
+
+
 // Affichage médiathéque media recent 
 function recup() {
     $.ajaxSetup({
