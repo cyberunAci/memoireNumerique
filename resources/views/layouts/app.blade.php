@@ -62,7 +62,7 @@
               </nav>
     <!-- CONTENT -->
     @yield('content')
-    <div class="footer">
+    <div class="footer sticky-bottom">
         <p class="text-center pt-3"><a href=""><i class="fab fa-facebook fa-lg m-1"></i></a><a href=""><i class="fab fa-twitter fa-lg m-1"></i></a></p>
         <hr>
         <h3 class="text-center">Les partenaires</h3>

@@ -251,16 +251,10 @@ function affichageMemoire(){
         dataType: "json"
     })
     .done(function (datas) {
-        //console.log(datas);
-
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
 
             //$("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+data.description+"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td></tr>");
-           console.log(data);
-           console.log("index : " + datas.length);
-           console.log(data[1]);
            $.each(data, function (index, data) {
-               console.log(data);
                 $("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+ data.description +"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td></tr>");
             })
 
@@ -507,41 +501,3 @@ $("#affichageRecherche").click(function () { // change les elements
     $("#activeRecherche").toggleClass("desactiveRecherche");
     $("#imgLoupe").toggleClass("desactiverLoupe");
 });
-// $("#barreRecherche").keypress(function (event) { // pour enlever la touche entre (retour à la ligne) et lancer la recherche
-//     if (event.which == 13) {
-//         event.preventDefault();
-//         // lancerRecherche();
-//     }
-// });
-// $("#btnRecherche").click(function (event) { //lance la recherche quand on click sur la loupe
-//     event.preventDefault();
-//     // lancerRecherche();
-// });
-
-// function lancerRecherche() { //lance la recherche
-//     event.preventDefault();
-//     let recherche = [
-//         $("#barreRecherche").val()
-//     ];
-
-//     console.log("recherche :" + recherche);
-//     console.log("recherche en cour ...");
-
-//     $.ajaxSetup({
-//         headers: {
-//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//         }
-//     });
-//     $.ajax({
-//         method: "POST",
-//         url: "/recherche/",
-//         data: recherche,
-//         dataType: "json"
-//     })
-//         .done(function (data) {
-//             console.log("data : " + data);
-//         })
-//         .fail(function (status) {
-//             console.log(status);
-//         })
-// }
