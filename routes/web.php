@@ -91,6 +91,13 @@ Route::any('description/{id}', 'VideoController@getDescription')->where('id', "[
 Route::prefix('/photo')->group(function () {
     Route::any('/', 'ImageController@index');
     Route::any('add', 'ImageController@add');
+    
+});
+
+// test
+Route::prefix('/test')->group(function() {
+    Route::any('/', 'TestController@index');
+    Route::any('add', 'TestController@add');
 });
 
 // page article

@@ -446,7 +446,20 @@ function getImage() {
 getImage();
 
 function afficheImage(data) {
-    $(".afficheImage").append("<div class='carte col-md-3'><img src='" + data.image + "' alt='Avatar' style='width:90%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
+    $(".afficheImage").append('<div class="carte col-md-3"><img src="' + data.image + '" alt="Avatar" style="width:90%"><div class="contain"><h4><b>"' + data.titre + '"</b></h4><p>"' + data.resumer + '"</p><input class="bouton" type="button" id="myBtn'+ data.id +'" value="plus d\'info"/></div></div>' );
+    $("#modal").append('<div id="myModal'+ data.id +'" style="display:none" class="modal"><div class="modal-content"><span class="close">&times;</span><p class="text-center">'+ data.description +'</p></div></div>');
+
+    let bouton = $("#myBtn" + data.id);
+    let close = $(".close");
+    let modal = $("#myModal" + data.id);
+
+    close.click(function(){
+        modal.css('display','none');
+    })
+    bouton.click(function(){
+        modal.css('display','block');
+    });
+
 }
 
 //fonction affichage article
@@ -523,3 +536,4 @@ function lancerRecherche() { //lance la recherche
     console.log("recherche :" + recherche);
     console.log("recherche en cour ...");
 }
+

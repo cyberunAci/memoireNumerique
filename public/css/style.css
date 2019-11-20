@@ -582,6 +582,14 @@ text-align: center;
   margin: 5%;
 }
 
+/* bouton des cartes images */
+
+.bouton {
+padding:3%;
+background-color:#D39A26;
+border-radius: 10px;
+}
+
 .afficheArticles {
   padding-top: 5%;
   margin: 5%;
