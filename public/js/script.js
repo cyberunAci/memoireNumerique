@@ -238,6 +238,12 @@ function memoireBdd() {
 }
 
 
+
+
+
+
+
+
 function affichageMemoire(){
     $.ajaxSetup({
         headers: {
@@ -248,20 +254,36 @@ function affichageMemoire(){
     $.ajax({
         url: "/memoire/affichage",
         method: "POST",
-        dataType: "json"
+        dataType: "json",
+        
     })
     .done(function (datas) {
-        //console.log(datas);
-
+  let categorie = datas[2]; 
+  let id = categorie[1].id; 
+//parcours l array datas [$memoire, $media, $category] et pour chaque elment fait qqch
+//il creer des tableau data
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
 
             //$("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+data.description+"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td></tr>");
-           console.log(data);
-           console.log("index : " + datas.length);
-           console.log(data[1]);
+          // pour chaque tableau creer ici 3 il fait qqch
+          //il cree des data
            $.each(data, function (index, data) {
-               console.log(data);
-                $("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+ data.description +"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td></tr>");
+               
+            // on a besoin 
+             // console.log(data.id_categorie);
+       //    console.log(categorie[0].nom);
+            
+                $("#affichagevoulu").append("<tr><th scope='row'>"+data.id+
+                "</th><td>"+data.titre+
+                "</td><td>"+data.resumer+
+                "</td><td>"+ data.description +
+                "</td><td>"+data.auteur+
+                "</td><td>"+categorie[data.id_categorie].nom+
+                "</td><td>"+data.id_mediatype+
+                "</td><td>"+data.image+
+                "</td><td>"+data.video+
+                "</td><td>"+data.status+
+                "</td></tr>");
             })
 
         })
@@ -424,6 +446,7 @@ function regExpDescription(arg) { // regex pour description
 
 //fonction affichage image 
 
+
 function getImage() {
     $.ajaxSetup({
         headers: {
@@ -523,3 +546,32 @@ function lancerRecherche() { //lance la recherche
     console.log("recherche :" + recherche);
     console.log("recherche en cour ...");
 }
+
+
+
+// recuperation de categorie
+
+
+
+
+
+// getListMedium();
+
+// function getListCategorie() {
+
+//     $.ajax({
+//         headers: {
+//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//         },
+//         method: "get", //method transfert
+       
+//         url: "/categorie/allCategorie",
+//         dataType: "json",
+//     }).done(function (datas) {
+
+//         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+//            console.log(data)
+//         })
+       
+//     });
+// }
