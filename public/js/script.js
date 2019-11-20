@@ -338,7 +338,7 @@ console.log("oui"+ listes[1])
 
     })
 }
-liste();
+// liste();
 
 //Fin affichage toute video
 
@@ -443,7 +443,8 @@ function getImage() {
        })
 }
 
-getImage();
+// getImage();
+
 
 function afficheImage(data) {
     $(".afficheImage").append('<div class="carte col-md-3"><img src="' + data.image + '" alt="Avatar" style="width:90%"><div class="contain"><h4><b>"' + data.titre + '"</b></h4><p>"' + data.resumer + '"</p><input class="bouton" type="button" id="myBtn'+ data.id +'" value="plus d\'info"/></div></div>' );
@@ -462,7 +463,7 @@ function afficheImage(data) {
 
 }
 
-//fonction affichage article
+// fonction affichage article
 
 function getArticle() {
     $.ajaxSetup({
@@ -483,7 +484,7 @@ function getArticle() {
         .fail(function (status) {
        })
 }
-getArticle();
+// getArticle();
 
 function afficheArticles(data) {
     $(".afficheArticles").append("<div class='carte col-md-3'><img src='" + data.image + "' alt='Avatar' style='width:90%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
