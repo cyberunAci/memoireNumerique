@@ -78,4 +78,13 @@ class MemoireController extends Controller
         return json_encode($array);
     }
 
+
+    function affichage()
+    {
+        $memoire = Memoire::all();
+        $media = Media::all();
+        $categorie = Categorie::all();
+            
+        return json_encode([$memoire, $media, $categorie]);
+    }
 }
