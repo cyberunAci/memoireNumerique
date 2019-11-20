@@ -24,7 +24,14 @@ Route::get('/description', function () {
 Route::prefix('categorie')->group(function () {
     Route::post('ajoutCategorie', 'MemoireController@ajoutCategorie'); // /forminsert/add
     Route::get('allCategorie', 'MemoireController@allCategorie'); // /forminsert/add
+
+    Route::post('getIdCat', 'MemoireController@getIdCat'); 
+  
 });
+
+
+
+
 
 /*Ajout média */
 Route::prefix('media')->group(function () {

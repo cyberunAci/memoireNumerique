@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Memoire;
+use Illuminate\Support\Facades\DB;
 
 class VideoController extends Controller
 {
     function index()
     {
-        return view('video');
+        $tabVideos = DB::table('memoire')    // Affiche la base de donnée image_migrate
+        ->select('titre', 'image', 'description')
+        ->where('titre' , '=', "video")
+        ->get();
+        return view('video', ['tabVideos' => $tabVideos]); // affiche la vue image.blade.php
     }
 
     function ajout(){
