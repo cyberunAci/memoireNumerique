@@ -100,3 +100,11 @@ Route::prefix('/article')->group(function (){
     Route::any('add', 'ArticleController@add');
     Route::any('recup', 'ArticleController@recup');
 });
+
+// Recherche
+
+// Route::any('/recherche', 'RechercheController@recherche');
+
+Route::prefix('/recherche')->group(function (){
+    Route::any('/', 'RechercheController@recherche');
+});
