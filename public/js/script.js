@@ -99,6 +99,7 @@ function getVideo() {
 getVideo();
 function affichage(data) {
     $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div></a>");
+
 }
 /* 
 fctclick(id){
@@ -268,6 +269,10 @@ function affichageMemoire(){
           // pour chaque tableau creer ici 3 il fait qqch
           //il cree des data
            $.each(data, function (index, data) {
+<<<<<<< HEAD
+               console.log(data);
+                $("#affichagevoulu").append("<tr><th scope='row'>"+data.id+"</th><td>"+data.titre+"</td><td>"+data.resumer+"</td><td>"+ data.description +"</td><td>"+data.auteur+"</td><td>"+data.id_categorie+"</td><td>"+data.id_mediatype+"</td><td>"+data.image+"</td><td>"+data.video+"</td><td>"+data.status+"</td><td>"+"<button type='button' id="+data.id+ "class=+btn btn-sup>Supprimer</button>"+"</td></tr> ");
+=======
                
             // on a besoin 
              // console.log(data.id_categorie);
@@ -284,6 +289,7 @@ function affichageMemoire(){
                 "</td><td>"+data.video+
                 "</td><td>"+data.status+
                 "</td></tr>");
+>>>>>>> b613457254bfbbea97c02a3ffe1cd3bc4f5128a6
             })
 
         })
@@ -321,6 +327,21 @@ function recup() {
     })
 }
 recup();
+
+//Supprimer une memoire
+supprimerMemoire(1);
+function supprimerMemoire(id) {
+    $.ajax({
+        url: "/memoire/supprimer",
+        method: "GET",
+        data: { 
+            id : id
+        },
+        dataType: "json"
+    }).done(function (data) {
+       console.log(data);
+    })
+}
 
 function image(all){
    

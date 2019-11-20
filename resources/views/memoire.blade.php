@@ -91,6 +91,7 @@
       <th scope="col">Image</th>
       <th scope="col">Video</th>
       <th scope="col">Status</th>
+      <th scope="col">Supprimer</th>
     </tr>
   </thead>
   <tbody id="affichagevoulu">
