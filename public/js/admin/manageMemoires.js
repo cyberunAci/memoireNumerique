@@ -78,7 +78,7 @@ function getListCategorie() {
     }).done(function (datas) {
 
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            $("#id_categorie").append("<option value="+data.id+">"+data.nom+"</option>");
+            $("#id_categorie").append("<option value="+ data.id +">"+ data.nom +"</option>");
         })
        
     });
