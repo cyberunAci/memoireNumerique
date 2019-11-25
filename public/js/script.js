@@ -274,7 +274,7 @@ function affichageMemoire(){
             // on a besoin 
              // console.log(data.id_categorie);
        //    console.log(categorie[0].nom);
-            
+            console.log(categorie[data.id_categorie].nom);
                 $("#affichagevoulu").append("<tr><th scope='row'>"+data.id+
                 "</th><td>"+data.titre+
                 "</td><td>"+data.resumer+
@@ -325,7 +325,6 @@ function recup() {
 recup();
 
 //Supprimer une memoire
-supprimerMemoire(1);
 function supprimerMemoire(id) {
     $.ajax({
         url: "/memoire/supprimer",
@@ -513,11 +512,11 @@ function getArticle() {
     });
     $.ajax({
         method: "POST",
-        url: "/article/add",
+        url: "/memoires/add",
     })
         .done(function (datas) {
             $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-                afficheArticles(data);
+                afficheMemoires(data);
             })
 
         })
@@ -526,12 +525,12 @@ function getArticle() {
 }
 // getArticle();
 
-function afficheArticles(data) {
+function afficheMemoires(data) {
     $(".afficheArticles").append("<div class='carte col-md-3'><img src='" + data.image + "' alt='Avatar' style='width:90%'><div class='contain'><h4><b>" + data.titre + "</b></h4><p>" + data.resumer + "</p></div></div>");
 }
 
 // Affichage Article recent 
-function recupArticle() {
+function recupMemoires() {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -539,7 +538,7 @@ function recupArticle() {
     });
 
     $.ajax({
-        url: "/article/recup",
+        url: "/memoires/recup",
         method: "POST",
         dataType: "json"
     }).done(function (all) {
@@ -553,7 +552,7 @@ function recupArticle() {
         $("#lien3").attr('href', '/description/' + all[0].id);
     })
 }
-recupArticle();
+recupMemoires();
 
 // barre de recherche //
 $("#affichageRecherche").click(function () { // change les elements

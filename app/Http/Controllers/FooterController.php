@@ -8,6 +8,6 @@ class FooterController extends Controller
 {
     function index()
     {
-        return view('footer'); //footer.blade.php
+        return view('partials.footer'); //footer.blade.php
     }
 }

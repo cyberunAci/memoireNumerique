@@ -15,7 +15,7 @@ class MemoireController extends Controller
     // MEMOIRES
     function index()
     {
-        return view('memoires'); //memoire.blade.php
+        return view('admin.memoires'); //memoires.blade.php
     }
     // AJOUTER
     function add(Request $request)
@@ -99,7 +99,6 @@ class MemoireController extends Controller
         $category = Categorie::all();
 
         // $id_select = $request ->input('id_categorie');
-        $id_select = $request->id_categorie;
         return ([$memoire, $media, $category]);
     }
 }

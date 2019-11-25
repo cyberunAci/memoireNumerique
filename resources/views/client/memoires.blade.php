@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<h1 class="text-center">CATEGORIE ARTICLE</h1>
+<h1 class="text-center">CATEGORIE MEMOIRES</h1>
 
 <section class="container">
     <div class="gallery js-flickity"data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>

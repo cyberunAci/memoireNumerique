@@ -13,7 +13,18 @@
 
 use App\Categorie;
 
+<<<<<<< HEAD
 /* **************** TODO **************** */
+=======
+Route::get('/footer', 'FooterController@index');
+Route::get('/', function () {
+    return view('client.accueil');
+});
+Route::get('/description', function () {
+    return view('description');
+});
+
+>>>>>>> 962d8b7a718357604f3f6d84c53c80088fa9ee1a
 
 /*Ajout catégorie */
 Route::prefix('categorie')->group(function () {
@@ -65,6 +76,15 @@ Route::prefix('/article')->group(function () {
 Route::get('/description', function () {
     return view('description');
 });
+<<<<<<< HEAD
+=======
+Route::prefix('/mediatheque')->group(function () {
+    Route::get('/', function () {
+        return view('client.mediatheque');
+    });
+    Route::post('recup', 'MediaController@recup');
+    Route::post('liste', 'MediaController@liste');
+>>>>>>> 962d8b7a718357604f3f6d84c53c80088fa9ee1a
 
 /* **************** InProgress **************** */
 Route::prefix('/mediatheque')->group(function (){ // affiche les informations de la BDD
@@ -72,11 +92,16 @@ Route::prefix('/mediatheque')->group(function (){ // affiche les informations de
     Route::any('memoire', 'MediaController@memoire');
     Route::any('{id}', 'MediaController@id')->where('id', "[0-9]+"); // TODO id = détails / description
 });
+<<<<<<< HEAD
 Route::prefix('/memoires')->group(function (){ // ajout de données dans la BDD
     Route::any('/', 'MemoireController@index');
     Route::any('add', 'MemoireController@add');
     Route::any('update', 'MemoireController@update');
     Route::any('remove', 'MemoireController@remove');
+=======
+Route::get('/information', function () {
+    return view('admin.equipe');
+>>>>>>> 962d8b7a718357604f3f6d84c53c80088fa9ee1a
 });
 
 /* **************** BON **************** */
@@ -98,9 +123,52 @@ Route::prefix('jeparticipe')->group(function () {
     Route::post('index', 'JeParticipeController@index');
     Route::post('message', 'JeParticipeController@message');
 });
+<<<<<<< HEAD
 /*
  * Page "Recherche"
  */
 Route::prefix('/recherche')->group(function () {
+=======
+
+
+//route avec id 
+
+Route::any('description/{id}', 'VideoController@getDescription')->where('id', "[0-9]+");
+
+
+// page photo 
+
+
+Route::prefix('/photo')->group(function () {
+    Route::any('/', 'ImageController@index');
+    Route::any('add', 'ImageController@add');
+    
+});
+
+// test
+Route::prefix('/test')->group(function() {
+    Route::any('/', 'TestController@index');
+    Route::any('add', 'TestController@add');
+});
+
+// page article
+
+Route::prefix('/memoires')->group(function (){
+    Route::any('/', 'ArticleController@index');
+    Route::any('add', 'ArticleController@add');
+    Route::any('recup', 'ArticleController@recup');
+});
+
+// Recherche
+
+// Route::any('/recherche', 'RechercheController@recherche');
+
+Route::prefix('/recherche')->group(function (){
+>>>>>>> 962d8b7a718357604f3f6d84c53c80088fa9ee1a
     Route::any('/', 'RechercheController@recherche');
 });
+
+Route::prefix('/recherche')->group(function (){
+    Route::any('/', 'RechercheController@recherche');
+});
+
