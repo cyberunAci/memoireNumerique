@@ -10,9 +10,14 @@ class Memoire extends Model
     public $timestamps = false;
     protected $fillable = ['id', 'titre', 'resumer', 'description', 'auteur', 'id_categorie', 'id_mediatype', 'image', 'video', 'status'];
 
-    public function category()
-    {
-        return $this->belongsTo('App\Category');
+      //Relation  one to one -> media
+    public function media(){
+        $this->hasOne('App\Media');
+    }
+      //Relation one to many -> category
+
+    public function category(){
+        $this->belongsTo('App\Category');
     }
    
 }

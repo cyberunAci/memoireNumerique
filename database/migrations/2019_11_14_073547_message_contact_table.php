@@ -30,6 +30,7 @@ class MessageContactTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('messages_contact');
+
     }
 }
