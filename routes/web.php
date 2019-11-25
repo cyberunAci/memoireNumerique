@@ -13,114 +13,58 @@
 
 use App\Categorie;
 
-Route::get('/footer', 'FooterController@index');
-Route::get('/', function () {
-    return view('accueil');
-});
-Route::get('/description', function () {
-    return view('description');
-});
-
+/* **************** TODO **************** */
 
 /*Ajout catégorie */
 Route::prefix('categorie')->group(function () {
-    Route::post('ajoutCategorie', 'MemoireController@ajoutCategorie'); // /forminsert/add
-    Route::get('allCategorie', 'MemoireController@allCategorie'); // /forminsert/add
-
-    Route::post('getIdCat', 'MemoireController@getIdCat'); 
-  
+    Route::get('afficheCategorie', 'CreateController@afficheCategorie'); // /forminsert/add
+    Route::post('getIdCat', 'CreateController@getIdCat');
 });
-
-
-
-
-
 /*Ajout média */
 Route::prefix('media')->group(function () {
-    Route::post('ajoutMedia', 'MemoireController@ajoutMedia'); // /forminsert/add
-    Route::get('allMedia', 'MemoireController@allMedia'); // /forminsert/add
+    Route::get('afficheMedia', 'CreateController@afficheMedia'); // /forminsert/add
 });
 
-
-
-/*Groupe mémoire*/
-Route::prefix('memoire')->group(function () {
-    Route::any('/', 'MemoireController@index');
-    Route::post('ajout', 'MemoireController@ajout'); // /forminsert/add
-    Route::post('affichage', 'MemoireController@affichage');  //affichage des  memoire
-    Route::get('supprimer/{id}', 'MemoireController@supprimerMemoire');//memoire/supprimer
+/* **************** InProgress (manque verif) **************** */
+Route::prefix('/mediatheque')->group(function (){ // affiche les informations de la BDD
+    Route::any('/', 'MediathequeController@index');
+    Route::any('categorie', 'MediathequeController@categorie');
+    Route::any('categorie/{id}', 'CreateController@getByCategorie')->where('id', "[0-9]+"); // TODO id = détails / description
+    Route::any('type', 'MediathequeController@type');
+    Route::any('type/{id}', 'CreateController@getByType')->where('id', "[0-9]+"); // TODO id = détails / description
 });
-
-
-
-/*    ****************    */
-
-Route::get('/video', 'VideoController@index');
-Route::prefix('video')->group(function () {
-    Route::post('index', 'VideoController@index');
-    Route::post('ajout', 'VideoController@ajout');
+Route::prefix('/create')->group(function (){ // ajout de données dans la BDD // CreateS devient CREATE
+    Route::any('/', 'CreateController@index');
+    Route::any('add', 'CreateController@add'); // ajouter des memoires
+    Route::put('{id}', 'CreateController@update');
+    Route::delete('remove', 'CreateController@remove');
+    Route::any('categorie/add', 'CreateController@addCategorie');
+    Route::any('type/add', 'CreateController@addType');
 });
-Route::prefix('/mediatheque')->group(function () {
-    Route::get('/', function () {
-        return view('mediatheque');
-    });
-    Route::post('recup', 'MediaController@recup');
-    Route::post('liste', 'MediaController@liste');
-
-});
-Route::get('/information', function () {
-    return view('equipe');
-});
+/* **************** Valider **************** */
+// acceuil
+Route::any('/', 'AcceuilController@index');
 /*
- *  page "Contacts"
+ *  page "Contact"
  */
-Route::get('/contact', 'ContactController@index');
 Route::prefix('contact')->group(function () {
+    Route::any('/', 'ContactController@index');
     Route::post('index', 'ContactController@index');
     Route::post('message', 'ContactController@message');
 });
 /**
  *  page "Je participe"
  */
-Route::get('/jeparticipe', 'JeParticipeController@index');
 Route::prefix('jeparticipe')->group(function () {
+    Route::any('/', 'JeParticipeController@index');
     Route::post('index', 'JeParticipeController@index');
     Route::post('message', 'JeParticipeController@message');
 });
-
-
-//route avec id 
-
-Route::any('description/{id}', 'VideoController@getDescription')->where('id', "[0-9]+");
-
-
-// page photo 
-
-
-Route::prefix('/photo')->group(function () {
-    Route::any('/', 'ImageController@index');
-    Route::any('add', 'ImageController@add');
-    
-});
-
-// test
-Route::prefix('/test')->group(function() {
-    Route::any('/', 'TestController@index');
-    Route::any('add', 'TestController@add');
-});
-
-// page article
-
-Route::prefix('/article')->group(function (){
-    Route::any('/', 'ArticleController@index');
-    Route::any('add', 'ArticleController@add');
-    Route::any('recup', 'ArticleController@recup');
-});
-
 // Recherche
-
-// Route::any('/recherche', 'RechercheController@recherche');
-
 Route::prefix('/recherche')->group(function (){
     Route::any('/', 'RechercheController@recherche');
+});
+// L'equipe // information
+Route::get('/information', function () {
+    return view('admin.equipe');
 });

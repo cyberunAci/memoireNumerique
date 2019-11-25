@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class FooterController extends Controller
+class AcceuilController extends Controller
 {
     function index()
     {
-        return view('partials.footer'); //footer.blade.php
+        return view('client.accueil'); //memoire.blade.php
     }
 }

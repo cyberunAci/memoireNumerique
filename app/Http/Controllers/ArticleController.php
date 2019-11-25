@@ -20,9 +20,9 @@ class ArticleController extends Controller
     {
         $tabArticles = DB::table('memoire')    // Affiche la base de donnée image_migrate
         ->select('id', 'titre', 'image', 'description')
-        ->where('titre' , '=', "article")
+        ->where('titre' , '=', "Memoire")
         ->get();
-        return view('article', ['tabArticles' => $tabArticles]); // affiche la vue image.blade.php
+        return view('client.memoires', ['tabArticles' => $tabArticles]); // affiche la vue image.blade.php
     }
     
     function add(){

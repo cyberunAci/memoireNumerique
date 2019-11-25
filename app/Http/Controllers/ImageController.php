@@ -22,7 +22,7 @@ class ImageController extends Controller
         ->select('id', 'titre', 'image', 'description')
         ->where('titre' , '=', "photo")
         ->get();
-        return view('photo', ['tabImages' => $tabImages]);
+        return view('client.photo', ['tabImages' => $tabImages]);
     }
     
         function add(){
