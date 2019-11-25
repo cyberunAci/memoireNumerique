@@ -11,69 +11,14 @@ use Illuminate\Support\Facades\Validator;
 
 class MemoireController extends Controller
 {
+    /* ********** BON ********** */
+    // MEMOIRES
     function index()
     {
-        return view('memoire'); //memoire.blade.php
+        return view('memoires'); //memoire.blade.php
     }
-
-    function supprimerMemoire(Request $request)
-    {
-        Memoire::find(['id'])->delete();
-    
-    
-    }
-    
-    function ajoutCategorie(Request $request)
-    {
-        $array = Validator::make($request->all(), [
-            'nom' => 'required',
-        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
-
-        $insertCategorie = Categorie::create(
-            $array
-        )->id;
-
-        $array['id'] = $insertCategorie;
-        return json_encode($array);
-    }
-
-    function ajoutMedia(Request $request)
-    {
-        $array = Validator::make($request->all(), [
-            'type' => 'required',
-        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
-
-        $insertMedia = Media::create(
-            $array
-        )->id;
-
-        $array['id'] = $insertMedia;
-        return json_encode($array);
-    }
-
-    //recuperation
-    //     function getIdCat(Request $request){
-    //      // $id_select = $request ->input('id_categorie');
-    //       $id_select = $request ->id_categorie;
-    //       $categorie = Categorie::where('id', '=', $id_select)->get('nom');
-    // return $categorie[0];
-    //     }
-
-
-
-    function allMedia()
-    {
-        $media = Media::all();
-        return json_encode($media);
-    }
-
-    function allCategorie()
-    {
-        $categorie = Categorie::all();
-        return json_encode($categorie);
-    }
-
-    function ajout(Request $request)
+    // AJOUTER
+    function add(Request $request)
     {
         $array = Validator::make($request->all(), [
             'titre' => 'required',
@@ -87,28 +32,65 @@ class MemoireController extends Controller
             'status' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $forminsert = Memoire::create(
+        $insertionBDD = Memoire::create(
             $array
         )->id;
 
-        $array['id'] = $forminsert;
+        $array['id'] = $insertionBDD;
+        return json_encode($array);
+    }
+    // SUPRIMER
+    function remove()
+    {
+        Memoire::find(['id'])->delete();
+    }
+    // MODIFIER
+    function update()
+    {
+        //
+    }
+
+    /* ********** TODO ********** */
+    
+    function addCategorie(Request $request)
+    {
+        $array = Validator::make($request->all(), [
+            'nom' => 'required',
+        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+
+        $insertCategorie = Categorie::create(
+            $array
+        )->id;
+
+        $array['id'] = $insertCategorie;
         return json_encode($array);
     }
 
+    function addMedia(Request $request)
+    {
+        $array = Validator::make($request->all(), [
+            'type' => 'required',
+        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-    // function affichage()
-    // {
-    //     $memoire = Memoire::all();
-    //     $media = Media::all();
-    //     $categorie = Categorie::all();
+        $insertMedia = Media::create(
+            $array
+        )->id;
 
+        $array['id'] = $insertMedia;
+        return json_encode($array);
+    }
 
+    function afficheMedia()
+    {
+        $media = Media::all();
+        return json_encode($media);
+    }
 
-    //     return ([$memoire, $media, $categorie,]);
-    // }
-
-
-
+    function afficheCategorie()
+    {
+        $categorie = Categorie::all();
+        return json_encode($categorie);
+    }
 
     function affichage(Request $request)
     {

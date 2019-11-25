@@ -32,6 +32,7 @@ function sendContact() {
                 $("#errorFormulaire").addClass("bonFormulaire");
             })
             .fail(function (status) {
+                $("#errorFormulaireContact").empty();
                 $("#errorFormulaireContact").append('Les champs sont obligatoire ! code d\'erreur ' + status.status + '.');
             })
     } else {

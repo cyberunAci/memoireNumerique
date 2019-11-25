@@ -22,7 +22,7 @@
                             <td>{{ $item->resumer }}</td>
                             <td>{{ $item->description }}</td>
                             <td>{{ $item->auteur }}</td>
-                            <td><button class="btn btn-primary">Lien</button></td>
+                        <td><a href="/mediatheque"> + d'information > </a></td>
                         </tr>
                     </tbody>
                 @endforeach
