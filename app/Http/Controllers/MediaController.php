@@ -12,29 +12,27 @@ class MediaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    function index() {
-        return view('mediatheque');
+    function index()
+    {
+        return view('client.mediatheque');
     }
-    function memoire() {
-        return view('memoire'); // TODO a modifier
-    }
-    function id($id) {
+
+    function id($id)
+    {
         $recupVideo = Memoire::find($id);
         return view('description', ['recupVideo'=> $recupVideo]);
     }
 
-    /* TODO */
-    function recup(){
+    // /* TODO */
+    // function recup()
+    // {
+    //     $all = Memoire::orderBy('id','desc')->take(3)->get();
+    //     return $all;
+    // }
 
-
-        $all = Memoire::orderBy('id','desc')->take(3)->get();
-        return $all;
-    }
-
-    function liste(){
-        $liste = Memoire::all();
-        
-
-    return $liste;
-    }
+    // function liste()
+    // {
+    //     $liste = Memoire::all();
+    //     return $liste;
+    // }
 }

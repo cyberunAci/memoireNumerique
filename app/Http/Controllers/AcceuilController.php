@@ -8,6 +8,6 @@ class AcceuilController extends Controller
 {
     function index()
     {
-        return view('/accueil'); //memoire.blade.php
+        return view('client.accueil'); //memoire.blade.php
     }
 }

@@ -9,13 +9,13 @@ use App\Memoire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class MemoireController extends Controller
+class CreateController extends Controller
 {
     /* ********** BON ********** */
     // MEMOIRES
     function index()
     {
-        return view('admin.memoires'); //memoires.blade.php
+        return view('admin.create'); //memoires.blade.php
     }
     // AJOUTER
     function add(Request $request)
@@ -39,19 +39,7 @@ class MemoireController extends Controller
         $array['id'] = $insertionBDD;
         return json_encode($array);
     }
-    // SUPRIMER
-    function remove()
-    {
-        Memoire::find(['id'])->delete();
-    }
-    // MODIFIER
-    function update()
-    {
-        //
-    }
-
-    /* ********** TODO ********** */
-    
+    // AJOUTER Categorie
     function addCategorie(Request $request)
     {
         $array = Validator::make($request->all(), [
@@ -65,8 +53,8 @@ class MemoireController extends Controller
         $array['id'] = $insertCategorie;
         return json_encode($array);
     }
-
-    function addMedia(Request $request)
+    // AJOUTER Type
+    function addType(Request $request)
     {
         $array = Validator::make($request->all(), [
             'type' => 'required',
@@ -79,7 +67,23 @@ class MemoireController extends Controller
         $array['id'] = $insertMedia;
         return json_encode($array);
     }
+    // SUPRIMER
+    function remove()
+    {
+        Memoire::find(['id'])->delete();
+    }
+    // MODIFIER
+    function update()
+    {
+        //
+    }
+    // liste des éléments
+    function getByCategorie()
+    {
+        //
+    }
 
+    /* ********** TODO ********** */
     function afficheMedia()
     {
         $media = Media::all();
