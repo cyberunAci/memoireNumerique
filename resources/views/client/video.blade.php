@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -32,10 +33,10 @@
                         @endforeach
                 </div>
 
- </div>
-       
-
-
-            
+ </div>      
 
 @endSection
+@section('js')
+        <script type="text/javascript" src="{{ asset('js/client/affichage.js') }}"></script>
+@endSection
+

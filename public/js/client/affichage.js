@@ -164,31 +164,7 @@ function getImage() {
 // getImage();
 
 
-// Function affichage video 
 
-function getVideo() {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    $.ajax({
-        method: "POST",
-        url: "/video/ajout",
-    })
-        .done(function (datas) {
-            $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-                affichage(data);
-            })
-        })
-        .fail(function (status) {
-        })
-}
-getVideo();
-function affichage(data) {
-    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div></a>");
-
-}
 
 function afficheImage(data) {
     $(".afficheImage").append('<div class="carte col-md-3"><img src="' + data.image + '" alt="Avatar" style="width:90%"><div class="contain"><h4><b>"' + data.titre + '"</b></h4><p>"' + data.resumer + '"</p><input class="bouton" type="button" id="myBtn'+ data.id +'" value="plus d\'info"/></div></div>' );
@@ -235,3 +211,29 @@ console.log("oui"+ listes[1])
     })
 }
 // liste();
+
+// Function affichage video 
+
+function getVideo() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "POST",
+        url: "/video/ajout",
+    })
+        .done(function (datas) {
+            $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+                affichage(data);
+            })
+        })
+        .fail(function (status) {
+        })
+}
+getVideo();
+function affichage(data) {
+    $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div></a>");
+
+}

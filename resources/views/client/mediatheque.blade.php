@@ -1,5 +1,9 @@
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/mediatheque.css') }}">
+@endSection
 @extends('layouts.app')
 @section('content')
+
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <div class="container">
@@ -63,4 +67,9 @@ Derniers ajouts
 
 <!-- partial -->
 
+@endSection
+
+@section('js')
+  <script type="text/javascript" src="{{ asset('js/client/mediatheque.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/client/affichage.js') }}"></script>
 @endSection

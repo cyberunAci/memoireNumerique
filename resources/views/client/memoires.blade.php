@@ -35,3 +35,6 @@
 </section>
     
 @endSection
+@section('js')
+        <script type="text/javascript" src="{{ asset('js/client/affichage.js') }}"></script>
+@endSection
