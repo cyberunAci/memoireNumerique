@@ -83,6 +83,9 @@
         </form> --}}
     </div>
 
+
+    <!-- SCRIPT -->
+    
 <script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery-3.4.1.js') }}"></script>

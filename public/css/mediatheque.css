@@ -1,0 +1,42 @@
+.derniere-video {
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    margin-left: 1%;
+    font-size: 1.8em;
+  }
+  
+  .audio {
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    margin-left: 1%;
+    font-size: 1.8em;
+    background-color: #FAA492;
+  }
+  
+  .audio p {
+    color: white;
+  }
+  
+  .video {
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    margin-left: 1%;
+    font-size: 1.8em;
+    background-color: #51F6FE;
+  }
+  
+  .video p {
+    color: white;
+  }
+  
+  .gallery {
+    width: 100%;
+  }
+  
+  .all {
+    align-content: center;
+    width: 100;
+  }

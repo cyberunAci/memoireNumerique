@@ -260,7 +260,6 @@ function affichageMemoire(){
     })
     .done(function (datas) {
   let categorie = datas[2]; 
-  let id = categorie[1].id; 
 //parcours l array datas [$memoire, $media, $category] et pour chaque elment fait qqch
 //il creer des tableau data
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
