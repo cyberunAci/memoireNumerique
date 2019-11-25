@@ -12,9 +12,11 @@ class Category extends Model
 
     public $timestamps = false;
 
-    public function memoire()
+          //Relation  one to many-> memoire
+   /*  public function memoire()
     {
         return $this->hasMany('App\Memoire');
     }
-
+ */
+   
 }
