@@ -273,7 +273,7 @@ function affichageMemoire(){
             // on a besoin 
              // console.log(data.id_categorie);
        //    console.log(categorie[0].nom);
-            
+            console.log(categorie[data.id_categorie].nom);
                 $("#affichagevoulu").append("<tr><th scope='row'>"+data.id+
                 "</th><td>"+data.titre+
                 "</td><td>"+data.resumer+

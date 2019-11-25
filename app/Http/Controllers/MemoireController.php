@@ -117,7 +117,6 @@ class MemoireController extends Controller
         $category = Categorie::all();
 
         // $id_select = $request ->input('id_categorie');
-        $id_select = $request->id_categorie;
         return ([$memoire, $media, $category]);
     }
 }
