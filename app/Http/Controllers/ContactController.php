@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 class ContactController extends Controller
 {
     function index() {
-        return view('contact');
+        return view('client.contact');
     }
 
     function message(Request $request)

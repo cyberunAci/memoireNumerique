@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 class JeParticipeController extends Controller
 {
     function index() {
-        return view('jeParticipe');
+        return view('client.jeParticipe');
     }
 
     function message(Request $request)

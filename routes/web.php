@@ -15,7 +15,7 @@ use App\Categorie;
 
 Route::get('/footer', 'FooterController@index');
 Route::get('/', function () {
-    return view('accueil');
+    return view('client.accueil');
 });
 Route::get('/description', function () {
     return view('description');
@@ -62,14 +62,14 @@ Route::prefix('video')->group(function () {
 });
 Route::prefix('/mediatheque')->group(function () {
     Route::get('/', function () {
-        return view('mediatheque');
+        return view('client.mediatheque');
     });
     Route::post('recup', 'MediaController@recup');
     Route::post('liste', 'MediaController@liste');
 
 });
 Route::get('/information', function () {
-    return view('equipe');
+    return view('admin.equipe');
 });
 /*
  *  page "Contacts"
@@ -124,3 +124,8 @@ Route::prefix('/memoires')->group(function (){
 Route::prefix('/recherche')->group(function (){
     Route::any('/', 'RechercheController@recherche');
 });
+
+Route::prefix('/recherche')->group(function (){
+    Route::any('/', 'RechercheController@recherche');
+});
+
