@@ -324,7 +324,6 @@ function recup() {
 recup();
 
 //Supprimer une memoire
-supprimerMemoire(1);
 function supprimerMemoire(id) {
     $.ajax({
         url: "/memoire/supprimer",
