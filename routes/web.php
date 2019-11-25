@@ -111,7 +111,7 @@ Route::prefix('/test')->group(function() {
 
 // page article
 
-Route::prefix('/article')->group(function (){
+Route::prefix('/memoires')->group(function (){
     Route::any('/', 'ArticleController@index');
     Route::any('add', 'ArticleController@add');
     Route::any('recup', 'ArticleController@recup');
