@@ -70,6 +70,6 @@ Derniers ajouts
 @endSection
 
 @section('js')
-  <script type="text/javascript" src="{{ asset('js/client/mediatheque.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/admin/manageMemoires.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/client/affichage.js') }}"></script>
 @endSection
