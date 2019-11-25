@@ -324,7 +324,6 @@ function recup() {
 recup();
 
 //Supprimer une memoire
-supprimerMemoire(1);
 function supprimerMemoire(id) {
     $.ajax({
         url: "/memoire/supprimer",
@@ -562,46 +561,14 @@ $("#affichageRecherche").click(function () { // change les elements
 });
 $("#barreRecherche").keypress(function (event) { // pour enlever la touche entre (retour à la ligne) et lancer la recherche
     if (event.which == 13) {
-        event.preventDefault();
         lancerRecherche();
     }
 });
 $("#btnRecherche").click(function (event) { //lance la recherche quand on click sur la loupe
-    event.preventDefault();
     lancerRecherche();
 });
 function lancerRecherche() { //lance la recherche
-    event.preventDefault();
     let recherche = $("#barreRecherche").val();
     console.log("recherche :" + recherche);
     console.log("recherche en cour ...");
 }
-
-
-
-// recuperation de categorie
-
-
-
-
-
-// getListMedium();
-
-// function getListCategorie() {
-
-//     $.ajax({
-//         headers: {
-//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//         },
-//         method: "get", //method transfert
-       
-//         url: "/categorie/allCategorie",
-//         dataType: "json",
-//     }).done(function (datas) {
-
-//         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-//            console.log(data)
-//         })
-       
-//     });
-// }
