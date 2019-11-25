@@ -49,7 +49,6 @@ Route::any('/', 'AcceuilController@index');
  */
 Route::prefix('contact')->group(function () {
     Route::any('/', 'ContactController@index');
-    Route::post('index', 'ContactController@index');
     Route::post('message', 'ContactController@message');
 });
 /**
@@ -57,7 +56,6 @@ Route::prefix('contact')->group(function () {
  */
 Route::prefix('jeparticipe')->group(function () {
     Route::any('/', 'JeParticipeController@index');
-    Route::post('index', 'JeParticipeController@index');
     Route::post('message', 'JeParticipeController@message');
 });
 // Recherche
