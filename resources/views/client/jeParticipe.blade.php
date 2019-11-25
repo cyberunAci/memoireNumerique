@@ -1,3 +1,8 @@
+@section('css')
+
+<link rel="stylesheet" href="{{ asset('css/formulaire.css') }}">
+
+@endSection
 @extends('layouts.app')
 @section('content')
 <div class="blockFormulaire">
@@ -25,4 +30,9 @@
         <input type="submit" value="Envoyer" id="btn-submit">
     </form>
 </div>
+@endSection
+
+@section('js')
+<script type="text/javascript" src="{{ asset('js/client/contact.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/client/regex.js') }}"></script>
 @endSection

@@ -35,3 +35,7 @@
 </div>
 
 @endSection
+
+@section('js')
+    <script type="text/javascript" src="{{ asset('js/client/recherche.js') }}"></script>
+@endSection
