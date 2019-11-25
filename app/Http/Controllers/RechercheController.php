@@ -16,6 +16,6 @@ class RechercheController extends Controller
             ->select('titre', 'resumer', 'description', 'auteur')
             ->where('titre' , '=', $barreRecherche)
             ->get();
-        return view('recherche', ['recherche' => $recherche, 'barreRecherche' => $barreRecherche]);
+        return view('client.recherche', ['recherche' => $recherche, 'barreRecherche' => $barreRecherche]);
     }
 }

@@ -22,7 +22,7 @@ class ArticleController extends Controller
         ->select('id', 'titre', 'image', 'description')
         ->where('titre' , '=', "Memoire")
         ->get();
-        return view('memoires', ['tabArticles' => $tabArticles]); // affiche la vue image.blade.php
+        return view('client.memoires', ['tabArticles' => $tabArticles]); // affiche la vue image.blade.php
     }
     
     function add(){

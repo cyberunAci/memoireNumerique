@@ -13,7 +13,7 @@ class VideoController extends Controller
         ->select('titre', 'image', 'description')
         ->where('titre' , '=', "video")
         ->get();
-        return view('video', ['tabVideos' => $tabVideos]); // affiche la vue image.blade.php
+        return view('client.video', ['tabVideos' => $tabVideos]); // affiche la vue image.blade.php
     }
 
     function ajout(){

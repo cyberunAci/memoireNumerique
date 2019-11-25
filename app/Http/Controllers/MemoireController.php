@@ -13,7 +13,7 @@ class MemoireController extends Controller
 {
     function index()
     {
-        return view('memoire'); //memoire.blade.php
+        return view('admin.memoires'); //memoires.blade.php
     }
 
     function supprimerMemoire(Request $request)

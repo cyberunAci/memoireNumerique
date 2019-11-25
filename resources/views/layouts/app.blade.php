@@ -16,72 +16,13 @@
     <title>Document</title>
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
-                <a class="navbar-brand" href="#"><img src="../img/logo.png" alt="Logo" width="60" height="50"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end navbar-blanc" id="navbarNavDropdown">
-                  <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Accueil</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        L'équipe
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Lorem ipseum</a>
-                        <a class="dropdown-item" href="#">Lorem ipseum</a>
-                        <a class="dropdown-item" href="#">Lorem ipseum</a>
-                      </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/mediatheque">Médiathèques</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/jeparticipe">Je participe</a>
-                    </li>
-                    <li class="nav-item desactiveRecherche" id="activeRecherche">
+       
+    @include('partials.navbar')
 
-                      <form action="/recherche" method="POST" id="formulaireRecherche">
-                        {{ csrf_field() }}
-                          <input id="barreRecherche" wrap="off" maxlength="30" name="recherche">
-                          <input type="image" id="btnRecherche" alt="Login" src="../img/loupe.png" width="30" height="25">
-                      </form>
-
-                    </li>
-                    <li class="nav-item" id="imgLoupe">
-                        <a class="nav-link" href="#" id="affichageRecherche"><img src="../img/loupe.png" alt="Logo" width="30" height="25"></a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
+    
     <!-- CONTENT -->
     @yield('content')
-    <div class="footer sticky-bottom">
-        <p class="text-center pt-3"><a href=""><i class="fab fa-facebook fa-lg m-1"></i></a><a href=""><i class="fab fa-twitter fa-lg m-1"></i></a></p>
-        <hr>
-        <h3 class="text-center">Les partenaires</h3>
-        <div class="row pb-2">
-          <div class="col-lg-3 col-md-6 col-sm-12 "><p class="text-center"><img src="https://via.placeholder.com/150" alt=""></p></div>
-          <div class="col-lg-3 col-md-6 col-sm-12"><p class="text-center"><img src="https://via.placeholder.com/150" alt=""></p></div>
-          <div class="col-lg-3 col-md-6 col-sm-12"><p class="text-center"><img src="https://via.placeholder.com/150" alt=""></p></div>
-          <div class="col-lg-3 col-md-6 col-sm-12"><p class="text-center"><img src="https://via.placeholder.com/150" alt=""></p></div>
-        </div>
-       {{--   <h3 class="text-center">Newsletter</h3>
-       <form>
-            <div class="form-group">
-              <div class="row justify-content-center">
-              <p class="text-center"><input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"></p>
-              <p class="text-center pl-1"><input type="submit" class="btn btn-primary" value="S'inscrire"></p>
-              </div>
-            </div>
-        </form> --}}
-    </div>
+@include('partials.footer')
 
 
     <!-- SCRIPT -->
