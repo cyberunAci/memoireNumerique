@@ -27,7 +27,7 @@
   <hr>
 
   <h2>Ajouter une mémoire</h2>
-  <form onsubmit="memoireBdd()">
+  <form onsubmit="createBdd()">
     <div class="form-group">
       <label for="">Titre</label>
       <input type="text" class="form-control" name="titre" id="titre" placeholder="Ajouter un titre" onblur="regExpTitre(this)" required>

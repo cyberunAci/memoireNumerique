@@ -9,7 +9,7 @@ function mediaBdd() {
     });
     $.ajax({
         method: "POST",
-        url: "/media/ajoutMedia",
+        url: "/media/addType",
         data: {
             type: post_type,
         },
@@ -33,7 +33,7 @@ function categorieBdd() {
     });
     $.ajax({
         method: "POST",
-        url: "/categorie/ajoutCategorie",
+        url: "/categorie/addCategorie",
         data: {
             nom: post_nom,
         },
@@ -53,7 +53,7 @@ function getListMedia() {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         method: "get", //method transfert
-        url: "/media/allMedia",
+        url: "/media/afficheMedia",
         dataType: "json",
     }).done(function (datas) {
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
@@ -73,7 +73,7 @@ function getListCategorie() {
         },
         method: "get", //method transfert
        
-        url: "/categorie/allCategorie",
+        url: "/categorie/afficheCategorie",
         dataType: "json",
     }).done(function (datas) {
 
@@ -88,7 +88,7 @@ getListCategorie();
 
 
 /* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */
-function memoireBdd() {
+function createBdd() {
     event.preventDefault();
     let post_titre = $("#titre").val();
     let post_resumer = $("#resumer").val();
@@ -119,7 +119,7 @@ function memoireBdd() {
     });
     $.ajax({
         method: "POST",
-        url: "/memoire/ajout",
+        url: "/create/add",
         data: table,
         dataType: "json",
     })
