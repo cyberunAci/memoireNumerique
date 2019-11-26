@@ -18,9 +18,11 @@ class TestMemoiresSeeder extends Seeder
                 'resumer' => 'TEST',
                 'description' => 'TEST',
                 'auteur' => 'TEST',
-                'status' => '1',
-                'id_status' => '1',
-                'id_media' => '1',
+                'id_categorie' => '1',
+                'id_mediatype' => '1',
+                'video' => 'test',
+                'image' => 'test',
+                'status' => true,
             ],
         ];
         DB::table('memoire')->insert(
