@@ -16,8 +16,10 @@ class Categorie extends Migration
         Schema::create('categorie', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nom', 255);
-    
-        });    }
+            $table->string('couleur', 255);
+            $table->string('image', 255);
+        });
+    }
 
     /**
      * Reverse the migrations.
