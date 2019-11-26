@@ -13,5 +13,14 @@ const mix = require('laravel-mix');
 
 
 /*Compiler les fichiers scss en css pour la partie client*/
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/client/affichage.js', 'public/js/client')
+.js('resources/js/client/carousel-video.js', 'public/js/client')
+.js('resources/js/client/contact.js', 'public/js/client')
+.js('resources/js/client/recherche.js', 'public/js/client')
+.js('resources/js/client/regex.js', 'public/js/client')
+.js('resources/js/admin/manageMemoires.js', 'public/js/admin')
+.js('resources/js/admin/remove.js', 'public/js/admin')
+.js('resources/js/app.js', 'public/js')
+.js('resources/js/bootstrap.js', 'public/js')
+.js('resources/js/jquery-m.4.1.js', 'public/js')
 .sass('resources/sass/client/app.scss', 'public/css/client');
