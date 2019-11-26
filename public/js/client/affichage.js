@@ -32,46 +32,19 @@ function getDatas() {
 }
 // lastMemoires();
 
-function getDatas(){
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    $.ajax({
-        url: "/api/mediatheque",
-        method: "GET",
-        dataType: "json"
-    }).done(function (all) {
-        console.log(all);
-
-    })
-}
-
 getDatas();
 
 /**
  * 
  * @param {*} datas 
  */
-function affichageLast(datas) {
-    
-    $("#recent-1").attr('src', datas[1].media.image);
-    $("#recent-2").attr('src', datas[2].media.image);
-     $("#recent-3").attr('src', datas[0].media.image);
-
-getDatas();
-/**
- * 
- * @param {*} datas 
- */
 
 function affichageLast(datas) {
-  $("#recent-1").attr('src', datas[1].media.image);
-  $("#recent-2").attr('src', datas[2].media.image);
-  $("#recent-3").attr('src', datas[0].media.image);
+
+    console.log(datas);
+//   $("#recent-1").attr('src', datas[1].media.image);
+//   $("#recent-2").attr('src', datas[2].media.image);
+//   $("#recent-3").attr('src', datas[0].media.image);
 }
 
 function affichageMemoire() {
