@@ -10,4 +10,6 @@ class Mediatype extends Model
   
     protected $fillable = ['id', 'type'];
 
+    public $timestamps = false;
+
 }

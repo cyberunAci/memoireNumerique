@@ -28,14 +28,16 @@ Route::prefix('/mediatheque')->group(function () { // affiche les informations d
     Route::get('type', 'MediathequeController@type');
     Route::get('type/{id}', 'MemoiresController@getByType')->where('id', "[0-9]+"); // TODO id = détails / description
 });
+Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
+    Route::get('/', 'MemoiresController@index');
+});
 Route::prefix('/api')->group(function () {
     Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
-        Route::get('/', 'MemoiresController@index');
         Route::get('add', 'MemoiresController@add'); // ajouter des memoires
         Route::put('{id}', 'MemoiresController@update');
         Route::delete('remove', 'MemoiresController@remove');
-        Route::get('categorie/add', 'MemoiresController@addCategorie'); // ajouter une categories
-        Route::get('type/add', 'MemoiresController@addType'); // ajouter un type de fichier
+        Route::post('categorie/add', 'MemoiresController@addCategorie'); // ajouter une categories
+        Route::post('type/add', 'MemoiresController@addType'); // ajouter un type de fichier
     });
 });
 /* **************** Valider **************** */

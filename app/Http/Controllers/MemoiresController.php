@@ -15,7 +15,7 @@ class MemoiresController extends Controller
     // MEMOIRES
     function index()
     {
-        return view('admin.create'); //memoires.blade.php
+        return view('admin.memoires'); //memoires.blade.php
     }
     // AJOUTER
     function add(Request $request)
@@ -60,7 +60,7 @@ class MemoiresController extends Controller
             'type' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $insertMedia = Media::create(
+        $insertMedia = Mediatype::create(
             $array
         )->id;
 

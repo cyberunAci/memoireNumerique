@@ -15,7 +15,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#">Lorem ipseum</a>
             <a class="dropdown-item" href="#">Lorem ipseum</a>
-            <a class="dropdown-item" href="/api/memoires">Memoires</a>
+            <a class="dropdown-item" href="/memoires">Memoires</a>
           </div>
         </li>
         <li class="nav-item">
