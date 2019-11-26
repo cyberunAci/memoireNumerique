@@ -45,6 +45,7 @@ Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD
 });
 Route::prefix('/api')->group(function () {
     Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
+        Route::get('/', 'MemoiresController@all');
         Route::get('add', 'MemoiresController@add'); // ajouter des memoires
         Route::put('{id}', 'MemoiresController@update');
         Route::delete('remove', 'MemoiresController@remove');

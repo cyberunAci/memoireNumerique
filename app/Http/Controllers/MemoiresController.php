@@ -19,6 +19,17 @@ class MemoiresController extends Controller
     {
         return view('admin.memoires'); //memoires.blade.php
     }
+
+    /**
+     * Return all memoires
+     */
+    function all()
+    {
+        $out = Memoire::all();
+
+        return $out;
+    }
+
     // AJOUTER
     function add(Request $request)
     {

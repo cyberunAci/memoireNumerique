@@ -1,3 +1,19 @@
+function getDatas(){
+
+    $.ajax({
+        method: "GET", //method transfert
+        url: "/api/memoires",
+        dataType: "json",
+    }).done(function (datas) {
+        console.log(datas);
+        // $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+        //     $("#id_mediatype").append("<option value=" + data.id + ">" + data.type + "</option>");
+        // })
+    });
+
+}
+
+
 // /* AJOUTER CATEGORIE BDD POUR ADMINISTRATEUR */
 function categorieBdd() {
     event.preventDefault();
