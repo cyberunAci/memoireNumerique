@@ -32,7 +32,7 @@ Route::prefix('/mediatheque')->group(function () { // affiche les informations d
 /* **************** Administrateur *************************** */
 Route::prefix('/admin')->group(function () {
     Route::get('/', 'AdminController@index');
-    Route::get('create', 'AdminController@createView');
+    Route::get('memoires', 'AdminController@memoiresView');
     Route::get('description', 'AdminController@descView');
     Route::get('equipe', 'AdminController@equipeView');
 });

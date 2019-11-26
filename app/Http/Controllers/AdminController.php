@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    function createView() {
-        return view('admin.create');
+    function memoiresView() {
+        return view('admin.memoires');
     }
     
     function descView() {
