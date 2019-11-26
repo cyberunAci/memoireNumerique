@@ -126,7 +126,11 @@ function lancerRecherche() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/resources/js/client/recherche.js */"./resources/js/client/recherche.js");
+=======
+module.exports = __webpack_require__(/*! /home/cyberun-8/Bureau/projetLaravel/memoireNumerique/resources/js/client/recherche.js */"./resources/js/client/recherche.js");
+>>>>>>> 1ffa450373526841be4dac820daed369ae06fa5f
 
 
 /***/ })

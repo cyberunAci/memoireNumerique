@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TestMemoiresSeeder extends Seeder
+class TestMediaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,15 +14,14 @@ class TestMemoiresSeeder extends Seeder
         $array = [
             [
                 // TODO
-                'titre' => 'TEST',
-                'resumer' => 'TEST',
-                'description' => 'TEST',
-                'auteur' => 'TEST',
+                'titre' => 'TEST de memoire',
+                'resumer' => 'TEST de memoire',
+                'description' => 'TEST de memoire',
+                'auteur' => 'TEST de memoire',
                 'id_categorie' => '1',
-                'id_mediatype' => '1',
-                'video' => 'test',
-                'image' => 'test',
-                'status' => true,
+                'status' => '1',
+                'id_status' => '1',
+                'id_media' => '1',
             ],
         ];
         DB::table('memoire')->insert(

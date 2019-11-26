@@ -93,7 +93,85 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/resources/js/client/contact.js: Identifier 'sendJeParticipe' has already been declared (82:9)\n\n\u001b[0m \u001b[90m 80 | \u001b[39m\u001b[90m * Envoie les informations du formulaire \"je participe\"\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 81 | \u001b[39m\u001b[90m */\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 82 | \u001b[39m\u001b[36mfunction\u001b[39m sendJeParticipe() {\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 83 | \u001b[39m    event\u001b[33m.\u001b[39mpreventDefault()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 84 | \u001b[39m    \u001b[36mif\u001b[39m ($verifLien \u001b[33m&&\u001b[39m $verif \u001b[33m&&\u001b[39m $verifEmail) {\u001b[0m\n\u001b[0m \u001b[90m 85 | \u001b[39m        let donnees \u001b[33m=\u001b[39m {\u001b[0m\n    at Parser.raise (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:6975:17)\n    at ScopeHandler.checkRedeclarationInScope (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:4255:12)\n    at ScopeHandler.declareName (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:4221:12)\n    at Parser.registerFunctionStatementId (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:11394:16)\n    at Parser.parseFunction (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:11369:12)\n    at Parser.parseFunctionStatement (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:11004:17)\n    at Parser.parseStatementContent (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:10694:21)\n    at Parser.parseStatement (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:10656:17)\n    at Parser.parseBlockOrModuleBlockBody (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:11232:25)\n    at Parser.parseBlockBody (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:11219:10)\n    at Parser.parseTopLevel (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:10587:10)\n    at Parser.parse (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:12097:10)\n    at parse (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/parser/lib/index.js:12148:38)\n    at parser (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/core/lib/transformation/normalize-file.js:168:34)\n    at normalizeFile (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/core/lib/transformation/normalize-file.js:102:11)\n    at runSync (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/home/cyberun-4/Bureau/PROJET/projetLaravel/memoireNumerique/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+/**
+ * Envoie les informations du formulaire "contact"
+ */
+function sendContact() {
+  event.preventDefault();
+
+  if ($verif && $verifEmail) {
+    var donnees = {
+      nom: $("#nomContact").val(),
+      email: $("#emailContact").val(),
+      objet: $("#objetContact").val(),
+      message: $("#messageContact").val()
+    };
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      method: "POST",
+      url: "/contact/message",
+      data: donnees,
+      dataType: "json"
+    }).done(function (data) {
+      $("#errorFormulaire").empty();
+      $("#errorFormulaire").removeClass("errorFormulaire");
+      $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
+      $("#errorFormulaire").addClass("bonFormulaire");
+    }).fail(function (status) {
+      $("#errorFormulaireContact").append('Les champs sont obligatoire ! code d\'erreur ' + status.status + '.');
+    });
+  } else {
+    $("#errorFormulaire").append('<p>Les champs ne sont pas valide !</p>');
+    $("#errorFormulaire").addClass("errorFormulaire");
+  }
+}
+/**
+ * Envoie les informations du formulaire "je participe"
+ */
+
+
+function sendJeParticipe() {
+  event.preventDefault();
+
+  if ($verifLien && $verif && $verifEmail) {
+    var donnees = {
+      nom: $("#nomJeParticipe").val(),
+      email: $("#emailJeParticipe").val(),
+      titreVideo: $("#titreVideoJeParticipe").val(),
+      descriptionVideo: $("#descriptionVideoJeParticipe").val(),
+      lienVideo: $("#lienVideoJeParticipe").val()
+    };
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      method: "POST",
+      url: "/jeparticipe/message",
+      data: donnees,
+      dataType: "json"
+    }).done(function (data) {
+      $("#errorFormulaire").empty();
+      $("#errorFormulaire").removeClass("errorFormulaire");
+      $("#errorFormulaire").append('<p>Votre Message a bien été envoyée !</p>');
+      $("#errorFormulaire").addClass("bonFormulaire");
+    }).fail(function (status) {
+      $("#errorFormulaireJeParticipe").append('Code d\'erreur ' + status.status + '.');
+    });
+  } else {
+    $("#errorFormulaire").empty();
+    $("#errorFormulaire").append('<p>Attention! Les champs ne sont pas valide !</p>');
+    $("#errorFormulaire").addClass("errorFormulaire");
+  }
+}
+/**
+ * Envoie les informations du formulaire "je participe"
+ */
 
 /***/ }),
 
