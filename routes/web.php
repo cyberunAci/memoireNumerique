@@ -13,6 +13,8 @@
 
 use App\Categorie;
 
+
+Route::get('/api/mediatheque', 'MediathequeController@getDatas');
 /* **************** TODO **************** */
 
 /*Ajout catégorie */

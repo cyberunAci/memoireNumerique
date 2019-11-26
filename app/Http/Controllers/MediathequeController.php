@@ -6,35 +6,28 @@ use Illuminate\Http\Request;
 
 class MediathequeController extends Controller
 {
-    
+
     function index()
     {
         return view('client.mediatheque');
     }
-    function categorie()
+
+    function getDatas()
     {
-        return view('client.categorie');
-    }
-    function type()
-    {
-        return view('client.type');
+        $lastMemoires = app('App\Http\Controllers\MemoiresController')->lastMemoires();
+        $lastVideos = app('App\Http\Controllers\MemoiresController')->lastVideos();
+        $lastPhotos = app('App\Http\Controllers\MemoiresController')->lastPhotos();
+        $categories = app('App\Http\Controllers\CategoriesController')->categories();
+
+
+        return json_encode([
+            'last' => $lastMemoires,
+            'lastVideo' => $lastVideos,
+            'lastPhotos' => $lastPhotos,
+            'categories' => $categories
+        
+        ]);
     }
 
-    /* TODO */
-    function id($id)
-    {
-        $recupVideo = Memoire::find($id);
-        return view('description', ['recupVideo'=> $recupVideo]);
-    }
-    function recup()
-    {
-        $all = Memoire::orderBy('id','desc')->take(3)->get();
-        return $all;
-    }
 
-    function liste()
-    {
-        $liste = Memoire::all();
-        return $liste;
-    }
 }
