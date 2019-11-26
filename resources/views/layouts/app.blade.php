@@ -9,9 +9,9 @@
     <script src="https://kit.fontawesome.com/29e6b87f45.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css">
     @yield('css')
-    <link rel="stylesheet" href="{{ asset('css/commun.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/recherche.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/client/app.css') }}">
 
+    
     <title>Document</title>
 </head>
 <body>
