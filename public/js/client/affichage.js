@@ -7,11 +7,12 @@ function recup() {
     });
 
     $.ajax({
-        url: "/mediatheque/recup",
+        url: "/memoires",
         method: "POST",
         dataType: "json"
     }).done(function (all) {
-       image(all);
+    //    image(all);
+    console.log(all);
     })
 }
 recup();
@@ -72,7 +73,7 @@ function determineMedia(arg)
 }
 
 
-affichageMemoire();
+// affichageMemoire();
 
 function image(all){
    
@@ -137,7 +138,7 @@ function recupMemoires() {
         $("#lien3").attr('href', '/description/' + all[0].id);
     })
 }
-recupMemoires();
+// recupMemoires();
 
 //fonction affichage image 
 
@@ -232,7 +233,7 @@ function getVideo() {
         .fail(function (status) {
         })
 }
-getVideo();
+// getVideo();
 function affichage(data) {
     $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div></a>");
 
