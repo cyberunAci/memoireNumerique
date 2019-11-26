@@ -9,7 +9,7 @@ use App\Memoire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class CreateController extends Controller
+class MemoiresController extends Controller
 {
     /* ********** BON ********** */
     // MEMOIRES

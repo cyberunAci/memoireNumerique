@@ -1,8 +1,7 @@
 // barre de recherche //
 $("#affichageRecherche").click(function () { // change les elements
-    $("#activeRecherche").toggleClass("activeRecherche");
-    $("#activeRecherche").toggleClass("desactiveRecherche");
-    $("#imgLoupe").toggleClass("desactiverLoupe");
+    $("#activeRecherche").addClass("activeRecherche");
+    $("#imgLoupe").addClass("desactiverLoupe");
 });
 $("#barreRecherche").keypress(function (event) { // pour enlever la touche entre (retour à la ligne) et lancer la recherche
     if (event.which == 13) {
