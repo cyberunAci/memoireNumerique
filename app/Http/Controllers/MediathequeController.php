@@ -6,10 +6,17 @@ use Illuminate\Http\Request;
 
 class MediathequeController extends Controller
 {
-
     function index()
     {
         return view('client.mediatheque');
+    }
+    function categorie()
+    {
+        return view('client.categorie');
+    }
+    function type()
+    {
+        return view('client.type');
     }
 
     function getDatas()
@@ -19,15 +26,11 @@ class MediathequeController extends Controller
         $lastPhotos = app('App\Http\Controllers\MemoiresController')->lastPhotos();
         $categories = app('App\Http\Controllers\CategoriesController')->categories();
 
-
         return json_encode([
             'last' => $lastMemoires,
             'lastVideo' => $lastVideos,
             'lastPhotos' => $lastPhotos,
             'categories' => $categories
-        
         ]);
     }
-
-
 }
