@@ -28,6 +28,16 @@ Route::prefix('/mediatheque')->group(function () { // affiche les informations d
     Route::get('type', 'MediathequeController@type');
     Route::get('type/{id}', 'MemoiresController@getByType')->where('id', "[0-9]+"); // TODO id = détails / description
 });
+
+/* **************** Administrateur *************************** */
+Route::prefix('/admin')->group(function () {
+    Route::get('/', 'AdminController@index');
+    Route::get('create', 'AdminController@createView');
+    Route::get('description', 'AdminController@descView');
+    Route::get('equipe', 'AdminController@equipeView');
+});
+
+
 Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
     Route::get('/', 'MemoiresController@index');
 });
@@ -40,6 +50,9 @@ Route::prefix('/api')->group(function () {
         Route::post('type/add', 'MemoiresController@addType'); // ajouter un type de fichier
     });
 });
+
+
+
 /* **************** Valider **************** */
 // acceuil
 Route::get('/', 'AccueilController@index');
