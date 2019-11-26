@@ -31,7 +31,7 @@ class JeParticipeController extends Controller
             )->validate();
     
             /**
-             * TODO INSERTION DS LA BASE DE DONNE
+             * TODO INSERTION DS LA BASE DE DONNEE
              */
             $donneesBdd = JeParticipeModel::create( //Autre maniere d'envoyer les information [en lien avec le fichier Jeux.php (dans app/)]
                 $validateData

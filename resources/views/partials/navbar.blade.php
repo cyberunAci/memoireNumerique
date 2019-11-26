@@ -9,6 +9,16 @@
             <a class="nav-link" href="/">Accueil</a>
         </li>
         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Administrateur
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/admin/create">Create</a>
+              <a class="dropdown-item" href="/admin/description">Description</a>
+              <a class="dropdown-item" href="/admin/equipe">Équipe</a>
+            </div>
+          </li>
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             L'équipe
           </a>
