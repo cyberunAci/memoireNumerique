@@ -22,5 +22,5 @@ mix.js('resources/js/client/affichage.js', 'public/js/client')
 .js('resources/js/admin/remove.js', 'public/js/admin')
 .js('resources/js/app.js', 'public/js')
 .js('resources/js/bootstrap.js', 'public/js')
-.js('resources/js/jquery-m.4.1.js', 'public/js')
+.js('resources/js/jquery-3.4.1.js', 'public/js')
 .sass('resources/sass/client/app.scss', 'public/css/client');
