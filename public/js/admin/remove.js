@@ -1,5 +1,5 @@
 //Supprimer une memoire
-function supprimerMemoire(id) {
+function supprimerMemoire() {
     $.ajax({
         url: "/memoire/supprimer",
         method: "GET",
