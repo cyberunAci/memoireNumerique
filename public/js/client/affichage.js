@@ -1,41 +1,36 @@
 // Affichage médiathéque media recent 
 function lastMemoires() {
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $.ajax({
+    url: "/api/memoires/lastMemoires",
+    method: "GET",
+    dataType: "json"
+  }).done(function (all) {
+    // console.log(all);
+    affichageLast(all);
+  });
+} // lastMemoires();
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
 
-    $.ajax({
-        url: "/api/memoires/lastMemoires",
-        method: "GET",
-        dataType: "json"
-    }).done(function (all) {
-        // console.log(all);
-         affichageLast(all);
-
-    })
+function getDatas() {
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $.ajax({
+    url: "/api/mediatheque",
+    method: "GET",
+    dataType: "json"
+  }).done(function (all) {
+    console.log(all);
+  });
 }
 // lastMemoires();
-
-function getDatas(){
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    $.ajax({
-        url: "/api/mediatheque",
-        method: "GET",
-        dataType: "json"
-    }).done(function (all) {
-        console.log(all);
-
-    })
-}
 
 getDatas();
 
@@ -43,12 +38,13 @@ getDatas();
  * 
  * @param {*} datas 
  */
-function affichageLast(datas) {
-    
-    $("#recent-1").attr('src', datas[1].media.image);
-    $("#recent-2").attr('src', datas[2].media.image);
-     $("#recent-3").attr('src', datas[0].media.image);
 
+function affichageLast(datas) {
+
+    console.log(datas);
+//   $("#recent-1").attr('src', datas[1].media.image);
+//   $("#recent-2").attr('src', datas[2].media.image);
+//   $("#recent-3").attr('src', datas[0].media.image);
 }
 
 function affichageMemoire() {
@@ -98,15 +94,12 @@ function affichageMemoire() {
 
 
 function determineMedia(arg) {
-    let tab = [video, photo, article];
-    arg -= 1;
-    arg = tab[arg];
-    return arg;
+  var tab = [video, photo, article];
+  arg -= 1;
+  arg = tab[arg];
+  return arg;
+} // affichageMemoire();
 
-}
-
-
-// affichageMemoire();
 
 function image(all) {
 
@@ -150,29 +143,24 @@ function afficheMemoires(data) {
 
 // Affichage Article recent 
 function recupMemoires() {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    $.ajax({
-        url: "/memoires/recup",
-        method: "POST",
-        dataType: "json"
-    }).done(function (all) {
-        $("#recentArticle-1").attr('src', all[2].image);
-
-        $("#recentArticle-2").attr('src', all[1].image);
-
-        $("#recentArticle-3").attr('src', all[0].image);
-        $("#lien1").attr('href', '/description/' + all[2].id);
-        $("#lien2").attr('href', '/description/' + all[1].id);
-        $("#lien3").attr('href', '/description/' + all[0].id);
-    })
-}
-// recupMemoires();
-
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $.ajax({
+    url: "/memoires/recup",
+    method: "POST",
+    dataType: "json"
+  }).done(function (all) {
+    $("#recentArticle-1").attr('src', all[2].image);
+    $("#recentArticle-2").attr('src', all[1].image);
+    $("#recentArticle-3").attr('src', all[0].image);
+    $("#lien1").attr('href', '/description/' + all[2].id);
+    $("#lien2").attr('href', '/description/' + all[1].id);
+    $("#lien3").attr('href', '/description/' + all[0].id);
+  });
+} // recupMemoires();
 //fonction affichage image 
 
 
