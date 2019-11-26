@@ -14,6 +14,7 @@
 use App\Categorie;
 
 
+Route::get('/api/memoires/lastMemoires', 'MemoiresController@lastMemoires');
 Route::get('/api/mediatheque', 'MediathequeController@getDatas');
 /* **************** TODO **************** */
 
