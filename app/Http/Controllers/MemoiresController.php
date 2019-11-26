@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Categorie;
+use App\Http\Resources\MemoiresRessource;
+use App\Status;
 use App\Media;
 use App\Mediatype;
 use App\Memoire;
@@ -104,5 +106,57 @@ class MemoiresController extends Controller
 
         // $id_select = $request ->input('id_categorie');
         return ([$memoire, $media, $category]);
+    }
+
+    // Recupère les dernières mémoires dans la bdd grace a la catégorie et le status
+
+    function lastMemoires()
+    {
+
+        $out = Memoire::with([
+            'media' => function ($t) {
+                $t->with('type');
+            },
+            'category',
+            'status'
+        ])
+            ->orderBy('id', 'desc')
+            ->limit(3)
+            ->get();
+
+        return MemoiresRessource::collection($out);
+    }
+
+    // Recupère les dernières videos dans la bdd grace au type de média
+
+    function lastVideos()
+    {
+
+        $out = $this->lastByType('video');
+        return MemoiresRessource::collection($out);
+    }
+
+    function lastPhotos()
+    {
+        $out = $this->lastByType('photo');
+        return MemoiresRessource::collection($out);
+    }
+
+    private function lastByType($type)
+    {
+
+        $out = Memoire::with([
+            'media' => function ($t) {
+                $t->with('type');
+            },
+            'category',
+            'status'
+        ])
+            ->whereHas('media.type', function ($q) use ($type) {
+                $q->where('type', $type);
+            })
+            ->orderBy('id', 'desc')
+            ->get();
+        return $out;
     }
 }

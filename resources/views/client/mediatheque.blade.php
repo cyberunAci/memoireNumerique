@@ -17,7 +17,10 @@ Derniers ajouts
   <div class="gallery-cell"><a id="link-3" href=""><img id="recent-3" src=""></a></div>
 
 </div>
-         
+       
+<div class="derniere catagorie">
+  
+</div>
 <div class="derniere-video">
        Thématique
         </div>
