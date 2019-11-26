@@ -17,7 +17,7 @@ class Memoire extends Model
   }
   //Relation one to many -> category
 
-  public function category()
+  public function categories()
   {
     return $this->belongsTo(Categorie::class, 'id_categorie');
   }

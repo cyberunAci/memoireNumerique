@@ -10,13 +10,13 @@ class MediathequeController extends Controller
     {
         return view('client.mediatheque');
     }
-    function categorie()
+    function categories()
     {
-        return view('client.categorie');
+        return view('client.categories');
     }
-    function type()
+    function types()
     {
-        return view('client.type');
+        return view('client.types');
     }
 
     function getDatas()

@@ -25,10 +25,10 @@ Route::prefix('categorie')->group(function () {
 /* **************** InProgress (manque verif) **************** */
 Route::prefix('/mediatheque')->group(function () { // affiche les informations de la BDD
     Route::get('/', 'MediathequeController@index');
-    Route::get('categorie', 'MediathequeController@categorie');
-    Route::get('categorie/{id}', 'MemoiresController@getByCategorie')->where('id', "[0-9]+"); // TODO id = détails / description
-    Route::get('type', 'MediathequeController@type');
-    Route::get('type/{id}', 'MemoiresController@getByType')->where('id', "[0-9]+"); // TODO id = détails / description
+    Route::get('categories', 'MediathequeController@categories');
+    Route::get('categories/{id}', 'MemoiresController@getByCategories')->where('id', "[0-9]+"); // TODO id = détails / description
+    Route::get('types', 'MediathequeController@types');
+    Route::get('types/{id}', 'MemoiresController@getByTypes')->where('id', "[0-9]+"); // TODO id = détails / description
 });
 
 /* **************** Administrateur *************************** */
@@ -48,8 +48,8 @@ Route::prefix('/api')->group(function () {
         Route::get('add', 'MemoiresController@add'); // ajouter des memoires
         Route::put('{id}', 'MemoiresController@update');
         Route::delete('remove', 'MemoiresController@remove');
-        Route::post('categorie/add', 'MemoiresController@addCategorie'); // ajouter une categories
-        Route::post('type/add', 'MemoiresController@addType'); // ajouter un type de fichier
+        Route::post('categories/add', 'MemoiresController@addCategories'); // ajouter une categories
+        Route::post('types/add', 'MemoiresController@addTypes'); // ajouter un type de fichier
     });
 });
 
