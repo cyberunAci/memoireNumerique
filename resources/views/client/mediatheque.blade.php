@@ -1,5 +1,6 @@
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/mediatheque.css') }}">
+<link rel="stylesheet" href="{{ asset('css/client/app.css') }}">
+
 @endSection
 @extends('layouts.app')
 @section('content')
@@ -33,7 +34,7 @@ Derniers ajouts
 <div class="div5"> <img src="img/histoire-petit-triangle.jpg"alt=""></div>
 <div class="div6"> <a href="/article"><img src="img/manuscrit-petit-triangle.jpg" alt=""></a></div>
 <div class="div7"> <a href="/photo"><img src="img/photo_image-petit-triangle.jpg"alt=""></a></div>
-<div class="div8"> <a href="/video"><img src="img/video_image-petit-triangle.jpg" alt=""></a></div>
+<div class="div8"> <a href="/mediatheque/video"><img src="img/video_image-petit-triangle.jpg" alt=""></a></div>
 
 </div>
 

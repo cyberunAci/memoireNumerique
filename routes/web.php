@@ -19,50 +19,62 @@ Route::get('/api/mediatheque', 'MediathequeController@getDatas');
 
 /*Ajout catégorie */
 Route::prefix('categorie')->group(function () {
-    Route::get('afficheCategorie', 'MemoiresController@afficheCategorie'); // /forminsert/add
     Route::post('getIdCat', 'MemoiresController@getIdCat');
-});
-/*Ajout média */
-Route::prefix('media')->group(function () {
-    Route::get('afficheMedia', 'MemoiresController@afficheMedia'); // /forminsert/add
 });
 
 /* **************** InProgress (manque verif) **************** */
-Route::prefix('/mediatheque')->group(function (){ // affiche les informations de la BDD
-    Route::any('/', 'MediathequeController@index');
-    Route::any('categorie', 'MediathequeController@categorie');
-    Route::any('categorie/{id}', 'MemoiresController@getByCategorie')->where('id', "[0-9]+"); // TODO id = détails / description
-    Route::any('type', 'MediathequeController@type');
-    Route::any('type/{id}', 'MemoiresController@getByType')->where('id', "[0-9]+"); // TODO id = détails / description
+Route::prefix('/mediatheque')->group(function () { // affiche les informations de la BDD
+    Route::get('/', 'MediathequeController@index');
+    Route::get('categorie', 'MediathequeController@categorie');
+    Route::get('categorie/{id}', 'MemoiresController@getByCategorie')->where('id', "[0-9]+"); // TODO id = détails / description
+    Route::get('type', 'MediathequeController@type');
+    Route::get('type/{id}', 'MemoiresController@getByType')->where('id', "[0-9]+"); // TODO id = détails / description
 });
-Route::prefix('/memoires')->group(function (){ // ajout de données dans la BDD // MemoiresS devient Memoires
-    Route::any('/', 'MemoiresController@index');
-    Route::any('add', 'MemoiresController@add'); // ajouter des memoires
-    Route::put('{id}', 'MemoiresController@update');
-    Route::delete('remove', 'MemoiresController@remove');
-    Route::any('categorie/add', 'MemoiresController@addCategorie'); // ajouter une categories
-    Route::any('type/add', 'MemoiresController@addType'); // ajouter un type de fichier
+
+/* **************** Administrateur *************************** */
+Route::prefix('/admin')->group(function () {
+    Route::get('/', 'AdminController@index');
+    Route::get('create', 'AdminController@createView');
+    Route::get('description', 'AdminController@descView');
+    Route::get('equipe', 'AdminController@equipeView');
 });
+
+
+Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
+    Route::get('/', 'MemoiresController@index');
+});
+Route::prefix('/api')->group(function () {
+    Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
+        Route::get('add', 'MemoiresController@add'); // ajouter des memoires
+        Route::put('{id}', 'MemoiresController@update');
+        Route::delete('remove', 'MemoiresController@remove');
+        Route::post('categorie/add', 'MemoiresController@addCategorie'); // ajouter une categories
+        Route::post('type/add', 'MemoiresController@addType'); // ajouter un type de fichier
+    });
+});
+
+
+
 /* **************** Valider **************** */
 // acceuil
-Route::any('/', 'AcceuilController@index');
+Route::get('/', 'AccueilController@index');
 /*
  *  page "Contact"
  */
 Route::prefix('contact')->group(function () {
-    Route::any('/', 'ContactController@index');
+    Route::get('/', 'ContactController@index');
     Route::post('message', 'ContactController@message');
 });
 /**
  *  page "Je participe"
  */
 Route::prefix('jeparticipe')->group(function () {
-    Route::any('/', 'JeParticipeController@index');
+    Route::get('/', 'JeParticipeController@index');
     Route::post('message', 'JeParticipeController@message');
 });
 // Recherche
-Route::prefix('/recherche')->group(function (){
-    Route::any('/', 'RechercheController@recherche');
+Route::prefix('/recherche')->group(function () {
+    Route::post('/', 'RechercheController@recherche');
 });
 // L'equipe // information
 Route::get('/information', function () {

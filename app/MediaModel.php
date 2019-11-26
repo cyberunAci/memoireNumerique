@@ -6,7 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class MediaModel extends Model
 {
-    protected $table = 'video_migrate';
+    protected $table = 'mediatype';
   
-    protected $fillable = ['id', 'titre', 'resumer', 'description', 'image', 'video'];
+    protected $fillable = ['id', 'video','image','id_type'];
+    public $timestamps = false;
+   
+    //Relation one to many -> mediaType
+    public function mediaType(){
+        $this->belongsTo('Mediatype');
+    }
 }

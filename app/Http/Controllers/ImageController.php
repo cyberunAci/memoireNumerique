@@ -15,21 +15,21 @@ class ImageController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-        function index()
-    {
+    //     function index()
+    // {
         
-        $tabImages = DB::table('memoire')    // Affiche la base de donnée image_migrate
-        ->select('id', 'titre', 'image', 'description')
-        ->where('titre' , '=', "photo")
-        ->get();
-        return view('client.photo', ['tabImages' => $tabImages]);
-    }
+    //     $tabImages = DB::table('memoire')    // Affiche la base de donnée image_migrate
+    //     ->select('id', 'titre', 'image', 'description')
+    //     ->where('titre' , '=', "photo")
+    //     ->get();
+    //     return view('client.photo', ['tabImages' => $tabImages]);
+    // }
     
-        function add(){
+        // function add(){
 
-            $tabImage = Memoire::all();  // Affiche la base de donnée image_migrate
-            return $tabImage;
-        }
+        //     $tabImage = Memoire::all();  // Affiche la base de donnée image_migrate
+        //     return $tabImage;
+        // }
 
 
 }

@@ -17,7 +17,7 @@ class MemoiresController extends Controller
     // MEMOIRES
     function index()
     {
-        return view('admin.create'); //memoires.blade.php
+        return view('admin.memoires'); //memoires.blade.php
     }
     // AJOUTER
     function add(Request $request)
@@ -62,7 +62,7 @@ class MemoiresController extends Controller
             'type' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $insertMedia = Media::create(
+        $insertMedia = Mediatype::create(
             $array
         )->id;
 
@@ -79,18 +79,24 @@ class MemoiresController extends Controller
     {
         //
     }
-    // liste des éléments
+    // liste des éléments TODO
     function getByCategorie()
     {
-        //
+        $categorie = Categorie::all();
+        return json_encode($categorie);
     }
-
-    /* ********** TODO ********** */
-    function afficheMedia()
+    // liste des éléments TODO
+    function getByType()
     {
         $media = Media::all();
         return json_encode($media);
     }
+    /* ********** TODO ********** c'est pas quoi en faire */
+    // function affichage(Request $request)
+    // {
+    //     $memoire = Memoire::all();
+    //     $media = Mediatype::all();
+    //     $category = Categorie::all();
 
     function afficheCategorie()
     {
