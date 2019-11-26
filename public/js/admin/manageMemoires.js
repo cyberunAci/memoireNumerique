@@ -2,14 +2,9 @@
 function mediaBdd() {
     event.preventDefault();
     let post_type = $("#type").val();
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
     $.ajax({
-        method: "POST",
-        url: "/media/addType",
+        method: "GET",
+        url: "/api/memoires/type/add",
         data: {
             type: post_type,
         },
@@ -26,14 +21,9 @@ function mediaBdd() {
 function categorieBdd() {
     event.preventDefault();
     let post_nom = $("#nom").val();
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
     $.ajax({
-        method: "POST",
-        url: "/categorie/addCategorie",
+        method: "GET",
+        url: "/api/memoires/categorie/add",
         data: {
             nom: post_nom,
         },
@@ -49,11 +39,8 @@ function categorieBdd() {
 function getListMedia() {
 
     $.ajax({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        method: "get", //method transfert
-        url: "/media/afficheMedia",
+        method: "GET", //method transfert
+        url: "/mediatheque/type/{id}",
         dataType: "json",
     }).done(function (datas) {
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
@@ -68,12 +55,9 @@ getListMedia();
 function getListCategorie() {
 
     $.ajax({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
         method: "get", //method transfert
        
-        url: "/categorie/afficheCategorie",
+        url: "/mediatheque/categorie/{id}",
         dataType: "json",
     }).done(function (datas) {
 
@@ -88,7 +72,7 @@ getListCategorie();
 
 
 /* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */
-function createBdd() {
+function add() {
     event.preventDefault();
     let post_titre = $("#titre").val();
     let post_resumer = $("#resumer").val();
@@ -118,8 +102,8 @@ function createBdd() {
         }
     });
     $.ajax({
-        method: "POST",
-        url: "/create/add",
+        method: "GET",
+        url: "/memoires/add",
         data: table,
         dataType: "json",
     })

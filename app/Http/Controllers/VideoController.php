@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\DB;
 class VideoController extends Controller
 {
     // TODO à supprimer ou deplacer?
-    function index()
-    {
-        $tabVideos = DB::table('memoire')    // Affiche la base de donnée image_migrate
-        ->select('titre', 'image', 'description')
-        ->where('id_categorie' , '=', 1)  // TODO 1 doit être changer par une variable
-        ->get();
-        return view('client.video', ['tabVideos' => $tabVideos]); // affiche la vue image.blade.php
-    }
+    // function index()
+    // {
+    //     $tabVideos = DB::table('memoire')    // Affiche la base de donnée image_migrate
+    //     ->select('titre', 'image', 'description')
+    //     ->where('id_categorie' , '=', 1)  // TODO 1 doit être changer par une variable
+    //     ->get();
+    //     return view('client.video', ['tabVideos' => $tabVideos]); // affiche la vue image.blade.php
+    // }
 
     // function ajout(){
 

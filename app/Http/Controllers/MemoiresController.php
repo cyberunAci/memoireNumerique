@@ -77,32 +77,26 @@ class MemoiresController extends Controller
     {
         //
     }
-    // liste des éléments
+    // liste des éléments TODO
     function getByCategorie()
-    {
-        //
-    }
-
-    /* ********** TODO ********** */
-    function afficheMedia()
-    {
-        $media = Media::all();
-        return json_encode($media);
-    }
-
-    function afficheCategorie()
     {
         $categorie = Categorie::all();
         return json_encode($categorie);
     }
-
-    function affichage(Request $request)
+    // liste des éléments TODO
+    function getByType()
     {
-        $memoire = Memoire::all();
-        $media = Mediatype::all();
-        $category = Categorie::all();
-
-        // $id_select = $request ->input('id_categorie');
-        return ([$memoire, $media, $category]);
+        $media = Media::all();
+        return json_encode($media);
     }
+    /* ********** TODO ********** c'est pas quoi en faire */
+    // function affichage(Request $request)
+    // {
+    //     $memoire = Memoire::all();
+    //     $media = Mediatype::all();
+    //     $category = Categorie::all();
+
+    //     // $id_select = $request ->input('id_categorie');
+    //     return ([$memoire, $media, $category]);
+    // }
 }
