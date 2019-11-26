@@ -13,7 +13,6 @@ class MemoireNumerique extends Migration
      */
     public function up()
     {
-        Schema::disableForeignKeyConstraints();
         Schema::create('memoire', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('titre', 255);
@@ -37,6 +36,5 @@ class MemoireNumerique extends Migration
     public function down()
     {
         Schema::dropIfExists('memoire');
-        Schema::disableForeignKeyConstraints();
     }
 }
