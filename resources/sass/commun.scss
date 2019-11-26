@@ -1,0 +1,270 @@
+/*NAVBAR*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+  }
+  
+  /* L'équipe*/
+  
+  .titre-equipe {
+    text-align: center;
+    margin-bottom: 3%;
+    margin-top: 3%;
+  }
+  
+  /* FIN l'équipe*/
+  
+  .iframeyoutube {
+    height: 500px;
+  }
+  
+  .accueil {
+    width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .accueilDiv {
+    padding-top: 5%;
+    padding-bottom: 15%;
+  
+    h1 {
+      padding-bottom: 2%;
+    }
+  }
+  
+  @media (max-width: 780px) {
+    .iframeyoutube {
+      height: 300px;
+    }
+  
+    .accueil {
+      width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+  
+    .accueilDiv {
+      padding-top: 5%;
+      padding-bottom: 15%;
+  
+      h1 {
+        padding-bottom: 2%;
+      }
+    }
+  
+    .resumer {
+      width: 100vw;
+    }
+  }
+  
+  @media (max-width: 420px) {
+    .accueil {
+      width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+  
+    .accueilDiv {
+      padding-top: 5%;
+      padding-bottom: 15%;
+  
+      h1 {
+        padding-bottom: 2%;
+      }
+    }
+  
+    .descript img {
+      right: 0;
+      bottom: 0;
+      opacity: 1;
+      width: 420px;
+      height: 200px;
+      position: absolute;
+      z-index: -1;
+    }
+  
+    .resumer {
+      padding-top: 5%;
+      margin-left: 0;
+      margin-right: 0;
+      background: linear-gradient(90deg, rgba(35, 35, 35, 2), rgba(35, 35, 35, 0.8), rgba(35, 35, 35, 1));
+      color: white;
+      padding-bottom: 10%;
+      width: 100vw;
+    }
+  }
+  
+  /*FOOTER*/
+  
+  .footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #0e0e0e;
+    color: white;
+  }
+  
+  hr {
+    background: white;
+  }
+  
+  /*END FOOTER*/
+  
+  /* The Modal (background) */
+  
+  .modal {
+    display: none;
+  
+    /* Hidden by default */
+    position: fixed;
+  
+    /* Stay in place */
+    z-index: 1;
+  
+    /* Sit on top */
+    padding-top: 100px;
+  
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+  
+    /* Full width */
+    height: 100%;
+  
+    /* Full height */
+    overflow: auto;
+  
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+  
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+  
+    /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  
+    &:hover, &:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+  
+  /* Carte pour les images "image/video/memoires.blade.php */
+  
+  .carte {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+  }
+  
+  .afficheImage {
+    padding-top: 5%;
+    margin: 5%;
+  }
+  
+  /* bouton des cartes */
+  
+  .bouton {
+    padding: 3%;
+    background-color: #D39A26;
+    border-radius: 10px;
+  }
+  
+  .afficheArticles {
+    padding-top: 5%;
+    margin: 5%;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  
+  .carte:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Add some padding inside the card container */
+  
+  .contain {
+    padding: 2px 16px;
+  }
+  
+  /* Gallerie des trois memoires récentes */
+  
+  .gallery-cell {
+    &:before {
+      display: block;
+      text-align: center;
+      line-height: 200px;
+      font-size: 80px;
+      color: white;
+    }
+  
+    width: 50%;
+    height: 300px;
+    margin-right: 10px;
+    background: none;
+    counter-increment: gallery-cell;
+    min-width: 50%;
+  
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .addImage {
+    padding-top: 5%;
+    margin: 5%;
+  }
+  
+  /* Titre */
+  
+  .derniere-video {
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    margin-left: 1%;
+    font-size: 1.8em;
+  }
+  
+  .video {
+    text-align: center;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    margin-left: 1%;
+    font-size: 1.8em;
+    background-color: #51F6FE;
+  
+    p {
+      color: white;
+    }
+  }
