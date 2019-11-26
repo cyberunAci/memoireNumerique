@@ -18,13 +18,12 @@ class MiseAPlat extends Migration
 
         Schema::table('memoire', function (Blueprint $table) {
             $table->dropColumn(['video', 'image', 'id_mediatype']);
-
         });
 
-        Schema::dropIfExists('media') ;
-    
-        
-            Schema::create('media', function (Blueprint $table) {
+        Schema::dropIfExists('media');
+
+
+        Schema::create('media', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('video', 255);
             $table->string('image', 255);
@@ -32,14 +31,13 @@ class MiseAPlat extends Migration
             $table->foreign('id_type')->references('id')->on('mediatype');
         });
 
-        Schema::dropIfExists('memoire_status') ;
+        Schema::dropIfExists('memoire_status');
         Schema::create('memoire_status', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('status', 255);
-    
         });
-    
-        Schema::table('memoire', function (Blueprint $table){
+
+        Schema::table('memoire', function (Blueprint $table) {
             $table->unsignedBigInteger('id_status');
             $table->foreign('id_status')->references('id')->on('memoire_status');
             $table->unsignedBigInteger('id_categorie')->nullable()->change();
@@ -47,8 +45,6 @@ class MiseAPlat extends Migration
             $table->unsignedBigInteger('id_media');
             $table->foreign('id_media')->references('id')->on('media');
         });
-
-        
     }
 
     /**
@@ -58,7 +54,7 @@ class MiseAPlat extends Migration
      */
     public function down()
     {
-         Schema::table('memoire', function (Blueprint $table) {
+        Schema::table('memoire', function (Blueprint $table) {
             $table->dropForeign(['id_status']);
             $table->dropForeign(['id_categorie']);
             $table->dropForeign(['id_media']);
@@ -68,10 +64,10 @@ class MiseAPlat extends Migration
             $table->string('video', 255);
             $table->string('image', 255);
             $table->integer('id_mediatype');
-        }); 
+        });
 
-        Schema::dropIfExists('media') ;
+        Schema::dropIfExists('media');
 
-        Schema::dropIfExists('memoire_status') ;
+        Schema::dropIfExists('memoire_status');
     }
 }

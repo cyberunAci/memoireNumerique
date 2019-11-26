@@ -1,7 +1,8 @@
 @section('css')
+<link rel="stylesheet" href="{{ asset('css/client/app.css') }}">
 
-<link rel="stylesheet" href="{{ asset('css/formulaire.css') }}">
-
+<!-- <link rel="stylesheet" href="{{ asset('css/formulaire.css') }}">
+ -->
 @endSection
 @extends('layouts.app')
 @section('content')
