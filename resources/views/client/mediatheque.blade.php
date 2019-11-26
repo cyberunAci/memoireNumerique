@@ -19,8 +19,9 @@ Derniers ajouts
 
 </div>
        
-<div class="derniere catagorie">
-  
+<div class="dernieres_catagories">
+  <h1>Categories</h1>
+
 </div>
 <div class="derniere-video">
        Thématique

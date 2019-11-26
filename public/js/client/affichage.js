@@ -10,10 +10,11 @@ function lastMemoires() {
     method: "GET",
     dataType: "json"
   }).done(function (all) {
-    // console.log(all);
     affichageLast(all);
   });
-} // lastMemoires();
+}
+
+// lastMemoires();
 
 
 function getDatas() {
@@ -26,11 +27,12 @@ function getDatas() {
     url: "/api/mediatheque",
     method: "GET",
     dataType: "json"
-  }).done(function (all) {
-    console.log(all);
+  }).done(function (datas) {
+      console.log(datas);
+    affichageLast(datas);
+    affichageCategories(datas);
   });
 }
-// lastMemoires();
 
 getDatas();
 
@@ -41,10 +43,16 @@ getDatas();
 
 function affichageLast(datas) {
 
-    console.log(datas);
-//   $("#recent-1").attr('src', datas[1].media.image);
-//   $("#recent-2").attr('src', datas[2].media.image);
-//   $("#recent-3").attr('src', datas[0].media.image);
+  $("#recent-1").attr('src', datas.lastPhotos[0].media.image);
+  $("#recent-2").attr('src', datas.lastPhotos[1].media.image);
+  $("#recent-3").attr('src', datas.lastPhotos[2].media.image);
+  
+}
+
+function affichageCategories(datas) {
+
+    console.log(datas.categories[0].nom + " " + datas.categories[1].nom);
+    $('.dernieres_catagories').append(datas.categories[0].nom + " " + datas.categories[1].nom);
 }
 
 function affichageMemoire() {
@@ -259,3 +267,5 @@ function affichage(data) {
     $(".complet").append("<div class='col-md-3'><p>" + data.titre + "</p><p>" + data.resumer + "</p><p>" + data.description + "</p><p> " + "<a href=/description/" + data.id + "><img id='id" + data.id + "' src='" + data.image + "' /></p>" + data.id + "</div></a>");
 
 }
+
+
