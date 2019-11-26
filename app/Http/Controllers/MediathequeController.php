@@ -11,12 +11,30 @@ class MediathequeController extends Controller
     {
         return view('client.mediatheque');
     }
-    function categories()
+    function categorie()
     {
-        //
+        return view('client.categorie');
     }
-    function types()
+    function type()
     {
-        //
+        return view('client.type');
+    }
+
+    /* TODO */
+    function id($id)
+    {
+        $recupVideo = Memoire::find($id);
+        return view('description', ['recupVideo'=> $recupVideo]);
+    }
+    function recup()
+    {
+        $all = Memoire::orderBy('id','desc')->take(3)->get();
+        return $all;
+    }
+
+    function liste()
+    {
+        $liste = Memoire::all();
+        return $liste;
     }
 }

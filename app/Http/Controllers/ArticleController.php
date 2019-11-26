@@ -16,27 +16,27 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    function index()
-    {
-        $tabArticles = DB::table('memoire')    // Affiche la base de donnée image_migrate
-        ->select('id', 'titre', 'image', 'description')
-        ->where('titre' , '=', "Memoire")
-        ->get();
-        return view('client.memoires', ['tabArticles' => $tabArticles]); // affiche la vue image.blade.php
-    }
+    // function index()
+    // {
+    //     $tabArticles = DB::table('memoire')    // Affiche la base de donnée image_migrate
+    //     ->select('id', 'titre', 'image', 'description')
+    //     ->where('titre' , '=', "Memoire")
+    //     ->get();
+    //     return view('client.memoires', ['tabArticles' => $tabArticles]); // affiche la vue image.blade.php
+    // }
     
-    function add(){
+    // function add(){
         
-        $tabArticle = Memoire::all();
-        return $tabArticle;
+    //     $tabArticle = Memoire::all();
+    //     return $tabArticle;
 
 
-    }
+    // }
     
-    function recup() {
+    // function recup() {
 
-        $all = Memoire::orderBy('id','desc')->take(3)->get();    
-        return $all;
+    //     $all = Memoire::orderBy('id','desc')->take(3)->get();    
+    //     return $all;
 
-    }
+    // }
 }
