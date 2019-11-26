@@ -11,5 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
+
+/*Compiler les fichiers scss en css pour la partie client*/
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+.sass('resources/sass/client/app.scss', 'public/css/client');

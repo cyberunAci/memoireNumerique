@@ -1,5 +1,6 @@
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/mediatheque.css') }}">
+<link rel="stylesheet" href="{{ asset('css/client/app.css') }}">
+
 @endSection
 @extends('layouts.app')
 @section('content')
