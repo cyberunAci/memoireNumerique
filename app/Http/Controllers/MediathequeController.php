@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
 use Illuminate\Http\Request;
 
 class MediathequeController extends Controller
@@ -11,8 +12,9 @@ class MediathequeController extends Controller
         return view('client.mediatheque');
     }
     function categories()
-    {
-        return view('client.categories');
+    {   
+        $nom = Categories::all();
+        return view('client.categories', ['categories' => $nom]);
     }
     function types()
     {

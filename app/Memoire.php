@@ -19,7 +19,7 @@ class Memoire extends Model
 
   public function categories()
   {
-    return $this->belongsTo(Categorie::class, 'id_categorie');
+    return $this->belongsTo(Categories::class, 'id_categorie'); // TODO pour benji
   }
 
   public function status()

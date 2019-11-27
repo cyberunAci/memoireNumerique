@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Categorie;
+use App\Categories;
 use App\Http\Resources\CategoriesRessource;
 use Illuminate\Http\Request;
 
@@ -10,7 +10,7 @@ class CategoriesController extends Controller
 {
 
     public function categories() {
-        $categorie = Categorie::all();
+        $categorie = Categories::all();
         return CategoriesRessource::collection($categorie);
     }
 }
