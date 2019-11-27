@@ -12,9 +12,9 @@ class RechercheController extends Controller
     {
         $barreRecherche = $request->input('recherche');
 
-        $recherche = DB::table('memoire')
-            ->select('titre', 'resumer', 'description', 'auteur')
-            ->where('titre' , '=', $barreRecherche)
+        $recherche = Memoire::
+            select('titre', 'resumer', 'description', 'auteur')
+            ->where('titre' , 'like', "%$barreRecherche%") // "..." permet de lire une variable dans un string et %...% permet de lire l'element sans être absolue (test = test de memoir... // avant test = test != test de ...)
             ->get();
         return view('client.recherche', ['recherche' => $recherche, 'barreRecherche' => $barreRecherche]);
     }

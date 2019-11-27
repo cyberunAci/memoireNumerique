@@ -50,7 +50,7 @@ function displayDatas(datas) {
 
 
 // /* AJOUTER CATEGORIE BDD POUR ADMINISTRATEUR */
-function categorieBdd() {
+function categoriesBdd() {
     event.preventDefault();
     let post_nom = $("#nom").val();
     $.ajaxSetup({
@@ -60,7 +60,7 @@ function categorieBdd() {
     });
     $.ajax({
         method: "post",
-        url: "/api/memoires/categorie/add",
+        url: "/api/memoires/categories/add",
         data: {
             nom: post_nom,
         },
@@ -82,7 +82,7 @@ function typeBdd() {
     });
     $.ajax({
         method: "POST",
-        url: "/api/memoires/type/add",
+        url: "/api/memoires/types/add",
         data: {
             type: post_type,
         },
@@ -111,23 +111,23 @@ function typeBdd() {
 
 // getListMedia();
 
-// function getListCategorie() {
+// function getListCategories() {
 
 //     $.ajax({
 //         method: "get", //method transfert
 
-//         url: "/mediatheque/categorie/{id}",
+//         url: "/mediatheque/categories/{id}",
 //         dataType: "json",
 //     }).done(function (datas) {
 
 //         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-//             $("#id_categorie").append("<option value="+ data.id +">"+ data.nom +"</option>");
+//             $("#id_categories").append("<option value="+ data.id +">"+ data.nom +"</option>");
 //         })
 
 //     });
 // }
 
-// getListCategorie();
+// getListCategories();
 
 
 // /* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */

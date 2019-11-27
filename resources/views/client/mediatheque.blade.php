@@ -19,7 +19,12 @@ Derniers ajouts
 
 </div>
        
-<div class="derniere catagorie">
+<div class="dernieres_catagories">
+  <h1>Categories</h1>
+  
+  @foreach ($categories as $categorie)
+      {{$categorie->nom[2]}}
+  @endforeach
   
 </div>
 <div class="derniere-video">
@@ -27,7 +32,7 @@ Derniers ajouts
         </div>
 
       <div class="parent cateVideo">
-<div class="div1"> <img src="img/environnement-petit-triangle.jpg" alt=""></div>
+<div class="div1"> <img src="img/@foreach ($categories as $categorie){{$categorie->nom[0]}}@endforeach-petit-triangle.jpg" alt=""></div>
 <div class="div2"> <img src="img/audio-petit-triangle.jpg" alt=""></div>
 <div class="div3"> <img src="img/economie-petit-triangle.jpg" alt=""></div>
 <div class="div4"> <img src="img/environnement-image-petit-triangle.jpg" alt=""></div>
