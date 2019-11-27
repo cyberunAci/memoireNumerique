@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Categories;
+use App\Http\Resources\CategoriesRessource;
 use Illuminate\Http\Request;
 
 class MediathequeController extends Controller
@@ -13,13 +14,13 @@ class MediathequeController extends Controller
         $lastVideos = app('App\Http\Controllers\MemoiresController')->lastVideos();
         $lastPhotos = app('App\Http\Controllers\MemoiresController')->lastPhotos();
         // $categories = app('App\Http\Controllers\CategoriesController')->categories();
-        $categories = Categorie::all();
+        $categories = Categories::all();
 
         return view('client.mediatheque', ['categories' => $categories]);
     }
     function categories()
     {   
-        $nom = Categories::all();
+        $nom = CategoriesRessource::collection(Categories::all());
         return view('client.categories', ['categories' => $nom]);
     }
     function types()

@@ -161,7 +161,7 @@ class MemoiresController extends Controller
             'categories',
             'status'
         ])
-            ->whereHas('media.types', function ($q) use ($type) {
+            ->whereHas('media.type', function ($q) use ($type) {
                 $q->where('type', $type);
             })
             ->orderBy('id', 'desc')
