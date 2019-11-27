@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Categorie;
+
+use App\Categories;
 use App\Http\Resources\MemoiresRessource;
 use App\Status;
 use App\Media;
@@ -48,7 +49,7 @@ class MemoiresController extends Controller
             'nom' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $insertCategorie = Categorie::create(
+        $insertCategorie = Categories::create(
             $array
         )->id;
 
@@ -79,10 +80,10 @@ class MemoiresController extends Controller
     {
         //
     }
-    // liste des éléments TODO
+    // liste des Categories TODO
     function getByCategories()
     {
-        $categorie = Categorie::all();
+        $categorie = Categories::all();
         return json_encode($categorie);
     }
     // liste des éléments TODO
@@ -98,17 +99,17 @@ class MemoiresController extends Controller
     //     $media = Mediatype::all();
     //     $category = Categorie::all();
 
-    function afficheCategories()
-    {
-        $categorie = Categorie::all();
-        return json_encode($categorie);
-    }
+    // function afficheCategories()
+    // {
+    //     $categorie = Categorie::all();
+    //     return json_encode($categorie);
+    // }
 
-    function affichage(Request $request)
+    function affichage(Request $request) // pour admin
     {
         $memoire = Memoire::all();
         $media = Mediatype::all();
-        $categories = Categorie::all();
+        $categories = Categories::all();
 
         // $id_select = $request ->input('id_categorie');
         return ([$memoire, $media, $categories]);
