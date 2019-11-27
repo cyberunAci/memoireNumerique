@@ -42,7 +42,7 @@ class MemoiresController extends Controller
         return json_encode($array);
     }
     // AJOUTER Categorie
-    function addCategorie(Request $request)
+    function addCategories(Request $request)
     {
         $array = Validator::make($request->all(), [
             'nom' => 'required',
@@ -56,7 +56,7 @@ class MemoiresController extends Controller
         return json_encode($array);
     }
     // AJOUTER Type
-    function addType(Request $request)
+    function addTypes(Request $request)
     {
         $array = Validator::make($request->all(), [
             'type' => 'required',
@@ -80,13 +80,13 @@ class MemoiresController extends Controller
         //
     }
     // liste des éléments TODO
-    function getByCategorie()
+    function getByCategories()
     {
         $categorie = Categorie::all();
         return json_encode($categorie);
     }
     // liste des éléments TODO
-    function getByType()
+    function getByTypes()
     {
         $media = Media::all();
         return json_encode($media);
@@ -98,7 +98,7 @@ class MemoiresController extends Controller
     //     $media = Mediatype::all();
     //     $category = Categorie::all();
 
-    function afficheCategorie()
+    function afficheCategories()
     {
         $categorie = Categorie::all();
         return json_encode($categorie);
@@ -108,10 +108,10 @@ class MemoiresController extends Controller
     {
         $memoire = Memoire::all();
         $media = Mediatype::all();
-        $category = Categorie::all();
+        $categories = Categorie::all();
 
         // $id_select = $request ->input('id_categorie');
-        return ([$memoire, $media, $category]);
+        return ([$memoire, $media, $categories]);
     }
 
     // Recupère les dernières mémoires dans la bdd grace a la catégorie et le status
@@ -123,7 +123,7 @@ class MemoiresController extends Controller
             'media' => function ($t) {
                 $t->with('type');
             },
-            'category',
+            'categories',
             'status'
         ])
             ->orderBy('id', 'desc')
@@ -140,27 +140,27 @@ class MemoiresController extends Controller
     function lastVideos()
     {
 
-        $out = $this->lastByType('video');
+        $out = $this->lastByTypes('video');
         return MemoiresRessource::collection($out);
     }
 
     function lastPhotos()
     {
-        $out = $this->lastByType('photo');
+        $out = $this->lastByTypes('photo');
         return MemoiresRessource::collection($out);
     }
 
-    private function lastByType($type)
+    private function lastByTypes($type)
     {
 
         $out = Memoire::with([
             'media' => function ($t) {
                 $t->with('type');
             },
-            'category',
+            'categories',
             'status'
         ])
-            ->whereHas('media.type', function ($q) use ($type) {
+            ->whereHas('media.types', function ($q) use ($type) {
                 $q->where('type', $type);
             })
             ->orderBy('id', 'desc')

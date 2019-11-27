@@ -63,14 +63,14 @@ function affichageMemoire() {
     });
 
     $.ajax({
-        url: "/memoire/affichage",
+        url: "/memoires/affichage",
         method: "POST",
         dataType: "json",
 
     })
         .done(function (datas) {
-            let categorie = datas[2];
-            //parcours l array datas [$memoire, $media, $category] et pour chaque elment fait qqch
+            let categories = datas[2];
+            //parcours l array datas [$memoire, $media, $categories] et pour chaque elment fait qqch
             //il creer des tableau data
             $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
 
