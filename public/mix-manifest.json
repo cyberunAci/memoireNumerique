@@ -1,13 +1,4 @@
 {
-    "/js/admin/manageMemoires.js": "/js/admin/manageMemoires.js",
-    "/js/admin/remove.js": "/js/admin/remove.js",
-    "/js/app.js": "/js/app.js",
-    "/js/bootstrap.js": "/js/bootstrap.js",
-    "/js/client/affichage.js": "/js/client/affichage.js",
     "/css/client/app.css": "/css/client/app.css",
-    "/js/client/carousel-video.js": "/js/client/carousel-video.js",
-    "/js/client/contact.js": "/js/client/contact.js",
-    "/js/client/recherche.js": "/js/client/recherche.js",
-    "/js/client/regex.js": "/js/client/regex.js",
-    "/js/jquery-3.4.1.js": "/js/jquery-3.4.1.js"
+    "/css/admin/app.css": "/css/admin/app.css"
 }
