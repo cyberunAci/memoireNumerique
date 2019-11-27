@@ -10,8 +10,15 @@ class AdminController extends Controller
 {
     function memoiresView()
     {
-        $memoires = MemoiresRessource::collection(Memoire::all());
-        return view('admin.memoires', ['memoires' => $memoires]);
+
+        $memoires = Memoire::with([
+            'media' => function ($q) {
+                $q->with('type');
+            },
+            'category'
+        ])->get();
+
+        return view('admin.memoires', ['memoires' => MemoiresRessource::collection($memoires)]);
     }
 
     function descView()
