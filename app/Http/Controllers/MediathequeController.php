@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 use App\Categories;
-=======
-use App\Categorie;
->>>>>>> dd5bd29db5fe5bb503f158f1deeae62f8b2f1c7a
 use Illuminate\Http\Request;
 
 class MediathequeController extends Controller
