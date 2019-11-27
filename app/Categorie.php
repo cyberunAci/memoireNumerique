@@ -12,4 +12,9 @@ class Categorie extends Model
 
     public $timestamps = false;
 
+    public function category()
+  {
+    return $this->belongsTo(Categorie::class, 'id_categorie');
+  }
+
 }

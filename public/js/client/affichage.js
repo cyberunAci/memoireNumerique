@@ -29,8 +29,8 @@ function getDatas() {
     dataType: "json"
   }).done(function (datas) {
       console.log(datas);
-    affichageLast(datas);
-    affichageCategories(datas);
+    // affichageLast(datas);
+    // affichageCategories(datas);
   });
 }
 
