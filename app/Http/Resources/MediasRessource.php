@@ -14,7 +14,7 @@ class MediasRessource extends JsonResource
      */
     public function toArray($request)
     {
-        $type = new MediaTypesRessource($this->type);
+        $type = new MediaTypesRessource($this->whenLoaded('type'));
         return [
             'id' => $this->id,
             'video' => $this->video,

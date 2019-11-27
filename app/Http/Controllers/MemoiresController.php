@@ -131,6 +131,8 @@ class MemoiresController extends Controller
             ->limit(3)
             ->get();
 
+
+        
         return MemoiresRessource::collection($out);
     }
 
@@ -164,6 +166,8 @@ class MemoiresController extends Controller
             })
             ->orderBy('id', 'desc')
             ->get();
-        return $out;
+
+           
+        return MemoiresRessource::collection($out);
     }
 }

@@ -15,9 +15,9 @@ class MemoiresRessource extends JsonResource
     public function toArray($request)
     {
         //TODO voir Status
-        $status = new MemoireStatusRessource($this->status);
-        $category = new CategoriesRessource($this->category);
-        $media = new MediasRessource($this->media);
+        $status = new MemoireStatusRessource($this->whenLoaded('status'));
+        $category = new CategoriesRessource($this->whenLoaded('category'));
+        $media = new MediasRessource($this->whenLoaded('media'));
 
         return [
             'id' => $this->id,
