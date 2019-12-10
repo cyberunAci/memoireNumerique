@@ -3,12 +3,15 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <h1>Partie "Categorie"</h1>
-
 @foreach ($categories as $categorie)
-    <p class="text-center">{{$categorie->nom}}</p>
-    @foreach ($categorie->memoires as $memoire)
-        <p class="text-center">{{$memoire->titre}}</p>
-    @endforeach
+    <h1 class="text-center">{{$categorie->nom}}</h1>
+    <?php
+        echo "\n";
+        echo "\n";
+        var_dump($categorie);
+        echo "\n";
+        echo "\n";
+    ?>
 @endforeach
 
 @endSection
