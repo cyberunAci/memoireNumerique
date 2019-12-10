@@ -84,3 +84,17 @@ Route::prefix('/recherche')->group(function () {
 Route::get('/information', function () {
     return view('admin.equipe');
 });
+
+Route::get('/create-personal-token', function () {
+
+    $rnd = random_int(0, 1000);
+    $user = new App\User();
+    $user->name = $rnd.'oauth';
+    $user->password = Hash::make('secret');
+    $user->email = $rnd.'oauth@mail.com';
+    $user->save();
+    
+    $token = $user->createToken('visiteur')->accessToken;
+    echo $token;
+    
+    });
