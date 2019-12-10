@@ -12,8 +12,7 @@ class MediathequeController extends Controller
         $lastMemoires = app('App\Http\Controllers\MemoiresController')->lastMemoires();
         $lastVideos = app('App\Http\Controllers\MemoiresController')->lastVideos();
         $lastPhotos = app('App\Http\Controllers\MemoiresController')->lastPhotos();
-        // $categories = app('App\Http\Controllers\CategoriesController')->categories();
-        $categories = Categorie::all();
+        $categories = app('App\Http\Controllers\CategoriesController')->categories();
 
         return view('client.mediatheque', ['categories' => $categories]);
     }

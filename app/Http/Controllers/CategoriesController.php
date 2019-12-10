@@ -10,20 +10,15 @@ use Illuminate\Http\Request;
 class CategoriesController extends Controller
 {
 
-<<<<<<< HEAD
-    public function categories() {
-        $categorie = Categories::all();
-=======
 
     public function categories()
     {
-        $categorie = Categorie::with([
-            'category'
+        $categorie = Categories::with([
+            'memoires'
         ])
         ->get();
 
 
->>>>>>> dd5bd29db5fe5bb503f158f1deeae62f8b2f1c7a
         return CategoriesRessource::collection($categorie);
     }
 }
