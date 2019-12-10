@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Categories;
 use App\Http\Resources\MemoiresRessource;
-use App\Status;
+//use App\Status;
 use App\Media;
 use App\Mediatype;
 use App\Memoire;
@@ -89,9 +89,10 @@ class MemoiresController extends Controller
      */
     function remove($id)
     {
-        $status = Memoire::destroy($id) ? 'ok' : 'nok';
+        $status =  Memoire::destroy($id) ? 'ok' : 'nok';
         return json_encode(['status' => $status]);
     }
+    
     // MODIFIER
     function update()
     {
