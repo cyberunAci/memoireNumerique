@@ -18,8 +18,18 @@ class MemoiresController extends Controller
     // MEMOIRES
     function index()
     {
-        return view('admin.memoires'); //memoires.blade.php
+        return view('client.memoire'); //TODO memoires.blade.php
     }
+
+    /**
+     * Return all memoires
+     */
+    function all()
+    {
+        $out = Memoire::all();
+        return MemoiresRessource::collection($out);
+    }
+
     // AJOUTER
     function add(Request $request)
     {
@@ -70,10 +80,17 @@ class MemoiresController extends Controller
         $array['id'] = $insertMedia;
         return json_encode($array);
     }
-    // SUPRIMER
-    function remove()
+
+    
+    /**
+     * Supprime une memoire
+     * @param $id 
+     * @return 
+     */
+    function remove($id)
     {
-        Memoire::find(['id'])->delete();
+        $status = Memoire::destroy($id) ? 'ok' : 'nok';
+        return json_encode(['status' => $status]);
     }
     // MODIFIER
     function update()

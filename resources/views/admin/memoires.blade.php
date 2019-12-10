@@ -1,8 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
 
 @section('content')
-
-<div class="container py-3">
+<div id='admin_memoires' class="container py-3">
 
   <div class="accordion" id="accordionExample">
     <div class="card">
@@ -121,7 +120,7 @@
         <th scope="col">Description</th>
         <th scope="col">Auteur</th>
         <th scope="col">Catégorie</th>
-        <th scope="col">Média</th>
+        <th scope="col">Médiatype</th>
         <th scope="col">Image</th>
         <th scope="col">Video</th>
         <th scope="col">Status</th>
@@ -129,6 +128,21 @@
       </tr>
     </thead>
     <tbody id="affichagevoulu">
+      @foreach($memoires as $memoire)
+    <tr id='memoire_{{$memoire->id}}' class='memoire'>
+          <th scope="col">{{$memoire->id}}</th>
+          <th scope="col">{{$memoire->titre}}</th>
+          <th scope="col">{{$memoire->resumer}}</th>
+          <th scope="col">{{$memoire->description}}</th>
+          <th scope="col">{{$memoire->auteur}}</th>
+          <th scope="col">{{$memoire->category->nom}}</th>
+          <th scope="col">{{$memoire->media->type->type}}</th>
+          <th scope="col"><img src='{{$memoire->media->image}}'></th>
+          <th scope="col"><a href='{{$memoire->media->video}}'>Lien vers video</th>
+          <th scope="col"></th>
+          <th scope="col"><button type='submit' onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button></th>
+        </tr>
+      @endforeach
     </tbody>
   </table>
 </div>

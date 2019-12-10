@@ -1,3 +1,54 @@
+
+/**
+ * Permet de supprimer une mémoire en fonction de l'id
+ * @param {*} id 
+ */
+function deleteMemoire(id) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "DELETE", //method transfert
+        url: "/api/memoires/" + id,
+        dataType: "json",
+    }).done(function (data) {
+        if (data.status === 'ok') {
+            undisplayMemoire(id);
+        } else if (data.status === 'nok') {
+            alert("La mémoire (" + id + ") n'a pas pu être supprimer.")
+        }
+    });
+}
+
+function undisplayMemoire(id) {
+    $('#memoire_' + id).fadeOut().remove();
+}
+
+function displayDatas(datas) {
+    console.log(datas)
+    $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+        $("#affichagevoulu").append(
+            "<tr>" +
+            "<th>" + data.id + "</th>" +
+            "<th>" + data.titre + "</th>" +
+            "<th>" + data.resumer + "</th>" +
+            "<th>" + data.description + "</th>" +
+            "<th>" + data.auteur + "</th>" +
+            "<th>" + data.category.nom + "</th>" +
+            "<th>" + data.media.type.type + "</th>" +
+            "<th>" + data.media.image + "</th>" +
+            "<th>" + data.media.video + "</th>" +
+            "<th>" + "</th>" +
+            "<th><button type='submit' onclick='deleteMemoire(" + data.id + ")'>Supprimer</button></th>" +
+            "</tr>"
+        );
+    })
+
+}
+
+
 // /* AJOUTER CATEGORIE BDD POUR ADMINISTRATEUR */
 function categoriesBdd() {
     event.preventDefault();
