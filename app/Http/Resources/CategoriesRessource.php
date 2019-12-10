@@ -18,7 +18,8 @@ class CategoriesRessource extends JsonResource
             'id' =>$this->id,
             'nom' => $this->nom,
             'couleur' => $this->couleur,
-            'image' => $this->image
+            'image' => $this->image,
+            'memoire' => MemoiresRessource::collection($this->whenLoaded($this->memoires))
         ];
     }
 }

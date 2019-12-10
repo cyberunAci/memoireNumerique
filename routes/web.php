@@ -25,7 +25,7 @@ Route::prefix('categorie')->group(function () {
 /* **************** InProgress (manque verif) **************** */
 Route::prefix('/mediatheque')->group(function () { // affiche les informations de la BDD
     Route::get('/', 'MediathequeController@index');
-    Route::get('categories', 'MediathequeController@categories');
+    Route::get('categories', 'CategoriesController@index');
     Route::get('categories/{id}', 'MemoiresController@getByCategories'); // TODO id = détails / description
     Route::get('types', 'MediathequeController@types');
     Route::get('types/{id}', 'MemoiresController@getByTypes')->where('id', "[0-9]+"); // TODO id = détails / description

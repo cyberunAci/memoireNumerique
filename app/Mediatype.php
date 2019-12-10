@@ -12,4 +12,9 @@ class Mediatype extends Model
 
     public $timestamps = false;
 
+    public function memoires()
+    {
+      return  $this->hasMany(Memoire::class, 'id_media');
+    }
+
 }

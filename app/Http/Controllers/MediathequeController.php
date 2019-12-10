@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Categories;
 use App\Http\Resources\CategoriesRessource;
+use App\Http\Resources\MediaTypesRessource;
+use App\Mediatype;
 use Illuminate\Http\Request;
 
 class MediathequeController extends Controller
@@ -18,14 +20,11 @@ class MediathequeController extends Controller
 
         return view('client.mediatheque', ['categories' => $categories]);
     }
-    function categories()
-    {   
-        $nom = CategoriesRessource::collection(Categories::all());
-        return view('client.categories', ['categories' => $nom]);
-    }
+    
     function types()
     {
-        return view('client.types');
+        $types = MediaTypesRessource::collection(Mediatype::all());
+        return view('client.types', ['types' => $types]);
     }
 
     function getDatas(Request $request)
