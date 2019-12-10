@@ -13,7 +13,7 @@
               Administrateur
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/admin/create">Create</a>
+              <a class="dropdown-item" href="/admin/memoires">Memoires</a>
               <a class="dropdown-item" href="/admin/description">Description</a>
               <a class="dropdown-item" href="/admin/equipe">Équipe</a>
             </div>
@@ -23,8 +23,8 @@
             L'équipe
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Lorem ipseum</a>
-            <a class="dropdown-item" href="#">Lorem ipseum</a>
+            <a class="dropdown-item" href="#">Description</a>
+            <a class="dropdown-item" href="#">Équipes</a>
             <a class="dropdown-item" href="/memoires">Memoires</a>
           </div>
         </li>
