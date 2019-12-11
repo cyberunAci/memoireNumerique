@@ -16,7 +16,7 @@ class MemoiresRessource extends JsonResource
     {
         //TODO voir Status
         $status = new MemoireStatusRessource($this->whenLoaded('status'));
-        $category = new CategoriesRessource($this->whenLoaded('category'));
+        $category = new CategoriesRessource($this->whenLoaded('categories'));
         $media = new MediasRessource($this->whenLoaded('media'));
 
         return [

@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    function index()
+    {
+        return view('admin.dashboard');
+    }
     function memoiresView()
     {
 
@@ -15,7 +19,7 @@ class AdminController extends Controller
             'media' => function ($q) {
                 $q->with('type');
             },
-            'category'
+            'categories'
         ])->get();
 
         return view('admin.memoires', ['memoires' => MemoiresRessource::collection($memoires)]);

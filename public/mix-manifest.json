@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-    "/css/client/app.css": "/css/client/app.css"
-=======
     "/css/client/app.css": "/css/client/app.css",
     "/css/admin/app.css": "/css/admin/app.css"
->>>>>>> 0b0ac35cbaca5be88483e0af071fd62206f98d88
 }
