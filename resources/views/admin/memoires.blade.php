@@ -133,12 +133,7 @@
         <th scope="col">Status</th>
         <li class="nav-item dropdown">
         <th scope="col">Action </th>
-          
         </li>
-        
-        </th> 
-
-        
       </tr>
     </thead>
     <tbody id="affichagevoulu">
@@ -153,13 +148,9 @@
           <th scope="col">{{$memoire->media->type->type}}</th>
           <th scope="col"><img src='{{$memoire->media->image}}'></th>
           <th scope="col"><a href='{{$memoire->media->video}}'>Lien vers video</th>
-          <th scope="col"></th>
-          <th scope="col"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Action 
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <th scope="col">
           <button type='submit' onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button></div></th>
-        </tr>
+    </tr>
       @endforeach
     </tbody>
   </table>

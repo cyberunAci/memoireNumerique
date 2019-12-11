@@ -5,10 +5,6 @@ namespace App\Http\Controllers;
 
 use App\Categories;
 use App\Http\Resources\MemoiresRessource;
-<<<<<<< HEAD
-=======
-
->>>>>>> 897cd40597259909c41a76f00a6f97f98c29d218
 //use App\Status;
 use App\Media;
 use App\Mediatype;
