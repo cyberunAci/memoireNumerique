@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 
 use App\Categories;
 use App\Http\Resources\MemoiresRessource;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 897cd40597259909c41a76f00a6f97f98c29d218
 //use App\Status;
 use App\Media;
 use App\Mediatype;
@@ -31,29 +35,29 @@ class MemoiresController extends Controller
     }
 
     // AJOUTER
-    function add(Request $request)
-    {
-        $array = Validator::make($request->all(), [
-            'titre' => 'required',
-            'resumer' => 'required',
-            'description' => 'required',
-            'auteur' => 'required',
-            'id_categorie' => 'required',
-            'id_mediatype' => 'required',
-            'image' => 'required',
-            'video' => 'required',
-            'status' => 'required',
-        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+    // function add(Request $request)
+    // {
+    //     $array = Validator::make($request->all(), [
+    //         'titre' => 'required',
+    //         'resumer' => 'required',
+    //         'description' => 'required',
+    //         'auteur' => 'required',
+    //         'id_categorie' => 'required',
+    //         'id_mediatype' => 'required',
+    //         'image' => 'required',
+    //         'video' => 'required',
+    //         'status' => 'required',
+    //     ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $insertionBDD = Memoire::create(
-            $array
-        )->id;
+    //     $insertionBDD = Memoire::create(
+    //         $array
+    //     )->id;
 
-        $array['id'] = $insertionBDD;
-        return json_encode($array);
-    }
+    //     $array['id'] = $insertionBDD;
+    //     return json_encode($array);
+    // }
     // AJOUTER Categorie
-    function addCategories(Request $request)
+    function addCategorie(Request $request)
     {
         $array = Validator::make($request->all(), [
             'nom' => 'required',
@@ -67,7 +71,7 @@ class MemoiresController extends Controller
         return json_encode($array);
     }
     // AJOUTER Type
-    function addTypes(Request $request)
+    function addType(Request $request)
     {
         $array = Validator::make($request->all(), [
             'type' => 'required',
@@ -179,7 +183,7 @@ class MemoiresController extends Controller
             'categories',
             'status'
         ])
-            ->whereHas('media.types', function ($q) use ($type) {
+            ->whereHas('media.type', function ($q) use ($type) {
                 $q->where('type', $type);
             })
             ->orderBy('id', 'desc')

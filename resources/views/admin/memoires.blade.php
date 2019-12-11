@@ -15,7 +15,7 @@
       <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
         <div class="card-body">
           <h2>Ajouter une mémoire</h2>
-          <form onsubmit="createBdd()">
+          <form onsubmit="add()">
             <div class="form-group">
               <label for="">Titre</label>
               <input type="text" class="form-control" name="titre" id="titre" placeholder="Ajouter un titre" onblur="regExpTitre(this)" required>
@@ -35,7 +35,7 @@
 
             <div class="form-group">
               <label for="exampleFormControlSelect1">Categorie</label>
-              <select class="form-control" id="id_categorie" name="id_categorie">
+              <select class="form-control" id="id_categories" name="id_categories">
               </select>
             </div>
             <div class="form-group">
@@ -76,10 +76,14 @@
         <div class="card-body">
           <h2>Ajouter une catégorie</h2>
           <!--Catégorie route a faire-->
-          <form onsubmit="categorieBdd()">
+          <form onsubmit="categoriesBdd()">
             <div class="form-group">
               <label for="Catégorie">Catégorie</label>
               <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom de la catégorie" required>
+              <label for="couleurCatégorie">Couleur</label>
+              <input type="color" class="form-control" name="couleur" id="couleur" required>
+              <label for="imageCatégorie">Image Catégorie</label>
+              <input type="text" class="form-control" name="image_categorie" id="image_categorie" placeholder="Url image catégorie" required>
             </div>
             <input type="submit" class="btn btn-primary" value="Ajouter">
           </form>
@@ -100,7 +104,7 @@
         <div class="card-body">
           <h2>Ajouter un média</h2>
 
-          <form onsubmit="typeBdd()">
+          <form onsubmit="typesBdd()">
             <div class="form-group">
               <label for="type">Type</label>
               <input type="text" class="form-control" name="type" id="type" placeholder="Nom du type de média" required>
