@@ -13,7 +13,7 @@
               Administrateur
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/admin/memoires">Memoires</a>
+              <a class="dropdown-item" href="/admin/">Dashboard</a>
               <a class="dropdown-item" href="/admin/description">Description</a>
               <a class="dropdown-item" href="/admin/equipe">Équipe</a>
             </div>

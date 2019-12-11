@@ -59,7 +59,7 @@ function displayDatas(datas) {
         );
     })
 
-}
+// }
 
 /* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */
 function add() {
@@ -192,8 +192,6 @@ function getListCategories() {
 
 getListCategories();
 
-
-
 /* AFFICHE TYPE DANS FORMULAIRE MEMOIRE */
 // function getListMedia() {
 
@@ -229,6 +227,3 @@ getListCategories();
 // }
 
 // getListCategories();
-
-
-

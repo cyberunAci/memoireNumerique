@@ -34,7 +34,7 @@ Route::prefix('/mediatheque')->group(function () { // affiche les informations d
 /* **************** Administrateur *************************** */
 Route::prefix('/admin')->group(function () {
     Route::get('/', 'AdminController@index');
-    Route::get('memoires', 'AdminController@memoiresView');
+    Route::get('/', 'AdminController@memoiresView');
     Route::get('description', 'AdminController@descView');
     Route::get('equipe', 'AdminController@equipeView');
     Route::post('/memoires/add', 'AdminController@add');
