@@ -144,7 +144,7 @@
           <th scope="col">{{$memoire->resumer}}</th>
           <th scope="col">{{$memoire->description}}</th>
           <th scope="col">{{$memoire->auteur}}</th>
-          <th scope="col">{{$memoire->category->nom}}</th>
+          <th scope="col">{{$memoire->categories->nom}}</th>
           <th scope="col">{{$memoire->media->type->type}}</th>
           <th scope="col"><img src='{{$memoire->media->image}}'></th>
           <th scope="col"><a href='{{$memoire->media->video}}'>Lien vers video</th>
