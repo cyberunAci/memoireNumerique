@@ -27,27 +27,27 @@ function undisplayMemoire(id) {
     $('#memoire_' + id).fadeOut().remove();
 }
 
-function displayDatas(datas) {
-    console.log(datas)
-    $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-        $("#affichagevoulu").append(
-            "<tr>" +
-            "<th>" + data.id + "</th>" +
-            "<th>" + data.titre + "</th>" +
-            "<th>" + data.resumer + "</th>" +
-            "<th>" + data.description + "</th>" +
-            "<th>" + data.auteur + "</th>" +
-            "<th>" + data.category.nom + "</th>" +
-            "<th>" + data.media.type.type + "</th>" +
-            "<th>" + data.media.image + "</th>" +
-            "<th>" + data.media.video + "</th>" +
-            "<th>" + "</th>" +
-            "<th><button type='submit' onclick='deleteMemoire(" + data.id + ")'>Supprimer</button></th>" +
-            "</tr>"
-        );
-    })
+// function displayDatas(datas) {
+//     console.log(datas)
+//     $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+//         $("#affichagevoulu").append(
+//             "<tr>" +
+//             "<th>" + data.id + "</th>" +
+//             "<th>" + data.titre + "</th>" +
+//             "<th>" + data.resumer + "</th>" +
+//             "<th>" + data.description + "</th>" +
+//             "<th>" + data.auteur + "</th>" +
+//             "<th>" + data.category.nom + "</th>" +
+//             "<th>" + data.media.type.type + "</th>" +
+//             "<th>" + data.media.image + "</th>" +
+//             "<th>" + data.media.video + "</th>" +
+//             "<th>" + "</th>" +
+//             "<th><button type='submit' onclick='deleteMemoire(" + data.id + ")'>Supprimer</button></th>" +
+//             "</tr>"
+//         );
+//     })
 
-}
+// }
 
 /* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */
 function add() {
@@ -179,8 +179,6 @@ function getListCategories() {
 }
 
 getListCategories();
-
-
 
 /* AFFICHE TYPE DANS FORMULAIRE MEMOIRE */
 // function getListMedia() {

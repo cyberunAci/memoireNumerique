@@ -139,7 +139,7 @@
     </thead>
     <tbody id="affichagevoulu">
       @foreach($memoires as $memoire)
-    <tr id='memoire_{{$memoire->id}}' class='memoire'>
+      <tr id='memoire_{{$memoire->id}}' class='memoire'>
           <th scope="col">{{$memoire->id}}</th>
           <th scope="col">{{$memoire->titre}}</th>
           <th scope="col">{{$memoire->resumer}}</th>
