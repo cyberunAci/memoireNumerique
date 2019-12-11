@@ -5,14 +5,11 @@ namespace App\Http\Controllers;
 
 use App\Categories;
 use App\Http\Resources\MemoiresRessource;
-<<<<<<< HEAD
-=======
-
->>>>>>> 897cd40597259909c41a76f00a6f97f98c29d218
 //use App\Status;
 use App\Media;
 use App\Mediatype;
 use App\Memoire;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -22,7 +19,7 @@ class MemoiresController extends Controller
     // MEMOIRES
     function index()
     {
-        return view('client.memoire'); //TODO memoires.blade.php
+        return view('admin.memoires'); //TODO memoires.blade.php
     }
 
     /**
@@ -97,6 +94,15 @@ class MemoiresController extends Controller
         return json_encode(['status' => $status]);
     }
     
+
+    // OBTENIR DONNÉES À MODIFIER
+    function edit($id)
+    {
+        $where = array('id' => $id);
+        $data['memoires'] = Memoire::where($where)->first();
+        return view('admin.edit', $data); //TODO: RETOUR de la view dans l'url 
+    }
+
     // MODIFIER
     function update()
     {

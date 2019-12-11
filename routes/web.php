@@ -42,6 +42,10 @@ Route::prefix('/admin')->group(function () {
     Route::get('/media', 'AdminController@getListMedia');
     Route::post('categorie/add', 'AdminController@addCategories'); // ajouter une categories
     Route::post('type/add', 'AdminController@addTypes'); // ajouter un type de fichier
+    //Route::resource('admin.memoires', 'MemoiresController');
+    Route::delete('memoires/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
+    Route::get('/memoires/{id}/edit', 'MemoiresController@edit')->where('id', "[0-9]+"); //EDIT
+    Route::get('/memoires/{id}/update', 'MemoiresController@update');
 });
 Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
     Route::get('/', 'MemoiresController@index');

@@ -4,6 +4,7 @@
  * @param {*} id 
  */
 function deleteMemoire(id) {
+    console.log('yoyyo');
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -11,7 +12,7 @@ function deleteMemoire(id) {
     });
     $.ajax({
         method: "DELETE", //method transfert
-        url: "/api/memoires/" + id,
+        url: "/admin/memoires/" + id,
         dataType: "json",
     }).done(function (data) {
         if (data.status === 'ok') {
@@ -22,29 +23,21 @@ function deleteMemoire(id) {
     });
 }
 
-
-/* function editMemoire(id) {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    $.ajax({
-        method: "get", //method transfert
-        url: "/admin/memoires/{id}/edit",
-        dataType: "json",
-    }).done(function (data) {
-        if (data.status === 'ok') {
-            console.log(data);
-        } else if (data.status === 'nok') {
-            console.log("Erreur !");
-        }
-    });
-} */
-
 function undisplayMemoire(id) {
     $('#memoire_' + id).fadeOut().remove();
 }
+
+function editMemoire(id) {
+    $.ajax({
+        method: "get", //method transfert
+        url: "/admin/memoires/" + id + "/edit",
+        dataType: "json",
+    }).done(function (data) {
+        console.log(data);
+    });
+}
+
+
 
 function displayDatas(datas) {
     console.log(datas)
@@ -88,7 +81,7 @@ function add() {
         id_categorie: post_categorie,
         //id_media: post_mediatype,
         id_type: post_mediatype,
-       
+
         auteur: post_auteur,
         image: post_image,
         video: post_video,
@@ -191,7 +184,7 @@ function getListCategories() {
     }).done(function (datas) {
 
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            $("#id_categories").append("<option value="+ data.id +">"+ data.nom +"</option>");
+            $("#id_categories").append("<option value=" + data.id + ">" + data.nom + "</option>");
         })
 
     });
