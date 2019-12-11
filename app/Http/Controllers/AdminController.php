@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
 use App\Http\Resources\MemoiresRessource;
+use App\Media;
+use App\Mediatype;
 use App\Memoire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -34,4 +38,92 @@ class AdminController extends Controller
     {
         return view('admin.equipe');
     }
+
+     // AJOUTER BDD
+     function add(Request $request)
+     {
+
+        //ajouter en premier les media cad recupre video image et id type
+         $array = Validator::make($request->all(), [
+         
+             'image' => 'required',
+             'video' => 'required',
+             'id_type' => 'required',
+        
+         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+ 
+         $insertionMediaId = Media::create(
+             $array
+         )->id;
+
+
+//recuperer les valeur a ajouter dans la table memoire
+         $array = Validator::make($request->all(), [
+             'titre' => 'required',
+             'resumer' => 'required',
+             'description' => 'required',
+             'auteur' => 'required',
+             'id_categorie' => 'required',
+             //'id_media' => 'required',
+          
+             'id_status' => 'required',
+         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+ 
+//il manque id_media qui est egal au dernier media ajouter  on le rajoute dans le $array
+         $array['id_media'] = $insertionMediaId;
+         //insertion en base de donne pour la table memoire 
+         $insertionBDD = Memoire::create(
+             $array
+         )->id;
+
+      
+ 
+         $array['id'] = $insertionBDD;
+         return json_encode($array);
+     }
+
+    /* ADD CATEGORIE */
+
+    function addCategories(Request $request)
+    {
+        $array = Validator::make($request->all(), [
+            'nom' => 'required',
+            'couleur' => 'required',
+            'image' => 'required',
+        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+
+        $insertCategorie = Categories::create(
+            $array
+        )->id;
+
+        $array['id'] = $insertCategorie;
+        return json_encode($array);
+    }
+    /* ADD TYPE */
+    function addTypes(Request $request)
+    {
+        $array = Validator::make($request->all(), [
+            'type' => 'required',
+        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+
+        $insertMedia = Mediatype::create(
+            $array
+        )->id;
+
+        $array['id'] = $insertMedia;
+        return json_encode($array);
+    }
+
+     // liste des Categories TODO
+     function getListCategories()
+     {
+         $categorie = Categories::all();
+         return json_encode($categorie);
+     }
+     // liste des éléments TODO
+     function getListMedia()
+     {
+         $media = Mediatype::all();
+         return json_encode($media);
+     }
 }
