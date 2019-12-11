@@ -22,6 +22,26 @@ function deleteMemoire(id) {
     });
 }
 
+
+/* function editMemoire(id) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "get", //method transfert
+        url: "/admin/memoires/{id}/edit",
+        dataType: "json",
+    }).done(function (data) {
+        if (data.status === 'ok') {
+            console.log(data);
+        } else if (data.status === 'nok') {
+            console.log("Erreur !");
+        }
+    });
+} */
+
 function undisplayMemoire(id) {
     $('#memoire_' + id).fadeOut().remove();
 }

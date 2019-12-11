@@ -132,34 +132,36 @@
         <th scope="col">Video</th>
         <th scope="col">Status</th>
         <li class="nav-item dropdown">
-        <th scope="col">Action </th>
-          
-        </li>
-        
-        </th> 
+          <th scope="col">Action </th>
 
-        
+        </li>
+
+        </th>
+
+
       </tr>
     </thead>
     <tbody id="affichagevoulu">
       @foreach($memoires as $memoire)
-    <tr id='memoire_{{$memoire->id}}' class='memoire'>
-          <th scope="col">{{$memoire->id}}</th>
-          <th scope="col">{{$memoire->titre}}</th>
-          <th scope="col">{{$memoire->resumer}}</th>
-          <th scope="col">{{$memoire->description}}</th>
-          <th scope="col">{{$memoire->auteur}}</th>
-          <th scope="col">{{$memoire->category->nom}}</th>
-          <th scope="col">{{$memoire->media->type->type}}</th>
-          <th scope="col"><img src='{{$memoire->media->image}}'></th>
-          <th scope="col"><a href='{{$memoire->media->video}}'>Lien vers video</th>
-          <th scope="col"></th>
-          <th scope="col"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Action 
+      <tr id='memoire_{{$memoire->id}}' class='memoire'>
+        <th scope="col">{{$memoire->id}}</th>
+        <th scope="col">{{$memoire->titre}}</th>
+        <th scope="col">{{$memoire->resumer}}</th>
+        <th scope="col">{{$memoire->description}}</th>
+        <th scope="col">{{$memoire->auteur}}</th>
+        <th scope="col">{{$memoire->category->nom}}</th>
+        <th scope="col">{{$memoire->media->type->type}}</th>
+        <th scope="col"><img src='{{$memoire->media->image}}'></th>
+        <th scope="col"><a href='{{$memoire->media->video}}'>Lien vers video</th>
+        <th scope="col"></th>
+        <th scope="col"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Action
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <button type='submit' onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button></div></th>
-        </tr>
+            <button type='submit' onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button></div>
+            <a href="">Editer</a></div>
+        </th>
+      </tr>
       @endforeach
     </tbody>
   </table>
