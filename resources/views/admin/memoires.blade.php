@@ -122,6 +122,7 @@
       <!-- TODO responsive -->
       <tr>
         {{-- <th scope="col" class="table-danger">id</th> --}}
+        <th scope="col">id</th>
         <th scope="col">Titre</th>
         <th scope="col">Resumer</th>
         <th scope="col">Description</th>

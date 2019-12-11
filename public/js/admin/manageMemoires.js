@@ -4,6 +4,7 @@
  * @param {*} id 
  */
 function deleteMemoire(id) {
+    console.log('yoyyo');
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -11,7 +12,7 @@ function deleteMemoire(id) {
     });
     $.ajax({
         method: "DELETE", //method transfert
-        url: "/api/memoires/" + id,
+        url: "/admin/memoires/" + id,
         dataType: "json",
     }).done(function (data) {
         if (data.status === 'ok') {
