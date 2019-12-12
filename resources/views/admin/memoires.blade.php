@@ -132,29 +132,35 @@
         <th scope="col">Image</th>
         <th scope="col">Video</th>
         <th scope="col">Status</th>
-        <li class="nav-item dropdown">
         <th scope="col">Action </th>
-        </li>
       </tr>
     </thead>
     <tbody id="affichagevoulu">
       @foreach($memoires as $memoire)
       <tr id='memoire_{{$memoire->id}}' class='memoire'>
-          <th scope="col">{{$memoire->id}}</th>
-          <th scope="col">{{$memoire->titre}}</th>
-          <th scope="col">{{$memoire->resumer}}</th>
-          <th scope="col">{{$memoire->description}}</th>
-          <th scope="col">{{$memoire->auteur}}</th>
-          <th scope="col">{{$memoire->categories->nom}}</th>
-          <th scope="col">{{$memoire->media->type->type}}</th>
-          <th scope="col"><img src='{{$memoire->media->image}}'></th>
-          <th scope="col"><a href='{{$memoire->media->video}}'>Lien vers video</th>
-          <th scope="col">
-          <button type='submit' onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button></div></th>
-    </tr>
-      @endforeach
-    </tbody>
-  </table>
+        <th scope="col">{{$memoire->id}}</th>
+        <th scope="col">{{$memoire->titre}}</th>
+        <th scope="col">{{$memoire->resumer}}</th>
+        <th scope="col">{{$memoire->description}}</th>
+        <th scope="col">{{$memoire->auteur}}</th>
+        <th scope="col">{{$memoire->categories->nom}}</th>
+        <th scope="col">{{$memoire->media->type->type}}</th>
+        <th scope="col"><img src='{{$memoire->media->image}}'></th>
+        <th scope="col"><a href='{{$memoire->media->video}}'>Lien vers video</th>
+        <th scope="col">
+          <button type='submit' class="btn btn-danger" onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button>
+</div>
+</th>
+<th scope="col">
+  <button type="submit" onclick='editMemoire({{$memoire->id}})' class="btn btn-primary">
+    Editer
+  </button> 
+</th>
+</tr>
+@endforeach
+</tbody>
+</table>
+
 </div>
 @endSection
 @section('js')

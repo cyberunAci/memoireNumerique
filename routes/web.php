@@ -12,7 +12,9 @@
 */
 
 use App\Categorie;
+use Illuminate\Support\Facades\Request;
 
+Route::get('/api/admin', 'ConnectionController@index');
 Route::get('/api/memoires/lastMemoires', 'MemoiresController@lastMemoires');
 Route::get('/api/mediatheque', 'MediathequeController@getDatas');
 /* **************** TODO **************** */
@@ -37,13 +39,34 @@ Route::prefix('/admin')->group(function () {
     Route::get('dashboard', 'AdminController@memoiresView');
     Route::get('description', 'AdminController@descView');
     Route::get('equipe', 'AdminController@equipeView');
+<<<<<<< HEAD
     Route::post('dashboard/add', 'AdminController@add');
+=======
+    Route::get('formulaire', 'AdminController@formulaireView');
+    Route::get('login', 'AuthController@login');
+    Route::get('deconnexion', 'AuthController@token');
+    Route::post('register', 'AuthController@register');
+    Route::middleware('auth:api')->get('/user', function (Request $request) {
+
+    return $request->user();
+    });
+
+    Route::post('/memoires/add', 'AdminController@add');
+>>>>>>> d28de5513c3279ed98299f714ad3d50f6dc3cfb8
     Route::get('/categorie', 'AdminController@getListCategories');
     Route::get('/media', 'AdminController@getListMedia');
     Route::post('categorie/add', 'AdminController@addCategories'); // ajouter une categories
     Route::post('type/add', 'AdminController@addTypes'); // ajouter un type de fichier
+<<<<<<< HEAD
     Route::delete('dashboard/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
+=======
+    //Route::resource('admin.memoires', 'MemoiresController');
+    Route::delete('memoires/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
+    Route::get('/memoires/{id}/edit', 'MemoiresController@edit')->where('id', "[0-9]+"); //EDIT
+    Route::get('/memoires/{id}/update', 'MemoiresController@update');
+>>>>>>> d28de5513c3279ed98299f714ad3d50f6dc3cfb8
 });
+
 Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
     Route::get('/', 'MemoiresController@index');
 });
@@ -57,8 +80,10 @@ Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD
         Route::put('{id}', 'MemoiresController@update');
         Route::post('categorie/add', 'MemoiresController@addCategorie'); // ajouter une categories
         Route::post('type/add', 'MemoiresController@addType'); // ajouter un type de fichier
+        
     });
-}); */
+ 
+});
 
 /* **************** Valider **************** */
 // acceuil
@@ -86,16 +111,3 @@ Route::get('/information', function () {
     return view('admin.equipe');
 });
 
-Route::get('/create-personal-token', function () {
-
-    $rnd = random_int(0, 1000);
-    $user = new App\User();
-    $user->name = $rnd.'oauth';
-    $user->password = Hash::make('secret');
-    $user->email = $rnd.'oauth@mail.com';
-    $user->save();
-    
-    $token = $user->createToken('visiteur')->accessToken;
-    echo $token;
-    
-    });

@@ -27,25 +27,37 @@ function undisplayMemoire(id) {
     $('#memoire_' + id).fadeOut().remove();
 }
 
-// function displayDatas(datas) {
-//     console.log(datas)
-//     $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-//         $("#affichagevoulu").append(
-//             "<tr>" +
-//             "<th>" + data.id + "</th>" +
-//             "<th>" + data.titre + "</th>" +
-//             "<th>" + data.resumer + "</th>" +
-//             "<th>" + data.description + "</th>" +
-//             "<th>" + data.auteur + "</th>" +
-//             "<th>" + data.category.nom + "</th>" +
-//             "<th>" + data.media.type.type + "</th>" +
-//             "<th>" + data.media.image + "</th>" +
-//             "<th>" + data.media.video + "</th>" +
-//             "<th>" + "</th>" +
-//             "<th><button type='submit' onclick='deleteMemoire(" + data.id + ")'>Supprimer</button></th>" +
-//             "</tr>"
-//         );
-//     })
+function editMemoire(id) {
+    $.ajax({
+        method: "get", //method transfert
+        url: "/admin/memoires/" + id + "/edit",
+        dataType: "json",
+    }).done(function (data) {
+        console.log(data);
+    });
+}
+
+
+
+function displayDatas(datas) {
+    console.log(datas)
+    $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
+        $("#affichagevoulu").append(
+            "<tr>" +
+            "<th>" + data.id + "</th>" +
+            "<th>" + data.titre + "</th>" +
+            "<th>" + data.resumer + "</th>" +
+            "<th>" + data.description + "</th>" +
+            "<th>" + data.auteur + "</th>" +
+            "<th>" + data.category.nom + "</th>" +
+            "<th>" + data.media.type.type + "</th>" +
+            "<th>" + data.media.image + "</th>" +
+            "<th>" + data.media.video + "</th>" +
+            "<th>" + "</th>" +
+            "<th><button type='submit' onclick='deleteMemoire(" + data.id + ")'>Supprimer</button></th>" +
+            "</tr>"
+        );
+    })
 
 // }
 
@@ -69,7 +81,7 @@ function add() {
         id_categorie: post_categorie,
         //id_media: post_mediatype,
         id_type: post_mediatype,
-       
+
         auteur: post_auteur,
         image: post_image,
         video: post_video,
@@ -172,7 +184,7 @@ function getListCategories() {
     }).done(function (datas) {
 
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            $("#id_categories").append("<option value="+ data.id +">"+ data.nom +"</option>");
+            $("#id_categories").append("<option value=" + data.id + ">" + data.nom + "</option>");
         })
 
     });

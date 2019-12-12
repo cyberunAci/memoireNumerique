@@ -38,6 +38,9 @@ class AdminController extends Controller
     {
         return view('admin.equipe');
     }
+    function formulaireview(){
+        
+        return view('admin.form');
 
     // AJOUTER BDD
     function add(Request $request)
@@ -124,4 +127,5 @@ class AdminController extends Controller
         $media = Mediatype::all();
         return json_encode($media);
     }
+}
 }
