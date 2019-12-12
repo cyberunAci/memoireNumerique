@@ -168,8 +168,8 @@
                     </div><br><br>
                   
                 <h3>Afficher des informations</h3>  
-                <table id="table" class="table">
-                    <thead class="table-danger">
+                <table id="table" class="table table-sm table-hover">
+                    <thead class="thead-light">
                       <tr>
                         <th scope="col">Titre</th>
                         <th scope="col">Resumer</th>
@@ -179,7 +179,7 @@
                         <th scope="col">Médiatype</th>
                         <th scope="col">Image</th>
                         <th scope="col">Video</th>
-                        <th scope="col">Action </th>
+                        <th scope="col">Action</th>
                       </tr>
                     </thead>
                     <tbody id="affichagevoulu">
