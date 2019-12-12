@@ -67,8 +67,6 @@ class AdminController extends Controller
             'description' => 'required',
             'auteur' => 'required',
             'id_categorie' => 'required',
-            //'id_media' => 'required',
-
             'id_status' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 

@@ -38,9 +38,10 @@ Route::prefix('/mediatheque')->group(function () { // affiche les informations d
 /* **************** Administrateur *************************** */
 Route::prefix('/admin')->group(function () {
     Route::get('/', 'AdminController@index');
-    Route::get('/', 'AdminController@memoiresView');
+    Route::get('dashboard', 'AdminController@memoiresView');
     Route::get('description', 'AdminController@descView');
     Route::get('equipe', 'AdminController@equipeView');
+    Route::post('dashboard/add', 'AdminController@add');
     Route::get('formulaire', 'AdminController@formulaireView');
     Route::get('login', 'AuthController@login');
     Route::get('deconnexion', 'AuthController@token');
@@ -55,6 +56,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/media', 'AdminController@getListMedia');
     Route::post('categorie/add', 'AdminController@addCategories'); // ajouter une categories
     Route::post('type/add', 'AdminController@addTypes'); // ajouter un type de fichier
+    Route::delete('dashboard/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
     //Route::resource('admin.memoires', 'MemoiresController');
     Route::delete('memoires/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
     Route::get('/memoires/{id}/edit', 'MemoiresController@edit')->where('id', "[0-9]+"); //EDIT

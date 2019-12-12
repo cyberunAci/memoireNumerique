@@ -168,7 +168,6 @@ class MemoiresController extends Controller
 
     function lastVideos()
     {
-
         $out = $this->lastByTypes('video');
         return MemoiresRessource::collection($out);
     }
@@ -181,7 +180,6 @@ class MemoiresController extends Controller
 
     private function lastByTypes($type)
     {
-
         $out = Memoire::with([
             'media' => function ($t) {
                 $t->with('type');
