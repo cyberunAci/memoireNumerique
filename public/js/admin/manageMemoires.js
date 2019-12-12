@@ -4,7 +4,6 @@
  * @param {*} id 
  */
 function deleteMemoire(id) {
-    console.log('yoyyo');
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -13,7 +12,7 @@ function deleteMemoire(id) {
     $.ajax({
         method: "DELETE", //method transfert
         url: "/admin/dashboard/" + id,
-        dataType: "json",
+        dataType:"json",
     }).done(function (data) {
         if (data.status === 'ok') {
             undisplayMemoire(id);
@@ -29,7 +28,7 @@ function undisplayMemoire(id) {
 
 function editMemoire(id) {
     $.ajax({
-        method: "get", //method transfert
+        method:"get", //method transfert
         url: "/admin/memoires/" + id + "/edit",
         dataType: "json",
     }).done(function (data) {
@@ -59,7 +58,7 @@ function displayDatas(datas) {
         );
     })
 
-// }
+}
 
 /* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */
 function add() {
@@ -118,7 +117,7 @@ function categoriesBdd() {
     });
     $.ajax({
         method: "post",
-        url: "/admin/categorie/add",
+        url: "/admin/dashboard/categorie/add",
         data: {
             nom: post_nom,
             couleur: post_color,
@@ -143,7 +142,7 @@ function typesBdd() {
     });
     $.ajax({
         method: "post",
-        url: "/admin/type/add",
+        url: "/admin/dashboard/type/add",
         data: {
             type: post_type,
         },
@@ -161,7 +160,7 @@ function getListMedia() {
 
     $.ajax({
         method: "GET", //method transfert
-        url: "/admin/media",
+        url: "/admin/dashboard/media",
         dataType: "json",
     }).done(function (datas) {
         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
@@ -175,11 +174,15 @@ getListMedia();
 
 /* AFFICHE CATEGORIE DANS FORMULAIRE MEMOIRE */
 function getListCategories() {
-
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     $.ajax({
         method: "get", //method transfert
 
-        url: "/admin/categorie",
+        url: "/admin/dashboard/getCategorie",
         dataType: "json",
     }).done(function (datas) {
 
@@ -187,6 +190,8 @@ function getListCategories() {
             $("#id_categories").append("<option value=" + data.id + ">" + data.nom + "</option>");
         })
 
+    }).fail(function (status) {
+        console.log("status");
     });
 }
 

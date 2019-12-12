@@ -109,7 +109,7 @@
                                   <option value="2">2</option>
                                 </select>
                               </div>
-                              <input type="submit" class="btn btn-primary" onclick="getIdCat()" value="Envoyer">
+                              <input type="submit" class="btn btn-primary" value="Envoyer">
                             </form>
                           </div>
                         </div>
@@ -209,8 +209,5 @@
           </div>
         </div>
     </div>
-@endSection
-@section('js')
-<script type="text/javascript" src="{{ asset('js/admin/manageMemoires.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/client/regex.js') }}"></script>
+
 @endSection
