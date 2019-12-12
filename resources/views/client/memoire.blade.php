@@ -13,7 +13,7 @@
 
 
     <div class="afficheArticles row text-center">
-            @foreach ($tabArticles as $item)
+            @foreach ($tabArticles ?? '' as $item)
 
                 <div class="carte col-md-3">
                     <a href="#"><img src="{{$item->image}}" alt="Avatar" style="width:90%"></a>
