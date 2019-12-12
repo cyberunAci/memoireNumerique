@@ -58,7 +58,7 @@ Route::prefix('/admin')->group(function () {
         Route::delete('/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
     });
 
-    Route::post('/memoires/add', 'AdminController@add');
+    Route::post('/add', 'AdminController@add');
     Route::post('type/add', 'AdminController@addTypes'); // ajouter un type de fichier
 
     //Route::resource('admin.memoires', 'MemoiresController');
