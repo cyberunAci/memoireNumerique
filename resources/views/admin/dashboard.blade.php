@@ -209,8 +209,5 @@
           </div>
         </div>
     </div>
-@endSection
-@section('js')
-<script type="text/javascript" src="{{ asset('js/admin/manageMemoires.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/client/regex.js') }}"></script>
+
 @endSection

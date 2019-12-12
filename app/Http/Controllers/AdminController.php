@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
+
     function index()
     {
         return view('admin.dashboard');
     }
+
     function memoiresView()
     {
 
@@ -42,6 +44,7 @@ class AdminController extends Controller
         
         return view('admin.form');
 
+    }
     // AJOUTER BDD
     function add(Request $request)
     {
@@ -115,17 +118,17 @@ class AdminController extends Controller
         return json_encode($array);
     }
 
-    // liste des Categories TODO
-    function getListCategories()
-    {
+    function getCategorie() {
         $categorie = Categories::all();
         return json_encode($categorie);
     }
-    // liste des éléments TODO
+
     function getListMedia()
     {
         $media = Mediatype::all();
         return json_encode($media);
     }
+
+
 }
-}
+
