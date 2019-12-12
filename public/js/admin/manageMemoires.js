@@ -12,7 +12,7 @@ function deleteMemoire(id) {
     });
     $.ajax({
         method: "DELETE", //method transfert
-        url: "/admin/memoires/" + id,
+        url: "/admin/dashboard/" + id,
         dataType: "json",
     }).done(function (data) {
         if (data.status === 'ok') {
@@ -83,7 +83,7 @@ function add() {
     });
     $.ajax({
         method: "post",
-        url: "/admin/memoires/add",
+        url: "/admin/dashboard/add",
         data: table,
         dataType: "json",
     })
@@ -215,6 +215,3 @@ getListCategories();
 // }
 
 // getListCategories();
-
-
-
