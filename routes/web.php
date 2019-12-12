@@ -15,7 +15,7 @@ use App\Categorie;
 use Illuminate\Support\Facades\Request;
 
 
-
+// Route::get('/admin/dashboard/categorie', 'AdminController@getListCategories');
 Route::get('/api/admin', 'ConnectionController@index');
 Route::get('/api/memoires/lastMemoires', 'MemoiresController@lastMemoires');
 Route::get('/api/mediatheque', 'MediathequeController@getDatas');
@@ -38,7 +38,6 @@ Route::prefix('/mediatheque')->group(function () { // affiche les informations d
 /* **************** Administrateur *************************** */
 Route::prefix('/admin')->group(function () {
     Route::get('/', 'AdminController@index');
-    Route::get('dashboard', 'AdminController@memoiresView');
     Route::get('description', 'AdminController@descView');
     Route::get('equipe', 'AdminController@equipeView');
     Route::post('dashboard/add', 'AdminController@add');
@@ -51,12 +50,17 @@ Route::prefix('/admin')->group(function () {
         return $request->user();
     });
 
+    Route::prefix('/dashboard')->group(function () {
+        Route::get('/', 'AdminController@memoiresView');
+        Route::get('getCategorie', 'AdminController@getCategorie'); //affiche ds formulaire
+        Route::get('media', 'AdminController@getListMedia'); //affiche ds formulaire
+        Route::post('categorie/add', 'AdminController@addCategories'); // ajouter une categories
+        Route::delete('/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
+    });
+
     Route::post('/memoires/add', 'AdminController@add');
-    Route::get('/categorie', 'AdminController@getListCategories');
-    Route::get('/media', 'AdminController@getListMedia');
-    Route::post('categorie/add', 'AdminController@addCategories'); // ajouter une categories
     Route::post('type/add', 'AdminController@addTypes'); // ajouter un type de fichier
-    Route::delete('dashboard/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
+
     //Route::resource('admin.memoires', 'MemoiresController');
     Route::delete('memoires/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
     Route::get('/memoires/{id}/edit', 'MemoiresController@edit')->where('id', "[0-9]+"); //EDIT
