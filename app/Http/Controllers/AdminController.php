@@ -48,10 +48,8 @@ class AdminController extends Controller
     // AJOUTER BDD
     function add(Request $request)
     {
-
         //ajouter en premier les media cad recupre video image et id type
         $array = Validator::make($request->all(), [
-
             'image' => 'required',
             'video' => 'required',
             'id_type' => 'required',
@@ -61,7 +59,6 @@ class AdminController extends Controller
         $insertionMediaId = Media::create(
             $array
         )->id;
-
 
         //recuperer les valeur a ajouter dans la table memoire
         $array = Validator::make($request->all(), [
@@ -79,8 +76,6 @@ class AdminController extends Controller
         $insertionBDD = Memoire::create(
             $array
         )->id;
-
-
 
         $array['id'] = $insertionBDD;
         return json_encode($array);
