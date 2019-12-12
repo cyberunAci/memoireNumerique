@@ -12,6 +12,7 @@
 */
 
 use App\Categorie;
+use Illuminate\Support\Facades\Request;
 
 Route::get('/api/admin', 'ConnectionController@index');
 Route::get('/api/memoires/lastMemoires', 'MemoiresController@lastMemoires');
