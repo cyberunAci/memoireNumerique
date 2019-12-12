@@ -13,6 +13,7 @@
 
 use App\Categorie;
 
+Route::get('/api/admin', 'ConnectionController@index');
 Route::get('/api/memoires/lastMemoires', 'MemoiresController@lastMemoires');
 Route::get('/api/mediatheque', 'MediathequeController@getDatas');
 /* **************** TODO **************** */
@@ -37,7 +38,17 @@ Route::prefix('/admin')->group(function () {
     Route::get('memoires', 'AdminController@memoiresView');
     Route::get('description', 'AdminController@descView');
     Route::get('equipe', 'AdminController@equipeView');
+    Route::get('formulaire', 'AdminController@formulaireView');
+    Route::get('login', 'AuthController@login');
+    Route::get('deconnexion', 'AuthController@token');
+    Route::post('register', 'AuthController@register');
+    Route::middleware('auth:api')->get('/user', function (Request $request) {
+
+    return $request->user();
+    });
+
 });
+
 Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
     Route::get('/', 'MemoiresController@index');
 });
@@ -49,7 +60,9 @@ Route::prefix('/api')->group(function () {
         Route::put('{id}', 'MemoiresController@update');
         Route::post('categorie/add', 'MemoiresController@addCategorie'); // ajouter une categories
         Route::post('type/add', 'MemoiresController@addType'); // ajouter un type de fichier
+        
     });
+ 
 });
 
 /* **************** Valider **************** */
@@ -78,16 +91,3 @@ Route::get('/information', function () {
     return view('admin.equipe');
 });
 
-Route::get('/create-personal-token', function () {
-
-    $rnd = random_int(0, 1000);
-    $user = new App\User();
-    $user->name = $rnd.'oauth';
-    $user->password = Hash::make('secret');
-    $user->email = $rnd.'oauth@mail.com';
-    $user->save();
-    
-    $token = $user->createToken('visiteur')->accessToken;
-    echo $token;
-    
-    });

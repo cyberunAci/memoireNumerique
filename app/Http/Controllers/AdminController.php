@@ -30,4 +30,8 @@ class AdminController extends Controller
     {
         return view('admin.equipe');
     }
+    function formulaireview(){
+        
+        return view('admin.form');
+    }
 }
