@@ -38,7 +38,6 @@ Route::prefix('/admin')->group(function () {
     Route::get('/', 'AdminController@memoiresView');
     Route::get('description', 'AdminController@descView');
     Route::get('equipe', 'AdminController@equipeView');
-<<<<<<< HEAD
     Route::get('formulaire', 'AdminController@formulaireView');
     Route::get('login', 'AuthController@login');
     Route::get('deconnexion', 'AuthController@token');
@@ -48,7 +47,6 @@ Route::prefix('/admin')->group(function () {
     return $request->user();
     });
 
-=======
     Route::post('/memoires/add', 'AdminController@add');
     Route::get('/categorie', 'AdminController@getListCategories');
     Route::get('/media', 'AdminController@getListMedia');
@@ -58,7 +56,6 @@ Route::prefix('/admin')->group(function () {
     Route::delete('memoires/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
     Route::get('/memoires/{id}/edit', 'MemoiresController@edit')->where('id', "[0-9]+"); //EDIT
     Route::get('/memoires/{id}/update', 'MemoiresController@update');
->>>>>>> 3bd008504b1a8383b8d5eb58d638fdb78d223438
 });
 
 Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
@@ -76,12 +73,8 @@ Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD
         Route::post('type/add', 'MemoiresController@addType'); // ajouter un type de fichier
         
     });
-<<<<<<< HEAD
  
 });
-=======
-}); */
->>>>>>> 3bd008504b1a8383b8d5eb58d638fdb78d223438
 
 /* **************** Valider **************** */
 // acceuil
