@@ -9,4 +9,6 @@ class ConnectionController extends Controller
 function index() {
 return view('admin/form');
 }
+
+
 }

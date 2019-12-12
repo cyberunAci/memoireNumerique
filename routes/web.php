@@ -14,6 +14,8 @@
 use App\Categorie;
 use Illuminate\Support\Facades\Request;
 
+
+
 Route::get('/api/admin', 'ConnectionController@index');
 Route::get('/api/memoires/lastMemoires', 'MemoiresController@lastMemoires');
 Route::get('/api/mediatheque', 'MediathequeController@getDatas');
@@ -45,7 +47,7 @@ Route::prefix('/admin')->group(function () {
     Route::post('register', 'AuthController@register');
     Route::middleware('auth:api')->get('/user', function (Request $request) {
 
-    return $request->user();
+        return $request->user();
     });
 
     Route::post('/memoires/add', 'AdminController@add');
@@ -91,7 +93,7 @@ Route::prefix('contact')->group(function () {
  *  page "Je participe"
  */
 Route::prefix('jeparticipe')->group(function () {
-    Route::get('/', 'JeParticipeController@index');
+
     Route::post('message', 'JeParticipeController@message');
 });
 // Recherche
@@ -103,3 +105,8 @@ Route::get('/information', function () {
     return view('admin.equipe');
 });
 
+Route::prefix('error')->group(function () {
+    Route::get('/', function () {
+        return view('client/error');
+    });
+});
