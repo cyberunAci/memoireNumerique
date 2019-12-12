@@ -9,6 +9,17 @@ use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
+
+
+    public function categories()
+    {
+        $categorie = Categories::with([
+            'category'
+        ])
+        ->get();
+
+
+        return CategoriesRessource::collection($categorie);
     function index()
     {   
         $test = Categories::with([
@@ -17,4 +28,6 @@ class CategoriesController extends Controller
         $categories = CategoriesRessource::collection($test);
         return view('client.categories', ['categories' => $categories]);
     }
+}
+
 }

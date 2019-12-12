@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 
 use App\Categories;
 use App\Http\Resources\MemoiresRessource;
-use App\Status;
+//use App\Status;
 use App\Media;
 use App\Mediatype;
 use App\Memoire;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -18,7 +19,7 @@ class MemoiresController extends Controller
     // MEMOIRES
     function index()
     {
-        return view('client.memoire'); //TODO memoires.blade.php
+        return view('admin.memoires'); //TODO memoires.blade.php
     }
 
     /**
@@ -31,29 +32,29 @@ class MemoiresController extends Controller
     }
 
     // AJOUTER
-    function add(Request $request)
-    {
-        $array = Validator::make($request->all(), [
-            'titre' => 'required',
-            'resumer' => 'required',
-            'description' => 'required',
-            'auteur' => 'required',
-            'id_categorie' => 'required',
-            'id_mediatype' => 'required',
-            'image' => 'required',
-            'video' => 'required',
-            'status' => 'required',
-        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+    // function add(Request $request)
+    // {
+    //     $array = Validator::make($request->all(), [
+    //         'titre' => 'required',
+    //         'resumer' => 'required',
+    //         'description' => 'required',
+    //         'auteur' => 'required',
+    //         'id_categorie' => 'required',
+    //         'id_mediatype' => 'required',
+    //         'image' => 'required',
+    //         'video' => 'required',
+    //         'status' => 'required',
+    //     ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $insertionBDD = Memoire::create(
-            $array
-        )->id;
+    //     $insertionBDD = Memoire::create(
+    //         $array
+    //     )->id;
 
-        $array['id'] = $insertionBDD;
-        return json_encode($array);
-    }
+    //     $array['id'] = $insertionBDD;
+    //     return json_encode($array);
+    // }
     // AJOUTER Categorie
-    function addCategories(Request $request)
+    function addCategorie(Request $request)
     {
         $array = Validator::make($request->all(), [
             'nom' => 'required',
@@ -67,7 +68,7 @@ class MemoiresController extends Controller
         return json_encode($array);
     }
     // AJOUTER Type
-    function addTypes(Request $request)
+    function addType(Request $request)
     {
         $array = Validator::make($request->all(), [
             'type' => 'required',
@@ -89,9 +90,19 @@ class MemoiresController extends Controller
      */
     function remove($id)
     {
-        $status = Memoire::destroy($id) ? 'ok' : 'nok';
+        $status =  Memoire::destroy($id) ? 'ok' : 'nok';
         return json_encode(['status' => $status]);
     }
+    
+
+    // OBTENIR DONNÉES À MODIFIER
+    function edit($id)
+    {
+        $where = array('id' => $id);
+        $data['memoires'] = Memoire::where($where)->first();
+        return view('admin.edit', $data); //TODO: RETOUR de la view dans l'url 
+    }
+
     // MODIFIER
     function update()
     {

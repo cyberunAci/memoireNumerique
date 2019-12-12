@@ -23,7 +23,6 @@ class MemoireNumerique extends Migration
             $table->integer('id_mediatype');
             $table->string('video', 255);
             $table->string('image', 255);
-            $table->boolean('status');
             $table->timestamps();
         });
     }

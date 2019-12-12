@@ -15,7 +15,7 @@
       <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
         <div class="card-body">
           <h2>Ajouter une mémoire</h2>
-          <form onsubmit="createBdd()">
+          <form onsubmit="add()">
             <div class="form-group">
               <label for="">Titre</label>
               <input type="text" class="form-control" name="titre" id="titre" placeholder="Ajouter un titre" onblur="regExpTitre(this)" required>
@@ -35,7 +35,7 @@
 
             <div class="form-group">
               <label for="exampleFormControlSelect1">Categorie</label>
-              <select class="form-control" id="id_categorie" name="id_categorie">
+              <select class="form-control" id="id_categories" name="id_categories">
               </select>
             </div>
             <div class="form-group">
@@ -76,16 +76,22 @@
         <div class="card-body">
           <h2>Ajouter une catégorie</h2>
           <!--Catégorie route a faire-->
-          <form onsubmit="categorieBdd()">
+          <form onsubmit="categoriesBdd()">
             <div class="form-group">
               <label for="Catégorie">Catégorie</label>
               <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom de la catégorie" required>
+              <label for="couleurCatégorie">Couleur</label>
+              <input type="color" class="form-control" name="couleur" id="couleur" required>
+              <label for="imageCatégorie">Image Catégorie</label>
+              <input type="text" class="form-control" name="image_categorie" id="image_categorie" placeholder="Url image catégorie" required>
             </div>
             <input type="submit" class="btn btn-primary" value="Ajouter">
           </form>
         </div>
       </div>
     </div>
+
+
     <div class="card">
       <div class="card-header" id="headingTwo">
         <h2 class="mb-0">
@@ -98,7 +104,7 @@
         <div class="card-body">
           <h2>Ajouter un média</h2>
 
-          <form onsubmit="typeBdd()">
+          <form onsubmit="typesBdd()">
             <div class="form-group">
               <label for="type">Type</label>
               <input type="text" class="form-control" name="type" id="type" placeholder="Nom du type de média" required>
@@ -108,12 +114,14 @@
         </div>
       </div>
     </div>
-  </div>
+  </div><br><br>
+
   <h2>Toutes les memoires</h2>
-  <table id="table" class="table">
-    <thead>
+  <table id="table" class="table table-sm">
+    <thead class="table-danger">
       <!-- TODO responsive -->
       <tr>
+        {{-- <th scope="col" class="table-danger">id</th> --}}
         <th scope="col">id</th>
         <th scope="col">Titre</th>
         <th scope="col">Resumer</th>
@@ -124,27 +132,35 @@
         <th scope="col">Image</th>
         <th scope="col">Video</th>
         <th scope="col">Status</th>
-        <th scope="col">Supprimer</th>
+        <th scope="col">Action </th>
       </tr>
     </thead>
     <tbody id="affichagevoulu">
       @foreach($memoires as $memoire)
-    <tr id='memoire_{{$memoire->id}}' class='memoire'>
-          <th scope="col">{{$memoire->id}}</th>
-          <th scope="col">{{$memoire->titre}}</th>
-          <th scope="col">{{$memoire->resumer}}</th>
-          <th scope="col">{{$memoire->description}}</th>
-          <th scope="col">{{$memoire->auteur}}</th>
-          <th scope="col">{{$memoire->category->nom}}</th>
-          <th scope="col">{{$memoire->media->type->type}}</th>
-          <th scope="col"><img src='{{$memoire->media->image}}'></th>
-          <th scope="col"><a href='{{$memoire->media->video}}'>Lien vers video</th>
-          <th scope="col"></th>
-          <th scope="col"><button type='submit' onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button></th>
-        </tr>
-      @endforeach
-    </tbody>
-  </table>
+      <tr id='memoire_{{$memoire->id}}' class='memoire'>
+        <th scope="col">{{$memoire->id}}</th>
+        <th scope="col">{{$memoire->titre}}</th>
+        <th scope="col">{{$memoire->resumer}}</th>
+        <th scope="col">{{$memoire->description}}</th>
+        <th scope="col">{{$memoire->auteur}}</th>
+        <th scope="col">{{$memoire->categories->nom}}</th>
+        <th scope="col">{{$memoire->media->type->type}}</th>
+        <th scope="col"><img src='{{$memoire->media->image}}'></th>
+        <th scope="col"><a href='{{$memoire->media->video}}'>Lien vers video</th>
+        <th scope="col">
+          <button type='submit' class="btn btn-danger" onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button>
+</div>
+</th>
+<th scope="col">
+  <button type="submit" onclick='editMemoire({{$memoire->id}})' class="btn btn-primary">
+    Editer
+  </button> 
+</th>
+</tr>
+@endforeach
+</tbody>
+</table>
+
 </div>
 @endSection
 @section('js')
