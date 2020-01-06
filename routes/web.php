@@ -64,7 +64,7 @@ Route::prefix('/admin')->group(function () {
     //Route::resource('admin.memoires', 'MemoiresController');
     Route::delete('memoires/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
     Route::get('/memoires/{id}/edit', 'MemoiresController@edit')->where('id', "[0-9]+"); //EDIT
-    Route::get('/memoires/{id}/update', 'MemoiresController@update');
+    Route::put('/memoires/{id}/update', 'MemoiresController@update');
 });
 
 Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires

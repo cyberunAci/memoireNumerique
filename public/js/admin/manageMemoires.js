@@ -29,7 +29,7 @@ function undisplayMemoire(id) {
 function editMemoire(id) {
     $.ajax({
         method:"get", //method transfert
-        url: "/admin/memoires/" + id + "/edit",
+        url: "/admin/memoires/"+id+"/edit",
         dataType: "json",
     }).done(function (data) {
         console.log(data);
