@@ -1,3 +1,3 @@
 <div class="tab-pane fade" id="v-pills-equipes" role="tabpanel" aria-labelledby="v-pills-equipes-tab">
                 ... test ...
-            </div>
+</div>
