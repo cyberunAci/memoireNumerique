@@ -107,17 +107,39 @@ class MemoiresController extends Controller
     
 
     // OBTENIR DONNÉES À MODIFIER
-    function edit($id)
+    /* function edit($id)
     {
-        $where = array('id' => $id);
-        $data['memoires'] = Memoire::where($where)->first();
-        return view('admin.edit', $data); //TODO: RETOUR de la view dans l'url 
-    }
-
+        $memoire = Memoire::all();
+        return ([$memoire]);
+    } */
     // MODIFIER
-    function update()
+    function update(Request $id)
     {
-        //
+        //Validé la donnée 
+        $array = Validator::make($id->all(), 
+        [
+            'titre' => 'required',
+            'resumer' => 'required',
+            'description' => 'required',
+            'auteur' => 'required',
+            'id_categorie' => 'required',
+            'id_mediatype' => 'required',
+            'image' => 'required',
+            'video' => 'required',
+            'status' => 'required',
+        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+
+        return json_encode('toto');
+
+        //Vérifier que la mémoire (id) existe
+
+
+       /*  $memoire = Memoire::all();
+        //$collection = collect(['titre', 'resumer', 'description','auteur','id_categorie','id_mediatype','image','video','status']);
+        $collection = collect($memoire);
+        return json_encode($collection); */
+        
+
     }
     // liste des Categories TODO
     function getByCategories()

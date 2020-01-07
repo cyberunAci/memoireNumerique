@@ -26,11 +26,36 @@ function undisplayMemoire(id) {
     $('#memoire_' + id).fadeOut().remove();
 }
 
-function editMemoire(id) {
+function updateMemoire(id) {
+    event.preventDefault();
+    
+    let post_editTitre = $("#editTitre").val();
+    let post_editResumer = $("#editResume").val();
+    let post_editDescription = $("#editDescription").val();
+    let post_editCategorie = $("#editAuteur").val();
+    let post_editMediatype = $("#editCategorie").val();
+    let post_editAuteur = $("#editMedia").val();
+    let post_editImage = $("#editImage").val();
+    let post_editVideo = $("#editVideo").val();
+    let post_editStatus = $("#editStatus").val();
+
+    let affiche = {
+        titre: post_editTitre,
+        resumer: post_editResumer,
+        description: post_editDescription,
+        categorie: post_editCategorie,
+        mediatype: post_editMediatype,
+        auteur: post_editAuteur,
+        image: post_editImage,
+        video: post_editVideo,
+        status: post_editStatus
+    }
+
     $.ajax({
-        method: "get", //method transfert
-        url: "/admin/memoires/" + id + "/edit",
+        method:"put", //method transfert
+        url: "/api/memoires/"+ id,
         dataType: "json",
+        data: affiche,
     }).done(function (data) {
         console.log(data);
     });
