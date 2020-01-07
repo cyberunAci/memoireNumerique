@@ -184,12 +184,12 @@
         
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">Categorie</label>
-                      <select class="form-control" id="editCategorie" name="editCategorie">
+                      <select class="form-control" id="id_categories" name="id_categories">
                       </select>
                     </div>
                     <div class="form-group">
                       <label for="Type de média">Type de media</label>
-                      <select class="form-control" id="editMedia" name="editMedia">
+                      <select class="form-control" id="id_mediatype" name="id_mediatype">
                       </select>
                     </div>
                     <div class="form-group">

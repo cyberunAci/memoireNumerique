@@ -33,8 +33,8 @@ function updateMemoire(id) {
     let post_editResumer = $("#editResume").val();
     let post_editDescription = $("#editDescription").val();
     let post_editCategorie = $("#editAuteur").val();
-    let post_editMediatype = $("#editCategorie").val();
-    let post_editAuteur = $("#editMedia").val();
+    let post_editMediatype = $("#id_categories").val();
+    let post_editAuteur = $("#id_mediatype").val();
     let post_editImage = $("#editImage").val();
     let post_editVideo = $("#editVideo").val();
     let post_editStatus = $("#editStatus").val();
@@ -43,12 +43,12 @@ function updateMemoire(id) {
         titre: post_editTitre,
         resumer: post_editResumer,
         description: post_editDescription,
-        categorie: post_editCategorie,
-        mediatype: post_editMediatype,
+        id_categorie: post_editCategorie,
+        id_type: post_editMediatype,
         auteur: post_editAuteur,
         image: post_editImage,
         video: post_editVideo,
-        status: post_editStatus
+        id_status: post_editStatus
     }
 
     $.ajax({

@@ -94,13 +94,6 @@ class MemoiresController extends Controller
         return json_encode(['status' => $status]);
     }
     
-
-    // OBTENIR DONNÉES À MODIFIER
-    /* function edit($id)
-    {
-        $memoire = Memoire::all();
-        return ([$memoire]);
-    } */
     // MODIFIER
     function update(Request $id)
     {
@@ -118,17 +111,19 @@ class MemoiresController extends Controller
             'status' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        return json_encode('toto');
-
         //Vérifier que la mémoire (id) existe
 
-
-       /*  $memoire = Memoire::all();
-        //$collection = collect(['titre', 'resumer', 'description','auteur','id_categorie','id_mediatype','image','video','status']);
-        $collection = collect($memoire);
-        return json_encode($collection); */
+        if ($array = App\Memoire::find($id)){  //TODO Kévin
+            $array->titre = 'titre';
+            $array->resumer = 'resumer';
+            $array->description = 'description';
+            $array->auteur = 'auteur';
+            $array->id_categorie = 'id_categorie';
+            $array->id_mediatype = 'id_mediatype';
+        }
         
-
+        
+        
     }
     // liste des Categories TODO
     function getByCategories()
