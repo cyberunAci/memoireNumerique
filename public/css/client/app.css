@@ -860,3 +860,6 @@ nav {
   margin-right: 30px;
 }
 
+.modal-backdrop{
+  z-index: 0;
+}

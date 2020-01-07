@@ -193,7 +193,7 @@
                               </div>
                               <div class="form-group">
                                 <label for="">Video</label>
-                                <input type="text" class="form-control" name="editVideo" id="editVideo" placeholder="Ajouter votre lien de la video" onblur="regExpLien(this)" required>
+                                <input type="text" class="form-control" name="editVideo" id="editVideo" placeholder="Ajouter votre lien de la video" required>
                               </div>
                                   </div>
                                   <div class="modal-footer">
