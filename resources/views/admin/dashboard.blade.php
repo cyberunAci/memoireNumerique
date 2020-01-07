@@ -1,3 +1,4 @@
+@extends('layouts.app')
 @section('content')
 <div>
   <div class="titre-equipe">
@@ -11,21 +12,19 @@
         <a class="nav-link" id="v-pills-equipes-tab" data-toggle="pill" href="#v-pills-equipes" role="tab" aria-controls="v-pills-equipes" aria-selected="false">Équipe</a>
       </div>
     </div>
-    
-        <div class="col-9">
-          <div class="tab-content" id="v-pills-tabContent">
-            
-            @include('admin.dashboard.etat')
-
-            @include('admin.dashboard.donnees')
-
-            @include('admin.dashboard.equipe')
-
-          
-            
+    <div class="col-9">
+      <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane fade show active" id="v-pills-memoires" role="tabpanel" aria-labelledby="v-pills-memoires-tab">
+          @include('admin.dashboard.etat')
+        </div>
+        <div class="tab-pane fade" id="v-pills-informations" role="tabpanel" aria-labelledby="v-pills-informations-tab">
+          @include('admin.dashboard.donnees')
+        </div>
+        <div class="tab-pane fade" id="v-pills-equipes" role="tabpanel" aria-labelledby="v-pills-equipes-tab">
+          @include('admin.dashboard.equipe')
+        </div>
       </div>
     </div>
   </div>
 </div>
 @endSection
-

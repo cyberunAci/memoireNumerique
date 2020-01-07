@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="v-pills-informations" role="tabpanel" aria-labelledby="v-pills-informations-tab">
+
                 <div id='admin_memoires' class="container py-3">
 
                     <div class="accordion" id="accordionExample">
@@ -209,6 +209,3 @@
                       @endforeach
                     </tbody>
                   </table>
-
-                  {{-- /test --}}
-            </div>

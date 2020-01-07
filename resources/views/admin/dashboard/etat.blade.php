@@ -1,4 +1,4 @@
-<div class="tab-pane fade show active" id="v-pills-memoires" role="tabpanel" aria-labelledby="v-pills-memoires-tab">
+
                 <h3>Nombre d'élément présent dans la BDD :</h3>
                 <div>
                           <div class="row">
@@ -34,4 +34,3 @@
                                 </div>
                             </div>
                 </div>
-            </div>
