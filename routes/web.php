@@ -42,8 +42,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('equipe', 'AdminController@equipeView');
     Route::post('dashboard/add', 'AdminController@add');
     Route::get('formulaire', 'AdminController@formulaireView');
-    Route::get('login', 'AuthController@login');
-    Route::get('deconnexion', 'AuthController@token');
+    Route::post('login', 'AuthController@login');
     Route::post('register', 'AuthController@register');
     Route::middleware('auth:api')->get('/user', function (Request $request) {
 
