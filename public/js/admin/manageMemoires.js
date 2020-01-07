@@ -12,7 +12,7 @@ function deleteMemoire(id) {
     $.ajax({
         method: "DELETE", //method transfert
         url: "/admin/dashboard/" + id,
-        dataType:"json",
+        dataType: "json",
     }).done(function (data) {
         if (data.status === 'ok') {
             undisplayMemoire(id);
@@ -28,8 +28,8 @@ function undisplayMemoire(id) {
 
 function editMemoire(id) {
     $.ajax({
-        method:"get", //method transfert
-        url: "/admin/memoires/"+id+"/edit",
+        method: "get", //method transfert
+        url: "/admin/memoires/" + id + "/edit",
         dataType: "json",
     }).done(function (data) {
         console.log(data);
@@ -41,25 +41,34 @@ function editMemoire(id) {
 function displayDatas(datas) {
     console.log(datas)
     $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-        $("#affichagevoulu").append(
-            "<tr>" +
-            "<th>" + data.id + "</th>" +
-            "<th>" + data.titre + "</th>" +
-            "<th>" + data.resumer + "</th>" +
-            "<th>" + data.description + "</th>" +
-            "<th>" + data.auteur + "</th>" +
-            "<th>" + data.category.nom + "</th>" +
-            "<th>" + data.media.type.type + "</th>" +
-            "<th>" + data.media.image + "</th>" +
-            "<th>" + data.media.video + "</th>" +
-            "<th>" + "</th>" +
-            "<th><button type='submit' onclick='deleteMemoire(" + data.id + ")'>Supprimer</button></th>" +
-            "</tr>"
-        );
+        addData(data);
     })
 
 }
 
+/**
+ * Ajoute la mémoire le tableau
+ * @param {*} data 
+ */
+function addData(data) {
+
+    $("#affichagevoulu").append(
+        "<tr>" +
+        "<th>" + data.id + "</th>" +
+        "<th>" + data.titre + "</th>" +
+        "<th>" + data.resumer + "</th>" +
+        "<th>" + data.description + "</th>" +
+        "<th>" + data.auteur + "</th>" +
+        "<th>" + data.category.nom + "</th>" +
+        "<th>" + data.media.type.type + "</th>" +
+        "<th>" + data.media.image + "</th>" +
+        "<th>" + data.media.video + "</th>" +
+        "<th>" + "</th>" +
+        "<th><button type='submit' onclick='deleteMemoire(" + data.id + ")'>Supprimer</button></th>" +
+        "</tr>"
+    );
+
+}
 /* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */
 function add() {
     event.preventDefault();
@@ -71,20 +80,19 @@ function add() {
     let post_auteur = $("#auteur").val();
     let post_image = $("#image").val();
     let post_video = $("#video").val();
-    let post_status = $("#status").val();
 
     let table = {
         titre: post_titre,
         resumer: post_resumer,
         description: post_description,
         id_categorie: post_categorie,
-        //id_media: post_mediatype,
-        id_type: post_mediatype,
-
         auteur: post_auteur,
+
+        id_media: post_mediatype,
+
+
         image: post_image,
         video: post_video,
-        id_status: post_status
     }
     console.log(table);
     $.ajaxSetup({
@@ -92,19 +100,22 @@ function add() {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    // /* AJOUTER UNE MEMOIRE SUR LA BDD POUR ADMINISTRATEUR */
     $.ajax({
         method: "post",
-        url: "/admin/dashboard/add",
+        url: "/api/memoires",
         data: table,
         dataType: "json",
     })
         .done(function (data) {
+            addData(data.data);
+            $('#addMemoireModal').modal('hide');
         })
         .fail(function (status) {
         })
 }
 
-// /* AJOUTER CATEGORIE BDD POUR ADMINISTRATEUR */
+// /* AJOUTER UNE CATEGORIE SUR LA BDD POUR ADMINISTRATEUR */
 function categoriesBdd() {
     event.preventDefault();
     let post_nom = $("#nom").val();
@@ -131,7 +142,7 @@ function categoriesBdd() {
         .fail(function (status) {
         })
 }
-// /* AJOUTER TYPE BDD POUR ADMINISTRATEUR */
+// /* AJOUTER UN TYPE SUR LA BDD POUR ADMINISTRATEUR */
 function typesBdd() {
     event.preventDefault();
     let post_type = $("#type").val();

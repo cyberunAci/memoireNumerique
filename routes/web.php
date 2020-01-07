@@ -72,17 +72,17 @@ Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD
 });
 
 
-/* Route::prefix('/api')->group(function () {
+Route::prefix('/api')->group(function () {
     Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
         Route::get('/', 'MemoiresController@all');
         Route::delete('{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
-        Route::get('add', 'MemoiresController@add'); // ajouter des memoires
+        Route::post('/', 'MemoiresController@add'); // ajouter des memoires
         Route::put('{id}', 'MemoiresController@update');
         Route::post('categorie/add', 'MemoiresController@addCategorie'); // ajouter une categories
         Route::post('type/add', 'MemoiresController@addType'); // ajouter un type de fichier
-        
+
+
     });
- 
 });
 
 /* **************** Valider **************** */
