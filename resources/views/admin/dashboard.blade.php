@@ -14,14 +14,15 @@
     </div>
     <div class="col-9">
       <div class="tab-content" id="v-pills-tabContent">
-      <div class="tab-pane fade show active" id="v-pills-memoires" role="tabpanel" aria-labelledby="v-pills-memoires-tab">
+        <div class="tab-pane fade show active" id="v-pills-memoires" role="tabpanel" aria-labelledby="v-pills-memoires-tab">
           @include('admin.dashboard.etat')
+        </div>
+        <div class="tab-pane fade" id="v-pills-equipes" role="tabpanel" aria-labelledby="v-pills-equipes-tab">
+          toto
+          @include('admin.dashboard.equipe')
         </div>
         <div class="tab-pane fade" id="v-pills-informations" role="tabpanel" aria-labelledby="v-pills-informations-tab">
           @include('admin.dashboard.donnees')
-        </div>
-        <div class="tab-pane fade" id="v-pills-equipes" role="tabpanel" aria-labelledby="v-pills-equipes-tab">
-          @include('admin.dashboard.equipe')
         </div>
       </div>
     </div>

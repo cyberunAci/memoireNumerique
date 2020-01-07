@@ -179,12 +179,12 @@
                   
                               <div class="form-group">
                                 <label for="exampleFormControlSelect1">Categorie</label>
-                                <select class="form-control" id="" name="">
+                                <select class="form-control" id="editCategorie" name="editCategorie">
                                 </select>
                               </div>
                               <div class="form-group">
                                 <label for="Type de média">Type de media</label>
-                                <select class="form-control" id="" name="">
+                                <select class="form-control" id="editMedia" name="editMedia">
                                 </select>
                               </div>
                               <div class="form-group">
