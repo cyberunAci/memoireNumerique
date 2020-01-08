@@ -26,31 +26,25 @@ function undisplayMemoire(id) {
     $('#memoire_' + id).fadeOut().remove();
 }
 
-function updateMemoire(id) {
-    event.preventDefault();
-    
-    let post_editTitre = $("#editTitre").val();
-    let post_editResumer = $("#editResume").val();
-    let post_editDescription = $("#editDescription").val();
-    let post_editCategorie = $("#editAuteur").val();
-    let post_editMediatype = $("#id_categories").val();
-    let post_editAuteur = $("#id_mediatype").val();
-    let post_editImage = $("#editImage").val();
-    let post_editVideo = $("#editVideo").val();
-    let post_editStatus = $("#editStatus").val();
-
+function modalUpdate(id) {  //TODO Kévin
+   $('#memoire_{{id}} .titre').val();
+   $('#memoire_{{id}} .resumer').val();
+   $('#memoire_{{id}} .description').val();
+   $('#memoire_{{id}} .auteur').val();
+   $('#memoire_{{id}} .nom').val();
+   $('#memoire_{{id}} .type').val();
+   $('#memoire_{{id}} .image').val();
+   $('#memoire_{{id}} .video').val();
     let affiche = {
-        titre: post_editTitre,
-        resumer: post_editResumer,
-        description: post_editDescription,
-        id_categorie: post_editCategorie,
-        id_type: post_editMediatype,
-        auteur: post_editAuteur,
-        image: post_editImage,
-        video: post_editVideo,
-        id_status: post_editStatus
+        titre: $('#memoire_{{id}} .titre').val(),
+        resumer: $('#memoire_{{id}} .resumer').val(),
+        description: $('#memoire_{{id}} .description').val(),
+        auteur: $('#memoire_{{id}} .auteur').val(),
+        nom: $('#memoire_{{id}} .nom').val(),
+        type: $('#memoire_{{id}} .type').val(),
+        image: $('#memoire_{{id}} .image').val(),
+        video: $('#memoire_{{id}} .video').val(),
     }
-
     $.ajax({
         method:"put", //method transfert
         url: "/api/memoires/"+ id,

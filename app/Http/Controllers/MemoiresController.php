@@ -53,6 +53,7 @@ class MemoiresController extends Controller
     //     $array['id'] = $insertionBDD;
     //     return json_encode($array);
     // }
+    
     // AJOUTER Categorie
     function addCategorie(Request $request)
     {
@@ -67,6 +68,7 @@ class MemoiresController extends Controller
         $array['id'] = $insertCategorie;
         return json_encode($array);
     }
+
     // AJOUTER Type
     function addType(Request $request)
     {
@@ -95,10 +97,10 @@ class MemoiresController extends Controller
     }
     
     // MODIFIER
-    function update(Request $id)
+    function update( Request $request, $id)
     {
         //Validé la donnée 
-        $array = Validator::make($id->all(), 
+        $array = Validator::make($request->all(), 
         [
             'titre' => 'required',
             'resumer' => 'required',
@@ -113,18 +115,24 @@ class MemoiresController extends Controller
 
         //Vérifier que la mémoire (id) existe
 
-        if ($array = App\Memoire::find($id)){  //TODO Kévin
+        if ($array = Memoire::find($id)){  
             $array->titre = 'titre';
             $array->resumer = 'resumer';
             $array->description = 'description';
             $array->auteur = 'auteur';
             $array->id_categorie = 'id_categorie';
-            $array->id_mediatype = 'id_mediatype';
-        }
+            $array->id_type = 'id_mediatype';
+            $array->image = 'image';
+            $array->video = 'video';
+            $array->id_status = 'status';
+            $array->save(); //save
+        }    
+         
         
-        
+
         
     }
+
     // liste des Categories TODO
     function getByCategories()
     {
