@@ -4,6 +4,7 @@
  * @param {*} id 
  */
 function deleteMemoire(id) {
+    event.preventDefault();
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -28,7 +29,7 @@ function undisplayMemoire(id) {
 
 function updateMemoire(id) {
     event.preventDefault();
-    
+
     let post_editTitre = $("#editTitre").val();
     let post_editResumer = $("#editResume").val();
     let post_editDescription = $("#editDescription").val();
@@ -52,8 +53,8 @@ function updateMemoire(id) {
     }
 
     $.ajax({
-        method:"put", //method transfert
-        url: "/api/memoires/"+ id,
+        method: "put", //method transfert
+        url: "/api/memoires/" + id,
         dataType: "json",
         data: affiche,
     }).done(function (data) {
@@ -72,24 +73,24 @@ function displayDatas(datas) {
 }
 
 /**
- * Ajoute la mémoire le tableau
+ * Ajoute la mémoire dans le tableau (create HTML)
  * @param {*} data 
  */
 function addData(data) {
 
     $("#affichagevoulu").append(
-        "<tr>" +
-        "<th>" + data.id + "</th>" +
-        "<th>" + data.titre + "</th>" +
-        "<th>" + data.resumer + "</th>" +
-        "<th>" + data.description + "</th>" +
-        "<th>" + data.auteur + "</th>" +
-        "<th>" + data.category.nom + "</th>" +
-        "<th>" + data.media.type.type + "</th>" +
-        "<th>" + data.media.image + "</th>" +
-        "<th>" + data.media.video + "</th>" +
+        "<tr id='memoire_"+data.id+"' class='memoire'>" +
+        "<th scope='col'>" + data.titre + "</th>" +
+        "<th scope='col'>" + data.resumer + "</th>" +
+        "<th scope='col'>" + data.description + "</th>" +
+        "<th scope='col'>" + data.auteur + "</th>" +
+        "<th scope='col'>" + data.category.nom + "</th>" +
+        "<th scope='col'>" + data.media.type.type + "</th>" +
+        "<th scope='col'>" + data.media.image + "</th>" +
+        "<th scope='col'>" + data.media.video + "</th>" +
         "<th>" + "</th>" +
-        "<th><button type='submit' onclick='deleteMemoire(" + data.id + ")'>Supprimer</button></th>" +
+        "<th><button type='submit' class='btn btn-danger' onclick='deleteMemoire(" + data.id + ")'>Supprimer</button></th>" +
+        "<th scope='col'><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal' onclick='updateMemoire({{$memoire->id}})'>Editer</button></th>" +
         "</tr>"
     );
 
@@ -119,7 +120,7 @@ function add() {
         image: post_image,
         video: post_video,
     }
-    console.log(table);
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -153,7 +154,7 @@ function categoriesBdd() {
     });
     $.ajax({
         method: "post",
-        url: "/admin/dashboard/categorie/add",
+        url: "/api/memoires/categorie/add",
         data: {
             nom: post_nom,
             couleur: post_color,
@@ -162,9 +163,11 @@ function categoriesBdd() {
         dataType: "json",
     })
         .done(function (data) {
+            $('#addCategorieModal').modal('hide');
             console.log(data);
         })
         .fail(function (status) {
+            console.log('error');
         })
 }
 // /* AJOUTER UN TYPE SUR LA BDD POUR ADMINISTRATEUR */
@@ -178,14 +181,16 @@ function typesBdd() {
     });
     $.ajax({
         method: "post",
-        url: "/admin/dashboard/type/add",
+        url: "/api/memoires/type/add",
         data: {
             type: post_type,
         },
         dataType: "json",
     })
         .done(function (data) {
-        })
+            $('#addTypeModal').modal('hide');
+        })        
+        
         .fail(function (status) {
         })
 

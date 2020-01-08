@@ -18,7 +18,6 @@
           @include('admin.dashboard.etat')
         </div>
         <div class="tab-pane fade" id="v-pills-equipes" role="tabpanel" aria-labelledby="v-pills-equipes-tab">
-          toto
           @include('admin.dashboard.equipe')
         </div>
         <div class="tab-pane fade show active" id="v-pills-informations" role="tabpanel" aria-labelledby="v-pills-informations-tab">

@@ -1,4 +1,4 @@
-
+ 
                 <div id='admin_memoires' class="container py-3">
 @include('admin.dashboard.addData')
                   

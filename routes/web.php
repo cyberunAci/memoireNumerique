@@ -54,7 +54,7 @@ Route::prefix('/admin')->group(function () {
         Route::get('/', 'AdminController@memoiresView');
         Route::get('getCategorie', 'AdminController@getCategorie'); //affiche ds formulaire
         Route::get('media', 'AdminController@getListMedia'); //affiche ds formulaire
-        Route::post('categorie/add', 'AdminController@addCategories'); // ajouter une categories
+        //Route::post('categorie/add', 'AdminController@addCategories'); // ajouter une categories
         Route::delete('/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
     });
 
@@ -74,11 +74,17 @@ Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD
         Route::delete('{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
         Route::post('/', 'MemoiresController@add'); // ajouter des memoires
         Route::put('{id}', 'MemoiresController@update')->where('id', "[0-9]+");
-        Route::post('categorie/add', 'MemoiresController@addCategorie'); // ajouter une categories
+        Route::post('/categorie/add', 'MemoiresController@addCategorie'); // ajouter une categories
         Route::post('type/add', 'MemoiresController@addType'); // ajouter un type de fichier
 
 
     });
+
+   /* Route::prefix('/api')->(function(){
+        Route::prefix('/categories')->group(function({
+            Route::post('/','CategoriesController@all');
+        }))
+    })*/
 });
 
 /* **************** Valider **************** */

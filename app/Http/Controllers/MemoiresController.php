@@ -31,7 +31,7 @@ class MemoiresController extends Controller
         return MemoiresRessource::collection($out);
     }
 
-    // AJOUTER
+    // AJOUTER les memoires
     function add(Request $request)
     {
         $array = Validator::make($request->all(), [
@@ -69,6 +69,8 @@ class MemoiresController extends Controller
     {
         $array = Validator::make($request->all(), [
             'nom' => 'required',
+            'couleur' => 'required',
+            'image' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
         $insertCategorie = Categories::create(

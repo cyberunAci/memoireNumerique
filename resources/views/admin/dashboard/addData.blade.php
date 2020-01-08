@@ -71,16 +71,16 @@
     <!--++++++++++++++++++++++++++ MODAL CATEGORIE +++++++++++++++++++++++++++++++++++-->
     <!-- Modal catégorie -->
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategorie">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategorieModal">
         Ajout Catégorie
     </button>
 
 
-    <div class="modal fade" id="addCategorie" tabindex="-1" role="dialog" aria-labelledby="addCategorie" aria-hidden="true">
+    <div class="modal fade" id="addCategorieModal" tabindex="-1" role="dialog" aria-labelledby="addCategorieModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addCategorie">Ajouter une catégorie</h5>
+                    <h5 class="modal-title" id="addCategorieModal">Ajouter une catégorie</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -106,12 +106,12 @@
 
     <!-- Modal catégorie -->
     <!-- Modal Type -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addType">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTypeModal">
         Ajout Type
     </button>
 
 
-    <div class="modal fade" id="addType" tabindex="-1" role="dialog" aria-labelledby="addType" aria-hidden="true">
+    <div class="modal fade" id="addTypeModal" tabindex="-1" role="dialog" aria-labelledby="addTypeModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
