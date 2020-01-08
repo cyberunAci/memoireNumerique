@@ -27,23 +27,15 @@ function undisplayMemoire(id) {
 }
 
 function modalUpdate(id) {  //TODO Kévin
-   $('#memoire_{{id}} .titre').val();
-   $('#memoire_{{id}} .resumer').val();
-   $('#memoire_{{id}} .description').val();
-   $('#memoire_{{id}} .auteur').val();
-   $('#memoire_{{id}} .nom').val();
-   $('#memoire_{{id}} .type').val();
-   $('#memoire_{{id}} .image').val();
-   $('#memoire_{{id}} .video').val();
-    let affiche = {
-        titre: $('#memoire_{{id}} .titre').val(),
-        resumer: $('#memoire_{{id}} .resumer').val(),
-        description: $('#memoire_{{id}} .description').val(),
-        auteur: $('#memoire_{{id}} .auteur').val(),
-        nom: $('#memoire_{{id}} .nom').val(),
-        type: $('#memoire_{{id}} .type').val(),
-        image: $('#memoire_{{id}} .image').val(),
-        video: $('#memoire_{{id}} .video').val(),
+   $('#memoire_'+ id +' .titre').val();
+   $('#memoire_'+ id +' .resumer').val();
+   $('#memoire_'+ id +' .description').val();
+   $('#memoire_'+ id +' .auteur').val();
+   $('#memoire_'+ id +' .nom').val();
+   $('#memoire_'+ id +' .type').val();
+   $('#memoire_'+ id +' .image').val();
+   $('#memoire_'+ id +' .video').val();
+
     }
     $.ajax({
         method:"put", //method transfert
