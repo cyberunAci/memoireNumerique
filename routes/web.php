@@ -15,6 +15,10 @@ use App\Categorie;
 use Illuminate\Support\Facades\Request;
 
 
+    Route::view('login', 'auth/login');
+Route::get('/connexion', 'UsersController@submit')->name('connexion');
+Route::get('/deconnexion', 'UsersController@deconnexion');
+
 // Route::get('/admin/dashboard/categorie', 'AdminController@getListCategories');
 Route::get('/api/admin', 'ConnectionController@index');
 Route::get('/api/memoires/lastMemoires', 'MemoiresController@lastMemoires');
@@ -40,14 +44,11 @@ Route::prefix('/admin')->group(function () {
     Route::get('/', 'AdminController@index');
     Route::get('description', 'AdminController@descView');
     Route::get('equipe', 'AdminController@equipeView');
-    Route::post('dashboard/add', 'AdminController@add');
-    Route::get('formulaire', 'AdminController@formulaireView');
-    Route::post('login', 'AuthController@login');
-    Route::post('register', 'AuthController@register');
-    Route::middleware('auth:api')->get('/user', function (Request $request) {
+  
+    Route::get('login', 'Auth\LoginController@login');
+    Route::post('register', 'Auth\RegisterController@register');
 
-        return $request->user();
-    });
+    Route::group(['middleware' => 'auth'],function(){
 
     Route::prefix('/dashboard')->group(function () {
         Route::get('/', 'AdminController@memoiresView');
@@ -56,7 +57,7 @@ Route::prefix('/admin')->group(function () {
         Route::post('categorie/add', 'AdminController@addCategories'); // ajouter une categories
         Route::delete('/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
     });
-
+    });
     Route::post('/add', 'AdminController@add');
     Route::post('type/add', 'AdminController@addTypes'); // ajouter un type de fichier
 
@@ -115,3 +116,7 @@ Route::prefix('error')->group(function () {
         return view('client/error');
     });
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

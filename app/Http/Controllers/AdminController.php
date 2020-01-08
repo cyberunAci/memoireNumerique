@@ -13,11 +13,12 @@ use Illuminate\Support\Facades\Validator;
 class AdminController extends Controller
 {
 
+    
     function index()
     {
         return view('admin.dashboard');
+    
     }
-
     function memoiresView()
     {
 
@@ -123,6 +124,7 @@ class AdminController extends Controller
         $media = Mediatype::all();
         return json_encode($media);
     }
+
 
 
 }

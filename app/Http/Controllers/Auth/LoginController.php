@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class LoginController extends Controller
 {
     function login(){
-        return view ('admin/form');
+        return view ('auth/login');
     }
     /*
     |--------------------------------------------------------------------------
@@ -43,4 +43,13 @@ class LoginController extends Controller
     public function postLogin()
     {
     }
+    public function username()
+{
+    return 'username';
+}
+    protected function guard()
+    {
+    return Auth::guard('guard-name');
+    }
+
 }

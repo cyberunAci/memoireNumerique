@@ -209,5 +209,8 @@
           </div>
         </div>
     </div>
+    <div> 
+        <a href="/deconnexion" class="button">Déconnexion</a>
+    </div>
 
 @endSection
