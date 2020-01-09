@@ -125,6 +125,7 @@ class MemoiresController extends Controller
             $array->image = 'image';
             $array->video = 'video';
             $array->id_status = 'status';
+            
             $array->save(); //save
         }    
          

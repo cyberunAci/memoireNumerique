@@ -12,7 +12,7 @@ function deleteMemoire(id) {
     $.ajax({
         method: "DELETE", //method transfert
         url: "/admin/dashboard/" + id,
-        dataType:"json",
+        dataType: "json",
     }).done(function (data) {
         if (data.status === 'ok') {
             undisplayMemoire(id);
@@ -26,26 +26,26 @@ function undisplayMemoire(id) {
     $('#memoire_' + id).fadeOut().remove();
 }
 
-function modalUpdate(id) {  //TODO Kévin
-   let titre = $('#memoire_'+ id +' .titre').val();
-   let resumer = $('#memoire_'+ id +' .resumer').val();
-   let description = $('#memoire_'+ id +' .description').val();
-   let auteur = $('#memoire_'+ id +' .auteur').val();
-   let nom = $('#memoire_'+ id +' .nom').val();
-   let type = $('#memoire_'+ id +' .type').val();
-   let image = $('#memoire_'+ id +' .image').val();
-   let video = $('#memoire_'+ id +' .video').val();
-
+function modalUpdate(id) {
+    let modal_memoire = '#memoire_' + id;
+    $('#editTitre').val($(modal_memoire + ' .titre').text());
+    let modal_resumer = $(modal_memoire + ' .resumer').text();
+    let modal_description = $(modal_memoire + ' .description').text();
+    let modal_auteur = $(modal_memoire + ' .auteur').text();
+    let modal_nom = $(modal_memoire + ' .nom').text();
+    let modal_type = $(modal_memoire + ' .type').text();
+    let modal_image = $(modal_memoire + ' .image').text();
+    let modal_video = $(modal_memoire + ' .video').text();
     
-    $.ajax({
-        method:"put", //method transfert
-        url: "/api/memoires/"+ id,
-        dataType: "json",
-        data: affiche,
-    }).done(function (data) {
-        console.log(data);
-    });
+    let resumer = $('#editResumer').val(modal_resumer);
+    let description = $('#editDescription').val(modal_description);
+    let auteur = $('#editAuteur').val(modal_auteur);
+    let categorie = $('#editCategories').val(modal_nom);
+    let mediatype = $('#editCategories').val(modal_type);
+    let image = $('#editImage').val(modal_image);
+    let video = $('#editVideo').val(modal_video);
 }
+
 
 
 
