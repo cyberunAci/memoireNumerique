@@ -52,6 +52,7 @@ Route::prefix('/admin')->group(function () {
     Route::group(['middleware' => 'auth'], function () {
         Route::prefix('/dashboard')->group(function () {
             Route::get('/', 'AdminController@memoiresView');
+            Route::get('/{id}', 'AdminController@get');
             Route::get('getCategorie', 'AdminController@getCategorie'); //affiche ds formulaire
             Route::get('media', 'AdminController@getListMedia'); //affiche ds formulaire
             Route::post('categorie/add', 'AdminController@addCategories'); // ajouter une categories

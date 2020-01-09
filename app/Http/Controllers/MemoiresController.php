@@ -19,6 +19,8 @@ class MemoiresController extends Controller
     // MEMOIRES
     function index()
     {
+
+        
         return view('admin.memoires'); //TODO memoires.blade.php
     }
 

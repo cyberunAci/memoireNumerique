@@ -28,23 +28,43 @@ function undisplayMemoire(id) {
 }
 
 function modalUpdate(id) {
-    let modal_memoire = '#memoire_' + id;
-    $('#editTitre').val($(modal_memoire + ' .titre').text());
-    let modal_resumer = $(modal_memoire + ' .resumer').text();
-    let modal_description = $(modal_memoire + ' .description').text();
-    let modal_auteur = $(modal_memoire + ' .auteur').text();
-    let modal_nom = $(modal_memoire + ' .nom').text();
-    let modal_type = $(modal_memoire + ' .type').text();
-    let modal_image = $(modal_memoire + ' .image').text();
-    let modal_video = $(modal_memoire + ' .video').text();
+
+    $.ajax({
+        method: "get",
+        url: "/admin/dashboard/"+id,
+        data: table,
+        dataType: "json",
+    })
+    .done(function (data) {
+    })
     
-    let resumer = $('#editResumer').val(modal_resumer);
-    let description = $('#editDescription').val(modal_description);
-    let auteur = $('#editAuteur').val(modal_auteur);
-    let categorie = $('#editCategories').val(modal_nom);
-    let mediatype = $('#editCategories').val(modal_type);
-    let image = $('#editImage').val(modal_image);
-    let video = $('#editVideo').val(modal_video);
+    let modal_memoire = '#memoire_' + id;
+
+    $('#editTitre').val($(modal_memoire + ' .titre').text());
+    $('#editResumer').val($(modal_memoire + ' .resumer').text());
+    $('#editDescription').val($(modal_memoire + ' .description').text());
+    $('#editAuteur').val($(modal_memoire + ' .auteur').text());
+
+
+
+    $('#editCategories option').each(function (index, item) {
+        if ($(this).text() === $(modal_memoire + ' .nom').text()) {
+            $('#editCategories').val($(this).val());
+        }
+    });
+
+    
+    $('#editMediatype option').each(function (index, item) {
+        if ($(this).text() === $(modal_memoire + ' .type').text()) {
+            $('#editMediatype').val($(this).val());
+        }
+    });
+    $('#editImage').val($(modal_memoire + ' .image').text()); //recup bdd
+    $('#editVideo').val($(modal_memoire + ' .video').text()); //recup bdd
+    
+
+
+    
 }
 
 
@@ -65,7 +85,7 @@ function displayDatas(datas) {
 function addData(data) {
 
     $("#affichagevoulu").append(
-        "<tr id='memoire_"+data.id+"' class='memoire'>" +
+        "<tr id='memoire_" + data.id + "' class='memoire'>" +
         "<th scope='col'>" + data.titre + "</th>" +
         "<th scope='col'>" + data.resumer + "</th>" +
         "<th scope='col'>" + data.description + "</th>" +
@@ -175,87 +195,11 @@ function typesBdd() {
     })
         .done(function (data) {
             $('#addTypeModal').modal('hide');
-        })        
-        
+        })
+
         .fail(function (status) {
         })
 
 }
 
-/* AFFICHE TYPE DANS FORMULAIRE MEMOIRE */
-function getListMedia() {
 
-    $.ajax({
-        method: "GET", //method transfert
-        url: "/admin/dashboard/media",
-        dataType: "json",
-    }).done(function (datas) {
-        $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            $("#id_mediatype").append("<option value=" + data.id + ">" + data.type + "</option>");
-        })
-
-    });
-}
-
-getListMedia();
-
-/* AFFICHE CATEGORIE DANS FORMULAIRE MEMOIRE */
-function getListCategories() {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    $.ajax({
-        method: "get", //method transfert
-
-        url: "/admin/dashboard/getCategorie",
-        dataType: "json",
-    }).done(function (datas) {
-
-        $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            $("#id_categories").append("<option value=" + data.id + ">" + data.nom + "</option>");
-        })
-
-    }).fail(function (status) {
-        console.log("status");
-    });
-}
-
-getListCategories();
-
-/* AFFICHE TYPE DANS FORMULAIRE MEMOIRE */
-// function getListMedia() {
-
-//     $.ajax({
-//         method: "GET", //method transfert
-//         url: "/mediatheque/type/{id}",
-//         dataType: "json",
-//     }).done(function (datas) {
-//         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-//             $("#id_mediatype").append("<option value=" + data.id + ">" + data.type + "</option>");
-//         })
-
-//     });
-// }
-
-// getListMedia();
-
-// /* AFFICHE CATEGORIE DANS FORMULAIRE MEMOIRE */
-// function getListCategories() {
-
-//     $.ajax({
-//         method: "get", //method transfert
-
-//         url: "/mediatheque/categories/{id}",
-//         dataType: "json",
-//     }).done(function (datas) {
-
-//         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-//             $("#id_categories").append("<option value="+ data.id +">"+ data.nom +"</option>");
-//         })
-
-//     });
-// }
-
-// getListCategories();
