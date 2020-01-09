@@ -12,7 +12,7 @@ function deleteMemoire(id) {
     });
     $.ajax({
         method: "DELETE", //method transfert
-        url: "/admin/dashboard/" + id,
+        url: "/api/memoires/" + id,
         dataType: "json",
     }).done(function (data) {
         if (data.status === 'ok') {
@@ -27,32 +27,6 @@ function undisplayMemoire(id) {
     $('#memoire_' + id).fadeOut().remove();
 }
 
-<<<<<<< HEAD
-function updateMemoire(id) {
-    event.preventDefault();
-
-    let post_editTitre = $("#editTitre").val();
-    let post_editResumer = $("#editResume").val();
-    let post_editDescription = $("#editDescription").val();
-    let post_editCategorie = $("#editAuteur").val();
-    let post_editMediatype = $("#editCategorie").val();
-    let post_editAuteur = $("#editMedia").val();
-    let post_editImage = $("#editImage").val();
-    let post_editVideo = $("#editVideo").val();
-    let post_editStatus = $("#editStatus").val();
-
-    let affiche = {
-        titre: post_editTitre,
-        resumer: post_editResumer,
-        description: post_editDescription,
-        categorie: post_editCategorie,
-        mediatype: post_editMediatype,
-        auteur: post_editAuteur,
-        image: post_editImage,
-        video: post_editVideo,
-        status: post_editStatus
-    }
-=======
 function modalUpdate(id) {  //TODO Kévin
    let titre = $('#memoire_'+ id +' .titre').val();
    let resumer = $('#memoire_'+ id +' .resumer').val();
@@ -62,7 +36,6 @@ function modalUpdate(id) {  //TODO Kévin
    let type = $('#memoire_'+ id +' .type').val();
    let image = $('#memoire_'+ id +' .image').val();
    let video = $('#memoire_'+ id +' .video').val();
->>>>>>> 05b8cbb90755081763e4b220ba2a1c460520738f
 
     
     $.ajax({

@@ -28,14 +28,8 @@
                             <th scope="col" class='type'>{{$memoire->media->type->type}}</th>
                             <th scope="col" class='image'><img src='{{$memoire->media->image}}' width="50" height="50"></th>
                             <th scope="col" class='video'><a href='{{$memoire->media->video}}'>Lien vers video</a></th>
-                            <th scope="col">
-                            <button type='submit' class="btn btn-danger" onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button>
-                            </th>
-                            <th scope="col">
-
-                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick='modalUpdate({{$memoire->id}})'>Editer</button>
-
-                            </th>
+                            <th scope="col"><button type='submit' class="btn btn-danger" onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button></th>
+                            <th scope="col"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick='modalUpdate({{$memoire->id}})'>Editer</button></th>
                         </tr>
                       @endforeach
                     </tbody>
