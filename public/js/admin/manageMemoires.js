@@ -27,16 +27,16 @@ function undisplayMemoire(id) {
 }
 
 function modalUpdate(id) {  //TODO Kévin
-   $('#memoire_'+ id +' .titre').val();
-   $('#memoire_'+ id +' .resumer').val();
-   $('#memoire_'+ id +' .description').val();
-   $('#memoire_'+ id +' .auteur').val();
-   $('#memoire_'+ id +' .nom').val();
-   $('#memoire_'+ id +' .type').val();
-   $('#memoire_'+ id +' .image').val();
-   $('#memoire_'+ id +' .video').val();
+   let titre = $('#memoire_'+ id +' .titre').val();
+   let resumer = $('#memoire_'+ id +' .resumer').val();
+   let description = $('#memoire_'+ id +' .description').val();
+   let auteur = $('#memoire_'+ id +' .auteur').val();
+   let nom = $('#memoire_'+ id +' .nom').val();
+   let type = $('#memoire_'+ id +' .type').val();
+   let image = $('#memoire_'+ id +' .image').val();
+   let video = $('#memoire_'+ id +' .video').val();
 
-    }
+    
     $.ajax({
         method:"put", //method transfert
         url: "/api/memoires/"+ id,
