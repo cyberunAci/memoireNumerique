@@ -20,20 +20,20 @@
                     <tbody id="affichagevoulu">
                       @foreach($memoires as $memoire)
                         <tr id='memoire_{{$memoire->id}}' class='memoire'>
-                            <th scope="col">{{$memoire->titre}}</th>
-                            <th scope="col">{{$memoire->resumer}}</th>
-                            <th scope="col">{{$memoire->description}}</th>
-                            <th scope="col">{{$memoire->auteur}}</th>
-                            <th scope="col">{{$memoire->categories->nom}}</th>
-                            <th scope="col">{{$memoire->media->type->type}}</th>
-                            <th scope="col"><img src='{{$memoire->media->image}}' width="50" height="50"></th>
-                            <th scope="col"><a href='{{$memoire->media->video}}'>Lien vers video</a></th>
+                            <th scope="col" class='titre'>{{$memoire->titre}}</th>
+                            <th scope="col" class='resumer'>{{$memoire->resumer}}</th>
+                            <th scope="col" class='description'>{{$memoire->description}}</th>
+                            <th scope="col" class='auteur'>{{$memoire->auteur}}</th>
+                            <th scope="col" class='nom'>{{$memoire->categories->nom}}</th>
+                            <th scope="col" class='type'>{{$memoire->media->type->type}}</th>
+                            <th scope="col" class='image'><img src='{{$memoire->media->image}}' width="50" height="50"></th>
+                            <th scope="col" class='video'><a href='{{$memoire->media->video}}'>Lien vers video</a></th>
                             <th scope="col">
                             <button type='submit' class="btn btn-danger" onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button>
                             </th>
                             <th scope="col">
 
-                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick='updateMemoire({{$memoire->id}})'>Editer</button>
+                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick='modalUpdate({{$memoire->id}})'>Editer</button>
 
                             </th>
                         </tr>
@@ -51,15 +51,19 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body">     
+                  
                   <form onsubmit="">
+                
+                    @method('PUT')
+                    
                     <div class="form-group">
                       <label for="">Titre</label>
-                      <input type="text" class="form-control" name="editTitre" id="editTitre" placeholder="Modifier le titre" onblur="regExpTitre(this)" required>
+                      <input type="text" class="form-control" name="editTitre" id="editTitre" placeholder="Modifier le titre"  onblur="regExpTitre(this)" required>
                     </div>
                     <div class="form-group">
                       <label for="">Résumer</label>
-                      <textarea class="form-control" name="editResume" id="editResume" placeholder="Modifier le résumé" rows="3" onblur="regExpResumer(this)" required></textarea>
+                      <textarea class="form-control" name="editResumer" id="editResumer" placeholder="Modifier le résumé" rows="3" onblur="regExpResumer(this)" required></textarea>
                     </div>
                     <div class="form-group">
                       <label for="">Description</label>
@@ -72,12 +76,12 @@
         
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">Categorie</label>
-                      <select class="form-control" id="editCategorie" name="editCategorie">
+                      <select class="form-control" id="editCategories" name="editCategories">
                       </select>
                     </div>
                     <div class="form-group">
                       <label for="Type de média">Type de media</label>
-                      <select class="form-control" id="editMedia" name="editMedia">
+                      <select class="form-control" id="editMediatype" name="editMediatype">
                       </select>
                     </div>
                     <div class="form-group">
@@ -98,7 +102,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-                          <button type="button" class="btn btn-primary">Modifier</button>
+                          <button type="button" class="btn btn-primary">Envoyer</button>
                         </div>
                       </div>
                     </div>

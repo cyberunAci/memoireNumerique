@@ -27,6 +27,7 @@ function undisplayMemoire(id) {
     $('#memoire_' + id).fadeOut().remove();
 }
 
+<<<<<<< HEAD
 function updateMemoire(id) {
     event.preventDefault();
 
@@ -51,7 +52,19 @@ function updateMemoire(id) {
         video: post_editVideo,
         status: post_editStatus
     }
+=======
+function modalUpdate(id) {  //TODO Kévin
+   let titre = $('#memoire_'+ id +' .titre').val();
+   let resumer = $('#memoire_'+ id +' .resumer').val();
+   let description = $('#memoire_'+ id +' .description').val();
+   let auteur = $('#memoire_'+ id +' .auteur').val();
+   let nom = $('#memoire_'+ id +' .nom').val();
+   let type = $('#memoire_'+ id +' .type').val();
+   let image = $('#memoire_'+ id +' .image').val();
+   let video = $('#memoire_'+ id +' .video').val();
+>>>>>>> 05b8cbb90755081763e4b220ba2a1c460520738f
 
+    
     $.ajax({
         method: "put", //method transfert
         url: "/api/memoires/" + id,
