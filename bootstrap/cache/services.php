@@ -27,12 +27,13 @@
     23 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     24 => 'Laravel\\Passport\\PassportServiceProvider',
     25 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    26 => 'Carbon\\Laravel\\ServiceProvider',
-    27 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    28 => 'App\\Providers\\AppServiceProvider',
-    29 => 'App\\Providers\\AuthServiceProvider',
-    30 => 'App\\Providers\\EventServiceProvider',
-    31 => 'App\\Providers\\RouteServiceProvider',
+    26 => 'Laravel\\Ui\\UiServiceProvider',
+    27 => 'Carbon\\Laravel\\ServiceProvider',
+    28 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    29 => 'App\\Providers\\AppServiceProvider',
+    30 => 'App\\Providers\\AuthServiceProvider',
+    31 => 'App\\Providers\\EventServiceProvider',
+    32 => 'App\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -163,6 +164,8 @@
     'translation.loader' => 'Illuminate\\Translation\\TranslationServiceProvider',
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
+    'Laravel\\Ui\\AuthCommand' => 'Laravel\\Ui\\UiServiceProvider',
+    'Laravel\\Ui\\UiCommand' => 'Laravel\\Ui\\UiServiceProvider',
   ),
   'when' => 
   array (
@@ -200,6 +203,9 @@
     array (
     ),
     'Illuminate\\Validation\\ValidationServiceProvider' => 
+    array (
+    ),
+    'Laravel\\Ui\\UiServiceProvider' => 
     array (
     ),
   ),

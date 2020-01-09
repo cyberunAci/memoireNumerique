@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Categories;
 use App\Http\Resources\MemoiresRessource;
-//use App\Status;
+use App\MemoireStatus;
 use App\Media;
 use App\Mediatype;
 use App\Memoire;
@@ -31,34 +31,46 @@ class MemoiresController extends Controller
         return MemoiresRessource::collection($out);
     }
 
-    // AJOUTER
-    // function add(Request $request)
-    // {
-    //     $array = Validator::make($request->all(), [
-    //         'titre' => 'required',
-    //         'resumer' => 'required',
-    //         'description' => 'required',
-    //         'auteur' => 'required',
-    //         'id_categorie' => 'required',
-    //         'id_mediatype' => 'required',
-    //         'image' => 'required',
-    //         'video' => 'required',
-    //         'status' => 'required',
-    //     ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+    // AJOUTER les memoires
+    function add(Request $request)
+    {
+        $array = Validator::make($request->all(), [
+            'titre' => 'required',
+            'resumer' => 'required',
+            'description' => 'required',
+            'auteur' => 'required',
+            'id_categorie' => 'required',
+            'id_media' => 'required',
+            'image' => 'required',
+            'video' => 'required',
+        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-    //     $insertionBDD = Memoire::create(
-    //         $array
-    //     )->id;
+    $memoirestatus=MemoireStatus::where('status', 'Inactif')->first();
 
-    //     $array['id'] = $insertionBDD;
-    //     return json_encode($array);
-    // }
-    
+    $array['id_status']=$memoirestatus->id;
+
+        $insertionBDD = Memoire::create(
+            $array
+        );
+
+        $out = Memoire::with([
+            'media' => function ($t) {
+                $t->with('type');
+            },
+            'categories',
+            'status'
+        ])->where('id',$insertionBDD->id)->first();
+        return new MemoiresRessource($out);
+    }
+
+
     // AJOUTER Categorie
     function addCategorie(Request $request)
     {
         $array = Validator::make($request->all(), [
             'nom' => 'required',
+            'couleur' => 'required',
+            'image' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
         $insertCategorie = Categories::create(
@@ -210,8 +222,7 @@ class MemoiresController extends Controller
             'media' => function ($t) {
                 $t->with('type');
             },
-            'categories',
-            'status'
+            
         ])
             ->whereHas('media.type', function ($q) use ($type) {
                 $q->where('type', $type);

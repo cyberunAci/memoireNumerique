@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
                <div id='admin_memoires' class="container py-3">
 
@@ -113,6 +114,11 @@
                         </div>
                       </div>
                     </div><br><br>
+=======
+ 
+                <div id='admin_memoires' class="container py-3">
+@include('admin.dashboard.addData')
+>>>>>>> 0dbc4abc538187f1163f8c161b1b770f564f8c81
                   
                 <h3>Afficher des informations</h3>  
                 <table id="table" class="table">
@@ -140,14 +146,8 @@
                             <th scope="col" class='type'>{{$memoire->media->type->type}}</th>
                             <th scope="col" class='image'><img src='{{$memoire->media->image}}' width="50" height="50"></th>
                             <th scope="col" class='video'><a href='{{$memoire->media->video}}'>Lien vers video</a></th>
-                            <th scope="col">
-                            <button type='submit' class="btn btn-danger" onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button>
-                            </th>
-                            <th scope="col">
-
-                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick='modalUpdate({{$memoire->id}})'>Editer</button>
-
-                            </th>
+                            <th scope="col"><button type='submit' class="btn btn-danger" onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button></th>
+                            <th scope="col"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick='modalUpdate({{$memoire->id}})'>Editer</button></th>
                         </tr>
                       @endforeach
                     </tbody>

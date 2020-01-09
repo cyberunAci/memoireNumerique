@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Mediatype;
+use App\Http\Resources\CategoriesRessource;
+use App\Types;
 use Illuminate\Http\Request;
 
 class MediaController extends Controller
 {
-    public function types() {
-        $mediaType = Mediatype::all();
-        return MediaTypesRessource::collection($mediaType);
+    public function mediaTypes()
+    {
+        $types = Types::with([
+            'memoires'
+        ])
+        ->get();
+
+
+        return CategoriesRessource::collection($types);
     }
 }

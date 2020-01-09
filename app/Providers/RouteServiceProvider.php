@@ -15,6 +15,11 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
+    /**
+     * la redirection quand l'utilisateur est authentifié 
+     * @var string
+     */
+    public const HOME ='/home';
 
     /**
      * Define your route model bindings, pattern filters, etc.
