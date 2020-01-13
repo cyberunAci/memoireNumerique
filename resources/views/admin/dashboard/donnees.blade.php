@@ -30,7 +30,7 @@
                             <th scope="col"><button type='submit' class="btn btn-danger" onclick='deleteMemoire({{$memoire->id}})'>Supprimer</button></th>
                             <th scope="col"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick='modalUpdate({{$memoire->id}})'>Editer</button></th>
                         </tr>
-                      @endforeach
+                       @endforeach 
                     </tbody>
                 </table>
 
@@ -44,10 +44,11 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <div class="modal-body">     
+                          <div class="modal-body">  
+
                     
                     <form id="" onsubmit="">
-                  
+                      
                       @method('PUT')
                       
                       <div class="form-group">
@@ -105,7 +106,8 @@
                           </div>
                         </div>
                       </div>
-                
+                      
                     </form>
+                   
                 </div>
                </div>    

@@ -27,49 +27,6 @@ function undisplayMemoire(id) {
     $('#memoire_' + id).fadeOut().remove();
 }
 
-function modalUpdate(id) {
-
-    $.ajax({
-        method: "get",
-        url: "/admin/dashboard/"+id,
-        data: table,
-        dataType: "json",
-    })
-    .done(function (data) {
-    })
-    
-    let modal_memoire = '#memoire_' + id;
-
-    $('#editTitre').val($(modal_memoire + ' .titre').text());
-    $('#editResumer').val($(modal_memoire + ' .resumer').text());
-    $('#editDescription').val($(modal_memoire + ' .description').text());
-    $('#editAuteur').val($(modal_memoire + ' .auteur').text());
-
-
-
-    $('#editCategories option').each(function (index, item) {
-        if ($(this).text() === $(modal_memoire + ' .nom').text()) {
-            $('#editCategories').val($(this).val());
-        }
-    });
-
-    
-    $('#editMediatype option').each(function (index, item) {
-        if ($(this).text() === $(modal_memoire + ' .type').text()) {
-            $('#editMediatype').val($(this).val());
-        }
-    });
-    $('#editImage').val($(modal_memoire + ' .image').text()); //recup bdd
-    $('#editVideo').val($(modal_memoire + ' .video').text()); //recup bdd
-    
-
-
-    
-}
-
-
-
-
 function displayDatas(datas) {
     console.log(datas)
     $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
@@ -104,6 +61,7 @@ function addData(data) {
 /* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */
 function add() {
     event.preventDefault();
+    console.log("ok");
     let post_titre = $("#titre").val();
     let post_resumer = $("#resumer").val();
     let post_description = $("#description").val();
@@ -135,15 +93,16 @@ function add() {
     // /* AJOUTER UNE MEMOIRE SUR LA BDD POUR ADMINISTRATEUR */
     $.ajax({
         method: "post",
-        url: "/api/memoires",
+        url: "/api/memoires/add",
         data: table,
         dataType: "json",
     })
         .done(function (data) {
-            addData(data.data);
-            $('#addMemoireModal').modal('hide');
+            /* addData(data.data);
+            $('#addMemoireModal').modal('hide'); */
         })
         .fail(function (status) {
+            console.log('error');
         })
 }
 
