@@ -35,7 +35,7 @@ class UsersController extends Controller
             //Si une session existe, accès autorisée    
             if ($request->session()->has('info')) {
 
-                return redirect('/admin/tototest');
+                return redirect('/admin/dashboard');
             }
         } else {
             //Si non, acès refusé et redirection à la page de connexion
