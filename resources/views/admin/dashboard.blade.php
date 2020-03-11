@@ -68,7 +68,7 @@
                             </button>
                           </h2>
                         </div>
-                        
+
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                           <div class="card-body">
                             <h2>Ajouter une mémoire</h2>
