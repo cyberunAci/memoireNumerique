@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
@@ -31,7 +32,7 @@ class UsersController extends Controller
         $user = Users::where('name', $login['identifiant'])->first();
 
         //Comparaison des données de session et des données de la bdd
-        if ($login['identifiant'] === $user['name'] && md5($login['password']) == $user['password']) {
+        if ($user && md5($login['password']) == $user['password']) {
             //Si une session existe, accès autorisée    
             if ($request->session()->has('info')) {
 

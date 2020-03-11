@@ -77,10 +77,7 @@ function add() {
         description: post_description,
         id_categorie: post_categorie,
         auteur: post_auteur,
-
         id_media: post_mediatype,
-
-
         image: post_image,
         video: post_video,
     }
