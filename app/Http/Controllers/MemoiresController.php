@@ -53,6 +53,9 @@ class MemoiresController extends Controller
     //     $array['id'] = $insertionBDD;
     //     return json_encode($array);
     // }
+
+
+
     // AJOUTER Categorie
     function addCategorie(Request $request)
     {
@@ -65,8 +68,13 @@ class MemoiresController extends Controller
         )->id;
 
         $array['id'] = $insertCategorie;
+
+        //TODO utiliser les ressources 
         return json_encode($array);
     }
+
+
+
     // AJOUTER Type
     function addType(Request $request)
     {
@@ -79,6 +87,8 @@ class MemoiresController extends Controller
         )->id;
 
         $array['id'] = $insertMedia;
+        
+        //TODO utiliser les ressources
         return json_encode($array);
     }
 
@@ -91,6 +101,8 @@ class MemoiresController extends Controller
     function remove($id)
     {
         $status =  Memoire::destroy($id) ? 'ok' : 'nok';
+
+        //TODO utiliser les ressources
         return json_encode(['status' => $status]);
     }
     
@@ -100,7 +112,9 @@ class MemoiresController extends Controller
     {
         $where = array('id' => $id);
         $data['memoires'] = Memoire::where($where)->first();
-        return view('admin.edit', $data); //TODO: RETOUR de la view dans l'url 
+
+        //TODO utliser les ressources
+        return view('admin.edit', $data); //TODO: RETOUR de la view dans l'url ²    
     }
 
     // MODIFIER
@@ -112,39 +126,34 @@ class MemoiresController extends Controller
     function getByCategories()
     {
         $categorie = Categories::all();
+
+        //TODO utiliser les ressources 
         return json_encode($categorie);
     }
     // liste des éléments TODO
     function getByTypes()
     {
         $media = Media::all();
+
+        //TODO utiliser les ressources 
         return json_encode($media);
     }
+
     /* ********** TODO ********** c'est pas quoi en faire */
-    // function affichage(Request $request)
+    
+    // function affichage(Request $request) // pour admin
     // {
     //     $memoire = Memoire::all();
     //     $media = Mediatype::all();
-    //     $category = Categorie::all();
+    //     $categories = Categories::all();
 
-    // function afficheCategories()
-    // {
-    //     $categorie = Categorie::all();
-    //     return json_encode($categorie);
+    //     $id_select = $request ->input('id_categorie')
+    //     return ([$memoire, $media, $categories]);
     // }
-
-    function affichage(Request $request) // pour admin
-    {
-        $memoire = Memoire::all();
-        $media = Mediatype::all();
-        $categories = Categories::all();
-
-        // $id_select = $request ->input('id_categorie');
-        return ([$memoire, $media, $categories]);
-    }
 
     // Recupère les dernières mémoires dans la bdd grace a la catégorie et le status
 
+    
     function lastMemoires()
     {
 

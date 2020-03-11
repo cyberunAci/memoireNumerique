@@ -46,6 +46,7 @@ class AdminController extends Controller
 
     }
     // AJOUTER BDD
+    //TODO cette fonction fait plusieurs choses, donc à corriger (deux validateur + deux insert)
     function add(Request $request)
     {
         //ajouter en premier les media cad recupre video image et id type
@@ -78,6 +79,8 @@ class AdminController extends Controller
         )->id;
 
         $array['id'] = $insertionBDD;
+
+        // TODO utiliser les ressources
         return json_encode($array);
     }
 
@@ -96,8 +99,12 @@ class AdminController extends Controller
         )->id;
 
         $array['id'] = $insertCategorie;
+
+        // TODO utiliser les ressources
         return json_encode($array);
     }
+
+
     /* ADD TYPE */
     function addTypes(Request $request)
     {
@@ -110,6 +117,8 @@ class AdminController extends Controller
         )->id;
 
         $array['id'] = $insertMedia;
+
+        //TODO utiliser les ressources
         return json_encode($array);
     }
 

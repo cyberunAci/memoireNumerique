@@ -35,6 +35,8 @@ class ContactController extends Controller
             $donneesBdd = ContactModel::create( //Autre maniere d'envoyer les information [en lien avec le fichier Jeux.php (dans app/)]
                 $validateData
             );
+
+            //TODO utiliser les ressources
             return json_encode($donneesBdd);
         } else {
             return "Probleme avec le serveur";

@@ -15,6 +15,7 @@
       <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
         <div class="card-body">
           <h2>Ajouter une mémoire</h2>
+          
           <form onsubmit="add()">
             <div class="form-group">
               <label for="">Titre</label>
