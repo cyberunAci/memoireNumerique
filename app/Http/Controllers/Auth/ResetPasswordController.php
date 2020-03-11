@@ -17,7 +17,10 @@ class ResetPasswordController extends Controller
     | explore this trait and override any methods you wish to tweak.
     |
     */
-
+    protected function guard()
+    {
+        return Auth::guard('guard-name');
+    }
     use ResetsPasswords;
 
     /**

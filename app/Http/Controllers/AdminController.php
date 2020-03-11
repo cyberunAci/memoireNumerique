@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Categories;
 use App\Http\Resources\MemoiresRessource;
+use App\Http\Resources\CategoriesRessource;
+use App\Http\Resources\MediaTypesRessource;
 use App\Media;
 use App\Mediatype;
 use App\Memoire;
@@ -13,11 +15,12 @@ use Illuminate\Support\Facades\Validator;
 class AdminController extends Controller
 {
 
+    
     function index()
     {
         return view('admin.dashboard');
+    
     }
-
     function memoiresView()
     {
 
@@ -27,8 +30,16 @@ class AdminController extends Controller
             },
             'categories'
         ])->get();
+        //all cat
+        $cat=Categories::all();
+        //All type
+        $med=Mediatype::all();
 
-        return view('admin.dashboard', ['memoires' => MemoiresRessource::collection($memoires)]);
+        return view('admin.dashboard', [
+            'memoires' => MemoiresRessource::collection($memoires), //Renvoi data de mémoire vers la view
+            'categories' => CategoriesRessource::collection($cat), //Renvoi data de catégorie vers la view
+            'media' => MediaTypesRessource::collection($med)    //Renvoi data de mediatype vers la view
+            ]);
     }
 
     function descView()
@@ -132,7 +143,6 @@ class AdminController extends Controller
         $media = Mediatype::all();
         return json_encode($media);
     }
-
 
 }
 
