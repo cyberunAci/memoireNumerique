@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Categories;
 use App\Http\Resources\MemoiresRessource;
+use App\Http\Resources\CategoriesRessource;
+use App\Http\Resources\MediaTypesRessource;
 use App\Media;
 use App\Mediatype;
 use App\Memoire;
@@ -28,8 +30,16 @@ class AdminController extends Controller
             },
             'categories'
         ])->get();
+        //all cat
+        $cat=Categories::all();
+        //All type
+        $med=Mediatype::all();
 
-        return view('admin.dashboard', ['memoires' => MemoiresRessource::collection($memoires)]);
+        return view('admin.dashboard', [
+            'memoires' => MemoiresRessource::collection($memoires), //Renvoi data de mémoire vers la view
+            'categories' => CategoriesRessource::collection($cat), //Renvoi data de catégorie vers la view
+            'media' => MediaTypesRessource::collection($med)    //Renvoi data de mediatype vers la view
+            ]);
     }
 
     function descView()
@@ -47,6 +57,7 @@ class AdminController extends Controller
 
     }
     // AJOUTER BDD
+    //TODO cette fonction fait plusieurs choses, donc à corriger (deux validateur + deux insert)
     function add(Request $request)
     {
         //ajouter en premier les media cad recupre video image et id type
@@ -79,6 +90,8 @@ class AdminController extends Controller
         )->id;
 
         $array['id'] = $insertionBDD;
+
+        // TODO utiliser les ressources
         return json_encode($array);
     }
 
@@ -97,8 +110,12 @@ class AdminController extends Controller
         )->id;
 
         $array['id'] = $insertCategorie;
+
+        // TODO utiliser les ressources
         return json_encode($array);
     }
+
+
     /* ADD TYPE */
     function addTypes(Request $request)
     {
@@ -111,6 +128,8 @@ class AdminController extends Controller
         )->id;
 
         $array['id'] = $insertMedia;
+
+        //TODO utiliser les ressources
         return json_encode($array);
     }
 
@@ -124,8 +143,6 @@ class AdminController extends Controller
         $media = Mediatype::all();
         return json_encode($media);
     }
-
-
 
 }
 

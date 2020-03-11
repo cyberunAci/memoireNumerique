@@ -27,29 +27,6 @@ function undisplayMemoire(id) {
     $('#memoire_' + id).fadeOut().remove();
 }
 
-function modalUpdate(id) {  //TODO Kévin
-   let titre = $('#memoire_'+ id +' .titre').val();
-   let resumer = $('#memoire_'+ id +' .resumer').val();
-   let description = $('#memoire_'+ id +' .description').val();
-   let auteur = $('#memoire_'+ id +' .auteur').val();
-   let nom = $('#memoire_'+ id +' .nom').val();
-   let type = $('#memoire_'+ id +' .type').val();
-   let image = $('#memoire_'+ id +' .image').val();
-   let video = $('#memoire_'+ id +' .video').val();
-
-    
-    $.ajax({
-        method: "put", //method transfert
-        url: "/api/memoires/" + id,
-        dataType: "json",
-        data: affiche,
-    }).done(function (data) {
-        console.log(data);
-    });
-}
-
-
-
 function displayDatas(datas) {
     console.log(datas)
     $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
@@ -65,7 +42,7 @@ function displayDatas(datas) {
 function addData(data) {
 
     $("#affichagevoulu").append(
-        "<tr id='memoire_"+data.id+"' class='memoire'>" +
+        "<tr id='memoire_" + data.id + "' class='memoire'>" +
         "<th scope='col'>" + data.titre + "</th>" +
         "<th scope='col'>" + data.resumer + "</th>" +
         "<th scope='col'>" + data.description + "</th>" +
@@ -84,6 +61,7 @@ function addData(data) {
 /* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */
 function add() {
     event.preventDefault();
+    console.log("ok");
     let post_titre = $("#titre").val();
     let post_resumer = $("#resumer").val();
     let post_description = $("#description").val();
@@ -115,15 +93,16 @@ function add() {
     // /* AJOUTER UNE MEMOIRE SUR LA BDD POUR ADMINISTRATEUR */
     $.ajax({
         method: "post",
-        url: "/api/memoires",
+        url: "/api/memoires/add",
         data: table,
         dataType: "json",
     })
         .done(function (data) {
-            addData(data.data);
-            $('#addMemoireModal').modal('hide');
+            /* addData(data.data);
+            $('#addMemoireModal').modal('hide'); */
         })
         .fail(function (status) {
+            console.log('error');
         })
 }
 
@@ -175,87 +154,11 @@ function typesBdd() {
     })
         .done(function (data) {
             $('#addTypeModal').modal('hide');
-        })        
-        
+        })
+
         .fail(function (status) {
         })
 
 }
 
-/* AFFICHE TYPE DANS FORMULAIRE MEMOIRE */
-function getListMedia() {
 
-    $.ajax({
-        method: "GET", //method transfert
-        url: "/admin/dashboard/media",
-        dataType: "json",
-    }).done(function (datas) {
-        $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            $("#id_mediatype").append("<option value=" + data.id + ">" + data.type + "</option>");
-        })
-
-    });
-}
-
-getListMedia();
-
-/* AFFICHE CATEGORIE DANS FORMULAIRE MEMOIRE */
-function getListCategories() {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    $.ajax({
-        method: "get", //method transfert
-
-        url: "/admin/dashboard/getCategorie",
-        dataType: "json",
-    }).done(function (datas) {
-
-        $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-            $("#id_categories").append("<option value=" + data.id + ">" + data.nom + "</option>");
-        })
-
-    }).fail(function (status) {
-        console.log("status");
-    });
-}
-
-getListCategories();
-
-/* AFFICHE TYPE DANS FORMULAIRE MEMOIRE */
-// function getListMedia() {
-
-//     $.ajax({
-//         method: "GET", //method transfert
-//         url: "/mediatheque/type/{id}",
-//         dataType: "json",
-//     }).done(function (datas) {
-//         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-//             $("#id_mediatype").append("<option value=" + data.id + ">" + data.type + "</option>");
-//         })
-
-//     });
-// }
-
-// getListMedia();
-
-// /* AFFICHE CATEGORIE DANS FORMULAIRE MEMOIRE */
-// function getListCategories() {
-
-//     $.ajax({
-//         method: "get", //method transfert
-
-//         url: "/mediatheque/categories/{id}",
-//         dataType: "json",
-//     }).done(function (datas) {
-
-//         $.each(datas, function (index, data) {  // Appel la fonction affichage à chaque ligne
-//             $("#id_categories").append("<option value="+ data.id +">"+ data.nom +"</option>");
-//         })
-
-//     });
-// }
-
-// getListCategories();

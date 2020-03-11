@@ -15,6 +15,6 @@ class Media extends Model
     //Relation one to many -> mediaType
     public function type()
     {
-      return  $this->belongsTo(Mediatype::class, 'id_type');
+      return $this->belongsTo(Mediatype::class, 'id_type');
     }
 }

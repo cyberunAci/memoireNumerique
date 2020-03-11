@@ -52,6 +52,7 @@ Route::prefix('/admin')->group(function () {
     Route::group(['middleware' => 'auth'], function () {
         Route::prefix('/dashboard')->group(function () {
             Route::get('/', 'AdminController@memoiresView');
+            Route::get('/{id}', 'AdminController@get');
             Route::get('getCategorie', 'AdminController@getCategorie'); //affiche ds formulaire
             Route::get('media', 'AdminController@getListMedia'); //affiche ds formulaire
             Route::post('categorie/add', 'AdminController@addCategories'); // ajouter une categories
@@ -59,9 +60,10 @@ Route::prefix('/admin')->group(function () {
         });
      
     });
-    Route::post('/add', 'AdminController@add');
-    Route::post('type/add', 'AdminController@addTypes'); // ajouter un type de fichier
+    //Route::post('/add', 'AdminController@add');
+    //Route::post('type/add', 'AdminController@addTypes'); // ajouter un type de fichier
 
+    
 });
 
 Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
@@ -73,7 +75,7 @@ Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD
     Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
         Route::get('/', 'MemoiresController@all');
         Route::delete('{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
-        Route::post('/', 'MemoiresController@add'); // ajouter des memoires
+        Route::post('add', 'MemoiresController@add'); // ajouter des memoires
         Route::put('{id}', 'MemoiresController@update')->where('id', "[0-9]+");
         Route::post('/categorie/add', 'MemoiresController@addCategorie'); // ajouter une categories
         Route::post('type/add', 'MemoiresController@addType'); // ajouter un type de fichier

@@ -41,11 +41,17 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Categorie</label>
                                 <select class="form-control" id="id_categories" name="id_categories">
+                                    @foreach($categories as $categorie)
+                                        <option value='{{$categorie->id}}'>{{$categorie->nom}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="Type de média">Type de media</label>
                                 <select class="form-control" id="id_mediatype" name="id_mediatype">
+                                    @foreach($media as $medias)
+                                        <option value='{{$medias->id}}'>{{$medias->type}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
