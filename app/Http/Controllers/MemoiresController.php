@@ -33,7 +33,6 @@ class MemoiresController extends Controller
         return MemoiresRessource::collection($out);
     }
 
-<<<<<<< HEAD
     // AJOUTER
     // function add(Request $request)
     // {
@@ -57,39 +56,6 @@ class MemoiresController extends Controller
     //     return json_encode($array);
     // }
 
-=======
-    // AJOUTER les memoires
-    function add(Request $request)
-    {
-        $array = Validator::make($request->all(), [
-            'titre' => 'required',
-            'resumer' => 'required',
-            'description' => 'required',
-            'auteur' => 'required',
-            'id_categorie' => 'required',
-            'id_media' => 'required',
-            'image' => 'required',
-            'video' => 'required',
-        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
-
-    $memoirestatus=MemoireStatus::where('status', 'Inactif')->first();
-
-    $array['id_status']=$memoirestatus->id;
-
-        $insertionBDD = Memoire::create(
-            $array
-        );
-
-        $out = Memoire::with([
-            'media' => function ($t) {
-                $t->with('type');
-            },
-            'categories',
-            'status'
-        ])->where('id',$insertionBDD->id)->first();
-        return new MemoiresRessource($out);
-    }
->>>>>>> a2d0a705b47392dc9ef7f674ea2e87ead5759e37
 
 
     // AJOUTER Categorie
@@ -111,11 +77,8 @@ class MemoiresController extends Controller
         return json_encode($array);
     }
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> a2d0a705b47392dc9ef7f674ea2e87ead5759e37
     // AJOUTER Type
     function addType(Request $request)
     {
@@ -147,7 +110,6 @@ class MemoiresController extends Controller
         return json_encode(['status' => $status]);
     }
     
-<<<<<<< HEAD
 
     // OBTENIR DONNÉES À MODIFIER
     function edit($id)
@@ -159,8 +121,6 @@ class MemoiresController extends Controller
         return view('admin.edit', $data); //TODO: RETOUR de la view dans l'url ²    
     }
 
-=======
->>>>>>> a2d0a705b47392dc9ef7f674ea2e87ead5759e37
     // MODIFIER
     function update( Request $request, $id)
     {

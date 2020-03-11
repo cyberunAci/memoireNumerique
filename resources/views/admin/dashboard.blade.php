@@ -17,7 +17,6 @@
         <div class="tab-pane fade " id="v-pills-memoires" role="tabpanel" aria-labelledby="v-pills-memoires-tab">
           @include('admin.dashboard.etat')
         </div>
-<<<<<<< HEAD
         <div class="col-9">
           <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade show active" id="v-pills-memoires" role="tabpanel" aria-labelledby="v-pills-memoires-tab">
@@ -69,6 +68,7 @@
                             </button>
                           </h2>
                         </div>
+                        
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                           <div class="card-body">
                             <h2>Ajouter une mémoire</h2>
@@ -213,13 +213,11 @@
                
             </div>
           </div>
-=======
         <div class="tab-pane fade" id="v-pills-equipes" role="tabpanel" aria-labelledby="v-pills-equipes-tab">
           @include('admin.dashboard.equipe')
         </div>
         <div class="tab-pane fade show active" id="v-pills-informations" role="tabpanel" aria-labelledby="v-pills-informations-tab">
           @include('admin.dashboard.donnees')
->>>>>>> a2d0a705b47392dc9ef7f674ea2e87ead5759e37
         </div>
       </div>
     </div>
