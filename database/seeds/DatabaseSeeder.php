@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             Memoire_StatusSeeder::class,
             TestMediaSeeder::class,
             TestMemoireSeeder::class,
+            UsersSeeder::class,
         ]);
     }
 }

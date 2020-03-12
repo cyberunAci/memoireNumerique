@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
+    function register(){
+        return view('auth/register');
+    }
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -20,6 +23,10 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+    protected function guard()
+{
+    return Auth::guard('guard-name');
+}
 
     use RegistersUsers;
 
@@ -66,7 +73,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => bcrypt($data['password']),
         ]);
     }
 }

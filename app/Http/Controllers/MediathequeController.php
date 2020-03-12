@@ -37,6 +37,8 @@ class MediathequeController extends Controller
 
         // return view('client.mediatheque', ['lol' => "George"]);
 
+        
+        //TODO utiliser les ressources 
         return json_encode([
             'last' => $lastMemoires,
             'lastVideo' => $lastVideos,

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 
 use App\Categories;
+use App\Http\Resources\CategoriesRessource;
+use App\Http\Resources\MediasRessource;
+use App\Http\Resources\MediaTypesRessource;
 use App\Http\Resources\MemoiresRessource;
 use App\MemoireStatus;
 use App\Media;
@@ -19,6 +22,7 @@ class MemoiresController extends Controller
     // MEMOIRES
     function index()
     {
+
         return view('admin.memoires'); //TODO memoires.blade.php
     }
 
@@ -31,6 +35,31 @@ class MemoiresController extends Controller
         return MemoiresRessource::collection($out);
     }
 
+<<<<<<< HEAD
+    // AJOUTER
+    // function add(Request $request)
+    // {
+    //     $array = Validator::make($request->all(), [
+    //         'titre' => 'required',
+    //         'resumer' => 'required',
+    //         'description' => 'required',
+    //         'auteur' => 'required',
+    //         'id_categorie' => 'required',
+    //         'id_mediatype' => 'required',
+    //         'image' => 'required',
+    //         'video' => 'required',
+    //         'status' => 'required',
+    //     ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+
+    //     $insertionBDD = Memoire::create(
+    //         $array
+    //     )->id;
+
+    //     $array['id'] = $insertionBDD;
+    //     return json_encode($array);
+    // }
+
+=======
     // AJOUTER les memoires
     function add(Request $request)
     {
@@ -62,6 +91,7 @@ class MemoiresController extends Controller
         ])->where('id',$insertionBDD->id)->first();
         return new MemoiresRessource($out);
     }
+>>>>>>> addce251ebe5887a9eea086ad52dea0962578c58
 
 
     // AJOUTER Categorie
@@ -75,12 +105,15 @@ class MemoiresController extends Controller
 
         $insertCategorie = Categories::create(
             $array
-        )->id;
-
-        $array['id'] = $insertCategorie;
-        return json_encode($array);
+        );
+        return new CategoriesRessource($insertCategorie);
     }
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> addce251ebe5887a9eea086ad52dea0962578c58
     // AJOUTER Type
     function addType(Request $request)
     {
@@ -90,10 +123,9 @@ class MemoiresController extends Controller
 
         $insertMedia = Mediatype::create(
             $array
-        )->id;
+        );
 
-        $array['id'] = $insertMedia;
-        return json_encode($array);
+        return new MediaTypesRessource($insertMedia);
     }
 
     
@@ -105,9 +137,24 @@ class MemoiresController extends Controller
     function remove($id)
     {
         $status =  Memoire::destroy($id) ? 'ok' : 'nok';
+
+        //TODO utiliser les ressources
         return json_encode(['status' => $status]);
     }
     
+
+    // OBTENIR DONNÉES À MODIFIER
+    function edit($id)
+    {
+        $where = array('id' => $id);
+        $data['memoires'] = Memoire::where($where)->first();
+        
+        // $dataResource = new MemoiresRessource($data);
+
+        //TODO utliser les ressources
+        return view('admin.edit', $data); //TODO: RETOUR de la view dans l'url ²    
+    }
+
     // MODIFIER
     function update( Request $request, $id)
     {
@@ -137,6 +184,7 @@ class MemoiresController extends Controller
             $array->image = 'image';
             $array->video = 'video';
             $array->id_status = 'status';
+            
             $array->save(); //save
         }    
          
@@ -145,43 +193,21 @@ class MemoiresController extends Controller
         
     }
 
-    // liste des Categories TODO
-    function getByCategories()
-    {
-        $categorie = Categories::all();
-        return json_encode($categorie);
-    }
-    // liste des éléments TODO
-    function getByTypes()
-    {
-        $media = Media::all();
-        return json_encode($media);
-    }
     /* ********** TODO ********** c'est pas quoi en faire */
-    // function affichage(Request $request)
+    
+    // function affichage(Request $request) // pour admin
     // {
     //     $memoire = Memoire::all();
     //     $media = Mediatype::all();
-    //     $category = Categorie::all();
+    //     $categories = Categories::all();
 
-    // function afficheCategories()
-    // {
-    //     $categorie = Categorie::all();
-    //     return json_encode($categorie);
+    //     $id_select = $request ->input('id_categorie')
+    //     return ([$memoire, $media, $categories]);
     // }
-
-    function affichage(Request $request) // pour admin
-    {
-        $memoire = Memoire::all();
-        $media = Mediatype::all();
-        $categories = Categories::all();
-
-        // $id_select = $request ->input('id_categorie');
-        return ([$memoire, $media, $categories]);
-    }
 
     // Recupère les dernières mémoires dans la bdd grace a la catégorie et le status
 
+    
     function lastMemoires()
     {
 
@@ -221,8 +247,7 @@ class MemoiresController extends Controller
             'media' => function ($t) {
                 $t->with('type');
             },
-            'categories',
-            'status'
+            
         ])
             ->whereHas('media.type', function ($q) use ($type) {
                 $q->where('type', $type);

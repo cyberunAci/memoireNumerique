@@ -8,7 +8,7 @@
     <?php
         echo "\n";
         echo "\n";
-        var_dump($categorie);
+        var_dump($categorie); // TODO a supprimer et les echo également 
         echo "\n";
         echo "\n";
     ?>

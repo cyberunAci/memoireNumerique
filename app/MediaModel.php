@@ -13,6 +13,9 @@ class MediaModel extends Model
    
     //Relation one to many -> mediaType
     public function mediaType(){
+
+        //TODO return manquant + id cible
+        
         $this->belongsTo('Mediatype');
     }
 }

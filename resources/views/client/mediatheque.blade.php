@@ -19,27 +19,31 @@ Derniers ajouts
 
 </div>
        
-<div class="dernieres_catagories">
-  <h1>Categories</h1>
-  
-  @foreach ($categories as $categorie)
-      {{$categorie->nom[2]}}
-  @endforeach
-  
-</div>
+
 <div class="derniere-video">
        Thématique
         </div>
 
       <div class="parent cateVideo">
-<div class="div1"> <img src="img/@foreach ($categories as $categorie){{$categorie->nom[0]}}@endforeach-petit-triangle.jpg" alt=""></div>
-<div class="div2"> <img src="img/audio-petit-triangle.jpg" alt=""></div>
-<div class="div3"> <img src="img/economie-petit-triangle.jpg" alt=""></div>
-<div class="div4"> <img src="img/environnement-image-petit-triangle.jpg" alt=""></div>
-<div class="div5"> <img src="img/histoire-petit-triangle.jpg"alt=""></div>
-<div class="div6"> <a href="/article"><img src="img/manuscrit-petit-triangle.jpg" alt=""></a></div>
-<div class="div7"> <a href="/photo"><img src="img/photo_image-petit-triangle.jpg"alt=""></a></div>
-<div class="div8"> <a href="/mediatheque/video"><img src="img/video_image-petit-triangle.jpg" alt=""></a></div>
+
+
+        {{-- <php 
+          echo json_encode($categories);
+          ?> --}}
+          @foreach ($categories as $categorie)
+            <div class="div{{$categorie->id}}"> <img src="img/{{$categorie->nom}}-petit-triangle.jpg" alt=""></div>
+            @foreach ($categorie->memoires as $memoire)
+                {{$memoire->titre}}
+            @endforeach
+          @endforeach
+          <div class="div1"> <img src="img/environnement-petit-triangle.jpg" alt=""></div>
+          <div class="div2"> <img src="img/audio-petit-triangle.jpg" alt=""></div>
+          <div class="div3"> <img src="img/economie-petit-triangle.jpg" alt=""></div>
+          <div class="div4"> <img src="img/environnement-image-petit-triangle.jpg" alt=""></div>
+          <div class="div5"> <img src="img/histoire-petit-triangle.jpg"alt=""></div>
+          <div class="div6"> <a href="/article"><img src="img/manuscrit-petit-triangle.jpg" alt=""></a></div>
+          <div class="div7"> <a href="/photo"><img src="img/photo_image-petit-triangle.jpg"alt=""></a></div>
+          <div class="div8"> <a href="/mediatheque/video"><img src="img/video_image-petit-triangle.jpg" alt=""></a></div>
 
 </div>
 

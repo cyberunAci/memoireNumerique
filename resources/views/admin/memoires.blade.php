@@ -1,6 +1,7 @@
 @extends('layouts.appAdmin')
 
 @section('content')
+
 <div id='admin_memoires' class="container py-3">
 
   <div class="accordion" id="accordionExample">
@@ -15,6 +16,7 @@
       <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
         <div class="card-body">
           <h2>Ajouter une mémoire</h2>
+          
           <form onsubmit="add()">
             <div class="form-group">
               <label for="">Titre</label>
@@ -135,7 +137,7 @@
         <th scope="col">Action </th>
       </tr>
     </thead>
-    <tbody id="affichagevoulu">
+    {{-- <tbody id="affichagevoulu">
       @foreach($memoires as $memoire)
       <tr id='memoire_{{$memoire->id}}' class='memoire'>
         <th scope="col">{{$memoire->id}}</th>
@@ -158,7 +160,7 @@
 </th>
 </tr>
 @endforeach
-</tbody>
+</tbody> --}}
 </table>
 
 </div>
