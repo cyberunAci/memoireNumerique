@@ -1,4 +1,3 @@
-
 @include('admin.dashboard.addData')
                   
                 <h3>Afficher des informations</h3>  
@@ -110,4 +109,4 @@
                     </form>
                    
                 </div>
-               </div>    
+             </div>    

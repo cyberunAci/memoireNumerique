@@ -55,7 +55,7 @@
                                 </div>
                             </div>
                 </div>
-            </div>
+            </div><br>
             <div class="tab-pane fade" id="v-pills-informations" role="tabpanel" aria-labelledby="v-pills-informations-tab">
                 <div id='admin_memoires' class="container py-3">
 

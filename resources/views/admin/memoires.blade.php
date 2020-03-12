@@ -137,6 +137,7 @@
         <th scope="col">Action </th>
       </tr>
     </thead>
+    
     {{-- <tbody id="affichagevoulu">
       @foreach($memoires as $memoire)
       <tr id='memoire_{{$memoire->id}}' class='memoire'>

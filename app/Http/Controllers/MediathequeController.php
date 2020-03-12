@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 class MediathequeController extends Controller
 {
     function index()
+
     {
         $lastMemoires = app('App\Http\Controllers\MemoiresController')->lastMemoires();
         $lastVideos = app('App\Http\Controllers\MemoiresController')->lastVideos();
@@ -20,7 +21,8 @@ class MediathequeController extends Controller
 
         return view('client.mediatheque', ['categories' => $categories]);
     }
-    
+
+
     function types()
     {
         $types = MediaTypesRessource::collection(Mediatype::all());
@@ -40,6 +42,7 @@ class MediathequeController extends Controller
         
         //TODO utiliser les ressources 
         return json_encode([
+            
             'last' => $lastMemoires,
             'lastVideo' => $lastVideos,
             'lastPhotos' => $lastPhotos,

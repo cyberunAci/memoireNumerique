@@ -16,9 +16,8 @@ Derniers ajouts
   <div class="gallery-cell"><a id="link-1" href=""><img id="recent-1" src=""></a></div>
   <div class="gallery-cell"><a id="link-2" href=""><img id="recent-2" src=""></a></div>
   <div class="gallery-cell"><a id="link-3" href=""><img id="recent-3" src=""></a></div>
-
 </div>
-       
+
 
 <div class="derniere-video">
        Thématique
