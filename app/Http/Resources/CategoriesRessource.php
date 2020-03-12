@@ -14,12 +14,13 @@ class CategoriesRessource extends JsonResource
      */
     public function toArray($request)
     {
+        $memoires = MemoiresRessource::collection($this->whenLoaded('memoires'));
         return [
             'id' =>$this->id,
             'nom' => $this->nom,
             'couleur' => $this->couleur,
             'image' => $this->image,
-            'memoire' => MemoiresRessource::collection($this->whenLoaded($this->memoires))
+            'memoires' => $memoires
         ];
     }
 }

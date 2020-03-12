@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 
 use App\Categories;
+use App\Http\Resources\CategoriesRessource;
+use App\Http\Resources\MediasRessource;
+use App\Http\Resources\MediaTypesRessource;
 use App\Http\Resources\MemoiresRessource;
 use App\MemoireStatus;
 use App\Media;
@@ -68,12 +71,8 @@ class MemoiresController extends Controller
 
         $insertCategorie = Categories::create(
             $array
-        )->id;
-
-        $array['id'] = $insertCategorie;
-
-        //TODO utiliser les ressources 
-        return json_encode($array);
+        );
+        return new CategoriesRessource($insertCategorie);
     }
 
 
@@ -87,12 +86,9 @@ class MemoiresController extends Controller
 
         $insertMedia = Mediatype::create(
             $array
-        )->id;
+        );
 
-        $array['id'] = $insertMedia;
-        
-        //TODO utiliser les ressources
-        return json_encode($array);
+        return new MediaTypesRessource($insertMedia);
     }
 
     
@@ -115,6 +111,8 @@ class MemoiresController extends Controller
     {
         $where = array('id' => $id);
         $data['memoires'] = Memoire::where($where)->first();
+        
+        // $dataResource = new MemoiresRessource($data);
 
         //TODO utliser les ressources
         return view('admin.edit', $data); //TODO: RETOUR de la view dans l'url ²    
@@ -156,23 +154,6 @@ class MemoiresController extends Controller
         
 
         
-    }
-
-    // liste des Categories TODO
-    function getByCategories()
-    {
-        $categorie = Categories::all();
-
-        //TODO utiliser les ressources 
-        return json_encode($categorie);
-    }
-    // liste des éléments TODO
-    function getByTypes()
-    {
-        $media = Media::all();
-
-        //TODO utiliser les ressources 
-        return json_encode($media);
     }
 
     /* ********** TODO ********** c'est pas quoi en faire */

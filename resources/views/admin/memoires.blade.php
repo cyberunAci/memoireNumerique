@@ -1,6 +1,7 @@
 @extends('layouts.appAdmin')
 
 @section('content')
+
 <div id='admin_memoires' class="container py-3">
 
   <div class="accordion" id="accordionExample">

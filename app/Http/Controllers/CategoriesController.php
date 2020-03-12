@@ -30,4 +30,12 @@ class CategoriesController extends Controller
     }
 }
 
+    // liste des Categories TODO
+    function getMemoires()
+    {
+        $categorie = Categories::all();
+
+        return CategoriesRessource::collection($categorie);
+    }
+
 }
