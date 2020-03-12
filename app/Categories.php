@@ -14,6 +14,6 @@ class Categories extends Model
 
     public function memoires()
     {
-      return  $this->belongsTo(Memoire::class, 'id_categorie');
+      return  $this->hasMany(Memoire::class, 'id_categorie');
     }
 }
