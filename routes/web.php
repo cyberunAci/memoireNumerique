@@ -20,10 +20,6 @@ Route::view('login', 'auth/login');
 Route::get('/connexion', 'UsersController@submit')->name('connexion');
 Route::get('/deconnexion', 'UsersController@deconnexion');
 
-// Route::get('/admin/dashboard/categorie', 'AdminController@getListCategories');
-Route::get('/api/admin', 'ConnectionController@index');
-Route::get('/api/memoires/lastMemoires', 'MemoiresController@lastMemoires');
-Route::get('/api/mediatheque', 'MediathequeController@getDatas');
 /* **************** TODO **************** */
 
 /*Ajout catégorie */
@@ -55,38 +51,14 @@ Route::prefix('/admin')->group(function () {
             Route::get('/{id}', 'AdminController@get');
             Route::get('getCategorie', 'AdminController@getCategorie'); //affiche ds formulaire
             Route::get('media', 'AdminController@getListMedia'); //affiche ds formulaire
-            Route::post('categorie/add', 'AdminController@addCategories'); // ajouter une categories
+            Route::post('/add', 'AdminController@add'); // ajouter une mémoire
+            Route::post('/addCategorie', 'AdminController@addCategorie'); // ajouter une categorie
+            Route::post('/addType', 'AdminController@addType'); // ajouter un type de fichier
             Route::delete('/{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
         });
      
     });
-    //Route::post('/add', 'AdminController@add');
-    //Route::post('type/add', 'AdminController@addTypes'); // ajouter un type de fichier
 
-    
-});
-
-Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
-    Route::get('/', 'MemoiresController@index');
-});
-
-
- Route::prefix('/api')->group(function () {
-    Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
-        Route::get('/', 'MemoiresController@all');
-        Route::delete('{id}', 'MemoiresController@remove')->where('id', "[0-9]+");
-        Route::post('add', 'MemoiresController@add'); // ajouter des memoires
-        Route::put('{id}', 'MemoiresController@update')->where('id', "[0-9]+");
-        Route::post('/categorie/add', 'MemoiresController@addCategorie'); // ajouter une categories
-        Route::post('type/add', 'MemoiresController@addType'); // ajouter un type de fichier
-
-    });
-
-   /* Route::prefix('/api')->(function(){
-        Route::prefix('/categories')->group(function({
-            Route::post('/','CategoriesController@all');
-        }))
-    })*/
 });
 
 /* **************** Valider **************** */
@@ -99,6 +71,14 @@ Route::prefix('contact')->group(function () {
     Route::get('/', 'ContactController@index');
     Route::post('message', 'ContactController@message');
 });
+
+/* 
+* page "Mémoire"
+*/
+Route::prefix('/memoires')->group(function () { // ajout de données dans la BDD // MemoiresS devient Memoires
+    Route::get('/', 'MemoiresController@index');
+});
+
 /**
  *  page "Je participe"
  */

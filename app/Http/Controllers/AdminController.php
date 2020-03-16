@@ -95,9 +95,10 @@ class AdminController extends Controller
         return json_encode($array);
     }
 
-    /* ADD CATEGORIE */
-
-    function addCategories(Request $request)
+    /*
+    * ADD CATEGORIE 
+    */ 
+    function addCategorie(Request $request)
     {
         $array = Validator::make($request->all(), [
             'nom' => 'required',
@@ -105,43 +106,35 @@ class AdminController extends Controller
             'image' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $insertCategorie = Categories::create(
-            $array
-        )->id;
+        $categorie = Categories::create($array);
 
-        $array['id'] = $insertCategorie;
-
-        // TODO utiliser les ressources
-        return json_encode($array);
+        return new CategoriesRessource($categorie);
     }
 
 
-    /* ADD TYPE */
-    function addTypes(Request $request)
+    /*
+    * ADD TYPE
+    */ 
+    function addType(Request $request)
     {
         $array = Validator::make($request->all(), [
             'type' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $insertMedia = Mediatype::create(
-            $array
-        )->id;
-
-        $array['id'] = $insertMedia;
-
-        //TODO utiliser les ressources
-        return json_encode($array);
+        $type = Mediatype::create($array);
+        
+        return new MediaTypesRessource($type);
     }
 
     function getCategorie() {
         $categorie = Categories::all();
-        return json_encode($categorie);
+        return new CategoriesRessource($categorie);
     }
 
     function getListMedia()
     {
         $media = Mediatype::all();
-        return json_encode($media);
+        return new MediaTypesRessource($media);
     }
 
 }

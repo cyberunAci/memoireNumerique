@@ -91,9 +91,10 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                
                 <div class="modal-body">
                     <!--Catégorie route a faire-->
-                    <form onsubmit="categoriesBdd()">
+                    <form onsubmit="addCategorie()">
                         <div class="form-group">
                             <label for="Catégorie">Catégorie</label>
                             <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom de la catégorie" required>
@@ -129,7 +130,7 @@
                 <div class="modal-body">
                     <!--Catégorie route a faire-->
 
-                    <form onsubmit="typesBdd()">
+                    <form onsubmit="addType()">
                         <div class="form-group">
                             <label for="type">Type</label>
                             <input type="text" class="form-control" name="type" id="type" placeholder="Nom du type de média" required>

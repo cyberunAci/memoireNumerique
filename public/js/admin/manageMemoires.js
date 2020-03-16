@@ -104,11 +104,11 @@ function add() {
 }
 
 // /* AJOUTER UNE CATEGORIE SUR LA BDD POUR ADMINISTRATEUR */
-function categoriesBdd() {
+function addCategorie() {
     event.preventDefault();
     let post_nom = $("#nom").val();
     let post_color = $("#couleur").val();
-    let post_img = $("#image_categorie").val();
+    let post_image = $("#image_categorie").val();
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -116,11 +116,11 @@ function categoriesBdd() {
     });
     $.ajax({
         method: "post",
-        url: "/api/memoires/categorie/add",
+        url: "/admin/dashboard/addCategorie",
         data: {
             nom: post_nom,
             couleur: post_color,
-            image: post_img
+            image: post_image
         },
         dataType: "json",
     })
@@ -133,7 +133,7 @@ function categoriesBdd() {
         })
 }
 // /* AJOUTER UN TYPE SUR LA BDD POUR ADMINISTRATEUR */
-function typesBdd() {
+function addType() {
     event.preventDefault();
     let post_type = $("#type").val();
     $.ajaxSetup({
@@ -143,7 +143,7 @@ function typesBdd() {
     });
     $.ajax({
         method: "post",
-        url: "/api/memoires/type/add",
+        url: "/admin/dashboard/addType",
         data: {
             type: post_type,
         },

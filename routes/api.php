@@ -13,9 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+// Route::get('/admin/dashboard/categorie', 'AdminController@getListCategories');
+Route::get('/admin', 'ConnectionController@index');
+Route::get('/memoires/lastMemoires', 'MemoiresController@lastMemoires');
+Route::get('/mediatheque', 'MediathequeController@getDatas');
 
-    return $request->user();
-    
-    });
-   
+
+/* Route::prefix('/mediatheque')->group(function () { // affiche les informations de la BDD
+    Route::get('/', 'MediathequeController@index');
+    Route::get('categories', 'CategoriesController@index');
+    Route::get('categories/{id}', 'CategoriesController@getMemoires'); // TODO id = détails / description
+    Route::get('types', 'MediathequeController@types');
+    Route::get('types/{id}', 'TypesController@getMemoires')->where('id', "[0-9]+"); // TODO id = détails / description
+});
+ */
