@@ -19,8 +19,8 @@ class AdminController extends Controller
     function index()
     {
         return view('admin.dashboard');
-    
     }
+
     function memoiresView()
     {
 
@@ -30,6 +30,7 @@ class AdminController extends Controller
             },
             'categories'
         ])->get();
+
         //all cat
         $cat=Categories::all();
         //All type
@@ -39,7 +40,7 @@ class AdminController extends Controller
             'memoires' => MemoiresRessource::collection($memoires), //Renvoi data de mémoire vers la view
             'categories' => CategoriesRessource::collection($cat), //Renvoi data de catégorie vers la view
             'media' => MediaTypesRessource::collection($med)    //Renvoi data de mediatype vers la view
-            ]);
+        ]);
     }
 
     function descView()
@@ -56,6 +57,58 @@ class AdminController extends Controller
         return view('admin.form');
 
     }
+
+    /*
+    * ADD CATEGORIE 
+    */ 
+    function addCategorie(Request $request)
+    {
+        $array = Validator::make($request->all(), [
+            'nom' => 'required',
+            'couleur' => 'required',
+            'image' => 'required',
+        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+
+        $categorie = Categories::create($array);
+
+        return new CategoriesRessource($categorie);
+    }
+
+    /*
+    * ADD TYPE
+    */ 
+    function addType(Request $request)
+    {
+        $array = Validator::make($request->all(), [
+            'type' => 'required',
+        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+
+        $type = Mediatype::create($array);
+        
+        return new MediaTypesRessource($type);
+    }
+
+    /*
+    * AFFICHE TOUT LES CATEGORIES
+    */ 
+    function getCategorie() {
+        $categorie = Categories::all();
+        return new CategoriesRessource($categorie);
+    }
+
+    /*
+    * AFFICHE TOUT LES MEDIAS
+    */ 
+    function getListMedia()
+    {
+        $media = Mediatype::all();
+        return new MediaTypesRessource($media);
+    }
+
+    /**
+     * *********************  À VOIR PLUS TARD *****************************
+     */
+
     // AJOUTER BDD
     //TODO cette fonction fait plusieurs choses, donc à corriger (deux validateur + deux insert)
     function add(Request $request)
@@ -92,49 +145,19 @@ class AdminController extends Controller
         $array['id'] = $insertionBDD;
 
         // TODO utiliser les ressources
-        return json_encode($array);
+        return new MemoiresRessource($array);
     }
 
     /*
-    * ADD CATEGORIE 
+    * EFFACER MEMOIRE
     */ 
-    function addCategorie(Request $request)
+    function remove($id)
     {
-        $array = Validator::make($request->all(), [
-            'nom' => 'required',
-            'couleur' => 'required',
-            'image' => 'required',
-        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+        $status =  Memoire::destroy($id) ? 'ok' : 'nok';
 
-        $categorie = Categories::create($array);
-
-        return new CategoriesRessource($categorie);
-    }
-
-
-    /*
-    * ADD TYPE
-    */ 
-    function addType(Request $request)
-    {
-        $array = Validator::make($request->all(), [
-            'type' => 'required',
-        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
-
-        $type = Mediatype::create($array);
-        
-        return new MediaTypesRessource($type);
-    }
-
-    function getCategorie() {
-        $categorie = Categories::all();
-        return new CategoriesRessource($categorie);
-    }
-
-    function getListMedia()
-    {
-        $media = Mediatype::all();
-        return new MediaTypesRessource($media);
+        //TODO utiliser les ressources
+        /*FONCTIONNE PAS AVEC RESSOURCE À VOIR PLUS TARD*/ 
+        return json_encode(['status' => $status]);
     }
 
 }

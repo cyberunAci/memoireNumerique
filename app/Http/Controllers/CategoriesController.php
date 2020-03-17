@@ -29,7 +29,7 @@ class CategoriesController extends Controller
         ])-> get();
         $categories = CategoriesRessource::collection($test);
         // return $categories[1]->memoires;
-        return view('client.categories', ['categories' => $test]);
+        return view('client.categories', ['categories' => $categories]);
     }
 
 
