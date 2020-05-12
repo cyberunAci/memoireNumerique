@@ -11,5 +11,10 @@ class MemoireStatus extends Model
     protected $fillable = ['id', 'status'];
 
     public $timestamps = false;
+
+    public function status()
+    {
+      return  $this->hasMany(Memoire::class, 'id_status');
+    }
     
 }

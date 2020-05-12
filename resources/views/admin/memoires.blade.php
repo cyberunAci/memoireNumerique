@@ -37,12 +37,12 @@
 
             <div class="form-group">
               <label for="exampleFormControlSelect1">Categorie</label>
-              <select class="form-control" id="id_categories" name="id_categories">
+              <select class="form-control" id="id_categorie" name="id_categorie">
               </select>
             </div>
             <div class="form-group">
               <label for="Type de média">Type de media</label>
-              <select class="form-control" id="id_mediatype" name="id_mediatype">
+              <select class="form-control" id="id_media" name="id_media">
               </select>
             </div>
             <div class="form-group">
@@ -55,12 +55,12 @@
             </div>
             <div class="form-group">
               <label for="exampleFormControlSelect1">Status</label>
-              <select class="form-control" id="status" name="status">
+              <select class="form-control" id="id_status" name="id_status">
                 <option value="1">1</option>
                 <option value="2">2</option>
               </select>
             </div>
-            <input type="submit" class="btn btn-primary" onclick="getIdCat()" value="Envoyer">
+            <input type="submit" class="btn btn-primary" value="Envoyer">
           </form>
         </div>
       </div>
@@ -137,7 +137,6 @@
         <th scope="col">Action </th>
       </tr>
     </thead>
-    
     {{-- <tbody id="affichagevoulu">
       @foreach($memoires as $memoire)
       <tr id='memoire_{{$memoire->id}}' class='memoire'>

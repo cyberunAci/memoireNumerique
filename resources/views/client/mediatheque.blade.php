@@ -16,6 +16,7 @@ Derniers ajouts
   <div class="gallery-cell"><a id="link-1" href=""><img id="recent-1" src=""></a></div>
   <div class="gallery-cell"><a id="link-2" href=""><img id="recent-2" src=""></a></div>
   <div class="gallery-cell"><a id="link-3" href=""><img id="recent-3" src=""></a></div>
+
 </div>
 
 
@@ -26,7 +27,7 @@ Derniers ajouts
       <div class="parent cateVideo">
 
 
-        {{-- <php 
+        {{-- <php
           echo json_encode($categories);
           ?> --}}
           @foreach ($categories as $categorie)
@@ -47,9 +48,9 @@ Derniers ajouts
 </div>
 
 <div class="audio">
-       <p>Audio</p> 
+       <p>Audio</p>
          </div>
- 
+
        <div class="parent cateVideo">
  <div class="div1"> <img src="https://via.placeholder.com/250" alt=""></div>
  <div class="div2"> <img src="https://via.placeholder.com/250" alt=""></div>
@@ -64,7 +65,7 @@ Derniers ajouts
        <div class="video">
            <p>Vidéo</p>
              </div>
-     
+
            <div class="parent cateVideo">
      <div class="div1"> <img src="https://via.placeholder.com/250" alt=""></div>
      <div class="div2"> <img src="https://via.placeholder.com/250" alt=""></div>
