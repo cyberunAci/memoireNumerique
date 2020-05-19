@@ -35,29 +35,28 @@ class MemoiresController extends Controller
         return MemoiresRessource::collection($out);
     }
 
-    // AJOUTER
-    // function add(Request $request)
-    // {
-    //     $array = Validator::make($request->all(), [
-    //         'titre' => 'required',
-    //         'resumer' => 'required',
-    //         'description' => 'required',
-    //         'auteur' => 'required',
-    //         'id_categorie' => 'required',
-    //         'id_mediatype' => 'required',
-    //         'image' => 'required',
-    //         'video' => 'required',
-    //         'status' => 'required',
-    //     ], ['required' => 'l\'attribut :attribute est requis'])->validate();
+    // AJOUTER les memoires
+    function add(Request $request)
+    {
+        $array = Validator::make($request->all(), [
+            'titre' => 'required',
+            'resumer' => 'required',
+            'description' => 'required',
+            'auteur' => 'required',
+            'id_categorie' => 'required',
+            'id_media' => 'required',
+            'image' => 'required',
+            'video' => 'required',
+            'status' => 'required',
+        ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-    //     $insertionBDD = Memoire::create(
-    //         $array
-    //     )->id;
+        $insertionBDD = Memoire::create(
+            $array
+        )->id;
 
-    //     $array['id'] = $insertionBDD;
-    //     return json_encode($array);
-    // }
-
+        $array['id'] = $insertionBDD;
+        return MemoiresRessource::collection($array);
+    }
 
 
     // AJOUTER Categorie

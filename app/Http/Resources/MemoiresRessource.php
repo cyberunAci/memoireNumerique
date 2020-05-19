@@ -25,7 +25,7 @@ class MemoiresRessource extends JsonResource
             'resumer' => $this->resumer,
             'description' => $this->description,
             'auteur' => $this->auteur,
-            // 'status' => $status,
+            'status' => $status,
             'category' => $category,
             'media' => $media,
             'created_at' => (string) $this->created_at,

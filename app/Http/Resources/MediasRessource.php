@@ -19,7 +19,7 @@ class MediasRessource extends JsonResource
             'id' => $this->id,
             'video' => $this->video,
             'image' => $this->image,
-            'type' => $type
+            'id_type' => $type
         ];
     }
 }

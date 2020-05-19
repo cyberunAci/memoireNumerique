@@ -12,7 +12,7 @@ class Categories extends Model
 
     public $timestamps = false;
 
-    public function memoires()
+    public function categories()
     {
       return  $this->hasMany(Memoire::class, 'id_categorie');
     }

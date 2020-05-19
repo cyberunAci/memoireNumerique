@@ -65,41 +65,40 @@ function add() {
     let post_titre = $("#titre").val();
     let post_resumer = $("#resumer").val();
     let post_description = $("#description").val();
-    let post_categorie = $("#id_categories").val();
-    let post_mediatype = $("#id_mediatype").val();
     let post_auteur = $("#auteur").val();
     let post_image = $("#image").val();
     let post_video = $("#video").val();
+    let post_categorie = $("#id_categorie").val();
+    let post_media = $("#id_media").val();
+    let post_status = $("#id_status").val();
 
     let table = {
         titre: post_titre,
         resumer: post_resumer,
         description: post_description,
-        id_categorie: post_categorie,
         auteur: post_auteur,
-        id_media: post_mediatype,
         image: post_image,
         video: post_video,
+        id_categorie: post_categorie,
+        id_media: post_media,
+        id_status: post_status
     }
 
     $.ajaxSetup({
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    });
+      });
     // /* AJOUTER UNE MEMOIRE SUR LA BDD POUR ADMINISTRATEUR */
     $.ajax({
         method: "post",
-        url: "/api/memoires/add",
+        url: "/admin/dashboard/add",
         data: table,
         dataType: "json",
     })
         .done(function (data) {
-            /* addData(data.data);
-            $('#addMemoireModal').modal('hide'); */
         })
         .fail(function (status) {
-            console.log('error');
         })
 }
 

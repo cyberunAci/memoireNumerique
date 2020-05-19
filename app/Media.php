@@ -12,8 +12,14 @@ class Media extends Model
 
     public $timestamps = false;
 
+    //Relation one to many -> media
+    public function media()
+    {
+      return  $this->hasMany(Memoire::class, 'id_media');
+    }
+    
     //Relation one to many -> mediaType
-    public function type()
+    public function mediatype()
     {
       return $this->belongsTo(Mediatype::class, 'id_type');
     }

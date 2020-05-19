@@ -18,7 +18,7 @@ function sendContact() {
         });
         $.ajax({
             method: "POST",
-            url: "/contact/message",
+            url: "/api/contact/message",
             data: donnees,
             dataType: "json"
         })

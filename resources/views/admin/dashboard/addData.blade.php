@@ -40,7 +40,7 @@
 
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Categorie</label>
-                                <select class="form-control" id="id_categories" name="id_categories">
+                                <select class="form-control" id="id_categorie" name="id_categorie">
                                     @foreach($categories as $categorie)
                                         <option value='{{$categorie->id}}'>{{$categorie->nom}}</option>
                                     @endforeach
@@ -48,11 +48,20 @@
                             </div>
                             <div class="form-group">
                                 <label for="Type de média">Type de media</label>
-                                <select class="form-control" id="id_mediatype" name="id_mediatype">
-                                    @foreach($media as $medias)
-                                        <option value='{{$medias->id}}'>{{$medias->type}}</option>
+                                <select class="form-control" id="id_media" name="id_media">
+                                    @foreach($mediatypes as $type)
+                                        <option value='{{$type->id}}'>{{$type->type}}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                            <div class="form-group">
+                            <div class="form-group">
+                            <label for="Status">Status</label>
+                            <select class="form-control" id="id_status" name="id_status">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                            </div>
                             </div>
                             <div class="form-group">
                                 <label for="">Miniature</label>
