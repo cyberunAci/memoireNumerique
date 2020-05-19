@@ -25,7 +25,6 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#">Description</a>
             <a class="dropdown-item" href="#">Équipes</a>
-            <a class="dropdown-item" href="/memoires">Memoires</a>
           </div>
         </li>
         <li class="nav-item">
