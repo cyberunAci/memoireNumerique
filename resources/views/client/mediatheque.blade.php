@@ -27,15 +27,7 @@ Derniers ajouts
       <div class="parent cateVideo">
 
 
-        {{-- <php
-          echo json_encode($categories);
-          ?> --}}
-          @foreach ($categories as $categorie)
-            <div class="div{{$categorie->id}}"> <img src="img/{{$categorie->nom}}-petit-triangle.jpg" alt=""></div>
-            @foreach ($categorie->memoires as $memoire)
-                {{$memoire->titre}}
-            @endforeach
-          @endforeach
+      
           <div class="div1"> <img src="img/environnement-petit-triangle.jpg" alt=""></div>
           <div class="div2"> <img src="img/audio-petit-triangle.jpg" alt=""></div>
           <div class="div3"> <img src="img/economie-petit-triangle.jpg" alt=""></div>
