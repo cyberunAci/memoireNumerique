@@ -150,9 +150,6 @@ class MemoiresController extends Controller
             $array->save(); //save
         }    
          
-        
-
-        
     }
 
     /* ********** TODO ********** c'est pas quoi en faire */
@@ -175,7 +172,7 @@ class MemoiresController extends Controller
 
         $out = Memoire::with([
             'media' => function ($t) {
-                $t->with('type');
+                $t->with('mediatype');
             },
             'categories',
             'status'
@@ -184,8 +181,6 @@ class MemoiresController extends Controller
             ->limit(3)
             ->get();
 
-
-        
         return MemoiresRessource::collection($out);
     }
 
@@ -207,11 +202,11 @@ class MemoiresController extends Controller
     {
         $out = Memoire::with([
             'media' => function ($t) {
-                $t->with('type');
+                $t->with('mediatype');
             },
             
         ])
-            ->whereHas('media.type', function ($q) use ($type) {
+            ->whereHas('media.mediatype', function ($q) use ($type) {
                 $q->where('type', $type);
             })
             ->orderBy('id', 'desc')

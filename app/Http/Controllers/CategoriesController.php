@@ -13,8 +13,9 @@ class CategoriesController extends Controller
 
     public function categories()
     {
+        //récupère les catégories
         $categorie = Categories::with([
-            'category'
+            'categories'
         ])
         ->get();
 
