@@ -28,7 +28,7 @@ Derniers ajouts
 
 
       
-          <div class="div1"> <img src="img/environnement-petit-triangle.jpg" alt=""></div>
+          <div class="div1"> <a href="/mediatheque/environnement"><img src="img/environnement-petit-triangle.jpg" alt=""></a></div>
           <div class="div2"> <img src="img/audio-petit-triangle.jpg" alt=""></div>
           <div class="div3"> <img src="img/economie-petit-triangle.jpg" alt=""></div>
           <div class="div4"> <img src="img/environnement-image-petit-triangle.jpg" alt=""></div>

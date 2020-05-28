@@ -65,7 +65,9 @@ Route::prefix('error')->group(function () {
 */
 Route::prefix('/mediatheque')->group(function () { // affiche les informations de la BDD
     Route::get('/', 'MediathequeController@index');
-    Route::get('categories', 'CategoriesController@index');
+    Route::get('categorie/environnement', 'CategoriesController@getEnvironnement');
+/*     Route::get('/environnement', 'MediathequeController@vueEnvir');
+ */    Route::get('categories', 'CategoriesController@index');
 });
 
 /*

@@ -20,6 +20,10 @@ class MediathequeController extends Controller
 
         return view('client.mediatheque', ['categories' => $categories]);
     }
+
+    function vueEnvir() {
+        return view('client.environnement');
+    }
     
     function types()
     {
