@@ -41,6 +41,7 @@ Route::prefix('/admin')->group(function () {
         Route::get('/{id}', 'AdminController@get');
         Route::get('getCategorie', 'AdminController@getCategorie'); //affiche ds formulaire
         Route::get('media', 'AdminController@getListMedia'); //affiche ds formulaire
+        Route::get('status', 'AdminController@getListStatus'); //affiche ds formulaire
         Route::post('/add', 'AdminController@add'); // ajouter une mémoire
         Route::post('/addCategorie', 'AdminController@addCategorie'); // ajouter une categorie
         Route::post('/addType', 'AdminController@addType'); // ajouter un type de fichier

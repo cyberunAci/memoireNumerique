@@ -61,7 +61,6 @@ function addData(data) {
 /* AJOUTER MEMOIRE BDD POUR ADMINISTRATEUR */
 function add() {
     event.preventDefault();
-    console.log("ok");
     let post_titre = $("#titre").val();
     let post_resumer = $("#resumer").val();
     let post_description = $("#description").val();
@@ -69,7 +68,7 @@ function add() {
     let post_image = $("#image").val();
     let post_video = $("#video").val();
     let post_categorie = $("#id_categorie").val();
-    let post_media = $("#id_media").val();
+    let post_type = $("#id_type").val();
     let post_status = $("#id_status").val();
 
     let table = {
@@ -80,7 +79,7 @@ function add() {
         image: post_image,
         video: post_video,
         id_categorie: post_categorie,
-        id_media: post_media,
+        id_type: post_type,
         id_status: post_status
     }
 
@@ -92,7 +91,7 @@ function add() {
     // /* AJOUTER UNE MEMOIRE SUR LA BDD POUR ADMINISTRATEUR */
     $.ajax({
         method: "post",
-        url: "/admin/dashboard/add",
+        url: "/api/admin/dashboard/add",
         data: table,
         dataType: "json",
     })
@@ -131,6 +130,7 @@ function categoriesBdd() {
             console.log('error');
         })
 }
+
 // /* AJOUTER UN TYPE SUR LA BDD POUR ADMINISTRATEUR */
 function typesBdd() {
     event.preventDefault();
@@ -156,5 +156,7 @@ function typesBdd() {
         })
 
 }
+
+
 
 

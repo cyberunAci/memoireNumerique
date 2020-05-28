@@ -1,8 +1,5 @@
 <div class="accordion" id="accordionExample">
 
-
-
-
     <!--+++++++++++++++++++++++++++++ MODAL MEMOIRE +++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addMemoireModal">
         Ajout Mémoire
@@ -37,7 +34,14 @@
                                 <label for="">Auteur</label>
                                 <textarea class="form-control" name="auteur" id="auteur" placeholder="Ajouter l'auteur" rows="3" required></textarea>
                             </div>
-
+                            <div class="form-group">
+                                <label for="">Miniature</label>
+                                <input type="text" class="form-control" name="image" id="image" placeholder="Ajouter votre lien de l'image" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Vidéo</label>
+                                <input type="text" class="form-control" name="video" id="video" placeholder="Ajouter votre lien de la vidéo" onblur="regExpLien(this)" required>
+                            </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Categorie</label>
                                 <select class="form-control" id="id_categorie" name="id_categorie">
@@ -47,29 +51,20 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="Type de média">Type de media</label>
-                                <select class="form-control" id="id_media" name="id_media">
+                                <label for="Type de média">Type de média</label>
+                                <select class="form-control" id="id_type" name="id_type">
                                     @foreach($mediatypes as $type)
                                         <option value='{{$type->id}}'>{{$type->type}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                            <div class="form-group">
-                            <label for="Status">Status</label>
-                            <select class="form-control" id="id_status" name="id_status">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
-                            </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Miniature</label>
-                                <input type="text" class="form-control" name="image" id="image" placeholder="Ajouter votre lien de l'image" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Video</label>
-                                <input type="text" class="form-control" name="video" id="video" placeholder="Ajouter votre lien de la video" onblur="regExpLien(this)" required>
+                                <label for="Status">Status</label>
+                                <select class="form-control" id="id_status" name="id_status">
+                                @foreach($status as $stat)
+                                        <option value='{{$stat>id}}'>{{$stat->status}}</option>
+                                @endforeach
+                                </select>
                             </div>
                             <input type="submit" class="btn btn-primary" value="Envoyer">
                         </form>

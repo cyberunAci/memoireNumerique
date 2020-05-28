@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Categories;
 use App\Http\Resources\CategoriesRessource;
 use App\Http\Resources\MediaTypesRessource;
 use App\Http\Resources\MediasRessource;
 use App\Http\Resources\MemoiresRessource;
+use App\Http\Resources\MemoireStatusRessource;
+use App\Categories;
 use App\Mediatype;
+use App\MemoireStatus;
 use App\Memoire;
+use App\Media;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
@@ -60,28 +64,53 @@ class AdminController extends Controller
     //TODO cette fonction fait plusieurs choses, donc à corriger (deux validateur + deux insert)
     public function add(Request $request)
     {
-        $data = [
-            'image' => 'required',
-            'video' => 'required',
-        ];
-        
-        $array = Validator::make($request->all(), $data, [
-
+        $validator = Validator::make($request->all(), [
             'titre' => 'required',
             'resumer' => 'required',
             'description' => 'required',
             'auteur' => 'required',
             'id_categorie' => 'required',
-            'id_media' => 'required',
+            'id_status' => 'required',
+            'image' => 'required',
+            'video' => 'required',
+            'id_type' => 'required',
             'id_status' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $insertionBDD = Memoire::create(
-            $array
-        )->id;
+        //table mémoire
+        $memoire = [
+            'titre' => $validator['titre'],
+            'resumer' => $validator['resumer'],
+            'description' => $validator['description'],
+            'auteur' => $validator['auteur'],
+            'id_categorie' => $validator['id_categorie'],
+            'id_status' => $validator['id_status'],
+        ];
 
-        $array['id'] = $insertionBDD;
-        return MemoiresRessource::collection($array);
+        //table média 
+        $media = [
+            'image' => $validator['image'],
+            'video' => $validator['video'],
+            'id_type' => $validator['id_type'],
+        ];
+
+        $memoire = new Memoire;
+        $memoire->titre = $request->get('titre');
+        $memoire->resumer = $request->get('resumer');
+        $memoire->description = $request->get('description');
+        $memoire->auteur = $request->get('auteur');
+
+        $categorie = new Categories;
+
+        $media = new Media;
+        $media->image = $request->get('image');
+        $media->video = $request->get('video');
+        $media->id_type = $request->get('id_type');
+
+        DB::transaction(function () use ($memoire, $media, $categorie) {
+            $media = $media->save();
+            Media::find(1)->media()->save($memoire);
+        }); 
     }
 
     /* ADD CATEGORIE */
@@ -131,6 +160,12 @@ class AdminController extends Controller
     {
         $media = Mediatype::all();
         return new MediaTypesRessource($media);
+    }
+
+    public function getListStatus()
+    {
+        $status = MemoireStatus::all();
+        return new MemoireStatusRessource($status);
     }
 
     /**
