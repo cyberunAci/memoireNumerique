@@ -21,13 +21,14 @@ class CategoriesController extends Controller
 
 
         return CategoriesRessource::collection($categorie);
+
     function index()
     {   
         $test = Categories::with([
             "memoires"
         ])-> get();
         $categories = CategoriesRessource::collection($test);
-        return view('client.categories', ['categories' => $categories]);
+        return view('client.categories');
     }
 }
 
