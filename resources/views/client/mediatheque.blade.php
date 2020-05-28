@@ -56,18 +56,28 @@ Derniers ajouts
 
        <div class="video">
            <p>Vidéo</p>
-             </div>
+      </div>
 
-           <div class="parent cateVideo">
-     <div class="div1"> <img src="https://via.placeholder.com/250" alt=""></div>
+
+      <div class="parent cateVideo">
+        @foreach ($lastVideos as $lastVideo)
+        <div class="div{{$lastVideo->id}}">
+            <a href="/mediatheque/{{$lastVideo->id}}">
+              <img src="{{$lastVideo->image}}" alt="" >
+            </a>
+          </div>
+          @endforeach
+      </div>
+
+     {{-- <div class="div1"> <img src="https://via.placeholder.com/250" alt=""></div>
      <div class="div2"> <img src="https://via.placeholder.com/250" alt=""></div>
      <div class="div3"> <img src="https://via.placeholder.com/250" alt=""></div>
      <div class="div4"> <img src="https://via.placeholder.com/250" alt=""></div>
      <div class="div5"> <img src="https://via.placeholder.com/250" alt=""></div>
      <div class="div6"> <img src="https://via.placeholder.com/250" alt=""></div>
      <div class="div7"> <img src="https://via.placeholder.com/250" alt=""></div>
-     <div class="div8"> <img src="https://via.placeholder.com/250" alt=""></div>
-           </div>
+     <div class="div8"> <img src="https://via.placeholder.com/250" alt=""></div> --}}
+           
 </div>
 
 <!-- partial -->

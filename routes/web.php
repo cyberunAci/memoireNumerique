@@ -68,6 +68,8 @@ Route::prefix('/mediatheque')->group(function () { // affiche les informations d
     Route::get('categorie/environnement', 'CategoriesController@getEnvironnement');
 /*     Route::get('/environnement', 'MediathequeController@vueEnvir');
  */    Route::get('categories', 'CategoriesController@index');
+    Route::get('/{id}', 'MediathequeController@getOneVideo')->where('id', "[0-9]+");
+    Route::get('/categories', 'CategoriesController@index');
 });
 
 /*

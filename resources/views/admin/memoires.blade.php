@@ -137,7 +137,7 @@
         <th scope="col">Action </th>
       </tr>
     </thead>
-    {{-- <tbody id="affichagevoulu">
+     <tbody id="affichagevoulu">
       @foreach($memoires as $memoire)
       <tr id='memoire_{{$memoire->id}}' class='memoire'>
         <th scope="col">{{$memoire->id}}</th>
@@ -160,7 +160,7 @@
 </th>
 </tr>
 @endforeach
-</tbody> --}}
+</tbody> 
 </table>
 
 </div>
