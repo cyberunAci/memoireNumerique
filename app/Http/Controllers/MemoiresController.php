@@ -204,7 +204,7 @@ class MemoiresController extends Controller
             ->whereHas('media.mediatype', function ($q) use ($type) {
                 $q->where('type', $type);
             })
-            ->orderBy('id', 'desc')
+            ->orderBy('id', 'desc','created_at')
             ->get();
 
            
