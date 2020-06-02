@@ -13,18 +13,25 @@ class MediathequeController extends Controller
     function index()
     {
         $lastMemoires = app('App\Http\Controllers\MemoiresController')->lastMemoires();
-        $lastPhotos = app('App\Http\Controllers\MemoiresController')->lastPhotos();
+        $lastPhotos = Media::where('id_type', '=', 1)->get();
         // $categories = app('App\Http\Controllers\CategoriesController')->categories();   
         $lastVideos = Media::where('id_type', '=', 1)->get();
         $categories = Categories::all();
 
-        return view('client.mediatheque', ['lastVideos' => $lastVideos]);
+        return view('client.mediatheque', ['lastVideos' => $lastVideos,'lastPhotos' => $lastPhotos,]);
 
     }
 
     function getOneVideo($id) {
+
         $dataVideo = Media::find($id);
         return view('client.video');
+    }
+
+    function getOnePhoto($id) {
+        
+        $dataPhoto = Media::find($id);
+        return view('client.photo');
     }
 
     function vueEnvir() {
