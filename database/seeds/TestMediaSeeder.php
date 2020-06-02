@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Media;
 class TestMediaSeeder extends Seeder
 {
     /**
@@ -11,11 +11,12 @@ class TestMediaSeeder extends Seeder
      */
     public function run()
     {
+        factory(Media::class, 6)->create();
         $array = [
             [
                 // TODO
                 'video' => 'TEST de video',
-                'image' => 'TEST de video',
+                'image' => 'https://www.youtube.com/yts/img/yt_1200-vflhSIVnY.png',
                 'id_type' => '1',
             ],
             [
@@ -28,9 +29,12 @@ class TestMediaSeeder extends Seeder
                 'image' => 'TEST d\'image',
                 'id_type' => '3',
             ],
+            
         ];
         DB::table('media')->insert(
             $array
         );
+
+        
     }
 }

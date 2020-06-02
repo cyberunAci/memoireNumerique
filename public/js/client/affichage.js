@@ -268,4 +268,22 @@ function affichage(data) {
 
 }
 
+function affichageEnvironnement(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        method:"GET",
+        url:"/api/mediatheque/environnement"
+    })
+    .done(function (datas){
+        $.each(datas, function (memoires){
+                
+        })
+    })
+}
+
 

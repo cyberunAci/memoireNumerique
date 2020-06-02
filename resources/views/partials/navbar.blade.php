@@ -17,8 +17,6 @@
               <a class="dropdown-item" href="/admin/description">Description</a>
               <a class="dropdown-item" href="/admin/equipe">Équipe</a>
             </div>
-
-        </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Services</a>
         </li>
