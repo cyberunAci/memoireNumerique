@@ -39,12 +39,6 @@ Route::prefix('/admin')->group(function () {
     Route::post('register', 'Auth\RegisterController@register');
     Route::prefix('/dashboard')->group(function () {
         Route::get('/{id}', 'AdminController@get');
-<<<<<<< HEAD
-        Route::get('getCategorie', 'AdminController@getCategorie'); //affiche ds formulaire
-        Route::get('media', 'AdminController@getListMedia'); //affiche ds formulaire
-        Route::get('status', 'AdminController@getListStatus'); //affiche ds formulaire
-=======
->>>>>>> 840c1f3bbeb81f7faae43c9f9038a1569974174a
         Route::post('/add', 'AdminController@add'); // ajouter une mémoire
         Route::post('/addCategorie', 'AdminController@categoriesBdd'); // ajouter une categorie
         Route::post('/addType', 'AdminController@typesBdd'); // ajouter un type de fichier
