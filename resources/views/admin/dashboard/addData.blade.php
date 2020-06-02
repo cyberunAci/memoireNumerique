@@ -12,7 +12,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addMemoireLabel">Modal title</h5>
+                    <h5 class="modal-title" id="addMemoireLabel">Ajouter Mémoire</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -26,8 +26,8 @@
                                 <input type="text" class="form-control" name="titre" id="titre" placeholder="Ajouter un titre" onblur="regExpTitre(this)" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Résumer</label>
-                                <textarea class="form-control" name="resumer" id="resumer" placeholder="Ajouter un résumer" rows="3" onblur="regExpResumer(this)" required></textarea>
+                                <label for="">Résumé</label>
+                                <textarea class="form-control" name="resumer" id="resumer" placeholder="Ajouter un résumé" rows="3" onblur="regExpResumer(this)" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="">Description</label>
@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Categorie</label>
+                                <label for="exampleFormControlSelect1">Catégorie</label>
                                 <select class="form-control" id="id_categorie" name="id_categorie">
                                     @foreach($categories as $categorie)
                                         <option value='{{$categorie->id}}'>{{$categorie->nom}}</option>
@@ -47,29 +47,28 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="Type de média">Type de media</label>
-                                <select class="form-control" id="id_media" name="id_media">
+                                <label for="Type de média">Type de média</label>
+                                <select class="form-control" id="id_type" name="id_type">
                                     @foreach($mediatypes as $type)
                                         <option value='{{$type->id}}'>{{$type->type}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                            <div class="form-group">
-                            <label for="Status">Status</label>
-                            <select class="form-control" id="id_status" name="id_status">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
-                            </div>
-                            </div>
-                            <div class="form-group">
                                 <label for="">Miniature</label>
                                 <input type="text" class="form-control" name="image" id="image" placeholder="Ajouter votre lien de l'image" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Video</label>
+                                <label for="">Vidéo</label>
                                 <input type="text" class="form-control" name="video" id="video" placeholder="Ajouter votre lien de la video" onblur="regExpLien(this)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Status">Status</label>
+                                <select class="form-control" id="id_status" name="id_status">
+                                    @foreach($status as $stat)
+                                        <option value='{{$stat->id}}'>{{$stat->status}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <input type="submit" class="btn btn-primary" value="Envoyer">
                         </form>

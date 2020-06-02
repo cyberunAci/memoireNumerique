@@ -44,18 +44,13 @@ class MemoiresController extends Controller
             'description' => 'required',
             'auteur' => 'required',
             'id_categorie' => 'required',
-            'id_media' => 'required',
+            'id_type' => 'required',
             'image' => 'required',
             'video' => 'required',
             'status' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $insertionBDD = Memoire::create(
-            $array
-        )->id;
-
-        $array['id'] = $insertionBDD;
-        return MemoiresRessource::collection($array);
+        
     }
 
 
