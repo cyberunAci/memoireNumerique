@@ -45,7 +45,7 @@ class AdminController extends Controller
             'memoires' => MemoiresRessource::collection($memoires), //Renvoi data de mémoire vers la view
             'categories' => CategoriesRessource::collection($cat), //Renvoi data de catégorie vers la view
             'mediatypes' => MediaTypesRessource::collection($med), //Renvoi data de mediatype vers la view
-            'status' => MediaTypesRessource::collection($stat), //Renvoi data de status vers la view
+            'status' => MemoireStatusRessource::collection($stat), //Renvoi data de status vers la view
             ]);
     }
 
