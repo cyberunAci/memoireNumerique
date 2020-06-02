@@ -15,18 +15,18 @@ class TestMediaSeeder extends Seeder
         $array = [
             [
                 // TODO
-                'video' => 'TEST de video',
-                'image' => 'https://www.youtube.com/yts/img/yt_1200-vflhSIVnY.png',
+                'video' => 'https://youtu.be/HmZKgaHa3Fg',
+                'image' => 'https://s.ftcdn.net/v2013/pics/all/curated/RKyaEDwp8J7JKeZWQPuOVWvkUjGQfpCx_cover_580.jpg?r=1a0fc22192d0c808b8bb2b9bcfbf4a45b1793687',
                 'id_type' => '1',
             ],
             [
-                'video' => 'TEST d\'article',
-                'image' => 'TEST d\'article',
+                'video' => 'https://youtu.be/HmZKgaHa3Fg',
+                'image' => 'https://s.ftcdn.net/v2013/pics/all/curated/RKyaEDwp8J7JKeZWQPuOVWvkUjGQfpCx_cover_580.jpg?r=1a0fc22192d0c808b8bb2b9bcfbf4a45b1793687',
                 'id_type' => '2',
             ],
             [
-                'video' => 'TEST d\'image',
-                'image' => 'TEST d\'image',
+                'video' => 'https://youtu.be/HmZKgaHa3Fg',
+                'image' => 'https://s.ftcdn.net/v2013/pics/all/curated/RKyaEDwp8J7JKeZWQPuOVWvkUjGQfpCx_cover_580.jpg?r=1a0fc22192d0c808b8bb2b9bcfbf4a45b1793687',
                 'id_type' => '3',
             ],
             

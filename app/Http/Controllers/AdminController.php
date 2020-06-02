@@ -32,17 +32,21 @@ class AdminController extends Controller
                 $q->with('mediatype');
             },
             'categories',
+            'status',
         ])->get();
         //all cat
         $cat = Categories::all();
         //All type
         $med = Mediatype::all();
+        //All status
+        $stat = MemoireStatus::all();
 
         return view('admin.dashboard', [
             'memoires' => MemoiresRessource::collection($memoires), //Renvoi data de mémoire vers la view
             'categories' => CategoriesRessource::collection($cat), //Renvoi data de catégorie vers la view
             'mediatypes' => MediaTypesRessource::collection($med), //Renvoi data de mediatype vers la view
-        ]);
+            'status' => MediaTypesRessource::collection($stat), //Renvoi data de status vers la view
+            ]);
     }
 
     public function descView()
@@ -61,23 +65,23 @@ class AdminController extends Controller
 
     }
     // AJOUTER BDD
-    //TODO cette fonction fait plusieurs choses, donc à corriger (deux validateur + deux insert)
     public function add(Request $request)
-    {
+    {   
         $validator = Validator::make($request->all(), [
+
             'titre' => 'required',
             'resumer' => 'required',
             'description' => 'required',
             'auteur' => 'required',
             'id_categorie' => 'required',
-            'id_status' => 'required',
+            'id_type' => 'required',
             'image' => 'required',
             'video' => 'required',
-            'id_type' => 'required',
             'id_status' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        //table mémoire
+
+        //tableau de mémoire
         $memoire = [
             'titre' => $validator['titre'],
             'resumer' => $validator['resumer'],
@@ -87,79 +91,53 @@ class AdminController extends Controller
             'id_status' => $validator['id_status'],
         ];
 
-        //table média 
+        //tableau de media
         $media = [
             'image' => $validator['image'],
             'video' => $validator['video'],
             'id_type' => $validator['id_type'],
         ];
 
-        $memoire = new Memoire;
-        $memoire->titre = $request->get('titre');
-        $memoire->resumer = $request->get('resumer');
-        $memoire->description = $request->get('description');
-        $memoire->auteur = $request->get('auteur');
+        $memoireM = [];
 
-        $categorie = new Categories;
+        DB::transaction(function () use ($media, $memoire, &$memoireM) {
+            $med = Media::create($media);
+            $memoireM = $med->media()->create($memoire);
+        });
 
-        $media = new Media;
-        $media->image = $request->get('image');
-        $media->video = $request->get('video');
-        $media->id_type = $request->get('id_type');
+        $memoireM = Memoire::with(['media'])->where('id', $memoireM->id)->first();
 
-        DB::transaction(function () use ($memoire, $media, $categorie) {
-            $media = $media->save();
-            Media::find(1)->media()->save($memoire);
-        }); 
+        return new MemoiresRessource($memoireM); 
+
     }
 
     /* ADD CATEGORIE */
 
     public function categoriesBdd(Request $request)
     {
-        $array = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'nom' => 'required',
             'couleur' => 'required',
             'image' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $insertCategorie = Categories::create(
-            $array
-        )->id;
-
-        $array['id'] = $insertCategorie;
+        $insertCategorie = Categories::create($validator);
 
         // TODO utiliser les ressources
-        return new CategoriesRessource($array);
+        return new CategoriesRessource($insertCategorie);
     }
 
     /* ADD TYPE */
     public function typesBdd(Request $request)
     {
-        $array = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'type' => 'required',
         ], ['required' => 'l\'attribut :attribute est requis'])->validate();
 
-        $insertMedia = Mediatype::create(
-            $array
-        )->id;
-
-        $array['id'] = $insertMedia;
+        $insertMedia = Mediatype::create($validator);
 
         //TODO utiliser les ressources
-        return new MediaTypesRessource($array);
-    }
-
-    public function getCategorie()
-    {
-        $categorie = Categories::all();
-        return new CategoriesRessource($categorie);
-    }
-
-    public function getListMedia()
-    {
-        $media = Mediatype::all();
-        return new MediaTypesRessource($media);
+        return new MediaTypesRessource($insertMedia);
     }
 
     public function getListStatus()

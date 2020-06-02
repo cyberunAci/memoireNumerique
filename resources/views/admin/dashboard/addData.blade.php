@@ -9,7 +9,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addMemoireLabel">Modal title</h5>
+                    <h5 class="modal-title" id="addMemoireLabel">Ajouter Mémoire</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -23,8 +23,8 @@
                                 <input type="text" class="form-control" name="titre" id="titre" placeholder="Ajouter un titre" onblur="regExpTitre(this)" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Résumer</label>
-                                <textarea class="form-control" name="resumer" id="resumer" placeholder="Ajouter un résumer" rows="3" onblur="regExpResumer(this)" required></textarea>
+                                <label for="">Résumé</label>
+                                <textarea class="form-control" name="resumer" id="resumer" placeholder="Ajouter un résumé" rows="3" onblur="regExpResumer(this)" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="">Description</label>
@@ -35,15 +35,7 @@
                                 <textarea class="form-control" name="auteur" id="auteur" placeholder="Ajouter l'auteur" rows="3" required></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="">Miniature</label>
-                                <input type="text" class="form-control" name="image" id="image" placeholder="Ajouter votre lien de l'image" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Vidéo</label>
-                                <input type="text" class="form-control" name="video" id="video" placeholder="Ajouter votre lien de la vidéo" onblur="regExpLien(this)" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Categorie</label>
+                                <label for="exampleFormControlSelect1">Catégorie</label>
                                 <select class="form-control" id="id_categorie" name="id_categorie">
                                     @foreach($categories as $categorie)
                                         <option value='{{$categorie->id}}'>{{$categorie->nom}}</option>
@@ -57,6 +49,14 @@
                                         <option value='{{$type->id}}'>{{$type->type}}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Miniature</label>
+                                <input type="text" class="form-control" name="image" id="image" placeholder="Ajouter votre lien de l'image" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Vidéo</label>
+                                <input type="text" class="form-control" name="video" id="video" placeholder="Ajouter votre lien de la vidéo" onblur="regExpLien(this)" required>
                             </div>
                             <div class="form-group">
                                 <label for="Status">Status</label>
